@@ -5,7 +5,7 @@ function Home() {
   return (
     <>
     <div className="background">
-      <img id='forest' src="/src/assets/HomePageForestBGl.svg" alt="" />
+      <img id='forest' src="./src/assets/HomePageForestBG.svg" alt="" />
       <img id='beam' src="/src/assets/HomePageBeamBG.svg" alt="" />
       <img id='items' src="/src/assets/HomePageItemsInBeamBG.svg" alt="" />    
       <img id='ufo' src="/src/assets/HomePageUfoBG.svg" alt="" />    
