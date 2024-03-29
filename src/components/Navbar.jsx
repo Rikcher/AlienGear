@@ -7,28 +7,28 @@ const Navbar = () => {
         <>
         <header>
             <nav>
-                <img id="navbarLogo" src="/public/NavbarAppIcon.svg" alt="" />
+                <img id="navbarLogo" src="/NavbarAppIcon.svg" alt="" />
                 <div className="navLinks">
                     <div className="button">
-                        <img className="buttonAnimate home" src="/public/HomeButtonBackground.svg" alt="" />
+                        <img className="buttonAnimate home" src="/HomeButtonBackground.svg" alt="" />
                         <Link className="link text" to="/">HOME</Link>
                     </div>
                     <div className="button">
-                        <img className="buttonAnimate product" src="/public/ProductButtonBackground.svg" alt="" />
+                        <img className="buttonAnimate product" src="/ProductButtonBackground.svg" alt="" />
                         <Link className="link text" to="#">PRODUCTS</Link>
                     </div>
                     <div className="button">
-                        <img className="buttonAnimate aboutus" src="/public/AboutUsButtonBackground.svg" alt="" />
+                        <img className="buttonAnimate aboutus" src="/AboutUsButtonBackground.svg" alt="" />
                         <Link className="link text" to="/about-us">ABOUT US</Link>
                     </div>
                     <div className="button">
-                        <img className="buttonAnimate user" src="/public/UserButtonBackground.svg" alt="" />
+                        <img className="buttonAnimate user" src="/UserButtonBackground.svg" alt="" />
                         <Link className="link icon user" to="#">
                             <div></div>
                         </Link>
                     </div>
                     <div className="button">
-                        <img className="buttonAnimate cart" src="/public/CartButtonBackground.svg" alt="" />
+                        <img className="buttonAnimate cart" src="/CartButtonBackground.svg" alt="" />
                         <Link className="link icon cart" to="#">
                             <div></div>
                         </Link>

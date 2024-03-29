@@ -39,10 +39,10 @@ nav {
   background-color: #00FFA3;
 }
 .navLinks .button .link.icon.user div {
-  mask: url("/public/NavbarUserProfileIcon.svg");
+  mask: url("/NavbarUserProfileIcon.svg");
 }
 .navLinks .button .link.icon.cart div {
-  mask: url("/public/NavbarCartIcon.svg");
+  mask: url("/NavbarCartIcon.svg");
 }
 .navLinks .button .buttonAnimate {
   position: absolute;
