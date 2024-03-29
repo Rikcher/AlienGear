@@ -45,10 +45,10 @@ nav {
             background-color: $main-primary;
         }
         .link.icon.user div{
-            mask: url("/src/assets/NavbarUserProfileIcon.svg");
+            mask: url("/public/NavbarUserProfileIcon.svg");
         }
         .link.icon.cart div{
-            mask: url("/src/assets/NavbarCartIcon.svg");
+            mask: url("/public/NavbarCartIcon.svg");
         }
 
         //styling background beam of nav links
