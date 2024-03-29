@@ -1,0 +1,87 @@
+.background {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#forest {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 0;
+  width: 100vw;
+}
+
+#beam {
+  position: fixed;
+  left: 29.649vw;
+  top: 9.078vw;
+  z-index: -2;
+  width: 40.776vw;
+}
+
+#items {
+  position: fixed;
+  left: 35.505vw;
+  top: 12.079vw;
+  z-index: -1;
+  width: 29.941vw;
+}
+
+#ufo {
+  position: fixed;
+  left: 36.969vw;
+  top: 2.562vw;
+  z-index: 0;
+  width: 26.061vw;
+}
+
+#title {
+  position: fixed;
+  left: 25.256vw;
+  top: 16.691vw;
+  z-index: 0;
+  width: 49.78vw;
+}
+
+#headset {
+  position: fixed;
+  left: 68.741vw;
+  bottom: 28vh;
+  z-index: -1;
+  width: 22.84vw;
+}
+
+#keyboard {
+  position: fixed;
+  left: 9.736vw;
+  bottom: 29vh;
+  z-index: -1;
+  width: 23.206vw;
+}
+
+#ctaButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 11.27vw;
+  height: 4.25vw;
+  border-radius: 0.59vw;
+  background-color: #000000;
+  position: absolute;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.46vw;
+  font-weight: bold;
+  color: #FFFFFF;
+  left: 44.29vw;
+  bottom: 3.66vw;
+  transition: transform 0.3s ease, font-size 0.3s ease, color 0.3s ease;
+}
+
+#ctaButton:hover {
+  font-size: 21px;
+  color: #00FFA3;
+  transform: scale(1.1);
+}/*# sourceMappingURL=Home.css.map */

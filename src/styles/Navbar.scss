@@ -1,0 +1,102 @@
+@import '/src/styles/colors';
+
+@font-face {
+    font-family: 'navbarFont';
+    src: local('navbarFont'), url(/src/assets/fonts/TsukimiRounded-Bold.woff) format('woff');
+}
+
+header {
+    position: relative;
+    margin: 1.25rem;
+    z-index: 2;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navLinks {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+
+    .button {
+        display: flex;
+        position: relative;
+
+        //styling nav buttons text before hover
+        .link {
+            position: relative;
+            text-decoration: none;
+            font-family: "navbarfont";
+            font-size: 0.938rem;
+            color: $main-primary;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        //styling nav icon links 
+        .link.icon div{
+            display: inline-block;
+            width: 20px;
+            height: 22px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            background-color: $main-primary;
+        }
+        .link.icon.user div{
+            mask: url("/src/assets/NavbarUserProfileIcon.svg");
+        }
+        .link.icon.cart div{
+            mask: url("/src/assets/NavbarCartIcon.svg");
+        }
+
+        //styling background beam of nav links
+        .buttonAnimate {
+            position: absolute;
+            top: -52px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .buttonAnimate.home, .buttonAnimate.product {
+            left: -10px;
+        }
+        .buttonAnimate.aboutus {
+            left: -6px;
+        }
+        .buttonAnimate.user {
+            left: -8.5px;
+        }
+        .buttonAnimate.cart {
+            left: -7px;
+        }
+    }
+
+    //animation of background links beam on hover
+    .button:hover .buttonAnimate{
+        animation: scale-up-hor-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+        opacity: 100;
+    }
+    //styling of text of links on hover
+    .button:hover .link.text{
+        transform: translateY(-5px);
+        color: $main-white;
+    }
+    //styling of icon links on hover
+    .button:hover .link.icon div{
+        transform: translateY(-8px);
+        background-color: $main-white;
+    }
+}
+
+@keyframes scale-up-hor-center {
+    0% {
+        transform: scaleX(0.1);
+    }
+    100% {
+        transform: scaleX(1);
+    }
+}
+
+

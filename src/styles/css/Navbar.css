@@ -1,0 +1,86 @@
+@font-face {
+  font-family: "navbarFont";
+  src: local("navbarFont"), url(/src/assets/fonts/TsukimiRounded-Bold.woff) format("woff");
+}
+header {
+  position: relative;
+  margin: 1.25rem;
+  z-index: 2;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+.navLinks .button {
+  display: flex;
+  position: relative;
+}
+.navLinks .button .link {
+  position: relative;
+  text-decoration: none;
+  font-family: "navbarfont";
+  font-size: 0.938rem;
+  color: #00FFA3;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+.navLinks .button .link.icon div {
+  display: inline-block;
+  width: 20px;
+  height: 22px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  background-color: #00FFA3;
+}
+.navLinks .button .link.icon.user div {
+  mask: url("/src/assets/NavbarUserProfileIcon.svg");
+}
+.navLinks .button .link.icon.cart div {
+  mask: url("/src/assets/NavbarCartIcon.svg");
+}
+.navLinks .button .buttonAnimate {
+  position: absolute;
+  top: -52px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.navLinks .button .buttonAnimate.home, .navLinks .button .buttonAnimate.product {
+  left: -10px;
+}
+.navLinks .button .buttonAnimate.aboutus {
+  left: -6px;
+}
+.navLinks .button .buttonAnimate.user {
+  left: -8.5px;
+}
+.navLinks .button .buttonAnimate.cart {
+  left: -7px;
+}
+.navLinks .button:hover .buttonAnimate {
+  animation: scale-up-hor-center 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  opacity: 100;
+}
+.navLinks .button:hover .link.text {
+  transform: translateY(-5px);
+  color: #FFFFFF;
+}
+.navLinks .button:hover .link.icon div {
+  transform: translateY(-8px);
+  background-color: #FFFFFF;
+}
+
+@keyframes scale-up-hor-center {
+  0% {
+    transform: scaleX(0.1);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}/*# sourceMappingURL=Navbar.css.map */
