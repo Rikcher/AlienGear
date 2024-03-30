@@ -90,4 +90,10 @@ nav {
 .navLinks .button:hover .link.icon div {
   transform: translateY(-0.533em);
   background-color: #FFFFFF;
+}
+
+@media (min-width: 2000px) {
+  header {
+    font-size: 1.938rem;
+  }
 }/*# sourceMappingURL=Navbar.css.map */

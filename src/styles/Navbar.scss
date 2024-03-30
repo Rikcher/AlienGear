@@ -5,12 +5,10 @@
     src: local('navbarFont'), url(/src/assets/fonts/TsukimiRounded-Bold.woff) format('woff');
 }
 
-$fontSize: 0.938rem;
-
 header {
     position: relative;
-    font-size: $fontSize;
-    margin: calc($fontSize * 1.333); //20
+    font-size: 0.938rem;
+    margin: calc(0.938rem * 1.333); //20
     z-index: 2;
 }
 
@@ -108,5 +106,10 @@ nav {
     }
 }
 
+@media (min-width: 2000px) {
+    header {
+        font-size: 1.938rem;
+    }
+}
 
 

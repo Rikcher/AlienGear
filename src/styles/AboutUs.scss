@@ -18,6 +18,7 @@
         margin: 2.333em 0;
         justify-content: space-between;
 
+        //styling of header nad paragraphs
         .aboutUsPageTitle {
             font-size: 1.111em;
             color: $main-primary;
@@ -27,6 +28,7 @@
             margin: 0.556em 0;
         }
 
+        //styling of contact us information
         .contactUs {
             display: flex;
             gap: 0.556em;
@@ -60,5 +62,10 @@
     }
 }
 
+@media (min-width: 2000px) {
+    .wrapper {
+        font-size: 2.125rem;
+    }
+}
 
 
