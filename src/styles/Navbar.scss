@@ -5,9 +5,12 @@
     src: local('navbarFont'), url(/src/assets/fonts/TsukimiRounded-Bold.woff) format('woff');
 }
 
+$fontSize: 0.938rem;
+
 header {
     position: relative;
-    margin: 1.25rem;
+    font-size: $fontSize;
+    margin: calc($fontSize * 1.333); //20
     z-index: 2;
 }
 
@@ -17,10 +20,14 @@ nav {
     justify-content: space-between;
 }
 
+#navbarLogo {
+    width: 11.267em;
+}
+
 .navLinks {
     display: flex;
     align-items: center;
-    gap: 1.25rem;
+    gap: 1.333em; //20
 
     .button {
         display: flex;
@@ -31,72 +38,74 @@ nav {
             position: relative;
             text-decoration: none;
             font-family: "navbarfont";
-            font-size: 0.938rem;
             color: $main-primary;
-            transition: transform 0.3s ease, color 0.3s ease;
+            transition: transform 0.3s ease, color 0.6s ease;
         }
 
         //styling nav icon links 
         .link.icon div{
             display: inline-block;
-            width: 20px;
-            height: 22px;
-            transition: transform 0.3s ease, background-color 0.3s ease;
+            width: 1.333em; //20
+            height: 1.467em; //22
+            transition: transform 0.5s ease, background-color 0.6s ease;
             background-color: $main-primary;
         }
         .link.icon.user div{
             mask: url("/NavbarUserProfileIcon.svg");
+            mask-size: cover;
         }
         .link.icon.cart div{
             mask: url("/NavbarCartIcon.svg");
+            mask-size: cover;
         }
 
         //styling background beam of nav links
         .buttonAnimate {
             position: absolute;
-            top: -52px;
+            top: -3.467em; //-52
             pointer-events: none;
-            opacity: 0;
-            transition: opacity 0.3s ease;
+            transform: scaleX(0);
+            transition: transform 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000);
         }
-        .buttonAnimate.home, .buttonAnimate.product {
-            left: -10px;
+        .buttonAnimate.home{
+            width: 4.8em;
+            left: -0.6em; //-10
+        }
+        .buttonAnimate.product {
+            width: 7.333em;
+            left: -0.667em; //-10
         }
         .buttonAnimate.aboutus {
-            left: -6px;
+            width: 6.667em;
+            left: -0.4em; //-6
         }
         .buttonAnimate.user {
-            left: -8.5px;
+            width: 2.4em;
+            left: -0.533em; //-8.5
+            top: -3.333em; //-50
         }
         .buttonAnimate.cart {
-            left: -7px;
+            width: 2.4em;
+            left: -0.467em; //-7
+            top: -3.2em; //-48
         }
     }
 
     //animation of background links beam on hover
     .button:hover .buttonAnimate{
-        animation: scale-up-hor-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-        opacity: 100;
+        transform: scaleX(1);
     }
     //styling of text of links on hover
     .button:hover .link.text{
-        transform: translateY(-5px);
+        transform: translateY(-0.333em); //-5
         color: $main-white;
     }
     //styling of icon links on hover
     .button:hover .link.icon div{
-        transform: translateY(-8px);
+        transform: translateY(-0.533em); //-8
         background-color: $main-white;
     }
 }
 
-@keyframes scale-up-hor-center {
-    0% {
-        transform: scaleX(0.1);
-    }
-    100% {
-        transform: scaleX(1);
-    }
-}
 
 
