@@ -64,6 +64,7 @@ nav {
             position: absolute;
             top: -3.467em; //-52
             pointer-events: none;
+            user-select: none;
             transform: scaleX(0);
             transition: transform 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000);
         }

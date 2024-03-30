@@ -3,6 +3,7 @@
   width: 100%;
   height: 100vh;
   overflow: hidden;
+  user-select: none;
 }
 
 #forest {
@@ -84,4 +85,6 @@
   font-size: 1.54vw;
   color: #00FFA3;
   transform: scale(1.1);
-}/*# sourceMappingURL=Home.css.map */
+}
+
+/* style.css *//*# sourceMappingURL=Home.css.map */
