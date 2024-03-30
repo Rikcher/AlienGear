@@ -1,0 +1,64 @@
+@import '/src/styles/colors';
+
+.wrapper {
+    color: $main-white;
+    font-family: "Roboto", sans-serif;
+    font-size: 1.125rem;
+    display: flex;
+    margin: 1.667em 4.833em 0 4.833em;
+    gap: 1.667em;
+
+    #aboutUsPageUfo {
+        height: 26.278em;
+    }
+
+    .text {
+        display: flex;
+        flex-direction: column;
+        margin: 2.333em 0;
+        justify-content: space-between;
+
+        .aboutUsPageTitle {
+            font-size: 1.111em;
+            color: $main-primary;
+            margin: 1.111em 0;
+        }
+        .importantNotice p {
+            margin: 0.556em 0;
+        }
+
+        .contactUs {
+            display: flex;
+            gap: 0.556em;
+            align-items: center;
+        } 
+        .contactUs h3 {
+            font-size: 1em;
+            margin-right: 0.556em;
+        }
+        .contactUs > #email {
+            height: 1.222em;
+            width: 1.611em;
+            background-color: $main-primary;
+            mask: url("/about-us-page/AboutUsPageEmailIcon.svg");
+            mask-size: cover;
+        }
+        .contactUs > #twitter {
+            height: 1.222em;
+            width: 1.222em;
+            background-color: $main-primary;
+            mask: url("/about-us-page/AboutUsPageTwitterIcon.svg");
+            mask-size: cover;
+        }
+        .contactUs > #github {
+            height: 1.222em;
+            width: 1.222em;
+            background-color: $main-primary;
+            mask: url("/about-us-page/AboutUsPageGithubIcon.svg");
+            mask-size: cover;
+        }
+    }
+}
+
+
+

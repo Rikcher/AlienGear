@@ -7,7 +7,7 @@ const Navbar = () => {
         <>
         <header>
             <nav>
-                <img id="navbarLogo" src="/navbar/NavbarAppIcon.svg" alt="" />
+                <img id="navbarLogo" src="/navbar/NavbarAppIcon.svg" alt="AlienGear logo" />
                 <div className="navLinks">
                     <div className="button">
                         <img className="buttonAnimate home" src="/navbar/HomeButtonBackground.svg" alt="" />
