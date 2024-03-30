@@ -51,11 +51,11 @@ nav {
             background-color: $main-primary;
         }
         .link.icon.user div{
-            mask: url("/NavbarUserProfileIcon.svg");
+            mask: url("/navbar/NavbarUserProfileIcon.svg");
             mask-size: cover;
         }
         .link.icon.cart div{
-            mask: url("/NavbarCartIcon.svg");
+            mask: url("/navbar/NavbarCartIcon.svg");
             mask-size: cover;
         }
 

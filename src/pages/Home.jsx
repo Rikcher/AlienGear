@@ -6,12 +6,12 @@ function Home() {
     <>
     <div className="background">
       <img draggable="false" id='forest' src="/home-page/HomePageForestBG.svg" alt="" />
-      <img draggable="false" id='beam' src="/HomePageBeamBG.svg" alt="" />
-      <img draggable="false" id='items' src="/HomePageItemsInBeamBG.svg" alt="" />    
-      <img draggable="false" id='ufo' src="/HomePageUfoBG.svg" alt="" />    
-      <img draggable="false" id='title' src="/HomePageHeroTitle.svg" alt="" />    
-      <img draggable="false" id='headset' src="/HomePageHeadsetBG.svg" alt="" />    
-      <img draggable="false" id='keyboard' src="/HomePageKeyboardBG.svg" alt="" />    
+      <img draggable="false" id='beam' src="/home-page/HomePageBeamBG.svg" alt="" />
+      <img draggable="false" id='items' src="/home-page/HomePageItemsInBeamBG.svg" alt="" />    
+      <img draggable="false" id='ufo' src="/home-page/HomePageUfoBG.svg" alt="" />    
+      <img draggable="false" id='title' src="/home-page/HomePageHeroTitle.svg" alt="" />    
+      <img draggable="false" id='headset' src="/home-page/HomePageHeadsetBG.svg" alt="" />    
+      <img draggable="false" id='keyboard' src="/home-page/HomePageKeyboardBG.svg" alt="" />    
     </div>
     <Link id='ctaButton' to="#">Shop Now</Link>
     </>

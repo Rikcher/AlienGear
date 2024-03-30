@@ -43,11 +43,11 @@ nav {
   background-color: #00FFA3;
 }
 .navLinks .button .link.icon.user div {
-  mask: url("/NavbarUserProfileIcon.svg");
+  mask: url("/navbar/NavbarUserProfileIcon.svg");
   mask-size: cover;
 }
 .navLinks .button .link.icon.cart div {
-  mask: url("/NavbarCartIcon.svg");
+  mask: url("/navbar/NavbarCartIcon.svg");
   mask-size: cover;
 }
 .navLinks .button .buttonAnimate {
