@@ -1,0 +1,106 @@
+.signInWrapper, .signUpWrapper, .resetPasswordWrapper {
+  font-size: 1em;
+  font-family: "Roboto", sans-serif;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2.5em;
+}
+.signInWrapper .signInHeader, .signInWrapper .signUpHeader, .signInWrapper .resetPasswordHeader, .signUpWrapper .signInHeader, .signUpWrapper .signUpHeader, .signUpWrapper .resetPasswordHeader, .resetPasswordWrapper .signInHeader, .resetPasswordWrapper .signUpHeader, .resetPasswordWrapper .resetPasswordHeader {
+  font-size: 2em;
+  font-weight: 600;
+  margin-bottom: 0.625em;
+}
+.signInWrapper .container, .signUpWrapper .container, .resetPasswordWrapper .container {
+  width: 30.25em;
+  height: 3em;
+  color: #FFFFFF;
+  border: 0.125em solid #FFFFFF;
+  border-radius: 0.5em;
+  margin: 0.625em 0;
+  font-family: "Roboto", sans-serif;
+  font-size: 1em;
+  display: flex;
+}
+.signInWrapper .googleButton, .signUpWrapper .googleButton, .resetPasswordWrapper .googleButton {
+  background-color: transparent;
+  font-weight: 500;
+}
+.signInWrapper .googleButton button, .signUpWrapper .googleButton button, .resetPasswordWrapper .googleButton button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  gap: 0.938em;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  color: #FFFFFF;
+  font-family: "Roboto", sans-serif;
+  font-size: 1em;
+}
+.signInWrapper .googleButton button img, .signUpWrapper .googleButton button img, .resetPasswordWrapper .googleButton button img {
+  width: 1.375em;
+}
+.signInWrapper .inputField, .signUpWrapper .inputField, .resetPasswordWrapper .inputField {
+  font-family: "Roboto", sans-serif;
+  font-size: 1em;
+  color: #FFFFFF;
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  border: none;
+  caret-color: #00FFA3;
+  padding: 0 1.25em;
+}
+.signInWrapper .inputField:focus, .signUpWrapper .inputField:focus, .resetPasswordWrapper .inputField:focus {
+  outline: none;
+}
+.signInWrapper .inputField::placeholder, .signUpWrapper .inputField::placeholder, .resetPasswordWrapper .inputField::placeholder {
+  font-family: "Roboto", sans-serif;
+  color: #9D9D9D;
+}
+.signInWrapper .logInButton, .signUpWrapper .logInButton, .resetPasswordWrapper .logInButton {
+  background-color: #00FFA3;
+  border-color: #00FFA3;
+  margin-top: 1.875em;
+  margin-bottom: 0;
+}
+.signInWrapper .logInButton a, .signUpWrapper .logInButton a, .resetPasswordWrapper .logInButton a {
+  text-decoration: none;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #000000;
+  font-weight: 900;
+}
+.signInWrapper .greyText, .signUpWrapper .greyText, .resetPasswordWrapper .greyText {
+  color: #9D9D9D;
+}
+.signInWrapper .inTextButton, .signUpWrapper .inTextButton, .resetPasswordWrapper .inTextButton {
+  color: #00FFA3;
+  text-decoration: none;
+  margin: 1.25em 0;
+  cursor: pointer;
+}
+.signInWrapper #tos, .signUpWrapper #tos, .resetPasswordWrapper #tos {
+  font-size: 0.75em;
+  text-align: center;
+  width: 26.667em;
+  margin: 1.667em 0;
+}
+.signInWrapper #goBack, .signUpWrapper #goBack, .resetPasswordWrapper #goBack {
+  margin: 1.25em 0;
+}
+.signInWrapper .resetPasswordHeader, .signUpWrapper .resetPasswordHeader, .resetPasswordWrapper .resetPasswordHeader {
+  margin-bottom: 0;
+}
+.signInWrapper h3, .signUpWrapper h3, .resetPasswordWrapper h3 {
+  font-size: 1.563em;
+  color: #9D9D9D;
+  margin-bottom: 1.2em;
+}/*# sourceMappingURL=SignIn.css.map */

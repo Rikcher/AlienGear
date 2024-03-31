@@ -7,8 +7,8 @@
 
 header {
     position: relative;
-    font-size: 0.938rem;
-    margin: calc(0.938rem * 1.333); //20
+    font-size: 0.938em;
+    margin: 1.333em; //20
     z-index: 2;
 }
 
@@ -105,12 +105,3 @@ nav {
         background-color: $main-white;
     }
 }
-
-@media (min-width: 2000px) {
-    header {
-        font-size: 1.738rem;
-        margin: calc(1.738rem * 1.333);
-    }
-}
-
-

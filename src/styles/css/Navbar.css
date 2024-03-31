@@ -4,8 +4,8 @@
 }
 header {
   position: relative;
-  font-size: 0.938rem;
-  margin: 1.250354rem;
+  font-size: 0.938em;
+  margin: 1.333em;
   z-index: 2;
 }
 
@@ -90,11 +90,4 @@ nav {
 .navLinks .button:hover .link.icon div {
   transform: translateY(-0.533em);
   background-color: #FFFFFF;
-}
-
-@media (min-width: 2000px) {
-  header {
-    font-size: 1.738rem;
-    margin: 2.316754rem;
-  }
 }/*# sourceMappingURL=Navbar.css.map */

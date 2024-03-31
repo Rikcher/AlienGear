@@ -1,0 +1,125 @@
+@import '/src/styles/colors';
+
+.signInWrapper, .signUpWrapper, .resetPasswordWrapper {
+    font-size: 1em;
+    font-family: "Roboto", sans-serif;
+    color: $main-white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2.5em;
+
+    .signInHeader, .signUpHeader, .resetPasswordHeader{
+        font-size: 2em;
+        font-weight: 600;
+        margin-bottom: 0.625em;
+    }
+
+    .container {
+        width: 30.25em;
+        height: 3em;
+        color: $main-white;
+        border: 0.125em solid $main-white;
+        border-radius: 0.5em;
+        margin: 0.625em 0;
+        font-family: "Roboto", sans-serif;
+        font-size: 1em;
+        display: flex;
+    }
+
+    .googleButton{
+        background-color: transparent;
+        font-weight: 500;
+
+        button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            gap: 0.938em;
+            cursor: pointer;
+            background-color: transparent;
+            border: none;
+            color: $main-white;
+            font-family: "Roboto", sans-serif;
+            font-size: 1em;
+
+            img {
+                width: 1.375em;
+            }
+        }
+    }
+
+    .inputField {
+        font-family: "Roboto", sans-serif;
+        font-size: 1em;
+        color: $main-white;
+        background-color: transparent;
+        width: 100%;
+        height: 100%;
+        border: none;
+        caret-color: $main-primary;
+        padding: 0 1.25em;
+    }
+    .inputField:focus {
+        outline: none;
+    }
+    .inputField::placeholder {
+        font-family: "Roboto", sans-serif;
+            color: $main-light-gray;
+    }
+
+    .logInButton{
+        background-color: $main-primary;
+        border-color: $main-primary;
+        margin-top: 1.875em;
+        margin-bottom: 0;
+
+        a {
+            text-decoration: none;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: $main-black;
+            font-weight: 900;
+        }
+    }
+
+    .greyText {
+        color: $main-light-gray;
+    }
+    .inTextButton {
+        color: $main-primary;
+        text-decoration: none;
+        margin: 1.25em 0;
+        cursor: pointer;
+    }
+
+    #tos {
+        font-size: 0.75em;
+        text-align: center;
+        width: 26.667em;
+        margin: 1.667em 0;
+    }
+
+    #goBack {
+        margin: 1.25em 0;
+    }
+
+
+    .resetPasswordHeader {
+        margin-bottom: 0;
+    }
+    h3 {
+        font-size: 1.563em;
+        color: $main-light-gray;
+        margin-bottom: 1.2em;
+    }
+
+}
+    
+    
+

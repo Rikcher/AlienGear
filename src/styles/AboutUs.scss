@@ -3,7 +3,7 @@
 .wrapper {
     color: $main-white;
     font-family: "Roboto", sans-serif;
-    font-size: 1.125rem;
+    font-size: 1.125em;
     display: flex;
     margin: 1.667em 4.833em 0 4.833em;
     gap: 1.667em;
@@ -16,7 +16,7 @@
         display: flex;
         flex-direction: column;
         margin: 2.333em 0;
-        justify-content: space-between;
+        gap: 1.5em;
 
         //styling of header nad paragraphs
         .aboutUsPageTitle {
@@ -61,11 +61,4 @@
         }
     }
 }
-
-@media (min-width: 2000px) {
-    .wrapper {
-        font-size: 2.125rem;
-    }
-}
-
 

@@ -23,7 +23,7 @@ const Navbar = () => {
                     </div>
                     <div className="button">
                         <img className="buttonAnimate user" src="/navbar/UserButtonBackground.svg" alt="" />
-                        <Link className="link icon user" to="#">
+                        <Link className="link icon user" to="/sign-in">
                             <div></div>
                         </Link>
                     </div>
