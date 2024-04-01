@@ -27,6 +27,7 @@ nav {
 .navLinks .button {
   display: flex;
   position: relative;
+  text-decoration: none;
 }
 .navLinks .button .link {
   position: relative;

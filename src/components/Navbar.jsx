@@ -9,18 +9,18 @@ const Navbar = () => {
             <nav>
                 <img id="navbarLogo" src="/navbar/NavbarAppIcon.svg" alt="AlienGear logo" />
                 <div className="navLinks">
-                    <div className="button">
+                    <Link to="/" className="button">
                         <img className="buttonAnimate home" src="/navbar/HomeButtonBackground.svg" alt="" />
-                        <Link className="link text" to="/">HOME</Link>
-                    </div>
+                        <p className="link text">HOME</p>
+                    </Link>
                     <div className="button">
                         <img className="buttonAnimate product" src="/navbar/ProductButtonBackground.svg" alt="" />
                         <Link className="link text" to="#">PRODUCTS</Link>
                     </div>
-                    <div className="button">
+                    <Link to="/about-us" className="button">
                         <img className="buttonAnimate aboutus" src="/navbar/AboutUsButtonBackground.svg" alt="" />
-                        <Link className="link text" to="/about-us">ABOUT US</Link>
-                    </div>
+                        <p className="link text">ABOUT US</p>
+                    </Link>
                     <div className="button">
                         <img className="buttonAnimate user" src="/navbar/UserButtonBackground.svg" alt="" />
                         <Link className="link icon user" to="/sign-in">
