@@ -13,26 +13,26 @@ const Navbar = () => {
                         <img className="buttonAnimate home" src="/navbar/HomeButtonBackground.svg" alt="" />
                         <p className="link text">HOME</p>
                     </Link>
-                    <div className="button">
+                    <Link to="#" className="button">
                         <img className="buttonAnimate product" src="/navbar/ProductButtonBackground.svg" alt="" />
-                        <Link className="link text" to="#">PRODUCTS</Link>
-                    </div>
+                        <p className="link text">PRODUCTS</p>
+                    </Link>
                     <Link to="/about-us" className="button">
                         <img className="buttonAnimate aboutus" src="/navbar/AboutUsButtonBackground.svg" alt="" />
                         <p className="link text">ABOUT US</p>
                     </Link>
-                    <div className="button">
+                    <Link to="/sign-in" className="button">
                         <img className="buttonAnimate user" src="/navbar/UserButtonBackground.svg" alt="" />
-                        <Link className="link icon user" to="/sign-in">
+                        <div className="link icon user">
                             <div></div>
-                        </Link>
-                    </div>
-                    <div className="button">
+                        </div>
+                    </Link>
+                    <Link to="#" className="button">
                         <img className="buttonAnimate cart" src="/navbar/CartButtonBackground.svg" alt="" />
-                        <Link className="link icon cart" to="#">
+                        <div className="link icon cart">
                             <div></div>
-                        </Link>
-                    </div>
+                        </div>
+                    </Link>
                 </div>
             </nav>
         </header>

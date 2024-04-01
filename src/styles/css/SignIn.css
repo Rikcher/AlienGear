@@ -22,6 +22,19 @@
   font-family: "Roboto", sans-serif;
   font-size: 1em;
   display: flex;
+  align-items: center;
+}
+.signInWrapper .container .passwordVisabilityIcon, .signUpWrapper .container .passwordVisabilityIcon, .resetPasswordWrapper .container .passwordVisabilityIcon {
+  mask: url("/sign-in-page/showPasswordIcon.svg");
+  mask-size: cover;
+  background-color: #9D9D9D;
+  width: 2.188em;
+  height: 1.438em;
+  margin-right: 1.25em;
+  cursor: pointer;
+}
+.signInWrapper .container .passwordVisabilityIcon.show, .signUpWrapper .container .passwordVisabilityIcon.show, .resetPasswordWrapper .container .passwordVisabilityIcon.show {
+  background-color: #00FFA3;
 }
 .signInWrapper .googleButton, .signUpWrapper .googleButton, .resetPasswordWrapper .googleButton {
   background-color: transparent;
@@ -103,4 +116,24 @@
   font-size: 1.563em;
   color: #9D9D9D;
   margin-bottom: 1.2em;
+}
+.signInWrapper .errorMessage, .signUpWrapper .errorMessage, .resetPasswordWrapper .errorMessage {
+  position: fixed;
+  left: calc(50vw - 11.688em);
+  bottom: -3.25em;
+  width: 23.375em;
+  height: 3.25em;
+  background-color: #FF2121;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: bottom 0.1s ease-out, opacity 0.1s ease; /* Animate the bottom property */
+}
+.signInWrapper .errorMessage.show, .signUpWrapper .errorMessage.show, .resetPasswordWrapper .errorMessage.show {
+  opacity: 100;
+  bottom: 0.625em; /* Final position on-screen */
+}
+.signInWrapper .errorMessage.blue, .signUpWrapper .errorMessage.blue, .resetPasswordWrapper .errorMessage.blue {
+  background-color: #4558FF; /* Final position on-screen */
 }/*# sourceMappingURL=SignIn.css.map */

@@ -1,12 +1,31 @@
 import '/src/styles/css/SignIn.css';
 import { Link } from 'react-router-dom';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { sendPasswordResetEmail } from 'firebase/auth';
 import { auth } from '/src/firebase-config.jsx';
 import { fetchSignInMethodsForEmail } from 'firebase/auth';
 
 const ResetPassword = () => {
     const [email, setEmail] = useState('');
+    const [errorText, setErrorText] = useState("");
+    const [isVisible, setIsVisible] = useState(false);
+    const [isBlue, setIsBlue] = useState(false);
+
+    //when error message trigerd this function will make sure that it popup for 5s and then disappear
+    useEffect(() => {
+        if (errorText) {
+            setIsVisible(true);
+            const timer = setTimeout(() => {
+                setIsVisible(false);
+                setErrorText(""); // Clear the error text after hiding the message
+                setTimeout(() => {
+                    setIsBlue(false); // Reset isBlue to false after hiding the message
+                }, 500);
+            }, 5000); // 5 seconds
+
+            return () => clearTimeout(timer); // Cleanup on component unmount or when errorText changes
+        }
+    }, [errorText]); // Depend on errorText to trigger the effect
 
     const handleCheckEmail = async () => {
         try {
@@ -15,29 +34,25 @@ const ResetPassword = () => {
             if (exists) {
                 // If email exists, send password reset email
                 await sendPasswordResetEmail(auth, email);
-                alert("Password reset email sent. Please check your inbox.");
+                setErrorText("Password reset email sent")
+                setIsBlue(true)
             } else {
-                alert("Email does not exist in the database.");
+                setErrorText("Email does not exist in the database.")
+                setIsBlue(false)
             }
         } catch (error) {
-            console.error("Error sending password reset email:", error);
-            alert("Error sending password reset email. Please try again.");
+            setErrorText("Oops! Something went wrong");
+            setIsBlue(false)
         }
     };
 
-    // Function to check if email exists (you need to implement this)
+    // Function to check if email exists 
     const checkIfEmailExists = async (email) => {
         try {
             // Check if email exists
             const signInMethods = await fetchSignInMethodsForEmail(auth, email);
-            console.log(signInMethods)
-            console.log(auth)
-            // If signInMethods array has length > 0, it means the email exists
             return signInMethods.length > 0;
         } catch (error) {
-            console.log(signInMethods)
-            console.error("Error checking if email exists:", error);
-            // Return false in case of an error or if email doesn't exist
             return false;
         }
     };
@@ -59,6 +74,10 @@ const ResetPassword = () => {
                 <Link onClick={handleCheckEmail}>Send password reset message</Link>
             </div>
             <p id='goBack' className='greyText'>Go back to <span><Link to="/sign-in" className='inTextButton'>Log in</Link></span> page</p>
+
+            {/* error message */}
+
+            <div className={`errorMessage ${isVisible ? 'show' : ''} ${isBlue ? 'blue' : ''}`}><p>{errorText}</p></div>
         </div>
     );
 };

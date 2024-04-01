@@ -27,6 +27,20 @@
         font-family: "Roboto", sans-serif;
         font-size: 1em;
         display: flex;
+        align-items: center;
+        
+        .passwordVisabilityIcon {
+            mask: url('/sign-in-page/showPasswordIcon.svg');
+            mask-size: cover;
+            background-color: $main-light-gray;
+            width: 2.188em;
+            height: 1.438em;
+            margin-right: 1.25em;
+            cursor: pointer;
+        }
+        .passwordVisabilityIcon.show {
+            background-color: $main-primary;
+        }
     }
 
     .googleButton{
@@ -52,6 +66,8 @@
             }
         }
     }
+
+
 
     .inputField {
         font-family: "Roboto", sans-serif;
@@ -119,6 +135,28 @@
         font-size: 1.563em;
         color: $main-light-gray;
         margin-bottom: 1.2em;
+    }
+
+    //error message
+    .errorMessage {
+        position: fixed;
+        left: calc(50vw - 11.688em);
+        bottom: -3.25em; 
+        width: 23.375em;
+        height: 3.25em;
+        background-color: #FF2121;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: bottom 0.1s ease-out, opacity 0.1s ease; /* Animate the bottom property */
+    }
+    .errorMessage.show {
+        opacity: 100;
+        bottom: 0.625em; /* Final position on-screen */
+    }
+    .errorMessage.blue {
+        background-color: #4558FF; /* Final position on-screen */
     }
 
 }
