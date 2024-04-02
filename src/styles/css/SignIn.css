@@ -23,15 +23,18 @@
   font-size: 1em;
   display: flex;
   align-items: center;
+  position: relative;
 }
 .signInWrapper .container .passwordVisabilityIcon, .signUpWrapper .container .passwordVisabilityIcon, .resetPasswordWrapper .container .passwordVisabilityIcon {
   mask: url("/sign-in-page/showPasswordIcon.svg");
   mask-size: cover;
   background-color: #9D9D9D;
   width: 2.188em;
-  height: 1.438em;
+  height: 1.813em;
   margin-right: 1.25em;
   cursor: pointer;
+  position: absolute;
+  right: 0;
 }
 .signInWrapper .container .passwordVisabilityIcon.show, .signUpWrapper .container .passwordVisabilityIcon.show, .resetPasswordWrapper .container .passwordVisabilityIcon.show {
   background-color: #00FFA3;

@@ -28,15 +28,18 @@
         font-size: 1em;
         display: flex;
         align-items: center;
+        position: relative;
         
         .passwordVisabilityIcon {
             mask: url('/sign-in-page/showPasswordIcon.svg');
             mask-size: cover;
             background-color: $main-light-gray;
             width: 2.188em;
-            height: 1.438em;
+            height: 1.813em;
             margin-right: 1.25em;
             cursor: pointer;
+            position: absolute;
+            right: 0;
         }
         .passwordVisabilityIcon.show {
             background-color: $main-primary;
