@@ -46,30 +46,33 @@ const SignIn = () => {
     const googleSignIn = () => {
         const provider = new GoogleAuthProvider();
         signInWithPopup(auth, provider)
-            .then(result => {
+            .then(() => {
                 navigate('/profile');
             })
-            .catch(error => {
+            .catch(() => {
                 setErrorText("Oops! Something went wrong");
             });
     };
 
     //login functionality
     let login = () => {
-        setJustSignedUp(false); //to make sure that error popup are red coloed
         signInWithEmailAndPassword(auth, loginEmail, loginPassword)
-        .then(user => {
+        .then(() => {
             navigate('/profile'); //if email and password are correct
         })
         .catch(err => {
+            setJustSignedUp(false); //to make sure that error popup are red colored
             if (err.code === 'auth/wrong-password') {
                 setErrorText("Wrong password");
             } else if (err.code === "auth/invalid-email"){
                 setErrorText("This email does not exist");
             } else if(err.code === "auth/user-not-found") {
                 setErrorText("This user does not exist");
+            } else if (err.code === "auth/too-many-requests") {
+                setErrorText("Too many failed login attempts");
             } else {
                 setErrorText("Oops! Something went wrong");
+                console.log(err)
             }
             
         });

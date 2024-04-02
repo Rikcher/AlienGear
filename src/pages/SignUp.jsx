@@ -82,6 +82,7 @@ const SignUp = () => {
             <h2 className='signUpHeader'>Sign up to AlienGear</h2>
             <div className="container">
                 <input
+                    maxLength="40"
                     type="email"
                     placeholder="Email"
                     className="inputField"

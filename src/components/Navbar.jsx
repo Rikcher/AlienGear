@@ -1,8 +1,21 @@
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link, useNavigate } from "react-router-dom";
 import '/src/styles/css/Navbar.css'
-
+import { auth } from '/src/firebase-config.jsx';
 
 const Navbar = () => {
+    const user = auth.currentUser;
+    const navigate = useNavigate();
+
+    const signInOrProfileLink = user ? "/profile" : "/sign-in";
+
+    const handleSignInOrProfileClick = () => {
+        if (user) {
+            navigate("/profile");
+        } else {
+            navigate("/sign-in");
+        }
+    };
+
     return ( 
         <>
         <header>
@@ -21,7 +34,7 @@ const Navbar = () => {
                         <img className="buttonAnimate aboutus" src="/navbar/AboutUsButtonBackground.svg" alt="" />
                         <p className="link text">ABOUT US</p>
                     </Link>
-                    <Link to="/sign-in" className="button">
+                    <Link to={signInOrProfileLink} className="button" onClick={handleSignInOrProfileClick}>
                         <img className="buttonAnimate user" src="/navbar/UserButtonBackground.svg" alt="" />
                         <div className="link icon user">
                             <div></div>
@@ -44,3 +57,4 @@ const Navbar = () => {
 }
 
 export default Navbar;
+

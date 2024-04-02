@@ -144,7 +144,7 @@
         bottom: -3.25em; 
         width: 23.375em;
         height: 3.25em;
-        background-color: #FF2121;
+        background-color: $main-red;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -156,7 +156,7 @@
         bottom: 0.625em; /* Final position on-screen */
     }
     .errorMessage.blue {
-        background-color: #4558FF; /* Final position on-screen */
+        background-color: $main-blue; /* Final position on-screen */
     }
 
 }
