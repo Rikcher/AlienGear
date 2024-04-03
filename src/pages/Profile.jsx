@@ -159,6 +159,7 @@ const Profile = () => {
             <div className="userInformation">
                 <div>
                     <p className="informationTitle">name</p>
+                    {/* //if user clicked on name, elements will change to input mode, when he clik on save or cancel, element will change back */}
                     {!editMode.name ? (
                         <label className="information" onClick={() => handleEditToggle('name')}>
                             <p className="userName">{user.displayName || "Default user"}</p>
