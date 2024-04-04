@@ -1,0 +1,10 @@
+.cartPageWrapper {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cartPageWrapper img {
+  width: 100px;
+  height: 100px;
+}/*# sourceMappingURL=Cart.css.map */

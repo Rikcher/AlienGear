@@ -7,6 +7,8 @@ import SignIn from '/src/pages/SignIn.jsx'
 import SignUp from '/src/pages/SignUp.jsx'
 import ResetPassword from '/src/pages/ResetPassword.jsx'
 import Profile from '/src/pages/Profile.jsx'
+import Cart from '/src/pages/Cart.jsx'
+import Success from '/src/pages/Success.jsx'
 import './index.css'
 import {
   createBrowserRouter,
@@ -42,6 +44,14 @@ const router = createBrowserRouter([
       {
         path: '/profile',
         element: <Profile />
+      },
+      {
+        path: '/cart',
+        element: <Cart />
+      },
+      {
+        path: '/success',
+        element: <Success />
       }
     ]
   }

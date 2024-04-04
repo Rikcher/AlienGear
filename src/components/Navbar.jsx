@@ -40,7 +40,7 @@ const Navbar = () => {
                             <div></div>
                         </div>
                     </Link>
-                    <Link to="#" className="button">
+                    <Link to="/cart" className="button">
                         <img className="buttonAnimate cart" src="/navbar/CartButtonBackground.svg" alt="" />
                         <div className="link icon cart">
                             <div></div>
