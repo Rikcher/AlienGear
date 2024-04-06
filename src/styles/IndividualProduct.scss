@@ -1,0 +1,119 @@
+@import '/src/styles/colors';
+
+.individualProductPageWrapper {
+    display: flex;
+    flex-direction: column;
+    font-size: 1em;
+    font-family: "Roboto", sans-serif;
+    color: $main-white;
+    margin-top: 40px;
+
+    .topPart {
+        display: flex;
+
+        .allPictures {
+            width: 1000px;
+            position: relative;
+
+            .previewPicture {
+                width: 100%;
+                position: relative;
+            }
+            .previewPicture.others {
+                position: absolute;
+                left: 0;
+                transition: transform 0.3s ease-in-out;
+                cursor: pointer;
+            }
+            .previewPicture.others:hover {
+                transform: translateX(15px);
+            }
+
+            .smallPictures {
+                position: absolute;
+                top: 40px;
+                left: 50px;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                cursor: pointer;
+
+                .pictures, .previewPictureSmall {
+                    width: 80px;
+                    height: 80px;
+                    border: 2px solid;
+                    object-fit: cover;
+                }
+            }
+        }
+
+        .info {
+            margin: 40px auto;
+            width: 290px;
+
+            .name {
+                font-size: 20px;
+                color: $main-primary;
+                margin-bottom: 10px;
+                font-weight: 400;
+            }
+            .description {
+                font-size: 18px;
+                margin-bottom: 10px;
+            }
+            .stats {
+                padding-left: 16px;
+                font-size: 14px;
+                color: #8E8E8E;
+                .stat {
+                    margin-bottom: 5px;
+                }
+                margin-bottom: 20px;
+            }
+            .price {
+                font-size: 22px;
+                margin-bottom: 30px;
+                font-family: "Inter", sans-serif;
+            }
+            button {
+                font-family: "Roboto", sans-serif;
+                width: 100%;
+                height: 32px;
+                border-radius: 8px;
+                border: none;
+                background-color: $main-primary;
+                font-size: 17px;
+                font-weight: 900;
+                color: $main-black;
+                cursor: pointer;
+            }
+        }
+    }
+    .bottomPart {
+        margin: 40px 100px 20px 100px;
+
+        .title {
+            font-size: 22px;
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+        .pair {
+            width: 100%;
+            border-bottom: 1px solid #BCBCBC;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: flex-start;
+
+            .key {
+                font-size: 16px;
+                font-weight: 500;
+                width: 230px;
+            }
+            .value {
+                font-size: 16px;
+                color: #BCBCBC;
+            }
+        }
+    }
+}

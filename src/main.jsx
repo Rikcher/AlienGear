@@ -9,6 +9,8 @@ import ResetPassword from '/src/pages/ResetPassword.jsx'
 import Profile from '/src/pages/Profile.jsx'
 import Cart from '/src/pages/Cart.jsx'
 import Success from '/src/pages/Success.jsx'
+import Products from '/src/pages/Products.jsx'
+import IndividualProduct from '/src/components/IndividualProduct.jsx'
 import './index.css'
 import {
   createBrowserRouter,
@@ -52,6 +54,14 @@ const router = createBrowserRouter([
       {
         path: '/success',
         element: <Success />
+      },
+      {
+        path: '/products',
+        element: <Products />
+      },
+      {
+        path: '/products/:id',
+        element: <IndividualProduct />
       }
     ]
   }

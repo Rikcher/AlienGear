@@ -1,0 +1,145 @@
+.productsPageWrapper {
+  font-size: 1em;
+  font-family: "Roboto", sans-serif;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.productsPageWrapper .productsNavBar {
+  display: flex;
+  flex-direction: row;
+  margin: 20px 75px 40px 75px;
+  align-items: baseline;
+  gap: 72px;
+}
+.productsPageWrapper .productsNavBar .buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+.productsPageWrapper .productsNavBar .buttons .icon {
+  background-color: #FFFFFF;
+  transition: background-color 0.3s ease;
+}
+.productsPageWrapper .productsNavBar .buttons .all {
+  width: 34px;
+  height: 34px;
+  mask: url("/products-page/allIcon.svg");
+  mask-size: cover;
+}
+.productsPageWrapper .productsNavBar .buttons .mice {
+  width: 33px;
+  height: 40px;
+  mask: url("/products-page/miceIcon.svg");
+  mask-size: cover;
+}
+.productsPageWrapper .productsNavBar .buttons .keyboards {
+  width: 57px;
+  height: 40px;
+  mask: url("/products-page/keyboardsIcon.svg");
+  mask-size: cover;
+}
+.productsPageWrapper .productsNavBar .buttons .chairs {
+  width: 38px;
+  height: 60px;
+  mask: url("/products-page/chairsIcon.svg");
+  mask-size: cover;
+}
+.productsPageWrapper .productsNavBar .buttons .pads {
+  width: 38px;
+  height: 28px;
+  mask: url("/products-page/padsIcon.svg");
+  mask-size: cover;
+}
+.productsPageWrapper .productsNavBar .buttons .headsets {
+  width: 46px;
+  height: 50px;
+  mask: url("/products-page/headsetsIcon.svg");
+  mask-size: cover;
+}
+.productsPageWrapper .productsNavBar .buttons .controllers {
+  width: 43px;
+  height: 30px;
+  mask: url("/products-page/controllersIcon.svg");
+  mask-size: cover;
+}
+.productsPageWrapper .productsNavBar .buttons .filter {
+  width: 34px;
+  height: 31px;
+  mask: url("/products-page/filterIcon.svg");
+  mask-size: cover;
+}
+.productsPageWrapper .productsNavBar .buttons p {
+  font-size: 22px;
+}
+.productsPageWrapper .productsNavBar .buttons:hover {
+  color: #00FFA3;
+}
+.productsPageWrapper .productsNavBar .buttons:hover .icon {
+  background-color: #00FFA3;
+}
+.productsPageWrapper .productsNavBar .buttons.all {
+  margin-right: 68px;
+}
+.productsPageWrapper .productsNavBar .buttons.filter {
+  margin-left: 68px;
+}
+.productsPageWrapper .productsContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns */
+  grid-gap: 19px; /* gap between items */
+  row-gap: 19px; /* gap between rows */
+  padding: 0 38px;
+}
+.productsPageWrapper .grid-item {
+  background-color: #0A0A0A;
+  border: 2px solid #00FFA3;
+  border-radius: 8px;
+}
+.productsPageWrapper .grid-item .picture {
+  width: 300px;
+}
+.productsPageWrapper .grid-item .productInfo {
+  background-color: #000000;
+  padding: 20px;
+  border-radius: 0 0 8px 8px;
+}
+.productsPageWrapper .grid-item .productInfo .topOfContainer {
+  height: 106px;
+}
+.productsPageWrapper .grid-item .productInfo .topOfContainer .name {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+.productsPageWrapper .grid-item .productInfo .topOfContainer .description {
+  font-size: 14px;
+  color: #6C6C6C;
+  margin-bottom: 20px;
+}
+.productsPageWrapper .grid-item .productInfo .bottomOfContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.productsPageWrapper .grid-item .productInfo .bottomOfContainer .price {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 1px;
+  font-family: "Inter", sans-serif;
+}
+.productsPageWrapper .grid-item .productInfo .bottomOfContainer button {
+  font-family: "Roboto", sans-serif;
+  width: 98px;
+  height: 26px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #000000;
+  background-color: #00FFA3;
+  border: none;
+  cursor: pointer;
+}/*# sourceMappingURL=Products.css.map */

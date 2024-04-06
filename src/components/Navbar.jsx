@@ -26,7 +26,7 @@ const Navbar = () => {
                         <img className="buttonAnimate home" src="/navbar/HomeButtonBackground.svg" alt="" />
                         <p className="link text">HOME</p>
                     </Link>
-                    <Link to="#" className="button">
+                    <Link to="/products" className="button">
                         <img className="buttonAnimate product" src="/navbar/ProductButtonBackground.svg" alt="" />
                         <p className="link text">PRODUCTS</p>
                     </Link>

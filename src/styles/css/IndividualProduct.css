@@ -1,0 +1,108 @@
+.individualProductPageWrapper {
+  display: flex;
+  flex-direction: column;
+  font-size: 1em;
+  font-family: "Roboto", sans-serif;
+  color: #FFFFFF;
+  margin-top: 40px;
+}
+.individualProductPageWrapper .topPart {
+  display: flex;
+}
+.individualProductPageWrapper .topPart .allPictures {
+  width: 1000px;
+  position: relative;
+}
+.individualProductPageWrapper .topPart .allPictures .previewPicture {
+  width: 100%;
+  position: relative;
+}
+.individualProductPageWrapper .topPart .allPictures .previewPicture.others {
+  position: absolute;
+  left: 0;
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+}
+.individualProductPageWrapper .topPart .allPictures .previewPicture.others:hover {
+  transform: translateX(15px);
+}
+.individualProductPageWrapper .topPart .allPictures .smallPictures {
+  position: absolute;
+  top: 40px;
+  left: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  cursor: pointer;
+}
+.individualProductPageWrapper .topPart .allPictures .smallPictures .pictures, .individualProductPageWrapper .topPart .allPictures .smallPictures .previewPictureSmall {
+  width: 80px;
+  height: 80px;
+  border: 2px solid;
+  object-fit: cover;
+}
+.individualProductPageWrapper .topPart .info {
+  margin: 40px auto;
+  width: 290px;
+}
+.individualProductPageWrapper .topPart .info .name {
+  font-size: 20px;
+  color: #00FFA3;
+  margin-bottom: 10px;
+  font-weight: 400;
+}
+.individualProductPageWrapper .topPart .info .description {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+.individualProductPageWrapper .topPart .info .stats {
+  padding-left: 16px;
+  font-size: 14px;
+  color: #8E8E8E;
+  margin-bottom: 20px;
+}
+.individualProductPageWrapper .topPart .info .stats .stat {
+  margin-bottom: 5px;
+}
+.individualProductPageWrapper .topPart .info .price {
+  font-size: 22px;
+  margin-bottom: 30px;
+  font-family: "Inter", sans-serif;
+}
+.individualProductPageWrapper .topPart .info button {
+  font-family: "Roboto", sans-serif;
+  width: 100%;
+  height: 32px;
+  border-radius: 8px;
+  border: none;
+  background-color: #00FFA3;
+  font-size: 17px;
+  font-weight: 900;
+  color: #000000;
+  cursor: pointer;
+}
+.individualProductPageWrapper .bottomPart {
+  margin: 40px 100px 20px 100px;
+}
+.individualProductPageWrapper .bottomPart .title {
+  font-size: 22px;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+.individualProductPageWrapper .bottomPart .pair {
+  width: 100%;
+  border-bottom: 1px solid #BCBCBC;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: flex-start;
+}
+.individualProductPageWrapper .bottomPart .pair .key {
+  font-size: 16px;
+  font-weight: 500;
+  width: 230px;
+}
+.individualProductPageWrapper .bottomPart .pair .value {
+  font-size: 16px;
+  color: #BCBCBC;
+}/*# sourceMappingURL=IndividualProduct.css.map */
