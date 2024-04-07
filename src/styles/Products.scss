@@ -76,11 +76,12 @@
                 mask-size: cover;
             }
 
-            p {
+            .text {
                 font-size: 22px;
+                transition: color 0.3s ease;
             }
         }
-        .buttons:hover {
+        .buttons:hover .text{
             color: $main-primary;
         }
         .buttons:hover .icon{
@@ -91,6 +92,132 @@
         }
         .buttons.filter {
             margin-left: 68px;
+            position: relative;
+
+            .filterFunctionality {
+                position: absolute;
+                width: 434px;
+                background-color: $main-black;
+                top: -18px;
+                right: -14px;
+                border-radius: 8px;
+                border: 1px solid $main-primary;
+                display: flex;
+
+                .iconOver {
+                    width: 34px;
+                    height: 31px;
+                    mask: url("/products-page/filterIcon.svg");
+                    mask-size: cover;
+                    background-color: $main-primary;
+                    position: absolute;
+                    right: 21px;
+                    top: 17px;
+                }
+
+                .sortBy{
+                    margin: 20px;
+                    max-width: 160px;
+
+                    .title {
+                        font-size: 18px;
+                        font-weight: 600;
+                        margin-bottom: 15px;
+                    }
+
+                    .priceFilters {
+                        button {
+                            font-size: 16px;
+                            margin-bottom: 4px;
+                            padding: 3px;
+                            margin-left: -3px;
+                            border-radius: 4px;
+                            border: none;
+                            color: $main-primary;
+                            opacity: 50%;
+                            background-color: transparent;
+                            cursor: pointer;
+                            font-family: "Roboto", sans-serif;
+                        }
+                        .custom {
+                            display: flex;
+                            flex-direction: column;
+                            width: 138px;
+
+                            .localTitlte {
+                                margin-bottom: 5px;
+                            }
+                            .cutsomPriceInputs {
+                                div {
+                                    display: flex;
+                                    margin-bottom: 5px;
+                                    input {
+                                        max-width: 74px;
+                                        font-family: "Init", sans-serif;
+                                        background-color: #00633F ;
+                                        border: none;
+                                        padding-left: 5px;
+                                        color: white;
+                                    }
+                                    input::-webkit-outer-spin-button,
+                                    input::-webkit-inner-spin-button {
+                                    -webkit-appearance: none;
+                                    margin: 0;
+                                    }
+                                    .from {
+                                        margin-right: 10px;
+                                    }
+                                    .to {
+                                        margin-right: 29px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .priceFilters .active {
+                        background-color: $main-primary;
+                        opacity: 100%;
+                        color: $main-black;
+                    }
+                }
+
+                .productFilter {
+                    margin: 20px 0 0 0;
+                    max-width: 160px;
+
+                    .title {
+                        font-size: 18px;
+                        font-weight: 600;
+                        margin-bottom: 15px;
+                    }
+                    .filterName{
+                        font-size: 16px;
+                        margin-bottom: 4px;
+                    }
+                    .noCategory, .noFilter {
+                        color: #505050;
+                    }
+                    .specificFiltersContainer {
+                        display: flex;
+                        gap: 7px;
+                        flex-wrap: wrap;
+                        .specificFilter {
+                            padding: 3px;
+                            margin-left: -3px;
+                            font-size: 16px;
+                            color: $main-primary;
+                            opacity: 50%;
+                            border-radius: 4px;
+                        }
+                        .specificFilter.active {
+                            background-color: $main-primary;
+                            opacity: 100%;
+                            color: $main-black;
+                        }
+                    }
+                }
+                
+            }
         }
     }
 
@@ -101,7 +228,7 @@
         grid-template-columns: repeat(4, 1fr); /* 4 columns */
         grid-gap: 19px; /* gap between items */
         row-gap: 19px; /* gap between rows */
-        padding: 0 38px;
+        padding: 0 38px 20px 38px;
     }
     
     .grid-item {
