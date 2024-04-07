@@ -1,11 +1,198 @@
-.cartPageWrapper {
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+@import '/src/styles/colors';
 
-    img {
-        width: 100px;
-        height: 100px;
+.cartPageWrapper {
+    font-size: 1em;
+    font-family: "Roboto", sans-serif;
+    color: $main-white;
+    display: flex;
+    margin: 40px 20px 20px 20px;
+
+    .leftPanel {
+        width: 970px;
+        margin-right: 20px;
+        border: 2px solid $main-primary;
+        border-radius: 8px;
+        padding: 20px;
+        background-color: $main-black;
+
+        .cartTitle {
+            font-size: 28px;
+            margin-bottom: 3px;
+            font-weight: 500;
+        }
+
+        .priceLine {
+            width: 100%;
+            border-bottom: 1px solid #161616;
+            text-align: right;
+            font-size: 14px;
+            color: #6C6C6C;
+        }
+
+        .item {
+            padding: 20px 0;
+            border-bottom: 1px solid #161616;
+            display: flex;
+            width: 100%;
+            
+            .price {
+                margin-left: auto;
+                font-size: 16px;
+                font-weight: 600;
+                font-family: "Inter", sans-serif;
+            }
+            .itemPicture {
+                width: 300px;
+                background-color: #0A0A0A;
+                margin-right: 20px;
+                border-radius: 8px;
+            }
+
+            .itemInfo {
+                display: flex;
+                flex-direction: column;
+                max-width: 400px;
+
+                .name {
+                    font-size: 18px;
+                    margin-bottom: 12px;
+                    font-weight: 500;
+                }
+                .description {
+                    font-size: 14px;
+                    color: #6C6C6C;
+                    margin-bottom: 20px;
+                }
+                .techSpecs {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+
+                    .techSpecsTitle {
+                        font-size: 15px;
+                    }
+                    .pair {
+                        display: flex;
+                        font-size: 14px;
+                        gap: 5px;
+                        .key {
+                            white-space: nowrap;
+                        }
+                        .value {
+                            color: #6C6C6C;
+                        }
+                    }
+                }
+                .buttons {
+                    display: flex;
+                    margin-top: auto;
+                    user-select: none;
+
+                    .qty {
+                        display: flex;
+                        justify-content: space-between;
+                        background-color: $main-primary;
+                        width: 126px;
+                        height: 28px;
+                        border-radius: 8px;
+                        font-size: 14px;
+                        color: $main-black;
+                        align-items: center;
+                        margin-right: 20px;
+                        .minus {
+                            height: 100%;
+                            padding: 0 10px;
+                            border-right: 1px solid $main-black;
+                            display: flex;
+                            align-items: center;
+                            cursor: pointer;
+                        }
+                        .plus {
+                            height: 100%;
+                            padding: 0 10px;
+                            border-left: 1px solid $main-black;
+                            display: flex;
+                            align-items: center;
+                            cursor: pointer;
+                        }
+                        .text {
+                            font-weight: 500;
+                        }
+                    }
+                    .delete, .share {
+                        display: flex;
+                        align-items: center;
+                        font-size: 12px;
+                        font-weight: 300;
+                        letter-spacing: 0.8px;
+                        color: $main-primary;
+                        padding: 0 20px;
+                        border-left: 1px solid #161616;
+                        height: 100%;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+        .subtotal {
+            width: 100%;
+            text-align: right;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+        .boldPrice {
+            font-family: "Inter", sans-serif;
+            font-weight: 600;
+        }
+        .empty {
+            margin: 20px 0;
+            font-size: 20px;
+        }
+        .loadingDisk {
+            width: 2.5em; // Converted from 40px
+            height: 2.5em; // Converted from 40px
+            border-radius: 50%;
+            border: 0.25em solid #2F2F2F; // Converted from 4px
+            border-top: 0.25em solid $main-primary; // Converted from 4px
+            animation: spin 1s linear infinite;
+            transform: translate(-50%, -50%);
+            margin: 60px auto 0 auto;
+        }
+    
+        @keyframes spin {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+    }
+
+    .rightPanel {
+        width: 306px;
+        padding: 20px;
+        background-color: $main-black;
+        border: 2px solid $main-primary;
+        border-radius: 8px;
+        align-self: flex-start;
+
+        .subtotal {
+            font-size: 18px;
+            margin-bottom: 15px;
+            
+        }
+        .boldPrice {
+            font-family: "Inter", sans-serif;
+            font-weight: 600;
+            word-wrap: break-word;
+        }
+
+        .checkoutButton {
+            width: 215px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 900;
+            text-align: center;
+            background-color: $main-primary;
+            color: $main-black;
+            padding: 5px 0;
+        }
     }
 }

@@ -1,20 +1,22 @@
-import { Outlet, Link, useNavigate } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
 import '/src/styles/css/Navbar.css'
 import { auth } from '/src/firebase-config.jsx';
+import { useEffect, useState } from 'react';
 
 const Navbar = () => {
-    const user = auth.currentUser;
-    const navigate = useNavigate();
+    const [user, setUser] = useState(auth.currentUser);
 
-    const signInOrProfileLink = user ? "/profile" : "/sign-in";
+    useEffect(() => {
+        // Listen for changes in the user's authentication status
+        const unsubscribe = auth.onAuthStateChanged(user => {
+            setUser(user);
+        });
 
-    const handleSignInOrProfileClick = () => {
-        if (user) {
-            navigate("/profile");
-        } else {
-            navigate("/sign-in");
-        }
-    };
+        // Cleanup the subscription on component unmount
+        return () => unsubscribe();
+    }, []);
+
+
 
     return ( 
         <>
@@ -34,7 +36,7 @@ const Navbar = () => {
                         <img className="buttonAnimate aboutus" src="/navbar/AboutUsButtonBackground.svg" alt="" />
                         <p className="link text">ABOUT US</p>
                     </Link>
-                    <Link to={signInOrProfileLink} className="button" onClick={handleSignInOrProfileClick}>
+                    <Link to={user ? "/profile" : "/sign-in"} className="button">
                         <img className="buttonAnimate user" src="/navbar/UserButtonBackground.svg" alt="" />
                         <div className="link icon user">
                             <div></div>

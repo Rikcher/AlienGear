@@ -250,10 +250,44 @@
   width: 6.125em;
   height: 1.625em;
   border-radius: 0.5em;
-  font-size: 0.875em;
+  font-size: 0.975em;
   font-weight: bold;
   color: #000000;
   background-color: #00FFA3;
   border: none;
   cursor: pointer;
+}
+.productsPageWrapper .errorMessage {
+  position: fixed;
+  left: calc(50vw - 11.688em);
+  bottom: -3.25em;
+  width: 23.375em;
+  height: 3.25em;
+  background-color: #FF2121;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: bottom 0.1s ease-out, opacity 0.1s ease; /* Animate the bottom property */
+}
+.productsPageWrapper .errorMessage.show {
+  opacity: 100;
+  bottom: 0.625em; /* Final position on-screen */
+}
+.productsPageWrapper .errorMessage.blue {
+  background-color: #4558FF; /* Final position on-screen */
+}
+.productsPageWrapper .errorMessage.shake {
+  animation: shake 0.5s;
+}
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-5px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(5px);
+  }
 }/*# sourceMappingURL=Products.css.map */

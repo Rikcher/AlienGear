@@ -1,7 +1,8 @@
 import'/src/styles/css/Products.css'
 import React, { useEffect, useState, useRef } from 'react';
-import { getDatabase, ref, onValue } from 'firebase/database';
-import { Link, useNavigate } from "react-router-dom";
+import { getDatabase, ref, onValue, set, get, push } from 'firebase/database';
+import { Link } from "react-router-dom";
+import { auth } from '/src/firebase-config.jsx'
 
 const Products = () => {
     const [products, setProducts] = useState([]);
@@ -11,11 +12,16 @@ const Products = () => {
     const [activeFilter, setActiveFilter] = useState('default');
     const [isFilterFunctionalityVisible, setIsFilterFunctionalityVisible] = useState(false);
     const filterFunctionalityRef = useRef(null);
+    const [isVisible, setIsVisible] = useState(false);
+    const [errorText, setErrorText] = useState("");
+    const [isBlue, setIsBlue] = useState(false);
+    const [shake, setShake] = useState(false)
 
 
 
 
     const db = getDatabase();
+
 
     useEffect(() => {
         const fetchProducts = () => {
@@ -74,9 +80,85 @@ const Products = () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
     }, [isFilterFunctionalityVisible, filterFunctionalityRef]);
+
+    //when error message trigerd this function will make sure that it popup for 5s and then disappear
+    useEffect(() => {
+        if (errorText) {
+            setIsVisible(true);
+            const timer = setTimeout(() => {
+                setIsVisible(false);
+                setTimeout(() => {
+                    setIsBlue(false);
+                }, 100) // delay for 0.1s so it doesnt flicker back to red instantly as it disappears
+                setErrorText("");
+            }, 5000);
+            return () => clearTimeout(timer);
+        }
+    }, [errorText]);
     
     
-    
+    const addToCart = async (product) => {
+        const user = auth.currentUser;
+        if (user) {
+            const cartRef = ref(db, `carts/${user.uid}`);
+            const snapshot = await get(cartRef);
+            const existingCartItems = snapshot.val() || {};
+            console.log(existingCartItems)
+            console.log(product.id)
+        
+            // Check if the product is already in the cart
+            const productExists = product.id in existingCartItems;
+        
+            if (!productExists) {
+                // If the product is not in the cart, add it
+                await set(ref(db, `carts/${user.uid}/${product.id}`), {
+                id: product.id,
+                name: product.name,
+                description: product.description,
+                techSpecs: product.techSpecs ? product.techSpecs : {}, // Assuming techSpecs is a property of your product
+                price: parseInt(product.price),
+                mainPicture: product.mainPicture || product.pictures[0],
+                });
+                if(isVisible) {
+                    setIsBlue(true)
+                    setErrorText('Product added to cart')
+                    setShake(true);
+                    // After a short delay, remove the shake class
+                    setTimeout(() => {
+                        setShake(false);
+                    }, 500);
+                } else {
+                    setIsBlue(true)
+                    setErrorText('Product added to cart')
+                }
+            } else {
+                if (isVisible) {
+                    setIsBlue(false)
+                    setErrorText('Product is already in the cart')
+                    setShake(true);
+                    // After a short delay, remove the shake class
+                    setTimeout(() => {
+                        setShake(false);
+                    }, 500);
+                } else {
+                    setErrorText('Product is already in the cart')
+                }
+            }
+        } else {
+            if (isVisible) {
+                setIsBlue(false)
+                setErrorText('Please log in first')
+                setShake(true);
+                // After a short delay, remove the shake class
+                setTimeout(() => {
+                    setShake(false);
+                }, 500);
+            } else {
+                setErrorText('Please log in first')
+            }
+        }
+        };
+
 
     // Function to handle category filter
     const handleCategoryFilter = (category) => {
@@ -140,8 +222,6 @@ const Products = () => {
     const toggleFilter = (filter) => {
         setActiveFilter(prevFilter => prevFilter === filter ? 'default' : filter);
     };
-    
-    
     
     
 
@@ -272,12 +352,14 @@ const Products = () => {
                         </div>
                         <div className="bottomOfContainer">
                             <p className='price'>US${product.price}</p>
-                            <button>Add to cart</button>
+                            <button onClick={() => addToCart(product)}>Add to cart</button>
                         </div>
                     </div>
                 </div>
             ))}
             </div>
+
+            <div className={`errorMessage ${isBlue ? 'blue' : ''} ${isVisible ? 'show' : ''} ${shake ? 'shake' : ''}`}>{errorText}</div>
         </div>
     );
 }
