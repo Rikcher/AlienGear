@@ -9,15 +9,15 @@
 .productsPageWrapper .productsNavBar {
   display: flex;
   flex-direction: row;
-  margin: 20px 75px 40px 75px;
+  margin: 1.25em 4.6875em 2.5em 4.6875em;
   align-items: baseline;
-  gap: 72px;
+  gap: 4.5em;
 }
 .productsPageWrapper .productsNavBar .buttons {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15px;
+  gap: 0.9375em;
   cursor: pointer;
   transition: color 0.3s ease;
 }
@@ -26,55 +26,55 @@
   transition: background-color 0.3s ease;
 }
 .productsPageWrapper .productsNavBar .buttons .all {
-  width: 34px;
-  height: 34px;
+  width: 2.125em;
+  height: 2.125em;
   mask: url("/products-page/allIcon.svg");
   mask-size: cover;
 }
 .productsPageWrapper .productsNavBar .buttons .mice {
-  width: 33px;
-  height: 40px;
+  width: 2.0625em;
+  height: 2.5em;
   mask: url("/products-page/miceIcon.svg");
   mask-size: cover;
 }
 .productsPageWrapper .productsNavBar .buttons .keyboards {
-  width: 57px;
-  height: 40px;
+  width: 3.625em;
+  height: 2.5em;
   mask: url("/products-page/keyboardsIcon.svg");
   mask-size: cover;
 }
 .productsPageWrapper .productsNavBar .buttons .chairs {
-  width: 38px;
-  height: 60px;
+  width: 2.3125em;
+  height: 3.75em;
   mask: url("/products-page/chairsIcon.svg");
   mask-size: cover;
 }
 .productsPageWrapper .productsNavBar .buttons .pads {
-  width: 38px;
-  height: 28px;
+  width: 2.3125em;
+  height: 1.75em;
   mask: url("/products-page/padsIcon.svg");
   mask-size: cover;
 }
 .productsPageWrapper .productsNavBar .buttons .headsets {
-  width: 46px;
-  height: 50px;
+  width: 2.8125em;
+  height: 3.125em;
   mask: url("/products-page/headsetsIcon.svg");
   mask-size: cover;
 }
 .productsPageWrapper .productsNavBar .buttons .controllers {
-  width: 43px;
-  height: 30px;
+  width: 2.625em;
+  height: 1.875em;
   mask: url("/products-page/controllersIcon.svg");
   mask-size: cover;
 }
 .productsPageWrapper .productsNavBar .buttons .filter {
-  width: 34px;
-  height: 31px;
+  width: 2.125em;
+  height: 1.9375em;
   mask: url("/products-page/filterIcon.svg");
   mask-size: cover;
 }
 .productsPageWrapper .productsNavBar .buttons .text {
-  font-size: 22px;
+  font-size: 1.375em;
   transition: color 0.3s ease;
 }
 .productsPageWrapper .productsNavBar .buttons:hover .text {
@@ -84,47 +84,47 @@
   background-color: #00FFA3;
 }
 .productsPageWrapper .productsNavBar .buttons.all {
-  margin-right: 68px;
+  margin-right: 4.375em;
 }
 .productsPageWrapper .productsNavBar .buttons.filter {
-  margin-left: 68px;
+  margin-left: 4.375em;
   position: relative;
 }
 .productsPageWrapper .productsNavBar .buttons.filter .filterFunctionality {
   position: absolute;
-  width: 434px;
+  width: 26.5625em;
   background-color: #000000;
-  top: -18px;
-  right: -14px;
-  border-radius: 8px;
-  border: 1px solid #00FFA3;
+  top: -1.125em;
+  right: -0.875em;
+  border-radius: 0.5em;
+  border: 0.0625em solid #00FFA3;
   display: flex;
 }
 .productsPageWrapper .productsNavBar .buttons.filter .filterFunctionality .iconOver {
-  width: 34px;
-  height: 31px;
+  width: 2.125em;
+  height: 1.9375em;
   mask: url("/products-page/filterIcon.svg");
   mask-size: cover;
   background-color: #00FFA3;
   position: absolute;
-  right: 21px;
-  top: 17px;
+  right: 1.3125em;
+  top: 1.0625em;
 }
 .productsPageWrapper .productsNavBar .buttons.filter .filterFunctionality .sortBy {
-  margin: 20px;
-  max-width: 160px;
+  margin: 1.25em;
+  max-width: 10em;
 }
 .productsPageWrapper .productsNavBar .buttons.filter .filterFunctionality .sortBy .title {
-  font-size: 18px;
+  font-size: 1.125em;
   font-weight: 600;
-  margin-bottom: 15px;
+  margin-bottom: 0.9375em;
 }
 .productsPageWrapper .productsNavBar .buttons.filter .filterFunctionality .sortBy .priceFilters button {
-  font-size: 16px;
-  margin-bottom: 4px;
-  padding: 3px;
-  margin-left: -3px;
-  border-radius: 4px;
+  font-size: 1em;
+  margin-bottom: 0.625em;
+  padding: 0.1875em;
+  margin-left: -0.1875em;
+  border-radius: 0.25em;
   border: none;
   color: #00FFA3;
   opacity: 50%;
@@ -135,21 +135,21 @@
 .productsPageWrapper .productsNavBar .buttons.filter .filterFunctionality .sortBy .priceFilters .custom {
   display: flex;
   flex-direction: column;
-  width: 138px;
+  width: 8.5em;
 }
 .productsPageWrapper .productsNavBar .buttons.filter .filterFunctionality .sortBy .priceFilters .custom .localTitlte {
-  margin-bottom: 5px;
+  margin-bottom: 0.3125em;
 }
 .productsPageWrapper .productsNavBar .buttons.filter .filterFunctionality .sortBy .priceFilters .custom .cutsomPriceInputs div {
   display: flex;
-  margin-bottom: 5px;
+  margin-bottom: 0.3125em;
 }
 .productsPageWrapper .productsNavBar .buttons.filter .filterFunctionality .sortBy .priceFilters .custom .cutsomPriceInputs div input {
-  max-width: 74px;
+  max-width: 4.6875em;
   font-family: "Init", sans-serif;
   background-color: #00633F;
   border: none;
-  padding-left: 5px;
+  padding-left: 0.3125em;
   color: white;
 }
 .productsPageWrapper .productsNavBar .buttons.filter .filterFunctionality .sortBy .priceFilters .custom .cutsomPriceInputs div input::-webkit-outer-spin-button,
@@ -158,10 +158,10 @@
   margin: 0;
 }
 .productsPageWrapper .productsNavBar .buttons.filter .filterFunctionality .sortBy .priceFilters .custom .cutsomPriceInputs div .from {
-  margin-right: 10px;
+  margin-right: 0.625em;
 }
 .productsPageWrapper .productsNavBar .buttons.filter .filterFunctionality .sortBy .priceFilters .custom .cutsomPriceInputs div .to {
-  margin-right: 29px;
+  margin-right: 1.75em;
 }
 .productsPageWrapper .productsNavBar .buttons.filter .filterFunctionality .sortBy .priceFilters .active {
   background-color: #00FFA3;
@@ -169,33 +169,33 @@
   color: #000000;
 }
 .productsPageWrapper .productsNavBar .buttons.filter .filterFunctionality .productFilter {
-  margin: 20px 0 0 0;
-  max-width: 160px;
+  margin: 1.25em 0 0 0;
+  max-width: 10em;
 }
 .productsPageWrapper .productsNavBar .buttons.filter .filterFunctionality .productFilter .title {
-  font-size: 18px;
+  font-size: 1.125em;
   font-weight: 600;
-  margin-bottom: 15px;
+  margin-bottom: 0.9375em;
 }
 .productsPageWrapper .productsNavBar .buttons.filter .filterFunctionality .productFilter .filterName {
-  font-size: 16px;
-  margin-bottom: 4px;
+  font-size: 0.9375em;
+  margin-bottom: 0.625em;
 }
 .productsPageWrapper .productsNavBar .buttons.filter .filterFunctionality .productFilter .noCategory, .productsPageWrapper .productsNavBar .buttons.filter .filterFunctionality .productFilter .noFilter {
   color: #505050;
 }
 .productsPageWrapper .productsNavBar .buttons.filter .filterFunctionality .productFilter .specificFiltersContainer {
   display: flex;
-  gap: 7px;
+  gap: 0.4375em;
   flex-wrap: wrap;
 }
 .productsPageWrapper .productsNavBar .buttons.filter .filterFunctionality .productFilter .specificFiltersContainer .specificFilter {
-  padding: 3px;
-  margin-left: -3px;
-  font-size: 16px;
+  padding: 0.1875em;
+  margin-left: -0.1875em;
+  font-size: 0.9375em;
   color: #00FFA3;
   opacity: 50%;
-  border-radius: 4px;
+  border-radius: 0.25em;
 }
 .productsPageWrapper .productsNavBar .buttons.filter .filterFunctionality .productFilter .specificFiltersContainer .specificFilter.active {
   background-color: #00FFA3;
@@ -205,34 +205,34 @@
 .productsPageWrapper .productsContainer {
   display: grid;
   grid-template-columns: repeat(4, 1fr); /* 4 columns */
-  grid-gap: 19px; /* gap between items */
-  row-gap: 19px; /* gap between rows */
-  padding: 0 38px 20px 38px;
+  grid-gap: 1.1875em; /* gap between items */
+  row-gap: 1.1875em; /* gap between rows */
+  padding: 0 2.3125em 1.25em 2.3125em;
 }
 .productsPageWrapper .grid-item {
   background-color: #0A0A0A;
-  border: 2px solid #00FFA3;
-  border-radius: 8px;
+  border: 0.125em solid #00FFA3;
+  border-radius: 0.5em;
 }
 .productsPageWrapper .grid-item .picture {
-  width: 300px;
+  width: 18.75em;
 }
 .productsPageWrapper .grid-item .productInfo {
   background-color: #000000;
-  padding: 20px;
-  border-radius: 0 0 8px 8px;
+  padding: 1.25em;
+  border-radius: 0 0 0.5em 0.5em;
 }
 .productsPageWrapper .grid-item .productInfo .topOfContainer {
-  height: 106px;
+  height: 7.3125em;
 }
 .productsPageWrapper .grid-item .productInfo .topOfContainer .name {
-  font-size: 18px;
-  margin-bottom: 10px;
+  font-size: 1.125em;
+  margin-bottom: 0.625em;
 }
 .productsPageWrapper .grid-item .productInfo .topOfContainer .description {
-  font-size: 14px;
+  font-size: 0.875em;
   color: #6C6C6C;
-  margin-bottom: 20px;
+  margin-bottom: 1.25em;
 }
 .productsPageWrapper .grid-item .productInfo .bottomOfContainer {
   display: flex;
@@ -240,17 +240,17 @@
   align-items: flex-end;
 }
 .productsPageWrapper .grid-item .productInfo .bottomOfContainer .price {
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 600;
-  margin-bottom: 1px;
+  margin-bottom: 0.0625em;
   font-family: "Inter", sans-serif;
 }
 .productsPageWrapper .grid-item .productInfo .bottomOfContainer button {
   font-family: "Roboto", sans-serif;
-  width: 98px;
-  height: 26px;
-  border-radius: 8px;
-  font-size: 14px;
+  width: 6.125em;
+  height: 1.625em;
+  border-radius: 0.5em;
+  font-size: 0.875em;
   font-weight: bold;
   color: #000000;
   background-color: #00FFA3;

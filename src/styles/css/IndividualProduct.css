@@ -4,13 +4,14 @@
   font-size: 1em;
   font-family: "Roboto", sans-serif;
   color: #FFFFFF;
-  margin-top: 40px;
+  margin-top: 2.5em;
 }
 .individualProductPageWrapper .topPart {
   display: flex;
 }
 .individualProductPageWrapper .topPart .allPictures {
-  width: 1000px;
+  width: 62.5em;
+  max-width: 75%;
   position: relative;
 }
 .individualProductPageWrapper .topPart .allPictures .previewPicture {
@@ -24,85 +25,85 @@
   cursor: pointer;
 }
 .individualProductPageWrapper .topPart .allPictures .previewPicture.others:hover {
-  transform: translateX(15px);
+  transform: translateX(0.9375em);
 }
 .individualProductPageWrapper .topPart .allPictures .smallPictures {
   position: absolute;
-  top: 40px;
-  left: 50px;
+  top: 2.5em;
+  left: 3.125em;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 0.625em;
   cursor: pointer;
 }
 .individualProductPageWrapper .topPart .allPictures .smallPictures .pictures, .individualProductPageWrapper .topPart .allPictures .smallPictures .previewPictureSmall {
-  width: 80px;
-  height: 80px;
-  border: 2px solid;
+  width: 5em;
+  height: 5em;
+  border: 0.125em solid;
   object-fit: cover;
 }
 .individualProductPageWrapper .topPart .info {
-  margin: 40px auto;
-  width: 290px;
+  margin: 2.5em auto;
+  width: 18.125em;
 }
 .individualProductPageWrapper .topPart .info .name {
-  font-size: 20px;
+  font-size: 1.25em;
   color: #00FFA3;
-  margin-bottom: 10px;
+  margin-bottom: 0.625em;
   font-weight: 400;
 }
 .individualProductPageWrapper .topPart .info .description {
-  font-size: 18px;
-  margin-bottom: 10px;
+  font-size: 1.125em;
+  margin-bottom: 0.625em;
 }
 .individualProductPageWrapper .topPart .info .stats {
-  padding-left: 16px;
-  font-size: 14px;
+  padding-left: 1em;
+  font-size: 0.875em;
   color: #8E8E8E;
-  margin-bottom: 20px;
+  margin-bottom: 1.25em;
 }
 .individualProductPageWrapper .topPart .info .stats .stat {
-  margin-bottom: 5px;
+  margin-bottom: 0.3125em;
 }
 .individualProductPageWrapper .topPart .info .price {
-  font-size: 22px;
-  margin-bottom: 30px;
+  font-size: 1.375em;
+  margin-bottom: 1.875em;
   font-family: "Inter", sans-serif;
 }
 .individualProductPageWrapper .topPart .info button {
   font-family: "Roboto", sans-serif;
   width: 100%;
-  height: 32px;
-  border-radius: 8px;
+  height: 2em;
+  border-radius: 0.5em;
   border: none;
   background-color: #00FFA3;
-  font-size: 17px;
+  font-size: 1.125em;
   font-weight: 900;
   color: #000000;
   cursor: pointer;
 }
 .individualProductPageWrapper .bottomPart {
-  margin: 40px 100px 20px 100px;
+  margin: 2.5em 6.25em 1.25em 6.25em;
 }
 .individualProductPageWrapper .bottomPart .title {
-  font-size: 22px;
+  font-size: 1.375em;
   font-weight: 400;
-  margin-bottom: 20px;
+  margin-bottom: 1.25em;
 }
 .individualProductPageWrapper .bottomPart .pair {
   width: 100%;
-  border-bottom: 1px solid #BCBCBC;
-  padding-bottom: 5px;
-  margin-bottom: 10px;
+  border-bottom: 0.0625em solid #BCBCBC;
+  padding-bottom: 0.3125em;
+  margin-bottom: 0.625em;
   display: flex;
   justify-content: flex-start;
 }
 .individualProductPageWrapper .bottomPart .pair .key {
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 500;
-  width: 230px;
+  width: 14.375em;
 }
 .individualProductPageWrapper .bottomPart .pair .value {
-  font-size: 16px;
+  font-size: 1em;
   color: #BCBCBC;
 }/*# sourceMappingURL=IndividualProduct.css.map */

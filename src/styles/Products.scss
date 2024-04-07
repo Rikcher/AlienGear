@@ -11,15 +11,15 @@
     .productsNavBar {
         display: flex;
         flex-direction: row;
-        margin: 20px 75px 40px 75px;
+        margin: 1.25em 4.6875em 2.5em 4.6875em; // 20px, 75px, 40px, 75px
         align-items: baseline;
-        gap: 72px;
+        gap: 4.5em; // 72px
 
         .buttons {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 15px;
+            gap: 0.9375em; // 15px
             cursor: pointer;
             transition: color 0.3s ease;
 
@@ -28,56 +28,56 @@
                 transition: background-color 0.3s ease;
             }
             .all {
-                width: 34px;
-                height: 34px;
+                width: 2.125em; // 34px
+                height: 2.125em; // 34px
                 mask: url("/products-page/allIcon.svg");
                 mask-size: cover;
             }
             .mice {
-                width: 33px;
-                height: 40px;
+                width: 2.0625em; // 33px
+                height: 2.5em; // 40px
                 mask: url("/products-page/miceIcon.svg");
                 mask-size: cover;
             }
             .keyboards {
-                width: 57px;
-                height: 40px;
+                width: 3.625em; // 57px
+                height: 2.5em; // 40px
                 mask: url("/products-page/keyboardsIcon.svg");
                 mask-size: cover;
             }
             .chairs {
-                width: 38px;
-                height: 60px;
+                width: 2.3125em; // 38px
+                height: 3.75em; // 60px
                 mask: url("/products-page/chairsIcon.svg");
                 mask-size: cover;
             }
             .pads {
-                width: 38px;
-                height: 28px;
+                width: 2.3125em; // 38px
+                height: 1.75em; // 28px
                 mask: url("/products-page/padsIcon.svg");
                 mask-size: cover;
             }
             .headsets {
-                width: 46px;
-                height: 50px;
+                width: 2.8125em; // 46px
+                height: 3.125em; // 50px
                 mask: url("/products-page/headsetsIcon.svg");
                 mask-size: cover;
             }
             .controllers {
-                width: 43px;
-                height: 30px;
+                width: 2.625em; // 43px
+                height: 1.875em; // 30px
                 mask: url("/products-page/controllersIcon.svg");
                 mask-size: cover;
             }
             .filter {
-                width: 34px;
-                height: 31px;
+                width: 2.125em; // 34px
+                height: 1.9375em; // 31px
                 mask: url("/products-page/filterIcon.svg");
                 mask-size: cover;
             }
 
             .text {
-                font-size: 22px;
+                font-size: 1.375em; // 22px
                 transition: color 0.3s ease;
             }
         }
@@ -88,50 +88,50 @@
             background-color: $main-primary;
         }
         .buttons.all {
-            margin-right: 68px;
+            margin-right: 4.375em; // 68px
         }
         .buttons.filter {
-            margin-left: 68px;
+            margin-left: 4.375em; // 68px
             position: relative;
 
             .filterFunctionality {
                 position: absolute;
-                width: 434px;
+                width: 26.5625em; // 434px
                 background-color: $main-black;
-                top: -18px;
-                right: -14px;
-                border-radius: 8px;
-                border: 1px solid $main-primary;
+                top: -1.125em; // -18px
+                right: -0.875em; // -14px
+                border-radius: 0.5em; // 8px
+                border: 0.0625em solid $main-primary; // 1px
                 display: flex;
 
                 .iconOver {
-                    width: 34px;
-                    height: 31px;
+                    width: 2.125em; // 34px
+                    height: 1.9375em; // 31px
                     mask: url("/products-page/filterIcon.svg");
                     mask-size: cover;
                     background-color: $main-primary;
                     position: absolute;
-                    right: 21px;
-                    top: 17px;
+                    right: 1.3125em; // 21px
+                    top: 1.0625em; // 17px
                 }
 
                 .sortBy{
-                    margin: 20px;
-                    max-width: 160px;
+                    margin: 1.25em; // 20px
+                    max-width: 10em; // 160px
 
                     .title {
-                        font-size: 18px;
+                        font-size: 1.125em; // 18px
                         font-weight: 600;
-                        margin-bottom: 15px;
+                        margin-bottom: 0.9375em; // 15px
                     }
 
                     .priceFilters {
                         button {
-                            font-size: 16px;
-                            margin-bottom: 4px;
-                            padding: 3px;
-                            margin-left: -3px;
-                            border-radius: 4px;
+                            font-size: 1em; // 16px
+                            margin-bottom: 0.625em; // 4px
+                            padding: 0.1875em; // 3px
+                            margin-left: -0.1875em; // -3px
+                            border-radius: 0.25em; // 4px
                             border: none;
                             color: $main-primary;
                             opacity: 50%;
@@ -142,21 +142,21 @@
                         .custom {
                             display: flex;
                             flex-direction: column;
-                            width: 138px;
+                            width: 8.5em; // 138px
 
                             .localTitlte {
-                                margin-bottom: 5px;
+                                margin-bottom: 0.3125em; // 5px
                             }
                             .cutsomPriceInputs {
                                 div {
                                     display: flex;
-                                    margin-bottom: 5px;
+                                    margin-bottom: 0.3125em; // 5px
                                     input {
-                                        max-width: 74px;
+                                        max-width: 4.6875em; // 74px
                                         font-family: "Init", sans-serif;
-                                        background-color: #00633F ;
+                                        background-color: #00633F;
                                         border: none;
-                                        padding-left: 5px;
+                                        padding-left: 0.3125em; // 5px
                                         color: white;
                                     }
                                     input::-webkit-outer-spin-button,
@@ -165,10 +165,10 @@
                                     margin: 0;
                                     }
                                     .from {
-                                        margin-right: 10px;
+                                        margin-right: 0.625em; // 10px
                                     }
                                     .to {
-                                        margin-right: 29px;
+                                        margin-right: 1.75em; // 29px
                                     }
                                 }
                             }
@@ -182,32 +182,32 @@
                 }
 
                 .productFilter {
-                    margin: 20px 0 0 0;
-                    max-width: 160px;
+                    margin: 1.25em 0 0 0;
+                    max-width: 10em; // 160px
 
                     .title {
-                        font-size: 18px;
+                        font-size: 1.125em; // 18px
                         font-weight: 600;
-                        margin-bottom: 15px;
+                        margin-bottom: 0.9375em; // 15px
                     }
                     .filterName{
-                        font-size: 16px;
-                        margin-bottom: 4px;
+                        font-size: 0.9375em; // 16px
+                        margin-bottom: 0.625em; // 4px
                     }
                     .noCategory, .noFilter {
                         color: #505050;
                     }
                     .specificFiltersContainer {
                         display: flex;
-                        gap: 7px;
+                        gap: 0.4375em; // 7px
                         flex-wrap: wrap;
                         .specificFilter {
-                            padding: 3px;
-                            margin-left: -3px;
-                            font-size: 16px;
+                            padding: 0.1875em; // 3px
+                            margin-left: -0.1875em; // -3px
+                            font-size: 0.9375em; // 16px
                             color: $main-primary;
                             opacity: 50%;
-                            border-radius: 4px;
+                            border-radius: 0.25em; // 4px
                         }
                         .specificFilter.active {
                             background-color: $main-primary;
@@ -226,35 +226,35 @@
     .productsContainer {
         display: grid;
         grid-template-columns: repeat(4, 1fr); /* 4 columns */
-        grid-gap: 19px; /* gap between items */
-        row-gap: 19px; /* gap between rows */
-        padding: 0 38px 20px 38px;
+        grid-gap: 1.1875em; /* gap between items */
+        row-gap: 1.1875em; /* gap between rows */
+        padding: 0 2.3125em 1.25em 2.3125em;
     }
     
     .grid-item {
-        background-color: #0A0A0A ;
-        border: 2px solid $main-primary;
-        border-radius: 8px;
+        background-color: #0A0A0A;
+        border: 0.125em solid $main-primary; // 2px
+        border-radius: 0.5em; // 8px
 
         .picture {
-            width: 300px;
+            width: 18.75em; // 300px
         }
 
         .productInfo {
             background-color: $main-black;
-            padding: 20px;
-            border-radius: 0 0 8px 8px;
+            padding: 1.25em; // 20px
+            border-radius: 0 0 0.5em 0.5em;
 
             .topOfContainer {
-                height: 106px;
+                height: 7.3125em; // 106px
                 .name {
-                    font-size: 18px;
-                    margin-bottom: 10px;
+                    font-size: 1.125em; // 18px
+                    margin-bottom: 0.625em; // 10px
                 }
                 .description {
-                    font-size: 14px;
+                    font-size: 0.875em; // 14px
                     color: #6C6C6C;
-                    margin-bottom: 20px;
+                    margin-bottom: 1.25em; // 20px
                 }
             }
 
@@ -264,17 +264,17 @@
                 align-items: flex-end;
 
                 .price {
-                    font-size: 16px;
+                    font-size: 1em; // 16px
                     font-weight: 600;
-                    margin-bottom: 1px;
+                    margin-bottom: 0.0625em; // 1px
                     font-family: "Inter", sans-serif;
                 }
                 button {
                     font-family: "Roboto", sans-serif;
-                    width: 98px;
-                    height: 26px;
-                    border-radius: 8px;
-                    font-size: 14px;
+                    width: 6.125em; // 98px
+                    height: 1.625em; // 26px
+                    border-radius: 0.5em; // 8px
+                    font-size: 0.875em; // 14px
                     font-weight: bold;
                     color: $main-black;
                     background-color: $main-primary;
