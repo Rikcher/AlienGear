@@ -14,7 +14,7 @@ export default async function handler(req, res) {
                 product_data: {
                     name: product.name,
                     description: product.description,
-                    images: [product.picture],
+                    images: [product.mainPicture],
                 },
                 unit_amount: Math.round(product.price * 100), // Convert price to cents
             },
