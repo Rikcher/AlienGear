@@ -14,29 +14,34 @@ const Cart = () => {
 
 
     // func to buy items
-    // const handleBuy = async () => {
+    const handleBuy = async () => {
 
-    //     const stripe = await stripePromise;
-    //     const response = await fetch('/api/create-checkout-session', {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //         },
-    //         body: JSON.stringify({ products }),
-    //     });
+        const stripe = await stripePromise;
+        const productsWithQuantities = products.map(product => ({
+            ...product,
+            quantity: quantities[product.name] || 1, // Use the quantity from state, default to 1 if not found
+        }));
+        
+        const response = await fetch('/api/create-checkout-session', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ products: productsWithQuantities }),
+        });
     
-    //     const session = await response.json();
-    //     console.log('Response:', session);
+        const session = await response.json();
+        console.log('Response:', session);
     
-    //     // Redirect to Stripe checkout page
-    //     const result = await stripe.redirectToCheckout({
-    //         sessionId: session.id,
-    //     });
+        // Redirect to Stripe checkout page
+        const result = await stripe.redirectToCheckout({
+            sessionId: session.id,
+        });
     
-    //     if (result.error) {
-    //         console.error(result.error.message);
-    //     }
-    // };
+        if (result.error) {
+            console.error(result.error.message);
+        }
+    };
 
     useEffect(() => {
         const fetchCartItems = async (user) => {

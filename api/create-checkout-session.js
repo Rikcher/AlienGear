@@ -18,9 +18,8 @@ export default async function handler(req, res) {
                 },
                 unit_amount: Math.round(product.price * 100), // Convert price to cents
             },
-            quantity: 1,
+            quantity: product.quantity, // Use the quantity from the product data
         }));
-
         try {
             const session = await stripeInstance.checkout.sessions.create({
                 payment_method_types: ['card'],
