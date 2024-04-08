@@ -1,6 +1,6 @@
 import '/src/styles/css/Cart.css'
 import React, { useState, useEffect } from 'react';
-import { getDatabase, ref, onValue, remove } from 'firebase/database';
+import { getDatabase, ref, onValue, remove, update } from 'firebase/database';
 import { auth } from '/src/firebase-config.jsx';
 import { loadStripe } from '@stripe/stripe-js'; 
 
@@ -31,7 +31,6 @@ const Cart = () => {
         });
     
         const session = await response.json();
-        console.log('Response:', session);
     
         // Redirect to Stripe checkout page
         const result = await stripe.redirectToCheckout({
@@ -59,7 +58,7 @@ const Cart = () => {
                             // Initialize quantities for each item
                             const initialQuantities = cartItemsArray.reduce((acc, item) => ({
                                 ...acc,
-                                [item.name]: 1
+                                [item.id]: item.quantity
                             }), {});
                             setQuantities(initialQuantities);
                         }
@@ -88,22 +87,45 @@ const Cart = () => {
         return () => unsubscribe();
     }, []);
 
-    const handleQuantityChange = (productName, change) => {
+    const updateQuantityInDatabase = async (productId, newQuantity) => {
+        try {
+            const database = getDatabase();
+            const quantityRef = ref(database, `carts/${user.uid}/${productId}`);
+            await update(quantityRef, { quantity: newQuantity });
+        } catch (err) {
+            console.log(err);
+        }
+    };
+    
+
+    const handleQuantityChange = (productId, change) => {
         setQuantities(prevQuantities => {
-            const newQuantity = (prevQuantities[productName] || 0) + change;
+            const newQuantity = (prevQuantities[productId] || 0) + change;
             // Ensure the new quantity is within the allowed range (1 to 9)
             if (newQuantity < 1) {
-                return { ...prevQuantities, [productName]: 1 };
+                return { ...prevQuantities, [productId]: 1 };
             } else if (newQuantity > 9) {
-                return { ...prevQuantities, [productName]: 9 };
+                return { ...prevQuantities, [productId]: 9 };
             } else {
-                return { ...prevQuantities, [productName]: newQuantity };
+                // Call the async function to update the database
+                updateQuantityInDatabase(productId, newQuantity).then(() => {
+                    // Update the state after the database update is successful
+                    setQuantities(prevQuantities => ({
+                        ...prevQuantities,
+                        [productId]: newQuantity
+                    }));
+                }).catch(error => {
+                    console.error('Error updating quantity in database:', error);
+                });
+    
+                // Return the previous state to avoid immediate state update
+                return prevQuantities;
             }
         });
     };
+    
 
     const handleDeleteProduct = async (productId) => {
-        console.log(productId)
         try {
             if (user) {
                 const database = getDatabase();
@@ -121,7 +143,7 @@ const Cart = () => {
         }
     };
 
-    const totalPrice = products.reduce((sum, product) => sum + product.price * (quantities[product.name] || 0), 0);
+    const totalPrice = products.reduce((sum, product) => sum + product.price * (quantities[product.id] || 0), 0);
 
     const totalItemCount = Object.values(quantities).reduce((sum, quantity) => sum + quantity, 0);
 
@@ -173,11 +195,11 @@ const Cart = () => {
                                     </div>
                                     <div className="buttons">
                                         <div className="qty">
-                                            <div className="minus" onClick={() => handleQuantityChange(product.name, -1)}>
+                                            <div className="minus" onClick={() => handleQuantityChange(product.id, -1)}>
                                                 <img src="/cart-page/minus.svg" alt="" />
                                             </div>
-                                            <p className='text'>{`Qty: ${quantities[product.name] || 0}`}</p>
-                                            <div className='plus' onClick={() => handleQuantityChange(product.name, 1)}>
+                                            <p className='text'>{`Qty: ${quantities[product.id] || 0}`}</p>
+                                            <div className='plus' onClick={() => handleQuantityChange(product.id, 1)}>
                                                 <img src="/cart-page/plus.svg" alt="" />
                                             </div>
                                         </div>

@@ -115,6 +115,7 @@ const Products = () => {
                 techSpecs: product.techSpecs ? product.techSpecs : {}, // Assuming techSpecs is a property of your product
                 price: parseInt(product.price),
                 mainPicture: product.mainPicture || product.pictures[0],
+                quantity: 1
                 });
                 if(isVisible) {
                     setIsBlue(true)
