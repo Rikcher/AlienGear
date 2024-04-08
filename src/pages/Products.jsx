@@ -102,10 +102,7 @@ const Products = () => {
         if (user) {
             const cartRef = ref(db, `carts/${user.uid}`);
             const snapshot = await get(cartRef);
-            const existingCartItems = snapshot.val() || {};
-            console.log(existingCartItems)
-            console.log(product.id)
-        
+            const existingCartItems = snapshot.val() || {};      
             // Check if the product is already in the cart
             const productExists = product.id in existingCartItems;
         
