@@ -19,7 +19,7 @@ const Cart = () => {
         const stripe = await stripePromise;
         const productsWithQuantities = products.map(product => ({
             ...product,
-            quantity: quantities[product.name] || 1, // Use the quantity from state, default to 1 if not found
+            quantity: quantities[product.id] || 1, // Use the quantity from state, default to 1 if not found
         }));
 
         const response = await fetch('/api/create-checkout-session', {
