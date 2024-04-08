@@ -21,7 +21,7 @@ const Cart = () => {
             ...product,
             quantity: quantities[product.name] || 1, // Use the quantity from state, default to 1 if not found
         }));
-        
+
         const response = await fetch('/api/create-checkout-session', {
             method: 'POST',
             headers: {
@@ -196,7 +196,7 @@ const Cart = () => {
             </div>
             <div className="rightPanel">
                 <div className="subtotal">Subtotal({auth.currentUser ? totalItemCount : "0"} items): <span className='boldPrice'>US${auth.currentUser ? totalPrice.toFixed(2) : "0"}</span></div>
-                <div className="checkoutButton">Proceed to checkout</div>
+                <div onClick={handleBuy} className="checkoutButton">Proceed to checkout</div>
             </div>
         </div>
     );
