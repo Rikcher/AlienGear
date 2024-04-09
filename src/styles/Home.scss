@@ -81,11 +81,10 @@
     color: $main-white;
     left: 44.29vw; //605
     bottom: 3.66vw; //50
-    transition: transform 0.3s ease, font-size 0.3s ease, color 0.3s ease;
+    transition: transform 0.3s ease, color 0.3s ease;
 }
 
 #ctaButton:hover {
-    font-size: 1.54vw;
     color: $main-primary;
     transform: scale(1.1);
 }
