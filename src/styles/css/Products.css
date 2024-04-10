@@ -9,7 +9,7 @@
 .productsPageWrapper .productsNavBar {
   display: flex;
   flex-direction: row;
-  margin: 1.25em 4.6875em 2.5em 4.6875em;
+  margin: 0 4.6875em 2.5em 4.6875em;
   align-items: baseline;
   gap: 4.5em;
 }
@@ -18,16 +18,16 @@
   flex-direction: column;
   align-items: center;
   gap: 0.9375em;
-  cursor: pointer;
   transition: color 0.3s ease;
+  cursor: pointer;
 }
 .productsPageWrapper .productsNavBar .buttons .icon {
   background-color: #FFFFFF;
   transition: background-color 0.3s ease;
 }
 .productsPageWrapper .productsNavBar .buttons .all {
-  width: 2.125em;
-  height: 2.125em;
+  width: 2.813em;
+  height: 2.813em;
   mask: url("/products-page/allIcon.svg");
   mask-size: cover;
 }
@@ -99,6 +99,7 @@
   border-radius: 0.5em;
   border: 0.0625em solid #00FFA3;
   display: flex;
+  cursor: auto;
 }
 .productsPageWrapper .productsNavBar .buttons.filter .filterFunctionality .iconOver {
   width: 2.125em;
@@ -107,17 +108,20 @@
   mask-size: cover;
   background-color: #00FFA3;
   position: absolute;
-  right: 1.3125em;
+  right: 1.295em;
   top: 1.0625em;
+  cursor: pointer;
 }
 .productsPageWrapper .productsNavBar .buttons.filter .filterFunctionality .sortBy {
   margin: 1.25em;
+  margin-bottom: 0.625em;
   max-width: 10em;
 }
 .productsPageWrapper .productsNavBar .buttons.filter .filterFunctionality .sortBy .title {
   font-size: 1.125em;
-  font-weight: 600;
+  font-weight: 700;
   margin-bottom: 0.9375em;
+  color: #00FFA3;
 }
 .productsPageWrapper .productsNavBar .buttons.filter .filterFunctionality .sortBy .priceFilters button {
   font-size: 1em;
@@ -126,8 +130,8 @@
   margin-left: -0.1875em;
   border-radius: 0.25em;
   border: none;
-  color: #00FFA3;
-  opacity: 50%;
+  color: #999999;
+  font-weight: 500;
   background-color: transparent;
   cursor: pointer;
   font-family: "Roboto", sans-serif;
@@ -145,41 +149,48 @@
   margin-bottom: 0.3125em;
 }
 .productsPageWrapper .productsNavBar .buttons.filter .filterFunctionality .sortBy .priceFilters .custom .cutsomPriceInputs div input {
+  border-radius: 8px;
   max-width: 4.6875em;
   font-family: "Init", sans-serif;
-  background-color: #00633F;
+  background-color: #b4b4b4;
   border: none;
   padding-left: 0.3125em;
-  color: white;
+  color: #000000;
 }
 .productsPageWrapper .productsNavBar .buttons.filter .filterFunctionality .sortBy .priceFilters .custom .cutsomPriceInputs div input::-webkit-outer-spin-button,
 .productsPageWrapper .productsNavBar .buttons.filter .filterFunctionality .sortBy .priceFilters .custom .cutsomPriceInputs div input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+.productsPageWrapper .productsNavBar .buttons.filter .filterFunctionality .sortBy .priceFilters .custom .cutsomPriceInputs div input::placeholder {
+  color: #5c5c5c;
+}
 .productsPageWrapper .productsNavBar .buttons.filter .filterFunctionality .sortBy .priceFilters .custom .cutsomPriceInputs div .from {
   margin-right: 0.625em;
 }
 .productsPageWrapper .productsNavBar .buttons.filter .filterFunctionality .sortBy .priceFilters .custom .cutsomPriceInputs div .to {
-  margin-right: 1.75em;
+  margin-right: 1.85em;
 }
 .productsPageWrapper .productsNavBar .buttons.filter .filterFunctionality .sortBy .priceFilters .active {
-  background-color: #00FFA3;
+  background-color: #FFFFFF;
   opacity: 100%;
   color: #000000;
 }
 .productsPageWrapper .productsNavBar .buttons.filter .filterFunctionality .productFilter {
-  margin: 1.25em 0 0 0;
+  margin: 1.25em 0;
   max-width: 10em;
 }
 .productsPageWrapper .productsNavBar .buttons.filter .filterFunctionality .productFilter .title {
+  color: #00FFA3;
   font-size: 1.125em;
-  font-weight: 600;
+  font-weight: 700;
   margin-bottom: 0.9375em;
 }
 .productsPageWrapper .productsNavBar .buttons.filter .filterFunctionality .productFilter .filterName {
+  color: #00FFA3;
   font-size: 0.9375em;
   margin-bottom: 0.625em;
+  font-weight: 600;
 }
 .productsPageWrapper .productsNavBar .buttons.filter .filterFunctionality .productFilter .noCategory, .productsPageWrapper .productsNavBar .buttons.filter .filterFunctionality .productFilter .noFilter {
   color: #505050;
@@ -193,12 +204,13 @@
   padding: 0.1875em;
   margin-left: -0.1875em;
   font-size: 0.9375em;
-  color: #00FFA3;
-  opacity: 50%;
+  color: #999999;
+  font-weight: 500;
   border-radius: 0.25em;
+  cursor: pointer;
 }
 .productsPageWrapper .productsNavBar .buttons.filter .filterFunctionality .productFilter .specificFiltersContainer .specificFilter.active {
-  background-color: #00FFA3;
+  background-color: #FFFFFF;
   opacity: 100%;
   color: #000000;
 }

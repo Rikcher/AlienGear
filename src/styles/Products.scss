@@ -11,7 +11,7 @@
     .productsNavBar {
         display: flex;
         flex-direction: row;
-        margin: 1.25em 4.6875em 2.5em 4.6875em; // 20px, 75px, 40px, 75px
+        margin: 0 4.6875em 2.5em 4.6875em; // 20px, 75px, 40px, 75px
         align-items: baseline;
         gap: 4.5em; // 72px
 
@@ -20,16 +20,16 @@
             flex-direction: column;
             align-items: center;
             gap: 0.9375em; // 15px
-            cursor: pointer;
             transition: color 0.3s ease;
+            cursor: pointer;
 
             .icon {
                 background-color: $main-white;
                 transition: background-color 0.3s ease;
             }
             .all {
-                width: 2.125em; // 34px
-                height: 2.125em; // 34px
+                width: 2.813em; // 34px
+                height: 2.813em; // 34px
                 mask: url("/products-page/allIcon.svg");
                 mask-size: cover;
             }
@@ -103,6 +103,7 @@
                 border-radius: 0.5em; // 8px
                 border: 0.0625em solid $main-primary; // 1px
                 display: flex;
+                cursor: auto;
 
                 .iconOver {
                     width: 2.125em; // 34px
@@ -111,18 +112,21 @@
                     mask-size: cover;
                     background-color: $main-primary;
                     position: absolute;
-                    right: 1.3125em; // 21px
+                    right: 1.295em; // 21px
                     top: 1.0625em; // 17px
+                    cursor: pointer;
                 }
 
                 .sortBy{
                     margin: 1.25em; // 20px
+                    margin-bottom: 0.625em;
                     max-width: 10em; // 160px
 
                     .title {
                         font-size: 1.125em; // 18px
-                        font-weight: 600;
+                        font-weight: 700;
                         margin-bottom: 0.9375em; // 15px
+                        color: $main-primary;
                     }
 
                     .priceFilters {
@@ -133,8 +137,8 @@
                             margin-left: -0.1875em; // -3px
                             border-radius: 0.25em; // 4px
                             border: none;
-                            color: $main-primary;
-                            opacity: 50%;
+                            color: #999999;
+                            font-weight: 500;
                             background-color: transparent;
                             cursor: pointer;
                             font-family: "Roboto", sans-serif;
@@ -152,47 +156,55 @@
                                     display: flex;
                                     margin-bottom: 0.3125em; // 5px
                                     input {
+                                        border-radius: 8px;
                                         max-width: 4.6875em; // 74px
                                         font-family: "Init", sans-serif;
-                                        background-color: #00633F;
+                                        background-color: #b4b4b4;
                                         border: none;
                                         padding-left: 0.3125em; // 5px
-                                        color: white;
+                                        color: $main-black;
+                                        
                                     }
                                     input::-webkit-outer-spin-button,
                                     input::-webkit-inner-spin-button {
                                     -webkit-appearance: none;
                                     margin: 0;
                                     }
+                                    input::placeholder {
+                                        color: #5c5c5c;
+                                    }
                                     .from {
                                         margin-right: 0.625em; // 10px
                                     }
                                     .to {
-                                        margin-right: 1.75em; // 29px
+                                        margin-right: 1.85em; // 29px
                                     }
                                 }
                             }
                         }
                     }
                     .priceFilters .active {
-                        background-color: $main-primary;
+                        background-color: $main-white;
                         opacity: 100%;
                         color: $main-black;
                     }
                 }
 
                 .productFilter {
-                    margin: 1.25em 0 0 0;
+                    margin: 1.25em 0;
                     max-width: 10em; // 160px
 
                     .title {
+                        color: $main-primary;
                         font-size: 1.125em; // 18px
-                        font-weight: 600;
+                        font-weight: 700;
                         margin-bottom: 0.9375em; // 15px
                     }
                     .filterName{
+                        color: $main-primary;
                         font-size: 0.9375em; // 16px
                         margin-bottom: 0.625em; // 4px
+                        font-weight: 600;
                     }
                     .noCategory, .noFilter {
                         color: #505050;
@@ -205,12 +217,13 @@
                             padding: 0.1875em; // 3px
                             margin-left: -0.1875em; // -3px
                             font-size: 0.9375em; // 16px
-                            color: $main-primary;
-                            opacity: 50%;
+                            color: #999999;
+                            font-weight: 500;
                             border-radius: 0.25em; // 4px
+                            cursor: pointer;
                         }
                         .specificFilter.active {
-                            background-color: $main-primary;
+                            background-color: $main-white;
                             opacity: 100%;
                             color: $main-black;
                         }

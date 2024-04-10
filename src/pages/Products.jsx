@@ -64,8 +64,13 @@ const Products = () => {
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (isFilterFunctionalityVisible && filterFunctionalityRef.current) {
+                
+                console.log(event.target)
                 // Check if the clicked element is not the filterFunctionality div or a descendant of it
-                if (filterFunctionalityRef.current !== event.target && !filterFunctionalityRef.current.contains(event.target)) {
+                if (
+                    (filterFunctionalityRef.current !== event.target && !filterFunctionalityRef.current.contains(event.target)) || // Click outside filter functionality
+                    (event.target.classList.contains('iconOver')) // Click on the iconOver
+                ) {
                     setIsFilterFunctionalityVisible(false);
                 }
             }
@@ -221,7 +226,7 @@ const Products = () => {
         setActiveFilter(prevFilter => prevFilter === filter ? 'default' : filter);
     };
     
-    
+    console.log(isFilterFunctionalityVisible)
 
     return ( 
         <div className='productsPageWrapper'>
