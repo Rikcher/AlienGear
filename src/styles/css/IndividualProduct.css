@@ -18,8 +18,34 @@
   width: 100%;
   position: relative;
 }
+.individualProductPageWrapper .topPart .allPictures .previewPicture.placeholder {
+  position: relative;
+  width: 100%;
+  height: 666px;
+}
+.individualProductPageWrapper .topPart .allPictures .loadingDisk {
+  position: absolute;
+  width: 2.5em;
+  height: 2.5em;
+  border-radius: 50%;
+  border: 0.25em solid #2F2F2F;
+  border-top: 0.25em solid #00FFA3;
+  animation: spin 1s linear infinite;
+  transform: translate(-50%, -50%);
+  top: 45%;
+  left: 50%;
+}
+@keyframes spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
 .individualProductPageWrapper .topPart .allPictures .previewPicture.others {
   position: absolute;
+  top: 0;
   left: 0;
   transition: transform 0.3s ease-in-out;
   cursor: pointer;
@@ -156,6 +182,41 @@
 .individualProductPageWrapper .bottomPart .pair .value {
   font-size: 1em;
   color: #BCBCBC;
+}
+.individualProductPageWrapper .topPart.placeholder {
+  height: 666px;
+}
+.individualProductPageWrapper .topPart.placeholder .allPictures {
+  width: 100%;
+  height: 100%;
+  background-color: #0A0A0A;
+}
+.individualProductPageWrapper .topPart.placeholder .info .name.placeholder {
+  background-color: #00FFA3;
+  width: 220px;
+  height: 24px;
+  border-radius: 9999px;
+}
+.individualProductPageWrapper .topPart.placeholder .info .description.placeholder, .individualProductPageWrapper .topPart.placeholder .info .description2.placeholder {
+  background-color: #FFFFFF;
+  width: 260px;
+  height: 22px;
+  border-radius: 9999px;
+}
+.individualProductPageWrapper .topPart.placeholder .info .description2.placeholder {
+  width: 80px;
+}
+.individualProductPageWrapper .topPart.placeholder .info .stats .stat.placeholder {
+  background-color: #8E8E8E;
+  width: 100px;
+  height: 17px;
+  border-radius: 9999px;
+}
+.individualProductPageWrapper .topPart.placeholder .info .price.placeholder {
+  background-color: #FFFFFF;
+  width: 100px;
+  height: 26px;
+  border-radius: 9999px;
 }
 .individualProductPageWrapper .errorMessage {
   position: fixed;

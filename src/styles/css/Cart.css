@@ -184,4 +184,39 @@
   color: #000000;
   padding: 5px 0;
   cursor: pointer;
+}
+.cartPageWrapper .errorMessage {
+  position: fixed;
+  left: calc(50vw - 11.688em);
+  bottom: -3.25em;
+  width: 23.375em;
+  height: 3.25em;
+  background-color: #FF2121;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: bottom 0.1s ease-out, opacity 0.1s ease; /* Animate the bottom property */
+  z-index: 999999;
+}
+.cartPageWrapper .errorMessage.show {
+  opacity: 100;
+  bottom: 0.625em; /* Final position on-screen */
+}
+.cartPageWrapper .errorMessage.blue {
+  background-color: #4558FF; /* Final position on-screen */
+}
+.cartPageWrapper .errorMessage.shake {
+  animation: shake 0.5s;
+}
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-5px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(5px);
+  }
 }/*# sourceMappingURL=Cart.css.map */

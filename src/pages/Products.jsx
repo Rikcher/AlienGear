@@ -1,8 +1,8 @@
 import'/src/styles/css/Products.css'
 import React, { useEffect, useState, useRef } from 'react';
-import { getDatabase, ref, onValue, set, get, push } from 'firebase/database';
-import { Link } from "react-router-dom";
-import { auth } from '/src/firebase-config.jsx'
+import { getDatabase, ref, onValue } from 'firebase/database';
+import ProductPlaceholder from '/src/components/ProductPlaceholder.jsx'
+import ProductItem from '/src/components/ProductItem.jsx'
 
 const Products = () => {
     const [products, setProducts] = useState([]);
@@ -12,15 +12,40 @@ const Products = () => {
     const [activeFilter, setActiveFilter] = useState('default');
     const [isFilterFunctionalityVisible, setIsFilterFunctionalityVisible] = useState(false);
     const filterFunctionalityRef = useRef(null);
+    const db = getDatabase();
+
     const [isVisible, setIsVisible] = useState(false);
     const [errorText, setErrorText] = useState("");
     const [isBlue, setIsBlue] = useState(false);
     const [shake, setShake] = useState(false)
+    const [hasBeenShown, setHasBeenShown] = useState(false); // New state to track if the error message has been shown
+    const handleError = (text, isVisible, isBlue) => {
+        setErrorText(text);
+        setIsVisible(isVisible);
+        setIsBlue(isBlue);
+        setHasBeenShown(true);
+        // Check if the error message has been shown at least once
+        if (hasBeenShown && isVisible) {
+            setShake(true);
+            setTimeout(() => {
+                setShake(false);
+            }, 500);
+        }
+    };
 
-
-
-
-    const db = getDatabase();
+    useEffect(() => {
+        if (errorText) {
+            setIsVisible(true);
+            const timer = setTimeout(() => {
+                setIsVisible(false);
+                setTimeout(() => {
+                    setIsBlue(false);
+                }, 100) // delay for 0.1s so it doesnt flicker back to red instantly as it disappears
+                setErrorText("");
+            }, 5000);
+            return () => clearTimeout(timer);
+        }
+    }, [errorText]);
 
 
     useEffect(() => {
@@ -64,8 +89,6 @@ const Products = () => {
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (isFilterFunctionalityVisible && filterFunctionalityRef.current) {
-                
-                console.log(event.target)
                 // Check if the clicked element is not the filterFunctionality div or a descendant of it
                 if (
                     (filterFunctionalityRef.current !== event.target && !filterFunctionalityRef.current.contains(event.target)) || // Click outside filter functionality
@@ -85,82 +108,6 @@ const Products = () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
     }, [isFilterFunctionalityVisible, filterFunctionalityRef]);
-
-    //when error message trigerd this function will make sure that it popup for 5s and then disappear
-    useEffect(() => {
-        if (errorText) {
-            setIsVisible(true);
-            const timer = setTimeout(() => {
-                setIsVisible(false);
-                setTimeout(() => {
-                    setIsBlue(false);
-                }, 100) // delay for 0.1s so it doesnt flicker back to red instantly as it disappears
-                setErrorText("");
-            }, 5000);
-            return () => clearTimeout(timer);
-        }
-    }, [errorText]);
-    
-    
-    const addToCart = async (product) => {
-        const user = auth.currentUser;
-        if (user) {
-            const cartRef = ref(db, `carts/${user.uid}`);
-            const snapshot = await get(cartRef);
-            const existingCartItems = snapshot.val() || {};      
-            // Check if the product is already in the cart
-            const productExists = product.id in existingCartItems;
-        
-            if (!productExists) {
-                // If the product is not in the cart, add it
-                await set(ref(db, `carts/${user.uid}/${product.id}`), {
-                id: product.id,
-                name: product.name,
-                description: product.description,
-                techSpecs: product.techSpecs ? product.techSpecs : {}, // Assuming techSpecs is a property of your product
-                price: parseInt(product.price),
-                mainPicture: product.mainPicture || product.pictures[0],
-                quantity: 1
-                });
-                if(isVisible) {
-                    setIsBlue(true)
-                    setErrorText('Product added to cart')
-                    setShake(true);
-                    // After a short delay, remove the shake class
-                    setTimeout(() => {
-                        setShake(false);
-                    }, 500);
-                } else {
-                    setIsBlue(true)
-                    setErrorText('Product added to cart')
-                }
-            } else {
-                if (isVisible) {
-                    setIsBlue(false)
-                    setErrorText('Product is already in the cart')
-                    setShake(true);
-                    // After a short delay, remove the shake class
-                    setTimeout(() => {
-                        setShake(false);
-                    }, 500);
-                } else {
-                    setErrorText('Product is already in the cart')
-                }
-            }
-        } else {
-            if (isVisible) {
-                setIsBlue(false)
-                setErrorText('Please log in first')
-                setShake(true);
-                // After a short delay, remove the shake class
-                setTimeout(() => {
-                    setShake(false);
-                }, 500);
-            } else {
-                setErrorText('Please log in first')
-            }
-        }
-        };
 
 
     // Function to handle category filter
@@ -225,8 +172,6 @@ const Products = () => {
     const toggleFilter = (filter) => {
         setActiveFilter(prevFilter => prevFilter === filter ? 'default' : filter);
     };
-    
-    console.log(isFilterFunctionalityVisible)
 
     return ( 
         <div className='productsPageWrapper'>
@@ -343,23 +288,13 @@ const Products = () => {
             </div>
             {/* ******************************************************************************* */}
             <div className="productsContainer">
-            {sortedProducts.map(product => (
-                <div key={product.id} className="grid-item">
-                    <Link to={`/products/${product.id}`}>
-                        <img className='picture' src={product.mainPicture || product.pictures[0]} alt={product.name} />
-                    </Link>
-                    <div className="productInfo">
-                        <div className="topOfContainer">
-                            <p className='name'>{product.name}</p>
-                            <p className='description'>{product.description}</p>
-                        </div>
-                        <div className="bottomOfContainer">
-                            <p className='price'>US${product.price}</p>
-                            <button onClick={() => addToCart(product)}>Add to cart</button>
-                        </div>
-                    </div>
-                </div>
-            ))}
+                {sortedProducts.length > 0 ? (
+                    sortedProducts.map(product => (
+                        <ProductItem key={product.id} product={product} onError={handleError} />
+                    ))
+                ) : (
+                    Array(10).fill().map((_, index) => <ProductPlaceholder key={index} />) // Render 10 placeholders as an example
+                )}
             </div>
 
             <div className={`errorMessage ${isBlue ? 'blue' : ''} ${isVisible ? 'show' : ''} ${shake ? 'shake' : ''}`}>{errorText}</div>

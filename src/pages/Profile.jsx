@@ -168,6 +168,7 @@ const Profile = () => {
                     ) : (
                         <>
                             <input
+                                type='text'
                                 maxLength="40"
                                 placeholder='Enter new username'
                                 className='inputField'

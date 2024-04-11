@@ -13,7 +13,7 @@ function Home() {
       <img rel="preload" draggable="false" id='headset' src="/home-page/HomePageHeadsetBG.svg" alt="Floating headset" />    
       <img rel="preload" draggable="false" id='keyboard' src="/home-page/HomePageKeyboardBG.svg" alt="Floating keyboard" />    
     </div>
-    <Link id='ctaButton' to="#">Shop Now</Link>
+    <Link id='ctaButton' to="/products">Shop Now</Link>
     </>
   )
 }

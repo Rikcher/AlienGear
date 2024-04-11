@@ -8,6 +8,7 @@
 }
 .wrapper #aboutUsPageUfo {
   height: 26.278em;
+  width: auto;
 }
 .wrapper .text {
   display: flex;

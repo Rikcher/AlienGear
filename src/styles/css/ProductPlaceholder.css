@@ -1,0 +1,59 @@
+.grid-item.placeholder {
+  background-color: #0A0A0A;
+  border: 0.125em solid #00FFA3;
+  border-radius: 0.5em;
+  width: 300.5px;
+}
+.grid-item.placeholder .picture-placeholder {
+  width: 18.75em;
+  height: 18.75em;
+}
+.grid-item.placeholder .productInfo {
+  background-color: #000000;
+  padding: 1.25em;
+  border-radius: 0.5em;
+}
+.grid-item.placeholder .productInfo .topOfContainer {
+  height: 7.3125em;
+}
+.grid-item.placeholder .productInfo .topOfContainer .name {
+  background-color: #c4c4c4;
+  border-radius: 99999px;
+  width: 100px;
+  height: 22px;
+  margin-bottom: 0.625em;
+}
+.grid-item.placeholder .productInfo .topOfContainer .description, .grid-item.placeholder .productInfo .topOfContainer .description2 {
+  background-color: #555555;
+  border-radius: 99999px;
+  width: 200px;
+  height: 17px;
+  margin-bottom: 1.25em;
+}
+.grid-item.placeholder .productInfo .topOfContainer .description2 {
+  width: 40px;
+}
+.grid-item.placeholder .productInfo .bottomOfContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.grid-item.placeholder .productInfo .bottomOfContainer .price {
+  background-color: #c4c4c4;
+  border-radius: 99999px;
+  width: 75px;
+  height: 20px;
+  margin-bottom: 0.0625em;
+}
+.grid-item.placeholder .productInfo .bottomOfContainer button {
+  font-family: "Roboto", sans-serif;
+  width: 6.125em;
+  height: 1.625em;
+  border-radius: 0.5em;
+  font-size: 0.975em;
+  font-weight: bold;
+  color: #000000;
+  background-color: #00FFA3;
+  border: none;
+  cursor: pointer;
+}/*# sourceMappingURL=ProductPlaceholder.css.map */

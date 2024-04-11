@@ -19,6 +19,7 @@ const IndividualProduct = () => {
     const [errorText, setErrorText] = useState("");
     const [isBlue, setIsBlue] = useState(false);
     const [shake, setShake] = useState(false)
+    const [imageLoaded, setImageLoaded] = useState(false);
 
     useEffect(() => {
         const fetchProduct = () => {
@@ -171,63 +172,83 @@ const IndividualProduct = () => {
         });
     }
 
-    if (!product) {
-        return <div style={{color: "white"}}>Loading...</div>;
-    }
+    // if (!product) {
+    //     return <div style={{color: "white"}}>Loading...</div>;
+    // }
     
     return (
         <div className='individualProductPageWrapper'>
+            {product ? (
+            <>
             <div className="topPart">
                 <div className="allPictures">
                     {product.previewPicture ? (
-                        <img
-                        className='previewPicture'
-                        src={selectedPicture.url}
-                        alt={product.name}
-                        style={{ borderColor: selectedPicture.borderColor }}
-                        />
-                    ) : (
-                        <img
-                        className={`previewPicture ${animateImage ? 'fadeIn' : ''}`}
-                        src={product.pictures[product.itemId]}
-                        alt={product.name}
-                        style={{ 
-                            width: "auto",
-                            zIndex: `${product.pictures.length + 1}`
-                        }}
-                        onLoad={() => {
-                            // Set a timeout to reset the animateImage state after 1 second
-                            setTimeout(() => {
-                                setAnimateImage(false);
-                            }, 500); // 1000 milliseconds = 1 second
-                        }}
-                        />
-                    )}
-                    {product.otherPictures ? (
-                    <div className='smallPictures'>
-                        <div id="backgroundHoverEffect"></div>
-                        <div id="selectedPictureIndicator"></div>
-                        <img className='previewPictureSmall' src={product.previewPicture} alt=""
-                        style={{ borderColor: selectedPicture.url === product.previewPicture ? '#00FFA3' : '#6C6C6C' }}
-                        onClick={() => (setSelectedPicture({ url: product.previewPicture, borderColor: '$main-primary' }), handleImageClick(0))}
-                        onMouseEnter={() => handleImageHover(0)}
-                        />
-                        {product.otherPictures.map((picture, index) => (
+                        <>
                             <img
-                            id= {index}
-                            key={index}
-                            className='pictures'
-                            src={picture}
-                            alt={product.name}
-                            style={{ borderColor: selectedPicture.url === picture ? '#00FFA3' : '#6C6C6C' }}
-                            onClick={() => (setSelectedPicture({ url: picture, borderColor: '$main-primary' }), handleImageClick(index))}
-                            onMouseEnter={() => handleImageHover(index)}
+                                className='previewPicture'
+                                src={selectedPicture.url}
+                                alt={product.name}
+                                onLoad={() => setImageLoaded(true)}
+                                style={{ 
+                                    borderColor: selectedPicture.borderColor,
+                                    display: imageLoaded ? 'block' : 'none'
+                                }}
                             />
-                        ))}
-                    </div>
+                            {!imageLoaded && 
+                                <div className='previewPicture placeholder'>
+                                    <p className='loadingDisk'></p>
+                                </div>}
+                        </>
+                    ) : (
+                        <>
+                            <img
+                            className={`previewPicture ${animateImage ? 'fadeIn' : ''}`}
+                            src={product.pictures[product.itemId]}
+                            alt={product.name}
+                            style={{ 
+                                width: "auto",
+                                zIndex: `${product.pictures.length + 1}`,
+                                display: imageLoaded ? 'block' : 'none'
+                            }}
+                            onLoad={() => {
+                                setImageLoaded(true)
+                                setTimeout(() => {
+                                    setAnimateImage(false);
+                                }, 500);
+                            }}
+                            />
+                            {!imageLoaded && 
+                                <div className='previewPicture placeholder'>
+                                    <p className='loadingDisk'></p>
+                                </div>}
+                        </>
+                    )}
+
+                    {product.otherPictures ? (
+                        <div className='smallPictures'>
+                            <div id="backgroundHoverEffect"></div>
+                            <div id="selectedPictureIndicator"></div>
+                            <img className='previewPictureSmall' src={product.previewPicture} alt=""
+                            style={{ borderColor: selectedPicture.url === product.previewPicture ? '#00FFA3' : '#6C6C6C' }}
+                            onClick={() => (setSelectedPicture({ url: product.previewPicture, borderColor: '$main-primary' }), handleImageClick(0))}
+                            onMouseEnter={() => handleImageHover(0)}
+                            />
+                            {product.otherPictures.map((picture, index) => (
+                                <img
+                                id= {index}
+                                key={index}
+                                className='pictures'
+                                src={picture}
+                                alt={product.name}
+                                style={{ borderColor: selectedPicture.url === picture ? '#00FFA3' : '#6C6C6C' }}
+                                onClick={() => (setSelectedPicture({ url: picture, borderColor: '$main-primary' }), handleImageClick(index))}
+                                onMouseEnter={() => handleImageHover(index)}
+                                />
+                            ))}
+                        </div>
                     ) : (
                         product.pictures
-                            .filter(picture => picture !== product.pictures[product.itemId]) // Filter out the picture that is already used
+                            .filter(picture => picture !== product.pictures[product.itemId])
                             .map((picture, index) => (
                                 <img
                                     key={index}
@@ -237,7 +258,7 @@ const IndividualProduct = () => {
                                     style={{ 
                                         width: "auto",
                                         left: `${40 + (index * 40)}px`,
-                                        zIndex: `${product.pictures.length - index}` // Start with 10px and increase by 10px for each subsequent picture
+                                        zIndex: `${product.pictures.length - index}`
                                     }}
                                     onClick={() => handleImageClickPads(picture)}
                                 />
@@ -292,6 +313,47 @@ const IndividualProduct = () => {
             </div>
 
             <div className={`errorMessage ${isBlue ? 'blue' : ''} ${isVisible ? 'show' : ''} ${shake ? 'shake' : ''}`}>{errorText}</div>
+            </>
+        ) : 
+        <>
+            <div className="topPart placeholder">
+                <div className="allPictures">
+                    <p className='loadingDisk'></p>
+                </div>
+                <div className="info" id='infoContainer'>
+                    <h2 className='name placeholder'></h2>
+                    <p className='description placeholder'></p>
+                    <p className='description2 placeholder'></p>
+                    <ul className='stats'>
+                        <li className='stat placeholder'></li>
+                        <li className='stat placeholder'></li>
+                        <li className='stat placeholder'></li>
+                    </ul>
+                    <p className="price placeholder">US$0</p>
+                    <button>Add to cart</button>
+                </div>
+            </div>
+            <div className='bottomPart'>
+                <h2 className="title">TECH SPECS</h2>
+                    <div className="pair">
+                        <p className="key">SIZE</p>
+                        <p className="value">loading</p>
+                    </div>
+                    <div className="pair">
+                        <p className="key">MATERIAL</p>
+                        <p className="value">loading</p>
+                    </div>
+                    <div className="pair">
+                        <p className="key">THICKNESS</p>
+                        <p className="value">loading</p>
+                    </div>
+                    <div className="pair">
+                        <p className="key">WEIGHT</p>
+                        <p className="value">loading</p>
+                    </div>
+            </div>
+        </>
+        }
         </div>
     );
 

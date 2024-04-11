@@ -11,10 +11,27 @@ const Cart = () => {
     const [quantities, setQuantities] = useState({}); // State to track quantity of each product
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true); // Add loading state
+    const [isVisible, setIsVisible] = useState(false);
+    const [errorText, setErrorText] = useState("");
+    const [shake, setShake] = useState(false)
 
 
     // func to buy items
     const handleBuy = async () => {
+        if (!user) {
+            if (isVisible) {
+                setErrorText('Please log in first')
+                setShake(true);
+                // After a short delay, remove the shake class
+                setTimeout(() => {
+                    setShake(false);
+                }, 500);
+                return
+            } else {
+                setErrorText('Please log in first')
+                return
+            }
+        }
 
         const stripe = await stripePromise;
         const productsWithQuantities = products.map(product => ({
@@ -86,6 +103,20 @@ const Cart = () => {
         // Clean up the observer when the component unmounts
         return () => unsubscribe();
     }, []);
+
+    useEffect(() => {
+        if (errorText) {
+            setIsVisible(true);
+            const timer = setTimeout(() => {
+                setIsVisible(false);
+                setTimeout(() => {
+                    setIsBlue(false);
+                }, 100) // delay for 0.1s so it doesnt flicker back to red instantly as it disappears
+                setErrorText("");
+            }, 5000);
+            return () => clearTimeout(timer);
+        }
+    }, [errorText]);
 
     const updateQuantityInDatabase = async (productId, newQuantity) => {
         try {
@@ -220,6 +251,8 @@ const Cart = () => {
                 <div className="subtotal">Subtotal({auth.currentUser ? totalItemCount : "0"} items): <span className='boldPrice'>US${auth.currentUser ? totalPrice.toFixed(2) : "0"}</span></div>
                 <div onClick={handleBuy} className="checkoutButton">Proceed to checkout</div>
             </div>
+
+            <div className={`errorMessage ${isVisible ? 'show' : ''} ${shake ? 'shake' : ''}`}>{errorText}</div>
         </div>
     );
     

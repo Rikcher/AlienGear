@@ -85,7 +85,7 @@ nav {
   transform: scaleX(1);
 }
 .navLinks .button:hover .link.text {
-  transform: translateY(-0.333em);
+  transform: translateY(-7px);
   color: #FFFFFF;
 }
 .navLinks .button:hover .link.icon div {

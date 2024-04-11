@@ -221,43 +221,68 @@
   row-gap: 1.1875em; /* gap between rows */
   padding: 0 2.3125em 1.25em 2.3125em;
 }
-.productsPageWrapper .grid-item {
+.productsPageWrapper .productsContainer .grid-item {
   background-color: #0A0A0A;
   border: 0.125em solid #00FFA3;
   border-radius: 0.5em;
 }
-.productsPageWrapper .grid-item .picture {
+.productsPageWrapper .productsContainer .grid-item .picture {
   width: 18.75em;
 }
-.productsPageWrapper .grid-item .productInfo {
+.productsPageWrapper .productsContainer .grid-item .picture.placeholder {
+  width: 18.75em;
+  height: 18.75em;
+  position: relative;
+}
+.productsPageWrapper .productsContainer .grid-item .loadingDisk {
+  position: absolute;
+  width: 2.5em;
+  height: 2.5em;
+  border-radius: 50%;
+  border: 0.25em solid #2F2F2F;
+  border-top: 0.25em solid #00FFA3;
+  animation: spin 1s linear infinite;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+}
+@keyframes spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+.productsPageWrapper .productsContainer .grid-item .productInfo {
   background-color: #000000;
   padding: 1.25em;
   border-radius: 0 0 0.5em 0.5em;
 }
-.productsPageWrapper .grid-item .productInfo .topOfContainer {
+.productsPageWrapper .productsContainer .grid-item .productInfo .topOfContainer {
   height: 7.3125em;
 }
-.productsPageWrapper .grid-item .productInfo .topOfContainer .name {
+.productsPageWrapper .productsContainer .grid-item .productInfo .topOfContainer .name {
   font-size: 1.125em;
   margin-bottom: 0.625em;
 }
-.productsPageWrapper .grid-item .productInfo .topOfContainer .description {
+.productsPageWrapper .productsContainer .grid-item .productInfo .topOfContainer .description {
   font-size: 0.875em;
   color: #6C6C6C;
   margin-bottom: 1.25em;
 }
-.productsPageWrapper .grid-item .productInfo .bottomOfContainer {
+.productsPageWrapper .productsContainer .grid-item .productInfo .bottomOfContainer {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
 }
-.productsPageWrapper .grid-item .productInfo .bottomOfContainer .price {
+.productsPageWrapper .productsContainer .grid-item .productInfo .bottomOfContainer .price {
   font-size: 1em;
   font-weight: 600;
   margin-bottom: 0.0625em;
   font-family: "Inter", sans-serif;
 }
-.productsPageWrapper .grid-item .productInfo .bottomOfContainer button {
+.productsPageWrapper .productsContainer .grid-item .productInfo .bottomOfContainer button {
   font-family: "Roboto", sans-serif;
   width: 6.125em;
   height: 1.625em;
