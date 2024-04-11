@@ -36,14 +36,48 @@
                 left: 3.125em; // 50px
                 display: flex;
                 flex-direction: column;
-                gap: 0.625em; // 10px
                 cursor: pointer;
+                z-index: 1;
 
                 .pictures, .previewPictureSmall {
                     width: 5em; // 80px
                     height: 5em; // 80px
-                    border: 0.125em solid; // 2px
                     object-fit: cover;
+                    margin: 5px 0;
+                }
+
+                #backgroundHoverEffect {
+                    z-index: -1;
+                    top: 3px;
+                    left: -2px;
+                    position: absolute;
+                    width: 84px;
+                    height: 84px;
+                    background-color: $main-primary;
+                    opacity: 50%;
+                    transition: transform 0.3s ease;
+                }
+                #selectedPictureIndicator {
+                    top: 3px;
+                    left: 84px;
+                    position: absolute;
+                    width: 3px;
+                    height: 84px;
+                    background-color: $main-primary;
+                    transition: transform 0.2s ease;
+                }
+            }
+
+            .fadeIn {
+                animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+            }
+            
+            @keyframes slide-right {
+                0% {
+                    transform: translateX(-100px);
+                }
+                100% {
+                    transform: translateX(0);
                 }
             }
         }
@@ -51,6 +85,8 @@
         .info {
             margin: 2.5em auto; // 40px
             width: 18.125em; // 290px
+            display: flex;
+            flex-direction: column;
 
             .name {
                 font-size: 1.25em; // 20px
@@ -87,6 +123,24 @@
                 font-weight: 900;
                 color: $main-black;
                 cursor: pointer;
+            }
+            #goToTechSpecsButton {
+                display: flex;
+                justify-content: center;
+                position: fixed;
+                margin-top: auto;
+                bottom: 20px;
+                right: 109px;
+                color: #8E8E8E;
+                align-items: center;
+                cursor: pointer;
+
+                div {
+                    width: 24px;
+                    height: 24px;
+                    mask: url("/public/individualProduct-page/arrow-down.svg");
+                    background-color: #8E8E8E;
+                }
             }
         }
     }

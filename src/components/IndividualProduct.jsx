@@ -14,6 +14,7 @@ const IndividualProduct = () => {
         url: 'default-preview-picture-url',
         borderColor: '#6C6C6C' // Default border color
     });
+    const [animateImage, setAnimateImage] = useState(false);
     const [isVisible, setIsVisible] = useState(false);
     const [errorText, setErrorText] = useState("");
     const [isBlue, setIsBlue] = useState(false);
@@ -28,6 +29,7 @@ const IndividualProduct = () => {
                     const productData = snapshot.val();
                     const productWithId = { ...productData, itemId };
                     setProduct(productWithId);
+                    setAnimateImage(true);
                 });
             } else {
                 const dbRef = ref(db, `products/${category}/${itemId}`);
@@ -42,6 +44,7 @@ const IndividualProduct = () => {
                     setSelectedPicture({ url: productData.previewPicture, borderColor: '#6C6C6C' });
                 });
             }
+            
         };
 
         fetchProduct();
@@ -122,10 +125,51 @@ const IndividualProduct = () => {
         }
     };
 
-    const handleImageClick = (pictureUrl) => {
+    async function toggleButtonPosition() {
+        const infoContainer = document.getElementById('infoContainer');
+        if (!infoContainer) {
+            return;
+        }
+        const infoContainerBottom = infoContainer.getBoundingClientRect().bottom;
+        const button = document.getElementById('goToTechSpecsButton');
+    
+        // Check if the bottom of the info container is within the viewport
+        if (window.innerHeight - 20 >= infoContainerBottom) {
+            // If yes, switch to static position
+            button.style.position = 'static';
+
+        } else {
+            // If not, switch to fixed position
+            button.style.position = 'fixed';
+        }
+    }
+
+    window.addEventListener('scroll', toggleButtonPosition);
+    toggleButtonPosition();
+
+    const handleImageClickPads = (pictureUrl) => {
         const pictureIndex = product?.pictures.findIndex(picture => picture === pictureUrl);
         navigate(`/products/pads-${pictureIndex}`);
     };
+
+    const handleImageClick = (itemId) => {
+        const indicator = document.getElementById("selectedPictureIndicator")
+        const translateYValue = (90 * itemId);
+        indicator.style.transform = `translateY(${translateYValue}px)`;
+    };
+
+    const handleImageHover = (itemId) => {
+        const hoverEffect = document.getElementById("backgroundHoverEffect")
+        const translateYValue = (90 * itemId);
+        hoverEffect.style.transform = `translateY(${translateYValue}px)`;
+    }
+
+    const handleGoToTSClick = () => {
+        window.scrollTo({
+            top: document.body.scrollHeight, // Scroll to the bottom of the page
+            behavior: 'smooth' // Smooth scrolling
+        });
+    }
 
     if (!product) {
         return <div style={{color: "white"}}>Loading...</div>;
@@ -144,29 +188,40 @@ const IndividualProduct = () => {
                         />
                     ) : (
                         <img
-                        className='previewPicture'
+                        className={`previewPicture ${animateImage ? 'fadeIn' : ''}`}
                         src={product.pictures[product.itemId]}
                         alt={product.name}
                         style={{ 
                             width: "auto",
                             zIndex: `${product.pictures.length + 1}`
-                    }}
+                        }}
+                        onLoad={() => {
+                            // Set a timeout to reset the animateImage state after 1 second
+                            setTimeout(() => {
+                                setAnimateImage(false);
+                            }, 500); // 1000 milliseconds = 1 second
+                        }}
                         />
                     )}
                     {product.otherPictures ? (
                     <div className='smallPictures'>
+                        <div id="backgroundHoverEffect"></div>
+                        <div id="selectedPictureIndicator"></div>
                         <img className='previewPictureSmall' src={product.previewPicture} alt=""
                         style={{ borderColor: selectedPicture.url === product.previewPicture ? '#00FFA3' : '#6C6C6C' }}
-                        onClick={() => setSelectedPicture({ url: product.previewPicture, borderColor: '$main-primary' })}
+                        onClick={() => (setSelectedPicture({ url: product.previewPicture, borderColor: '$main-primary' }), handleImageClick(0))}
+                        onMouseEnter={() => handleImageHover(0)}
                         />
                         {product.otherPictures.map((picture, index) => (
                             <img
+                            id= {index}
                             key={index}
                             className='pictures'
                             src={picture}
                             alt={product.name}
                             style={{ borderColor: selectedPicture.url === picture ? '#00FFA3' : '#6C6C6C' }}
-                            onClick={() => setSelectedPicture({ url: picture, borderColor: '$main-primary' })}
+                            onClick={() => (setSelectedPicture({ url: picture, borderColor: '$main-primary' }), handleImageClick(index))}
+                            onMouseEnter={() => handleImageHover(index)}
                             />
                         ))}
                     </div>
@@ -184,12 +239,12 @@ const IndividualProduct = () => {
                                         left: `${40 + (index * 40)}px`,
                                         zIndex: `${product.pictures.length - index}` // Start with 10px and increase by 10px for each subsequent picture
                                     }}
-                                    onClick={() => handleImageClick(picture)}
+                                    onClick={() => handleImageClickPads(picture)}
                                 />
                             ))
                     )}
                 </div>
-                <div className="info">
+                <div className="info" id='infoContainer'>
                     <h2 className='name'>{product.name}</h2>
                     <p className='description'>{product.description}</p>
                     <ul className='stats'>
@@ -199,6 +254,10 @@ const IndividualProduct = () => {
                     </ul>
                     <p className="price">US${product.price}</p>
                     <button onClick={() => addToCart(product)}>Add to cart</button>
+                    <div id="goToTechSpecsButton" onClick={() => handleGoToTSClick()}>
+                        <p>See tech specs</p>
+                        <div></div>
+                    </div>
                 </div>
             </div>
             <div className='bottomPart'>

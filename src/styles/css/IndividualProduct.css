@@ -33,18 +33,51 @@
   left: 3.125em;
   display: flex;
   flex-direction: column;
-  gap: 0.625em;
   cursor: pointer;
+  z-index: 1;
 }
 .individualProductPageWrapper .topPart .allPictures .smallPictures .pictures, .individualProductPageWrapper .topPart .allPictures .smallPictures .previewPictureSmall {
   width: 5em;
   height: 5em;
-  border: 0.125em solid;
   object-fit: cover;
+  margin: 5px 0;
+}
+.individualProductPageWrapper .topPart .allPictures .smallPictures #backgroundHoverEffect {
+  z-index: -1;
+  top: 3px;
+  left: -2px;
+  position: absolute;
+  width: 84px;
+  height: 84px;
+  background-color: #00FFA3;
+  opacity: 50%;
+  transition: transform 0.3s ease;
+}
+.individualProductPageWrapper .topPart .allPictures .smallPictures #selectedPictureIndicator {
+  top: 3px;
+  left: 84px;
+  position: absolute;
+  width: 3px;
+  height: 84px;
+  background-color: #00FFA3;
+  transition: transform 0.2s ease;
+}
+.individualProductPageWrapper .topPart .allPictures .fadeIn {
+  animation: slide-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+@keyframes slide-right {
+  0% {
+    transform: translateX(-100px);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 .individualProductPageWrapper .topPart .info {
   margin: 2.5em auto;
   width: 18.125em;
+  display: flex;
+  flex-direction: column;
 }
 .individualProductPageWrapper .topPart .info .name {
   font-size: 1.25em;
@@ -81,6 +114,23 @@
   font-weight: 900;
   color: #000000;
   cursor: pointer;
+}
+.individualProductPageWrapper .topPart .info #goToTechSpecsButton {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  margin-top: auto;
+  bottom: 20px;
+  right: 109px;
+  color: #8E8E8E;
+  align-items: center;
+  cursor: pointer;
+}
+.individualProductPageWrapper .topPart .info #goToTechSpecsButton div {
+  width: 24px;
+  height: 24px;
+  mask: url("/public/individualProduct-page/arrow-down.svg");
+  background-color: #8E8E8E;
 }
 .individualProductPageWrapper .bottomPart {
   margin: 2.5em 6.25em 1.25em 6.25em;
