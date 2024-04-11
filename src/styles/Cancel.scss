@@ -8,9 +8,13 @@
     flex-direction: column;
     font-family: "Roboto", sans-serif;
 
-    img {
+    .cancelIcon {
         width: 200px;
+        height: 200px;
+        background-image: url("/checkout-session/error_icon.svg");
+        background-size: cover;
     }
+
 
     h2 {
         font-size: 45px;

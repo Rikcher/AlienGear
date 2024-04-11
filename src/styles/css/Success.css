@@ -6,8 +6,11 @@
   flex-direction: column;
   font-family: "Roboto", sans-serif;
 }
-.successPageWrapper img {
+.successPageWrapper .successIcon {
   width: 200px;
+  height: 200px;
+  background-image: url("/checkout-session/success_icon.svg");
+  background-size: cover;
 }
 .successPageWrapper h2 {
   font-size: 45px;

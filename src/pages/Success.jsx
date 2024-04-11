@@ -4,7 +4,7 @@ import '/src/styles/css/Success.css'
 const Success = () => {
     return ( 
         <div className="successPageWrapper">
-            <img src="/checkout-session/success_icon.svg" alt="" />
+            <div className='successIcon'></div>
             <h2>Thank you for your purchase!</h2>
             <Link className='button' to="/products">Shop more</Link>
         </div>

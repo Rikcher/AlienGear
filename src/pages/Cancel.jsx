@@ -4,7 +4,7 @@ import '/src/styles/css/Cancel.css'
 const Cancel = () => {
     return ( 
         <div className="cancelPageWrapper">
-            <img src="/checkout-session/error_icon.svg" alt="" />
+            <div className='cancelIcon'></div>
             <h2>Something went wrong!</h2>
             <Link to="/cart" className='button'>Go back to cart</Link>
         </div>

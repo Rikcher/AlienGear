@@ -8,8 +8,11 @@
     flex-direction: column;
     font-family: "Roboto", sans-serif;
 
-    img {
+    .successIcon {
         width: 200px;
+        height: 200px;
+        background-image: url("/checkout-session/success_icon.svg");
+        background-size: cover;
     }
 
     h2 {
