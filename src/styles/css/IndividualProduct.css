@@ -155,7 +155,7 @@
 .individualProductPageWrapper .topPart .info #goToTechSpecsButton div {
   width: 24px;
   height: 24px;
-  mask: url("/public/individualProduct-page/arrow-down.svg");
+  mask: url("/individualProduct-page/arrow-down.svg");
   background-color: #8E8E8E;
 }
 .individualProductPageWrapper .bottomPart {

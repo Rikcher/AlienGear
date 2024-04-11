@@ -1,6 +1,6 @@
 @import '/src/styles/colors';
 
-.wrapper {
+.aboutUsWrapper {
     color: $main-white;
     font-family: "Roboto", sans-serif;
     font-size: 1.125em;
@@ -9,8 +9,9 @@
     gap: 1.667em;
 
     #aboutUsPageUfo {
-        height: 26.278em;
-        width: auto;
+        min-width: 472px;
+        height: 473px;
+        background-image: url("/about-us-page/AboutUsPageUfo.svg");
     }
 
     .text {
@@ -25,7 +26,7 @@
             color: $main-primary;
             margin: 1.111em 0;
         }
-        .importantNotice p {
+        .importantNotice .paragraph {
             margin: 0.556em 0;
         }
 

@@ -1,4 +1,4 @@
-.wrapper {
+.aboutUsWrapper {
   color: #FFFFFF;
   font-family: "Roboto", sans-serif;
   font-size: 1.125em;
@@ -6,48 +6,49 @@
   margin: 0 4.833em;
   gap: 1.667em;
 }
-.wrapper #aboutUsPageUfo {
-  height: 26.278em;
-  width: auto;
+.aboutUsWrapper #aboutUsPageUfo {
+  min-width: 472px;
+  height: 473px;
+  background-image: url("/about-us-page/AboutUsPageUfo.svg");
 }
-.wrapper .text {
+.aboutUsWrapper .text {
   display: flex;
   flex-direction: column;
   margin: 2.333em 0;
   gap: 1.5em;
 }
-.wrapper .text .aboutUsPageTitle {
+.aboutUsWrapper .text .aboutUsPageTitle {
   font-size: 1.111em;
   color: #00FFA3;
   margin: 1.111em 0;
 }
-.wrapper .text .importantNotice p {
+.aboutUsWrapper .text .importantNotice .paragraph {
   margin: 0.556em 0;
 }
-.wrapper .text .contactUs {
+.aboutUsWrapper .text .contactUs {
   display: flex;
   gap: 0.556em;
   align-items: center;
 }
-.wrapper .text .contactUs h3 {
+.aboutUsWrapper .text .contactUs h3 {
   font-size: 1em;
   margin-right: 0.556em;
 }
-.wrapper .text .contactUs > #email {
+.aboutUsWrapper .text .contactUs > #email {
   height: 1.222em;
   width: 1.611em;
   background-color: #00FFA3;
   mask: url("/about-us-page/AboutUsPageEmailIcon.svg");
   mask-size: cover;
 }
-.wrapper .text .contactUs > #twitter {
+.aboutUsWrapper .text .contactUs > #twitter {
   height: 1.222em;
   width: 1.222em;
   background-color: #00FFA3;
   mask: url("/about-us-page/AboutUsPageTwitterIcon.svg");
   mask-size: cover;
 }
-.wrapper .text .contactUs > #github {
+.aboutUsWrapper .text .contactUs > #github {
   height: 1.222em;
   width: 1.222em;
   background-color: #00FFA3;

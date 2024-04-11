@@ -22,6 +22,7 @@ const IndividualProduct = () => {
     const [imageLoaded, setImageLoaded] = useState(false);
 
     useEffect(() => {
+        window.scrollTo(0, 0);
         const fetchProduct = () => {
             const [category, itemId] = id.split('-');
             if (category === 'pads') {
@@ -171,10 +172,6 @@ const IndividualProduct = () => {
             behavior: 'smooth' // Smooth scrolling
         });
     }
-
-    // if (!product) {
-    //     return <div style={{color: "white"}}>Loading...</div>;
-    // }
     
     return (
         <div className='individualProductPageWrapper'>
