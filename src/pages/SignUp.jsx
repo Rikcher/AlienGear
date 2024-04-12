@@ -12,14 +12,16 @@ const SignUp = () => {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false)
-    const [isVisible, setIsVisible] = useState(false);
     const [emailValid, setEmailValid] = useState(true); // New state for email validation
+    const [isVisible, setIsVisible] = useState(false);
     const [errorText, setErrorText] = useState("");
+    const [shake, setShake] = useState(false); // State to control the shake effect
 
     //when error message trigerd this function will make sure that it popup for 5s and then disappear
     useEffect(() => {
         if (errorText) {
             setIsVisible(true);
+
             const timer = setTimeout(() => {
                 setIsVisible(false);
                 setErrorText(""); // Clear the error text after hiding the message
@@ -27,7 +29,7 @@ const SignUp = () => {
 
             return () => clearTimeout(timer); // Cleanup on component unmount or when errorText changes
         }
-    }, [errorText]); // Depend on errorText to trigger the effect
+    }, [errorText]); // Depend on errorText and hasBeenShown to trigger the effect
 
     //show password button functionality
     const handleShowPassword = () => {
@@ -52,12 +54,24 @@ const SignUp = () => {
     const register = async () => {
         try {
             if (!emailValid) {
+                setShake(true);
+                setTimeout(() => {
+                    setShake(false);
+                }, 500);
                 setErrorText("Please enter a valid email")
                 return
             } else if (password !== confirmPassword) {
+                setShake(true);
+                setTimeout(() => {
+                    setShake(false);
+                }, 500);
                 setErrorText("Passwords do not match")
                 return;
             } else if (password.length < 6) {
+                setShake(true);
+                setTimeout(() => {
+                    setShake(false);
+                }, 500);
                 setErrorText("Password is too short")
                 return;
             }
@@ -68,10 +82,22 @@ const SignUp = () => {
             navigate('/sign-in', { state: { justSignedUp: true } }); //redirect to sign in page and triger popup
         } catch (err) {
             if (err.code == 'auth/email-already-in-use') {
+                setShake(true);
+                setTimeout(() => {
+                    setShake(false);
+                }, 500);
                 setErrorText("This email already registered");
             } else if (err.code === 'auth/missing-password') {
+                setShake(true);
+                setTimeout(() => {
+                    setShake(false);
+                }, 500);
                 setErrorText("Please enter a password");
             } else {
+                setShake(true);
+                setTimeout(() => {
+                    setShake(false);
+                }, 500);
                 setErrorText("Oops! Something went wrong");
             }
         }
@@ -117,7 +143,7 @@ const SignUp = () => {
 
             {/* error message */}
 
-            <div className={`errorMessage ${isVisible ? 'show' : ''}`}><p>{errorText}</p></div>
+            <div className={`errorMessage ${isVisible ? 'show' : ''} ${shake ? 'shake' : ''}`}>{errorText}</div>
         </div>
     );
 };

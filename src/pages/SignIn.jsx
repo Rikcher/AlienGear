@@ -14,7 +14,8 @@ const SignIn = () => {
     const [isVisible, setIsVisible] = useState(false);
     const [errorText, setErrorText] = useState("");
     const [showPassword, setShowPassword] = useState(false)
-    const [justSignedUp, setJustSignedUp] = useState(false);
+    const [shake, setShake] = useState(false); // State to control the shake effect
+    const [justSignedUp, setJustSignedUp] = useState(false); 
 
     //after user created account he is redirected to sign in pagem this function is trigering popup that will tell user to check email for verification mail
     useEffect(() => {
@@ -28,6 +29,7 @@ const SignIn = () => {
     useEffect(() => {
         if (errorText) {
             setIsVisible(true);
+
             const timer = setTimeout(() => {
                 setIsVisible(false);
                 setErrorText(""); // Clear the error text after hiding the message
@@ -35,7 +37,7 @@ const SignIn = () => {
 
             return () => clearTimeout(timer); // Cleanup on component unmount or when errorText changes
         }
-    }, [errorText]); // Depend on errorText to trigger the effect
+    }, [errorText]); // Depend on errorText and hasBeenShown to trigger the effect
     
     //show password button functionality
     const handleShowPassword = () => {
@@ -47,9 +49,14 @@ const SignIn = () => {
         const provider = new GoogleAuthProvider();
         signInWithPopup(auth, provider)
             .then(() => {
-                navigate('/profile');
+                // navigate('/profile');
+                navigate('/products', { state: { justLogedIn: true } });
             })
             .catch(() => {
+                setShake(true);
+                setTimeout(() => {
+                    setShake(false);
+                }, 500);
                 setErrorText("Oops! Something went wrong");
             });
     };
@@ -58,21 +65,41 @@ const SignIn = () => {
     let login = () => {
         signInWithEmailAndPassword(auth, loginEmail, loginPassword)
         .then(() => {
-            navigate('/profile'); //if email and password are correct
+            // navigate('/profile'); //if email and password are correct
+            navigate('/products', { state: { justLogedIn: true } });
         })
         .catch(err => {
             setJustSignedUp(false); //to make sure that error popup are red colored
             if (err.code === 'auth/wrong-password') {
+                setShake(true);
+                setTimeout(() => {
+                    setShake(false);
+                }, 500);
                 setErrorText("Wrong password");
             } else if (err.code === "auth/invalid-email"){
+                setShake(true);
+                setTimeout(() => {
+                    setShake(false);
+                }, 500);
                 setErrorText("This email does not exist");
             } else if(err.code === "auth/user-not-found") {
+                setShake(true);
+                setTimeout(() => {
+                    setShake(false);
+                }, 500);
                 setErrorText("This user does not exist");
             } else if (err.code === "auth/too-many-requests") {
+                setShake(true);
+                setTimeout(() => {
+                    setShake(false);
+                }, 500);
                 setErrorText("Too many failed login attempts");
             } else {
+                setShake(true);
+                setTimeout(() => {
+                    setShake(false);
+                }, 500);
                 setErrorText("Oops! Something went wrong");
-                console.log(err)
             }
             
         });
@@ -117,7 +144,7 @@ const SignIn = () => {
             <p className='greyText'>No account? <span><Link to="/sign-up" className='inTextButton'>Create one</Link></span></p>
             {/* error message */}
 
-            <div className={`errorMessage ${isVisible ? 'show' : ''} ${justSignedUp ? 'blue' : ''}`}><p>{errorText}</p></div>
+            <div className={`errorMessage ${justSignedUp ? 'blue' : ''} ${isVisible ? 'show' : ''} ${shake ? 'shake' : ''}`}>{errorText}</div>
         </div>
     );
 };

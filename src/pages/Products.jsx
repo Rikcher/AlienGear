@@ -1,10 +1,12 @@
 import'/src/styles/css/Products.css'
+import { useLocation } from "react-router-dom";
 import React, { useEffect, useState, useRef } from 'react';
 import { getDatabase, ref, onValue } from 'firebase/database';
 import ProductPlaceholder from '/src/components/ProductPlaceholder.jsx'
 import ProductItem from '/src/components/ProductItem.jsx'
 
 const Products = () => {
+    const location = useLocation();
     const [products, setProducts] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState(null); // State to keep track of selected category
     const [sortingMethod, setSortingMethod] = useState('default'); // 'default', 'highToLow', 'lowToHigh'
@@ -85,6 +87,16 @@ const Products = () => {
 
         fetchProducts();
     }, []);
+
+    useEffect(() => {
+        if (location.state && location.state.justLogedIn) {
+            setIsBlue(true)
+            setErrorText("You successfully logged in");
+            setTimeout(() => {
+                setIsBlue(false);
+            }, 5100)
+        }
+    }, [location]);
 
     useEffect(() => {
         const handleClickOutside = (event) => {

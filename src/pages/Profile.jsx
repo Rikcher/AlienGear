@@ -19,6 +19,7 @@ const Profile = () => {
     const [isVisible, setIsVisible] = useState(false);
     const [isBlue, setIsBlue] = useState(false);
     const [showPassword, setShowPassword] = useState(false)
+    const [shake, setShake] = useState(false); // State to control the shake effect
 
 
     //this function upadtes user auth status 
@@ -74,6 +75,10 @@ const Profile = () => {
             await signOut(auth);
             navigate('/sign-in');
         } catch (error) {
+            setShake(true);
+            setTimeout(() => {
+                setShake(false);
+            }, 500);
             setErrorText("Oops! Something went wrong");
         }
     };
@@ -84,6 +89,10 @@ const Profile = () => {
         if (!formData.usernameInput.trim()) return; //check if username inputfiled is empty, if so do nothing
         try {
             if (formData.usernameInput.trim() === user.displayName) {
+                setShake(true);
+                setTimeout(() => {
+                    setShake(false);
+                }, 500);
                 setErrorText("This username same as old one");
                 return
             }
@@ -93,6 +102,10 @@ const Profile = () => {
             handleEditToggle('name');
             resetFormData();
         } catch (error) {
+            setShake(true);
+            setTimeout(() => {
+                setShake(false);
+            }, 500);
             setErrorText("Failed to save username");
         }
     };
@@ -100,11 +113,19 @@ const Profile = () => {
     //function to change users password
     const saveChangesPassword = async () => {
         if (!formData.oldPasswordInput || !formData.newPasswordInput) { //cheks if both inputs are empty
+            setShake(true);
+            setTimeout(() => {
+                setShake(false);
+            }, 500);
             setErrorText("Fill both password fields");
             return
         };
         try {
             if(formData.oldPasswordInput === formData.newPasswordInput) {
+                setShake(true);
+                setTimeout(() => {
+                    setShake(false);
+                }, 500);
                 setErrorText("New password is same as old password");
                 return
             }
@@ -117,10 +138,22 @@ const Profile = () => {
             resetFormData();
         } catch (error) {
             if (error.code === "auth/wrong-password") {
+                setShake(true);
+                setTimeout(() => {
+                    setShake(false);
+                }, 500);
                 setErrorText("You entered wrong old password");
             } else if (error.code === "auth/weak-password") {
+                setShake(true);
+                setTimeout(() => {
+                    setShake(false);
+                }, 500);
                 setErrorText("New password too short");
             } else {
+                setShake(true);
+                setTimeout(() => {
+                    setShake(false);
+                }, 500);
                 setErrorText("Oops! Something went wrong");
             }
             
@@ -222,7 +255,8 @@ const Profile = () => {
                 </div>
             </div>
             <button onClick={logout} className="buttons logOut">Log out</button>
-            <div className={`errorMessage ${isBlue ? 'blue' : ''} ${isVisible ? 'show' : ''}`}>{errorText}</div>
+
+            <div className={`errorMessage ${isBlue ? 'blue' : ''} ${isVisible ? 'show' : ''} ${shake ? 'shake' : ''}`}>{errorText}</div>
         </div>
     );
 };
