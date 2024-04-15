@@ -11,6 +11,7 @@ import Cart from '/src/pages/Cart.jsx'
 import Success from '/src/pages/Success.jsx'
 import Cancel from '/src/pages/Cancel.jsx'
 import Products from '/src/pages/Products.jsx'
+import Search from '/src/pages/Search.jsx'
 import IndividualProduct from '/src/components/IndividualProduct.jsx'
 import './index.css'
 import {
@@ -63,6 +64,10 @@ const router = createBrowserRouter([
       {
         path: '/products',
         element: <Products />
+      },
+      {
+        path: '/search',
+        element: <Search />
       },
       {
         path: '/products/:id',

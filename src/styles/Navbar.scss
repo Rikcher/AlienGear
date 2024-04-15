@@ -10,99 +10,162 @@ header {
     font-size: 0.938em;
     margin: 1.333em; //20
     z-index: 2;
-}
 
-nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
 
-#navbarLogo {
-    width: 11.267em;
-}
-
-.navLinks {
-    display: flex;
-    align-items: center;
-    gap: 1.333em; //20
-
-    .button {
+    nav {
         display: flex;
-        position: relative;
-        text-decoration: none;
-
-        //styling nav buttons text before hover
-        .link {
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    #navbarLogo {
+        width: 11.267em;
+    }
+    
+    .navLinks {
+        display: flex;
+        align-items: center;
+        gap: 1.333em; //20
+    
+        .button {
+            display: flex;
             position: relative;
             text-decoration: none;
-            font-family: "navbarfont";
-            color: $main-primary;
-            transition: transform 0.3s ease, color 0.6s ease;
+    
+            //styling nav buttons text before hover
+            .link {
+                position: relative;
+                text-decoration: none;
+                font-family: "navbarfont";
+                color: $main-primary;
+                transition: transform 0.3s ease, color 0.6s ease;
+            }
+    
+            //styling nav icon links 
+            .link.icon div{
+                display: inline-block;
+                width: 1.333em; //20
+                height: 1.467em; //22
+                transition: transform 0.5s ease, background-color 0.6s ease;
+                background-color: $main-primary;
+            }
+            .link.icon.search div{
+                mask: url("/navbar/NavbarSearchIcon.svg");
+                height: 1.333em; //22
+                mask-size: cover;
+            }
+            .link.icon.user div{
+                mask: url("/navbar/NavbarUserProfileIcon.svg");
+                mask-size: cover;
+            }
+            .link.icon.cart div{
+                mask: url("/navbar/NavbarCartIcon.svg");
+                mask-size: cover;
+            }
+    
+            //styling background beam of nav links
+            .buttonAnimate {
+                position: absolute;
+                top: -3.467em; //-52
+                pointer-events: none;
+                user-select: none;
+                transform: scaleX(0);
+                transition: transform 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000);
+            }
+            .buttonAnimate.home{
+                width: 4.855em;
+                left: -0.666em; //-10
+            } 
+            .buttonAnimate.product {
+                width: 7.4em;
+                left: -0.666em; //-10
+            }
+            .buttonAnimate.aboutus {
+                width: 6.65em;
+                left: -0.4em; //-6
+            }
+            .buttonAnimate.search {
+                width: 2.4em;
+                left: -0.533em; //-8.5
+                top: -3.333em; //-50
+            }
+            .buttonAnimate.user {
+                width: 2.4em;
+                left: -0.533em; //-8.5
+                top: -3.333em; //-50
+            }
+            .buttonAnimate.cart {
+                width: 2.4em;
+                left: -0.467em; //-7
+                top: -3.2em; //-48
+            }
         }
-
-        //styling nav icon links 
-        .link.icon div{
-            display: inline-block;
-            width: 1.333em; //20
-            height: 1.467em; //22
-            transition: transform 0.5s ease, background-color 0.6s ease;
+    
+        //animation of background links beam on hover
+        .button:hover .buttonAnimate{
+            transform: scaleX(1);
+        }
+        //styling of text of links on hover
+        .button:hover .link.text{
+            transform: translateY(-7px); //-5
+            color: $main-white;
+        }
+        //styling of icon links on hover
+        .button:hover .link.icon div{
+            transform: translateY(-0.533em); //-8
+            background-color: $main-white;
+        }
+    }
+    .navLinks.hidden, .searchBar.hidden{
+        display: none;
+    }
+    
+    .searchBar {
+        border: 1px solid $main-primary;
+        border-radius: 8px;
+        background-color: $main-black;
+        width: 85%;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        
+        .icon{
+            mask-size: cover;
             background-color: $main-primary;
+            margin: 0 20px;
         }
-        .link.icon.user div{
-            mask: url("/navbar/NavbarUserProfileIcon.svg");
+        .icon.close{
+            mask: url("/navbar/NavbarCloseIcon.svg");
             mask-size: cover;
+            cursor: pointer;
+            height: 1.125em; //22
+            width: 1.125em;
         }
-        .link.icon.cart div{
-            mask: url("/navbar/NavbarCartIcon.svg");
+        .icon.search{
+            mask: url("/navbar/NavbarSearchIcon.svg");
             mask-size: cover;
+            height: 1.333em; //22
+            width: 1.333em;
         }
-
-        //styling background beam of nav links
-        .buttonAnimate {
-            position: absolute;
-            top: -3.467em; //-52
-            pointer-events: none;
-            user-select: none;
-            transform: scaleX(0);
-            transition: transform 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000);
+    
+        .searchField {
+            width: 90%;
+            height: 80%;
+            border: none;
+            background-color: transparent;
+            caret-color: $main-primary;
+            color: $main-white;
+            font-family: "Roboto", sans-serif;
+            font-size: 1.125em;
         }
-        .buttonAnimate.home{
-            width: 4.855em;
-            left: -0.666em; //-10
-        } 
-        .buttonAnimate.product {
-            width: 7.4em;
-            left: -0.666em; //-10
+        .searchField:focus {
+            outline: none;
         }
-        .buttonAnimate.aboutus {
-            width: 6.65em;
-            left: -0.4em; //-6
+        .inputField::placeholder {
+            font-family: "Roboto", sans-serif;
+                color: $main-light-gray;
         }
-        .buttonAnimate.user {
-            width: 2.4em;
-            left: -0.533em; //-8.5
-            top: -3.333em; //-50
-        }
-        .buttonAnimate.cart {
-            width: 2.4em;
-            left: -0.467em; //-7
-            top: -3.2em; //-48
-        }
-    }
-
-    //animation of background links beam on hover
-    .button:hover .buttonAnimate{
-        transform: scaleX(1);
-    }
-    //styling of text of links on hover
-    .button:hover .link.text{
-        transform: translateY(-7px); //-5
-        color: $main-white;
-    }
-    //styling of icon links on hover
-    .button:hover .link.icon div{
-        transform: translateY(-0.533em); //-8
-        background-color: $main-white;
     }
 }
+

@@ -1,0 +1,121 @@
+.searchPageWrapper {
+  font-size: 1em;
+  font-family: "Roboto", sans-serif;
+  color: #FFFFFF;
+  display: flex;
+  margin: 0px 20px 20px 20px;
+  flex-direction: column;
+}
+.searchPageWrapper .searchBar {
+  border: 1px solid #00FFA3;
+  border-radius: 8px;
+  background-color: #000000;
+  width: auto;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+.searchPageWrapper .searchBar .icon {
+  mask-size: cover;
+  background-color: #00FFA3;
+  margin-right: 20px;
+  mask: url("/navbar/NavbarSearchIcon.svg");
+  mask-size: cover;
+  height: 1.333em;
+  width: 1.333em;
+}
+.searchPageWrapper .searchBar .searchField {
+  width: 100%;
+  height: 80%;
+  border: none;
+  background-color: transparent;
+  caret-color: #00FFA3;
+  color: #FFFFFF;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.125em;
+}
+.searchPageWrapper .searchBar .searchField:focus {
+  outline: none;
+}
+.searchPageWrapper .searchBar .inputField::placeholder {
+  font-family: "Roboto", sans-serif;
+  color: #9D9D9D;
+}
+.searchPageWrapper .anountOfProducts {
+  margin-top: 20px;
+  color: #6C6C6C;
+}
+.searchPageWrapper .item {
+  padding: 20px 0;
+  border-bottom: 1px solid #161616;
+  display: flex;
+  width: 100%;
+}
+.searchPageWrapper .item .price {
+  margin-left: auto;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: "Inter", sans-serif;
+}
+.searchPageWrapper .item .itemPicture {
+  width: 300px;
+  background-color: #0A0A0A;
+  margin-right: 20px;
+  border-radius: 8px;
+}
+.searchPageWrapper .item .itemInfo {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+}
+.searchPageWrapper .item .itemInfo .name {
+  font-size: 18px;
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+.searchPageWrapper .item .itemInfo .description {
+  font-size: 14px;
+  color: #6C6C6C;
+  margin-bottom: 20px;
+}
+.searchPageWrapper .item .itemInfo .techSpecs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.searchPageWrapper .item .itemInfo .techSpecs .techSpecsTitle {
+  font-size: 15px;
+}
+.searchPageWrapper .item .itemInfo .techSpecs .pair {
+  display: flex;
+  font-size: 14px;
+  gap: 5px;
+}
+.searchPageWrapper .item .itemInfo .techSpecs .pair .key {
+  white-space: nowrap;
+}
+.searchPageWrapper .item .itemInfo .techSpecs .pair .value {
+  color: #6C6C6C;
+}
+.searchPageWrapper .item .itemInfo .button {
+  margin-top: auto;
+  margin-bottom: 20px;
+  color: #00FFA3;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+.searchPageWrapper .item .itemInfo .button div {
+  width: 24px;
+  height: 24px;
+  mask: url("/individualProduct-page/arrow-down.svg");
+  transform: rotate(-90deg);
+  background-color: #00FFA3;
+}
+.searchPageWrapper .nothingFound {
+  margin-top: 40px;
+  text-align: center;
+}/*# sourceMappingURL=Search.css.map */

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import { ref, set, get } from 'firebase/database';
 import { auth } from '/src/firebase-config.jsx'
@@ -34,7 +34,6 @@ const ProductItem = ({ product, onError }) => {
             onError('Please log in first', true, false);
         }
     };
-
 
     return (
         <>

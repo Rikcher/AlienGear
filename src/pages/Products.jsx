@@ -305,7 +305,7 @@ const Products = () => {
                         <ProductItem key={product.id} product={product} onError={handleError} />
                     ))
                 ) : (
-                    Array(10).fill().map((_, index) => <ProductPlaceholder key={index} />) // Render 10 placeholders as an example
+                    Array(30).fill().map((_, index) => <ProductPlaceholder key={index} />) // Render 10 placeholders as an example
                 )}
             </div>
 

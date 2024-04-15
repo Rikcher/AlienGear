@@ -1,0 +1,133 @@
+@import '/src/styles/colors';
+
+.searchPageWrapper {
+    font-size: 1em;
+    font-family: "Roboto", sans-serif;
+    color: $main-white;
+    display: flex;
+    margin: 0px 20px 20px 20px;
+    flex-direction: column;
+
+    .searchBar {
+        border: 1px solid $main-primary;
+        border-radius: 8px;
+        background-color: $main-black;
+        width: auto;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+        
+        .icon{
+            mask-size: cover;
+            background-color: $main-primary;
+            margin-right: 20px;
+            mask: url("/navbar/NavbarSearchIcon.svg");
+            mask-size: cover;
+            height: 1.333em; //22
+            width: 1.333em;
+        }
+    
+        .searchField {
+            width: 100%;
+            height: 80%;
+            border: none;
+            background-color: transparent;
+            caret-color: $main-primary;
+            color: $main-white;
+            font-family: "Roboto", sans-serif;
+            font-size: 1.125em;
+        }
+        .searchField:focus {
+            outline: none;
+        }
+        .inputField::placeholder {
+            font-family: "Roboto", sans-serif;
+                color: $main-light-gray;
+        }
+    }
+
+    .anountOfProducts {
+        margin-top: 20px;
+        color: #6C6C6C;
+    }
+
+    .item {
+        padding: 20px 0;
+        border-bottom: 1px solid #161616;
+        display: flex;
+        width: 100%;
+        
+        .price {
+            margin-left: auto;
+            font-size: 16px;
+            font-weight: 600;
+            font-family: "Inter", sans-serif;
+        }
+        .itemPicture {
+            width: 300px;
+            background-color: #0A0A0A;
+            margin-right: 20px;
+            border-radius: 8px;
+        }
+
+        .itemInfo {
+            display: flex;
+            flex-direction: column;
+            max-width: 400px;
+
+            .name {
+                font-size: 18px;
+                margin-bottom: 12px;
+                font-weight: 500;
+            }
+            .description {
+                font-size: 14px;
+                color: #6C6C6C;
+                margin-bottom: 20px;
+            }
+            .techSpecs {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+                .techSpecsTitle {
+                    font-size: 15px;
+                }
+                .pair {
+                    display: flex;
+                    font-size: 14px;
+                    gap: 5px;
+                    .key {
+                        white-space: nowrap;
+                    }
+                    .value {
+                        color: #6C6C6C;
+                    }
+                }
+            }
+            .button {
+                margin-top: auto;
+                margin-bottom: 20px;
+                color: $main-primary;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                text-decoration: none;
+
+                div {
+                    width: 24px;
+                    height: 24px;
+                    mask: url("/individualProduct-page/arrow-down.svg");
+                    transform: rotate(-90deg);
+                    background-color: $main-primary;
+                }
+            }
+        }
+    }
+    .nothingFound {
+        margin-top: 40px;
+        text-align: center;
+    }
+}
