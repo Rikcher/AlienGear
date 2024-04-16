@@ -7,9 +7,10 @@
   gap: 1.667em;
 }
 .aboutUsWrapper #aboutUsPageUfo {
-  min-width: 472px;
-  height: 473px;
+  min-width: 26.222em;
+  height: 26.278em;
   background-image: url("/about-us-page/AboutUsPageUfo.svg");
+  background-size: cover;
 }
 .aboutUsWrapper .text {
   display: flex;

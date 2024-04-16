@@ -116,56 +116,5 @@ header {
             background-color: $main-white;
         }
     }
-    .navLinks.hidden, .searchBar.hidden{
-        display: none;
-    }
-    
-    .searchBar {
-        border: 1px solid $main-primary;
-        border-radius: 8px;
-        background-color: $main-black;
-        width: 85%;
-        height: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        
-        .icon{
-            mask-size: cover;
-            background-color: $main-primary;
-            margin: 0 20px;
-        }
-        .icon.close{
-            mask: url("/navbar/NavbarCloseIcon.svg");
-            mask-size: cover;
-            cursor: pointer;
-            height: 1.125em; //22
-            width: 1.125em;
-        }
-        .icon.search{
-            mask: url("/navbar/NavbarSearchIcon.svg");
-            mask-size: cover;
-            height: 1.333em; //22
-            width: 1.333em;
-        }
-    
-        .searchField {
-            width: 90%;
-            height: 80%;
-            border: none;
-            background-color: transparent;
-            caret-color: $main-primary;
-            color: $main-white;
-            font-family: "Roboto", sans-serif;
-            font-size: 1.125em;
-        }
-        .searchField:focus {
-            outline: none;
-        }
-        .inputField::placeholder {
-            font-family: "Roboto", sans-serif;
-                color: $main-light-gray;
-        }
-    }
 }
 

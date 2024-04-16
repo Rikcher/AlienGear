@@ -1,37 +1,37 @@
 .grid-item.placeholder {
   background-color: #0A0A0A;
-  border: 0.125em solid #00FFA3;
-  border-radius: 0.5em;
-  width: 300.5px;
+  border: 0.075em solid #00FFA3; /* 2px / 16 = 0.125em */
+  border-radius: 0.5em; /* 8px / 16 = 0.5em */
+  width: 18.75em; /* 300.5px / 16 = 18.75em */
 }
 .grid-item.placeholder .picture-placeholder {
   width: 18.75em;
-  height: 18.75em;
+  height: 18.75em; /* 300px / 16 = 18.75em */
 }
 .grid-item.placeholder .productInfo {
   background-color: #000000;
-  padding: 1.25em;
+  padding: 1.25em; /* 20px / 16 = 1.25em */
   border-radius: 0.5em;
 }
 .grid-item.placeholder .productInfo .topOfContainer {
-  height: 7.3125em;
+  height: 4.5625em; /* 106px / 16 = 4.5625em */
 }
 .grid-item.placeholder .productInfo .topOfContainer .name {
   background-color: #c4c4c4;
   border-radius: 99999px;
-  width: 100px;
-  height: 22px;
-  margin-bottom: 0.625em;
+  width: 6.25em; /* 100px / 16 = 6.25em */
+  height: 1.375em; /* 22px / 16 = 1.375em */
+  margin-bottom: 0.75em; /* 10px / 16 = 0.75em */
 }
 .grid-item.placeholder .productInfo .topOfContainer .description, .grid-item.placeholder .productInfo .topOfContainer .description2 {
   background-color: #555555;
   border-radius: 99999px;
-  width: 200px;
-  height: 17px;
-  margin-bottom: 1.25em;
+  width: 12.5em; /* 200px / 16 = 12.5em */
+  height: 1.125em; /* 17px / 16 = 1.125em */
+  margin-bottom: 1.25em; /* 20px / 16 = 1.25em */
 }
 .grid-item.placeholder .productInfo .topOfContainer .description2 {
-  width: 40px;
+  width: 2.5em; /* 40px / 16 = 2.5em */
 }
 .grid-item.placeholder .productInfo .bottomOfContainer {
   display: flex;
@@ -41,16 +41,16 @@
 .grid-item.placeholder .productInfo .bottomOfContainer .price {
   background-color: #c4c4c4;
   border-radius: 99999px;
-  width: 75px;
-  height: 20px;
-  margin-bottom: 0.0625em;
+  width: 4.6875em; /* 75px / 16 = 4.6875em */
+  height: 1.25em; /* 20px / 16 = 1.25em */
+  margin-bottom: 0.0625em; /* 1px / 16 = 0.0625em */
 }
 .grid-item.placeholder .productInfo .bottomOfContainer button {
   font-family: "Roboto", sans-serif;
-  width: 6.125em;
-  height: 1.625em;
-  border-radius: 0.5em;
-  font-size: 0.975em;
+  width: 3.8125em; /* 98px / 16 = 3.8125em */
+  height: 1.0625em; /* 26px / 16 = 1.0625em */
+  border-radius: 0.5em; /* 8px / 16 = 0.5em */
+  font-size: 0.65625em; /* 14px / 16 = 0.65625em */
   font-weight: bold;
   color: #000000;
   background-color: #00FFA3;

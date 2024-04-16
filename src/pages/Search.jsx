@@ -1,18 +1,15 @@
 import '/src/styles/css/Search.css'
 import React, { useState, useEffect, useRef } from 'react';
-import { Link, useLocation  } from 'react-router-dom';
-import { getDatabase, ref, onValue } from 'firebase/database';
+import { Link } from 'react-router-dom';
+import { getDatabase, ref, onValue} from 'firebase/database';
 
 const Search = () => {
-    const location = useLocation();
-    const param = location.state?.param;
-    console.log(param);
-    const [searchQuery, setSearchQuery] = useState(param || '');
+    const [searchQuery, setSearchQuery] = useState('');
     const [searchFilter, setSearchFilter] = useState({category: "", type: "", name: ""})
     const db = getDatabase();
     const categoriesToCheck = ["mice", "mouse", "keyboard", "keyboards", "pad", "pads", "headset", "headsets", "controllers", "controller", "chair", "chairs"];
     const typesToCheck = ["wired", "wireless"];
-    const namesToCheck = ["Gigantus", "DeathAdder", "Cobra", "Basilisk", "Viper", "Naga", "Huntsman", "BlackWidow", "DeathStalker", "Type", "BlackShark", "Kraken", "Barracuda", "PS5", "Xbox", "Iskur", "Enki"];
+    const namesToCheck = ["gigantus", "deathadder", "cobra", "basilisk", "viper", "naga", "huntsman", "blackWidow", "deathStalker", "type", "blackShark", "kraken", "barracuda", "wolverine", "iskur", "enki"];
     const propertyUpdates = {
         type: typesToCheck,
         category: categoriesToCheck,
@@ -44,7 +41,7 @@ const Search = () => {
         setSearchFilter({category: "", type: "", name: ""});
 
         // This effect runs when the component mounts and whenever searchQuery changes
-        searchQuery.split(" ").filter(word => {
+        searchQuery.toLowerCase().split(" ").filter(word => {
             Object.entries(propertyUpdates).forEach(([property, words]) => {
                 if (words.includes(word)) {
                     // If the property is 'category', use the mapping function to standardize the name
@@ -87,36 +84,44 @@ const Search = () => {
 
                 Object.entries(data).forEach(([category, items]) => {
                     // Iterate over each item in the category
-                    items.forEach((item, itemId) => {
-                        // Check if the item name matches the search filter
-                        if(searchFilter.name != '') {
-                            if (item && item.name && item.name.includes(searchFilter.name)) {
-                                const id = generateItemId(category, itemId);
-                                // Push the item with its ID into the results array
-                                results.push({ ...item, id });
-                            }
-                        } else if (searchFilter.type != '' && searchFilter.category != '') {
-                            if (item.description.includes(capitalizeFirstLetter(searchFilter.category))) {
+                    if ((searchFilter.category === "pad" && `${items.description}`.toLocaleLowerCase().includes(searchFilter.category)) || (searchFilter.name === "gigantus" && `${items.name}`.toLocaleLowerCase().includes(searchFilter.name))) {
+                        for (const pictureId in data.pads.pictures) {
+                            const id = `pads-${pictureId}`;
+                            const mainPicture = data.pads.pictures[pictureId]
+                            results.push({ ...data.pads, id, mainPicture });
+                        }
+                    } else {
+                        items.forEach((item, itemId) => {
+                            // Check if the item name matches the search filter
+                            if(searchFilter.name != '') {
+                                if (item && item.name && item.name.toLowerCase().includes(searchFilter.name)) {
+                                    const id = generateItemId(category, itemId);
+                                    // Push the item with its ID into the results array
+                                    results.push({ ...item, id });
+                                }
+                            } else if (searchFilter.type != '' && searchFilter.category != '') {
+                                if (item.description.includes(capitalizeFirstLetter(searchFilter.category))) {
+                                    if (item && item.filter && item.filter.includes(searchFilter.type)) {
+                                        const id = generateItemId(category, itemId);
+                                        // Push the item with its ID into the results array
+                                        results.push({ ...item, id });
+                                    }
+                                }
+                            } else if (searchFilter.type != '') {
                                 if (item && item.filter && item.filter.includes(searchFilter.type)) {
                                     const id = generateItemId(category, itemId);
                                     // Push the item with its ID into the results array
                                     results.push({ ...item, id });
                                 }
+                            } else if (searchFilter.category != '') { 
+                                if (item.description.includes(capitalizeFirstLetter(searchFilter.category))) {
+                                    const id = generateItemId(category, itemId);
+                                    // Push the item with its ID into the results array
+                                    results.push({ ...item, id });
+                                }
                             }
-                        } else if (searchFilter.type != '') {
-                            if (item && item.filter && item.filter.includes(searchFilter.type)) {
-                                const id = generateItemId(category, itemId);
-                                // Push the item with its ID into the results array
-                                results.push({ ...item, id });
-                            }
-                        } else if (searchFilter.category != '') { 
-                            if (item.description.includes(capitalizeFirstLetter(searchFilter.category))) {
-                                const id = generateItemId(category, itemId);
-                                // Push the item with its ID into the results array
-                                results.push({ ...item, id });
-                            }
-                        }
-                    });
+                        });
+                    }
                 });
             }
         };
@@ -139,7 +144,7 @@ const Search = () => {
         setSearchQuery(event.target.value);
     };
 
-    console.log(filteredItems)
+    
     
 
     return (
@@ -203,11 +208,15 @@ const Search = () => {
                     </div>
                 ))}
                 </>
-            ) : (
+            ) : searchQuery.length > 0 ? (
                 <h2 className="nothingFound">
                     Nothing was found. Try to search with another keyword.
                 </h2>
-            )}
+            ) : (
+                <h2 className="nothingFound">
+                    Try to search for desired product.
+                </h2>
+            )} 
         </div>
     );
     

@@ -23,7 +23,7 @@
             .previewPicture.placeholder {
                 position: relative;
                 width: 100%;
-                height: 666px;
+                height: 41.625em;
             }
             .loadingDisk {
                 position: absolute;
@@ -66,26 +66,26 @@
                     width: 5em; // 80px
                     height: 5em; // 80px
                     object-fit: cover;
-                    margin: 5px 0;
+                    margin: 0.313em 0;
                 }
 
                 #backgroundHoverEffect {
                     z-index: -1;
-                    top: 3px;
-                    left: -2px;
+                    top: 0.188em;
+                    left: -0.125em;
                     position: absolute;
-                    width: 84px;
-                    height: 84px;
+                    width: 5.25em;
+                    height: 5.25em;
                     background-color: $main-primary;
                     opacity: 50%;
                     transition: transform 0.3s ease;
                 }
                 #selectedPictureIndicator {
-                    top: 3px;
-                    left: 84px;
+                    top: 0.188em;
+                    left: 5.25em;
                     position: absolute;
-                    width: 3px;
-                    height: 84px;
+                    width: 0.188em;
+                    height: 5.25em;
                     background-color: $main-primary;
                     transition: transform 0.2s ease;
                 }
@@ -97,7 +97,7 @@
             
             @keyframes slide-right {
                 0% {
-                    transform: translateX(-100px);
+                    transform: translateX(-6.25em);
                 }
                 100% {
                     transform: translateX(0);
@@ -150,18 +150,18 @@
             #goToTechSpecsButton {
                 display: flex;
                 justify-content: center;
-                position: fixed;
                 margin-top: auto;
-                bottom: 20px;
-                right: 109px;
+                bottom: 1.464vw;
+                right: 7.98vw;
                 color: #8E8E8E;
                 align-items: center;
                 cursor: pointer;
 
                 div {
-                    width: 24px;
-                    height: 24px;
+                    width: 1.5em;
+                    height: 1.5em;
                     mask: url("/individualProduct-page/arrow-down.svg");
+                    mask-size: cover;
                     background-color: #8E8E8E;
                 }
             }
@@ -196,7 +196,7 @@
     }
 
     .topPart.placeholder {
-        height: 666px;
+        height: 41.625em;
         .allPictures {
             width: 100%;
             height: 100%;
@@ -205,31 +205,31 @@
         .info {
             .name.placeholder{
                 background-color: $main-primary;
-                width: 220px;
-                height: 24px;
+                width: 13.75em;
+                height: 1.5em;
                 border-radius: 9999px;
             }
             .description.placeholder, .description2.placeholder {
                 background-color: $main-white;
-                width: 260px;
-                height: 22px;
+                width: 16.25em;
+                height: 1.375em;
                 border-radius: 9999px;
             }
             .description2.placeholder {
-                width: 80px;
+                width: 5em;
             }
             .stats {
                 .stat.placeholder {
                     background-color: #8E8E8E;
-                    width: 100px;
-                    height: 17px;
+                    width: 6.25em;
+                    height: 1.063em;
                     border-radius: 9999px;
                 }
             }
             .price.placeholder {
                 background-color: $main-white;
-                width: 100px;
-                height: 26px;
+                width: 6.25em;
+                height: 1.625em;
                 border-radius: 9999px;
             }
         }

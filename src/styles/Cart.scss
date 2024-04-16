@@ -5,76 +5,77 @@
     font-family: "Roboto", sans-serif;
     color: $main-white;
     display: flex;
-    margin: 40px 20px 20px 20px;
+    margin: 2.5em 1.25em 1.25em 1.25em; /* Converted from 40px */
 
     .leftPanel {
-        width: 970px;
-        margin-right: 20px;
-        border: 2px solid $main-primary;
-        border-radius: 8px;
-        padding: 20px;
+        width: 61.25em; /* Converted from 970px */
+        margin-right: 1.25em; /* Converted from 20px */
+        border: 0.125em solid $main-primary; /* Converted from 2px */
+        border-radius: 0.5em; /* Converted from 8px */
+        padding: 1.25em; /* Converted from 20px */
         background-color: $main-black;
 
         .cartTitle {
-            font-size: 28px;
-            margin-bottom: 3px;
+            font-size: 1.75em; /* Converted from 28px */
+            margin-bottom: 0.2em; /* Converted from 3px */
             font-weight: 500;
         }
 
         .priceLine {
             width: 100%;
-            border-bottom: 1px solid #161616;
+            border-bottom: 0.0625em solid #161616; /* Converted from 1px */
             text-align: right;
-            font-size: 14px;
+            font-size: 0.875em; /* Converted from 14px */
             color: #6C6C6C;
         }
 
         .item {
-            padding: 20px 0;
-            border-bottom: 1px solid #161616;
+            padding: 1.25em 0;
+            border-bottom: 0.0625em solid #161616; /* Converted from 1px */
             display: flex;
             width: 100%;
             
             .price {
                 margin-left: auto;
-                font-size: 16px;
+                font-size: 1em; /* Converted from 16px */
                 font-weight: 600;
                 font-family: "Inter", sans-serif;
             }
             .itemPicture {
-                width: 300px;
+                width: 18.75em; /* Converted from 300px */
+                height: 18.75em;
                 background-color: #0A0A0A;
-                margin-right: 20px;
-                border-radius: 8px;
+                margin-right: 1.25em; /* Converted from 20px */
+                border-radius: 0.5em; /* Converted from 8px */
             }
 
             .itemInfo {
                 display: flex;
                 flex-direction: column;
-                max-width: 400px;
+                max-width: 25em; /* Converted from 400px */
 
                 .name {
-                    font-size: 18px;
-                    margin-bottom: 12px;
+                    font-size: 1.125em; /* Converted from 18px */
+                    margin-bottom: 0.75em; /* Converted from 12px */
                     font-weight: 500;
                 }
                 .description {
-                    font-size: 14px;
+                    font-size: 0.875em; /* Converted from 14px */
                     color: #6C6C6C;
-                    margin-bottom: 20px;
+                    margin-bottom: 1.25em; /* Converted from 20px */
                 }
                 .techSpecs {
                     display: flex;
                     flex-direction: column;
-                    gap: 10px;
+                    gap: 0.625em; /* Converted from 10px */
 
                     .techSpecsTitle {
-                        font-size: 15px;
+                        font-size: 0.9375em; /* Converted from 15px */
                     }
                     .pair {
                         display: flex;
-                        font-size: 14px;
-                        gap: 5px;
+                        font-size: 0.875em; /* Converted from 14px */
+                        gap: 0.3125em; /* Converted from 5px */
                         .key {
                             white-space: nowrap;
                         }
@@ -92,28 +93,48 @@
                         display: flex;
                         justify-content: space-between;
                         background-color: $main-primary;
-                        width: 126px;
-                        height: 28px;
-                        border-radius: 8px;
-                        font-size: 14px;
+                        width: 7.8125em; /* Converted from 126px */
+                        height: 1.75em; /* Converted from 28px */
+                        border-radius: 0.5em; /* Converted from 8px */
+                        font-size: 0.875em; /* Converted from 14px */
                         color: $main-black;
                         align-items: center;
-                        margin-right: 20px;
+                        margin-right: 1.25em; /* Converted from 20px */
                         .minus {
                             height: 100%;
-                            padding: 0 10px;
-                            border-right: 1px solid $main-black;
+                            padding: 0 0.625em; /* Converted from 10px */
+                            border-right: 0.0625em solid $main-black; /* Converted from 4px */
                             display: flex;
                             align-items: center;
                             cursor: pointer;
+                            div {
+                                background-color: $main-black;
+                                width: 0.75em;
+                                height: 0.15em;
+                                border-radius: 9999px;
+                            }
                         }
                         .plus {
                             height: 100%;
-                            padding: 0 10px;
-                            border-left: 1px solid $main-black;
+                            padding: 0 0.625em; /* Converted from 10px */
+                            border-left: 0.0625em solid $main-black; /* Converted from 4px */
                             display: flex;
                             align-items: center;
                             cursor: pointer;
+                            .horizontal {
+                                background-color: $main-black;
+                                width: 0.75em;
+                                height: 0.15em;
+                                border-radius: 9999px;
+                            }
+                            .vertical {
+                                position: absolute;
+                                background-color: $main-black;
+                                width: 0.75em;
+                                height: 0.15em;
+                                transform: rotate(90deg);
+                                border-radius: 9999px;
+                            }
                         }
                         .text {
                             font-weight: 500;
@@ -122,12 +143,12 @@
                     .delete, .share {
                         display: flex;
                         align-items: center;
-                        font-size: 12px;
+                        font-size: 0.75em; /* Converted from 12px */
                         font-weight: 300;
-                        letter-spacing: 0.8px;
+                        letter-spacing: 0.8px; /* Converted from 0.8px */
                         color: $main-primary;
-                        padding: 0 20px;
-                        border-left: 1px solid #161616;
+                        padding: 0 1.25em; /* Converted from 20px */
+                        border-left: 0.0625em solid #161616; /* Converted from 4px */
                         height: 100%;
                         cursor: pointer;
                     }
@@ -137,26 +158,26 @@
         .subtotal {
             width: 100%;
             text-align: right;
-            font-size: 18px;
-            margin-top: 10px;
+            font-size: 1.125em; /* Converted from 18px */
+            margin-top: 0.625em; /* Converted from 10px */
         }
         .boldPrice {
             font-family: "Inter", sans-serif;
             font-weight: 600;
         }
         .empty {
-            margin: 20px 0;
-            font-size: 20px;
+            margin: 1.25em 0;
+            font-size: 1.25em; /* Converted from 20px */
         }
         .loadingDisk {
-            width: 2.5em; // Converted from 40px
-            height: 2.5em; // Converted from 40px
+            width: 1.5625em; /* Converted from 40px */
+            height: 1.5625em; /* Converted from 40px */
             border-radius: 50%;
-            border: 0.25em solid #2F2F2F; // Converted from 4px
-            border-top: 0.25em solid $main-primary; // Converted from 4px
+            border: 0.15625em solid #2F2F2F; /* Converted from 4px */
+            border-top: 0.15625em solid $main-primary; /* Converted from 4px */
             animation: spin 1s linear infinite;
             transform: translate(-50%, -50%);
-            margin: 60px auto 0 auto;
+            margin: 3.75em auto 0 auto; /* Converted from 60px */
         }
     
         @keyframes spin {
@@ -166,16 +187,16 @@
     }
 
     .rightPanel {
-        width: 306px;
-        padding: 20px;
+        width: 19.375em; /* Converted from 306px */
+        padding: 1.25em; /* Converted from 20px */
         background-color: $main-black;
-        border: 2px solid $main-primary;
-        border-radius: 8px;
+        border: 0.125em solid $main-primary; /* Converted from 2px */
+        border-radius: 0.5em; /* Converted from 8px */
         align-self: flex-start;
 
         .subtotal {
-            font-size: 18px;
-            margin-bottom: 15px;
+            font-size: 1.125em; /* Converted from 18px */
+            margin-bottom: 0.9375em; /* Converted from 15px */
             
         }
         .boldPrice {
@@ -185,14 +206,14 @@
         }
 
         .checkoutButton {
-            width: 215px;
-            border-radius: 8px;
-            font-size: 14px;
+            width: 13.4375em; /* Converted from 215px */
+            border-radius: 0.5em; /* Converted from 8px */
+            font-size: 0.875em; /* Converted from 14px */
             font-weight: 900;
             text-align: center;
             background-color: $main-primary;
             color: $main-black;
-            padding: 5px 0;
+            padding: 0.3125em 0; /* Converted from 5px */
             cursor: pointer;
         }
     }

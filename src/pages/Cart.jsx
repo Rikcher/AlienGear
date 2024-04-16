@@ -53,10 +53,6 @@ const Cart = () => {
         const result = await stripe.redirectToCheckout({
             sessionId: session.id,
         });
-    
-        if (result.error) {
-            console.error(result.error.message);
-        }
     };
 
     useEffect(() => {
@@ -83,8 +79,20 @@ const Cart = () => {
                     });
                 }
             } catch (error) {
-                console.error('Error fetching cart items:', error);
-                setLoading(false);
+                if (isVisible) {
+                    setErrorText('Error fetching cart items')
+                    setShake(true);
+                    // After a short delay, remove the shake class
+                    setTimeout(() => {
+                        setShake(false);
+                    }, 500);
+                    setLoading(false);
+                    return
+                } else {
+                    setErrorText('Error fetching cart items')
+                    setLoading(false);
+                    return
+                }
             }
             
         };
@@ -227,11 +235,12 @@ const Cart = () => {
                                     <div className="buttons">
                                         <div className="qty">
                                             <div className="minus" onClick={() => handleQuantityChange(product.id, -1)}>
-                                                <img src="/cart-page/minus.svg" alt="" />
+                                                <div></div>
                                             </div>
                                             <p className='text'>{`Qty: ${quantities[product.id] || 0}`}</p>
                                             <div className='plus' onClick={() => handleQuantityChange(product.id, 1)}>
-                                                <img src="/cart-page/plus.svg" alt="" />
+                                                <div className='vertical'></div>
+                                                <div className='horizontal'></div>
                                             </div>
                                         </div>
                                         <div className="delete" onClick={() => handleDeleteProduct(product.id)}>Delete</div>

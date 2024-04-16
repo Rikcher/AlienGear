@@ -64,6 +64,9 @@
   margin-bottom: 0.833em;
   cursor: pointer;
 }
+.profileWrapper .userInformation .information img, .loadingProfileWrapper .userInformation .information img {
+  width: 1.063em;
+}
 .profileWrapper .userInformation .information .hide, .loadingProfileWrapper .userInformation .information .hide {
   display: none;
 }

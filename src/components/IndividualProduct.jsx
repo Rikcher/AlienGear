@@ -147,7 +147,6 @@ const IndividualProduct = () => {
     }
 
     window.addEventListener('scroll', toggleButtonPosition);
-    toggleButtonPosition();
 
     const handleImageClickPads = (pictureUrl) => {
         const pictureIndex = product?.pictures.findIndex(picture => picture === pictureUrl);
@@ -155,16 +154,17 @@ const IndividualProduct = () => {
     };
 
     const handleImageClick = (itemId) => {
-        const indicator = document.getElementById("selectedPictureIndicator")
-        const translateYValue = (90 * itemId);
-        indicator.style.transform = `translateY(${translateYValue}px)`;
+        const indicator = document.getElementById("selectedPictureIndicator");
+        const translateYValue = (90 * itemId) / 16; // Convert pixels to ems
+        indicator.style.transform = `translateY(${translateYValue}em)`;
     };
-
+    
     const handleImageHover = (itemId) => {
-        const hoverEffect = document.getElementById("backgroundHoverEffect")
-        const translateYValue = (90 * itemId);
-        hoverEffect.style.transform = `translateY(${translateYValue}px)`;
+        const hoverEffect = document.getElementById("backgroundHoverEffect");
+        const translateYValue = (90 * itemId) / 16; // Convert pixels to ems
+        hoverEffect.style.transform = `translateY(${translateYValue}em)`;
     }
+    
 
     const handleGoToTSClick = () => {
         window.scrollTo({
@@ -203,7 +203,7 @@ const IndividualProduct = () => {
                             src={product.pictures[product.itemId]}
                             alt={product.name}
                             style={{ 
-                                width: "auto",
+                                width: "50%",
                                 zIndex: `${product.pictures.length + 1}`,
                                 display: imageLoaded ? 'block' : 'none'
                             }}
@@ -253,8 +253,8 @@ const IndividualProduct = () => {
                                     src={picture}
                                     alt={product.name}
                                     style={{ 
-                                        width: "auto",
-                                        left: `${40 + (index * 40)}px`,
+                                        width: "50%",
+                                        left: `${2.5 + (index * 2.5)}em`,
                                         zIndex: `${product.pictures.length - index}`
                                     }}
                                     onClick={() => handleImageClickPads(picture)}
@@ -272,7 +272,7 @@ const IndividualProduct = () => {
                     </ul>
                     <p className="price">US${product.price}</p>
                     <button onClick={() => addToCart(product)}>Add to cart</button>
-                    <div id="goToTechSpecsButton" onClick={() => handleGoToTSClick()}>
+                    <div style={{position: product.previewPicture ? "fixed" : "static"}} id="goToTechSpecsButton" onClick={() => handleGoToTSClick()}>
                         <p>See tech specs</p>
                         <div></div>
                     </div>
@@ -328,6 +328,10 @@ const IndividualProduct = () => {
                     </ul>
                     <p className="price placeholder">US$0</p>
                     <button>Add to cart</button>
+                    <div id="goToTechSpecsButton" onClick={() => handleGoToTSClick()}>
+                        <p>See tech specs</p>
+                        <div></div>
+                    </div>
                 </div>
             </div>
             <div className='bottomPart'>

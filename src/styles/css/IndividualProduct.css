@@ -21,7 +21,7 @@
 .individualProductPageWrapper .topPart .allPictures .previewPicture.placeholder {
   position: relative;
   width: 100%;
-  height: 666px;
+  height: 41.625em;
 }
 .individualProductPageWrapper .topPart .allPictures .loadingDisk {
   position: absolute;
@@ -66,25 +66,25 @@
   width: 5em;
   height: 5em;
   object-fit: cover;
-  margin: 5px 0;
+  margin: 0.313em 0;
 }
 .individualProductPageWrapper .topPart .allPictures .smallPictures #backgroundHoverEffect {
   z-index: -1;
-  top: 3px;
-  left: -2px;
+  top: 0.188em;
+  left: -0.125em;
   position: absolute;
-  width: 84px;
-  height: 84px;
+  width: 5.25em;
+  height: 5.25em;
   background-color: #00FFA3;
   opacity: 50%;
   transition: transform 0.3s ease;
 }
 .individualProductPageWrapper .topPart .allPictures .smallPictures #selectedPictureIndicator {
-  top: 3px;
-  left: 84px;
+  top: 0.188em;
+  left: 5.25em;
   position: absolute;
-  width: 3px;
-  height: 84px;
+  width: 0.188em;
+  height: 5.25em;
   background-color: #00FFA3;
   transition: transform 0.2s ease;
 }
@@ -93,7 +93,7 @@
 }
 @keyframes slide-right {
   0% {
-    transform: translateX(-100px);
+    transform: translateX(-6.25em);
   }
   100% {
     transform: translateX(0);
@@ -144,18 +144,18 @@
 .individualProductPageWrapper .topPart .info #goToTechSpecsButton {
   display: flex;
   justify-content: center;
-  position: fixed;
   margin-top: auto;
-  bottom: 20px;
-  right: 109px;
+  bottom: 1.464vw;
+  right: 7.98vw;
   color: #8E8E8E;
   align-items: center;
   cursor: pointer;
 }
 .individualProductPageWrapper .topPart .info #goToTechSpecsButton div {
-  width: 24px;
-  height: 24px;
+  width: 1.5em;
+  height: 1.5em;
   mask: url("/individualProduct-page/arrow-down.svg");
+  mask-size: cover;
   background-color: #8E8E8E;
 }
 .individualProductPageWrapper .bottomPart {
@@ -184,7 +184,7 @@
   color: #BCBCBC;
 }
 .individualProductPageWrapper .topPart.placeholder {
-  height: 666px;
+  height: 41.625em;
 }
 .individualProductPageWrapper .topPart.placeholder .allPictures {
   width: 100%;
@@ -193,29 +193,29 @@
 }
 .individualProductPageWrapper .topPart.placeholder .info .name.placeholder {
   background-color: #00FFA3;
-  width: 220px;
-  height: 24px;
+  width: 13.75em;
+  height: 1.5em;
   border-radius: 9999px;
 }
 .individualProductPageWrapper .topPart.placeholder .info .description.placeholder, .individualProductPageWrapper .topPart.placeholder .info .description2.placeholder {
   background-color: #FFFFFF;
-  width: 260px;
-  height: 22px;
+  width: 16.25em;
+  height: 1.375em;
   border-radius: 9999px;
 }
 .individualProductPageWrapper .topPart.placeholder .info .description2.placeholder {
-  width: 80px;
+  width: 5em;
 }
 .individualProductPageWrapper .topPart.placeholder .info .stats .stat.placeholder {
   background-color: #8E8E8E;
-  width: 100px;
-  height: 17px;
+  width: 6.25em;
+  height: 1.063em;
   border-radius: 9999px;
 }
 .individualProductPageWrapper .topPart.placeholder .info .price.placeholder {
   background-color: #FFFFFF;
-  width: 100px;
-  height: 26px;
+  width: 6.25em;
+  height: 1.625em;
   border-radius: 9999px;
 }
 .individualProductPageWrapper .errorMessage {
