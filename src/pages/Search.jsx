@@ -91,7 +91,8 @@ const Search = () => {
                             results.push({ ...data.pads, id, mainPicture });
                         }
                     } else {
-                        items.forEach((item, itemId) => {
+                        Object.keys(items).forEach((itemId) => {
+                            const item = items[itemId];
                             // Check if the item name matches the search filter
                             if(searchFilter.name != '') {
                                 if (item && item.name && item.name.toLowerCase().includes(searchFilter.name)) {
@@ -100,21 +101,21 @@ const Search = () => {
                                     results.push({ ...item, id });
                                 }
                             } else if (searchFilter.type != '' && searchFilter.category != '') {
-                                if (item.description.includes(capitalizeFirstLetter(searchFilter.category))) {
-                                    if (item && item.filter && item.filter.includes(searchFilter.type)) {
+                                if (`${item.description}`.includes(capitalizeFirstLetter(searchFilter.category))) {
+                                    if (item && item.filter && `${item.filter}`.includes(searchFilter.type)) {
                                         const id = generateItemId(category, itemId);
                                         // Push the item with its ID into the results array
                                         results.push({ ...item, id });
                                     }
                                 }
                             } else if (searchFilter.type != '') {
-                                if (item && item.filter && item.filter.includes(searchFilter.type)) {
+                                if (item && item.filter && `${item.filter}`.includes(searchFilter.type)) {
                                     const id = generateItemId(category, itemId);
                                     // Push the item with its ID into the results array
                                     results.push({ ...item, id });
                                 }
                             } else if (searchFilter.category != '') { 
-                                if (item.description.includes(capitalizeFirstLetter(searchFilter.category))) {
+                                if (`${item.description}`.includes(capitalizeFirstLetter(searchFilter.category))) {
                                     const id = generateItemId(category, itemId);
                                     // Push the item with its ID into the results array
                                     results.push({ ...item, id });
