@@ -10,7 +10,7 @@ const Products = () => {
     const [products, setProducts] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState(null); // State to keep track of selected category
     const [sortingMethod, setSortingMethod] = useState('default'); // 'default', 'highToLow', 'lowToHigh'
-    const [customPriceRange, setCustomPriceRange] = useState({ min: null, max: null });
+    const [customPriceRange, setCustomPriceRange] = useState({ min: "", max: "" });
     const [activeFilter, setActiveFilter] = useState('default');
     const [isFilterFunctionalityVisible, setIsFilterFunctionalityVisible] = useState(false);
     const filterFunctionalityRef = useRef(null);
@@ -134,8 +134,8 @@ const Products = () => {
     const resetCustomPriceRange = () => {
         setCustomPriceRange(prevState => ({
             ...prevState,
-            min: null,
-            max: null
+            min: "",
+            max: ""
         }));
     }
 
