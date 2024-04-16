@@ -242,7 +242,8 @@
         grid-template-columns: repeat(4, 1fr); /* 4 columns */
         grid-gap: 19px; /* gap between items */
         row-gap: 19px; /* gap between rows */
-        padding: 0 2.3125em 1.25em 2.3125em;
+        padding: 0.85em;
+        padding-top: 0;
         .grid-item {
             background-color: #0A0A0A;
             border: 0.125em solid $main-primary; // 2px

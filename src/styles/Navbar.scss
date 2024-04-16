@@ -64,16 +64,16 @@ header {
             }
             span {
                 font-family: "Inter", sans-serif;
-                font-weight: 600;
+                font-weight: 700;
                 position: absolute;
-                top: -3px;
-                right: -5px;
-                width: 15px;
-                height: 15px;
+                top: -0.3em;
+                right: -0.5em;
+                width: 1.5em;
+                height: 1.5em;
                 border-radius: 9999px;
                 background-color: $main-white;
                 transition: transform 0.5s ease, background-color 0.6s ease;
-                font-size: 10px;
+                font-size: 0.625em;
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -124,7 +124,7 @@ header {
         }
         //styling of text of links on hover
         .button:hover .link.text{
-            transform: translateY(-7px); //-5
+            transform: translateY(-0.438em); //-5
             color: $main-white;
         }
         //styling of icon links on hover
