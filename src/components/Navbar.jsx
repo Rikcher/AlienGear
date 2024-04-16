@@ -1,16 +1,38 @@
 import { Outlet, Link } from "react-router-dom";
-import '/src/styles/css/Navbar.css'
+import '/src/styles/css/Navbar.css';
 import { auth } from '/src/firebase-config.jsx';
+import { getDatabase, ref, onValue } from 'firebase/database';
 import React, { useEffect, useState } from 'react';
 
 const Navbar = () => {
     const [user, setUser] = useState(auth.currentUser);
+    const [totalItems, setTotalItems] = useState(0); // State for total items in cart
 
+    const getTotalItemsInCart = async (user) => {
+        if (!user) {
+            setTotalItems(0); // Reset total items if user is not logged in
+            return;
+        }
+        const database = getDatabase();
+        const cartRef = ref(database, `carts/${user.uid}`);
+        onValue(cartRef, (snapshot) => {
+            const cartData = snapshot.val();
+            if (cartData) {
+                const cartItems = Object.values(cartData);
+                // Calculate the total item count directly
+                const itemCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+                setTotalItems(itemCount); // Update the state with the total item count
+            } else {
+                setTotalItems(0);
+            }
+        });
+    };
 
     useEffect(() => {
         // Listen for changes in the user's authentication status
         const unsubscribe = auth.onAuthStateChanged(user => {
             setUser(user);
+            getTotalItemsInCart(user);
         });
 
         // Cleanup the subscription on component unmount
@@ -51,6 +73,7 @@ const Navbar = () => {
                         <img className="buttonAnimate cart" src="/navbar/CartButtonBackground.svg" alt="" />
                         <div className="link icon cart">
                             <div></div>
+                            <span style={{display: user && totalItems != 0  ? "flex" : "none"}}>{totalItems}</span>
                         </div>
                     </Link>
                 </div>
@@ -64,4 +87,5 @@ const Navbar = () => {
 }
 
 export default Navbar;
+
 
