@@ -7,6 +7,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 0 1.25em;
 
     .productsNavBar {
         display: flex;
@@ -93,6 +94,7 @@
         .buttons.filter {
             margin-left: 4.375em; // 68px
             position: relative;
+            z-index: 9;
 
             .filterFunctionality {
                 position: absolute;
@@ -239,77 +241,83 @@
 
     .productsContainer {
         display: grid;
-        grid-template-columns: repeat(4, 1fr); /* 4 columns */
-        grid-gap: 19px; /* gap between items */
-        row-gap: 19px; /* gap between rows */
-        padding: 0.85em;
-        padding-top: 0;
+        width: 100%;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); // change auto-fill to wanted amount for each screen size
+        grid-gap: 0.625em; // 10px
+        row-gap: 0.625em; // 10px 
         .grid-item {
             background-color: #0A0A0A;
             border: 0.125em solid $main-primary; // 2px
             border-radius: 0.5em; // 8px
-    
-            .picture {
-                width: 18.75em; // 300px
+            position: relative;
+            
+            .linkContainer {
+                aspect-ratio: 1;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                .picture {
+                    max-width: 300px;
+                }
             }
             .picture.placeholder {
-                width: 18.75em;
-                height: 18.75em; // 300px
+                width: 18.75em; // 300px / 16px = 18.75em
+                height: 18.75em; // 300px / 16px = 18.75em
                 position: relative;
             }
             .loadingDisk {
                 position: absolute;
-                width: 2.5em; // Converted from 40px
-                height: 2.5em; // Converted from 40px
+                width: 2.5em; // 40px / 16px = 2.5em
+                height: 2.5em; // 40px / 16px = 2.5em
                 border-radius: 50%;
-                border: 0.25em solid #2F2F2F; // Converted from 4px
-                border-top: 0.25em solid $main-primary; // Converted from 4px
+                border: 0.25em solid #2F2F2F; // 4px / 16px = 0.25em
+                border-top: 0.25em solid $main-primary; // 4px / 16px = 0.25em
                 animation: spin 1s linear infinite;
                 transform: translate(-50%, -50%);
-                top: 50%;
+                top: 35%;
                 left: 50%;
             }
-        
+            
             @keyframes spin {
                 0% { transform: translate(-50%, -50%) rotate(0deg); }
                 100% { transform: translate(-50%, -50%) rotate(360deg); }
             }
-    
+            
             .productInfo {
                 background-color: $main-black;
-                padding: 1.25em; // 20px
+                padding: 1.25em; // 20px / 16px = 1.25em
                 border-radius: 0 0 0.5em 0.5em;
-    
+            
                 .topOfContainer {
-                    height: 7.3125em; // 106px
+                    height: 6.5625em; // 106px / 16px = 6.5625em
                     .name {
-                        font-size: 1.125em; // 18px
-                        margin-bottom: 0.625em; // 10px
+                        font-size: 1.125em; // 18px / 16px = 1.125em
+                        margin-bottom: 0.625em; // 10px / 16px = 0.625em
                     }
                     .description {
-                        font-size: 0.875em; // 14px
+                        font-size: 0.875em; // 14px / 16px = 0.875em
                         color: #6C6C6C;
-                        margin-bottom: 1.25em; // 20px
+                        margin-bottom: 1.25em; // 20px / 16px = 1.25em
                     }
                 }
-    
+            
                 .bottomOfContainer {
                     display: flex;
                     justify-content: space-between;
                     align-items: flex-end;
-    
+            
                     .price {
-                        font-size: 1em; // 16px
+                        font-size: 1em; // 16px / 16px = 1em
                         font-weight: 600;
-                        margin-bottom: 0.0625em; // 1px
+                        margin-bottom: 0.0625em; // 1px / 16px = 0.0625em
                         font-family: "Inter", sans-serif;
                     }
                     button {
                         font-family: "Roboto", sans-serif;
-                        width: 6.125em; // 98px
-                        height: 1.625em; // 26px
-                        border-radius: 0.5em; // 8px
-                        font-size: 0.975em; // 14px
+                        width: 6.125em; // 98px / 16px = 6.125em
+                        height: 1.625em; // 26px / 16px = 1.625em
+                        border-radius: 0.5em; // 8px / 16px = 0.5em
+                        font-size: 0.875em; // 14px / 16px = 0.875em
                         font-weight: bold;
                         color: $main-black;
                         background-color: $main-primary;
@@ -356,4 +364,48 @@
             transform: translateX(5px);
         }
     }
+}
+
+
+/* (576px and down) */
+@media only screen and (max-width: 36em) {
+    
+}
+/* (576px and up) */
+@media only screen and (min-width: 36em) {
+    
+}
+/* (768px and up) */
+@media only screen and (min-width: 48em) {
+    
+}
+/* (1024px and up) */
+@media only screen and (min-width: 64em) {
+    
+}
+/* (1280px and up) */
+@media only screen and (min-width: 80em) {
+    .productsPageWrapper {
+        font-size: 1em;
+    }
+}
+/* (1920px and up) */
+@media only screen and (min-width: 120em) {
+    .productsPageWrapper {
+        font-size: 1.25em;
+    }
+
+}
+/* (2560px and up) */
+@media only screen and (min-width: 160em) {
+    .productsPageWrapper {
+        font-size: 1.5em;
+        .productsContainer {
+            grid-template-columns: repeat(6, minmax(300px, 1fr)); // change auto-fill to wanted amount for each 
+        }
+    }
+    }
+/* (3840px and up) */
+@media only screen and (min-width: 240em) {
+    
 }

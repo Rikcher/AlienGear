@@ -16,6 +16,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 1.25em; /* 20px / 16 = 1.25em */
+  position: relative;
 }
 .searchPageWrapper .searchBar .icon {
   mask-size: cover;
@@ -42,6 +43,21 @@
 .searchPageWrapper .searchBar .inputField::placeholder {
   font-family: "Roboto", sans-serif;
   color: #9D9D9D;
+}
+.searchPageWrapper .searchBar .suggestions {
+  position: absolute;
+  width: 100%;
+  top: 2.5em;
+  left: 0;
+}
+.searchPageWrapper .searchBar .suggestions .suggestion {
+  font-size: 1.125em;
+  padding: 0.5625em 0 0.5625em 3.875em;
+  background-color: #000000;
+  cursor: pointer;
+}
+.searchPageWrapper .searchBar .suggestions .suggestion:hover {
+  background-color: #161616;
 }
 .searchPageWrapper .anountOfProducts {
   margin-top: 1.25em; /* 20px / 16 = 1.25em */
@@ -122,4 +138,32 @@
 .searchPageWrapper .nothingFound {
   margin-top: 2.5em; /* 40px / 16 = 2.5em */
   text-align: center;
-}/*# sourceMappingURL=Search.css.map */
+}
+
+/* (576px and down) */
+/* (576px and up) */
+/* (768px and up) */
+/* (1024px and up) */
+/* (1280px and up) */
+@media only screen and (min-width: 80em) {
+  .searchPageWrapper {
+    font-size: 1em;
+  }
+}
+/* (1920px and up) */
+@media only screen and (min-width: 120em) {
+  .searchPageWrapper {
+    font-size: 1.25em;
+    margin: 0 auto; /* 20px / 16 = 1.25em */
+    width: 80%;
+  }
+}
+/* (2560px and up) */
+@media only screen and (min-width: 160em) {
+  .searchPageWrapper {
+    font-size: 1.5em;
+    margin: 0 auto; /* 20px / 16 = 1.25em */
+    width: 60%;
+  }
+}
+/* (3840px and up) *//*# sourceMappingURL=Search.css.map */

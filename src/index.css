@@ -12,9 +12,3 @@ body {
 h1, h2, h3, h4, p {
     margin: 0
 }
-
-@media (min-width: 2000px) {
-    body {
-        font-size: 2rem;
-    }
-}

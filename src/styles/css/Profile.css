@@ -222,4 +222,28 @@
   100% {
     transform: translate(-50%, -50%) rotate(360deg);
   }
-}/*# sourceMappingURL=Profile.css.map */
+}
+
+/* (576px and down) */
+/* (576px and up) */
+/* (768px and up) */
+/* (1024px and up) */
+/* (1280px and up) */
+@media only screen and (min-width: 80em) {
+  .profileWrapper, .loadingProfileWrapper {
+    font-size: 1em;
+  }
+}
+/* (1920px and up) */
+@media only screen and (min-width: 120em) {
+  .profileWrapper, .loadingProfileWrapper {
+    font-size: 1.25em;
+  }
+}
+/* (2560px and up) */
+@media only screen and (min-width: 160em) {
+  .profileWrapper, .loadingProfileWrapper {
+    font-size: 1.5em;
+  }
+}
+/* (3840px and up) *//*# sourceMappingURL=Profile.css.map */

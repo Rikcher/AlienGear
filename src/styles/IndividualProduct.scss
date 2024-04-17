@@ -271,3 +271,65 @@
         }
     }
 }
+
+
+
+/* (576px and down) */
+@media only screen and (max-width: 36em) {
+    
+}
+/* (576px and up) */
+@media only screen and (min-width: 36em) {
+    
+}
+/* (768px and up) */
+@media only screen and (min-width: 48em) {
+    
+}
+/* (1024px and up) */
+@media only screen and (min-width: 64em) {
+    
+}
+/* (1280px and up) */
+@media only screen and (min-width: 80em) {
+    .individualProductPageWrapper {
+        font-size: 1em;
+    }
+}
+/* (1920px and up) */
+@media only screen and (min-width: 120em) {
+    .individualProductPageWrapper {
+        font-size: 1.25em;
+
+        .topPart {
+            .allPictures {
+                width: 80em; // 1000px
+            }
+            .info {
+                #goToTechSpecsButton {
+                    bottom: 1.042vw;
+                    right: 8.1vw;
+                }
+            }
+        }
+    }
+}
+/* (2560px and up) */
+@media only screen and (min-width: 160em) {
+    .individualProductPageWrapper {
+        font-size: 1.5em;
+
+        .topPart {
+            .info {
+                #goToTechSpecsButton {
+                    bottom: 0.781vw;
+                    right: 8.6vw;
+                }
+            }
+        }
+    }
+}
+/* (3840px and up) */
+@media only screen and (min-width: 240em) {
+    
+}

@@ -55,4 +55,28 @@
   background-color: #00FFA3;
   mask: url("/about-us-page/AboutUsPageGithubIcon.svg");
   mask-size: cover;
-}/*# sourceMappingURL=AboutUs.css.map */
+}
+
+/* (576px and down) */
+/* (576px and up) */
+/* (768px and up) */
+/* (1024px and up) */
+/* (1280px and up) */
+@media only screen and (min-width: 80em) {
+  .aboutUsWrapper {
+    font-size: 1.125em;
+  }
+}
+/* (1920px and up) */
+@media only screen and (min-width: 120em) {
+  .aboutUsWrapper {
+    font-size: 1.438em;
+  }
+}
+/* (2560px and up) */
+@media only screen and (min-width: 160em) {
+  .aboutUsWrapper {
+    font-size: 1.75em;
+  }
+}
+/* (3840px and up) *//*# sourceMappingURL=AboutUs.css.map */

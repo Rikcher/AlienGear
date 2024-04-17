@@ -252,4 +252,39 @@
   20%, 40%, 60%, 80% {
     transform: translateX(5px);
   }
-}/*# sourceMappingURL=IndividualProduct.css.map */
+}
+
+/* (576px and down) */
+/* (576px and up) */
+/* (768px and up) */
+/* (1024px and up) */
+/* (1280px and up) */
+@media only screen and (min-width: 80em) {
+  .individualProductPageWrapper {
+    font-size: 1em;
+  }
+}
+/* (1920px and up) */
+@media only screen and (min-width: 120em) {
+  .individualProductPageWrapper {
+    font-size: 1.25em;
+  }
+  .individualProductPageWrapper .topPart .allPictures {
+    width: 80em;
+  }
+  .individualProductPageWrapper .topPart .info #goToTechSpecsButton {
+    bottom: 1.042vw;
+    right: 8.1vw;
+  }
+}
+/* (2560px and up) */
+@media only screen and (min-width: 160em) {
+  .individualProductPageWrapper {
+    font-size: 1.5em;
+  }
+  .individualProductPageWrapper .topPart .info #goToTechSpecsButton {
+    bottom: 0.781vw;
+    right: 8.6vw;
+  }
+}
+/* (3840px and up) *//*# sourceMappingURL=IndividualProduct.css.map */

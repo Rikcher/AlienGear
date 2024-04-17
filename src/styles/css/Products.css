@@ -5,6 +5,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0 1.25em;
 }
 .productsPageWrapper .productsNavBar {
   display: flex;
@@ -89,6 +90,7 @@
 .productsPageWrapper .productsNavBar .buttons.filter {
   margin-left: 4.375em;
   position: relative;
+  z-index: 9;
 }
 .productsPageWrapper .productsNavBar .buttons.filter .filterFunctionality {
   position: absolute;
@@ -217,19 +219,25 @@
 }
 .productsPageWrapper .productsContainer {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 columns */
-  grid-gap: 19px; /* gap between items */
-  row-gap: 19px; /* gap between rows */
-  padding: 0.85em;
-  padding-top: 0;
+  width: 100%;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 0.625em;
+  row-gap: 0.625em;
 }
 .productsPageWrapper .productsContainer .grid-item {
   background-color: #0A0A0A;
   border: 0.125em solid #00FFA3;
   border-radius: 0.5em;
+  position: relative;
 }
-.productsPageWrapper .productsContainer .grid-item .picture {
-  width: 18.75em;
+.productsPageWrapper .productsContainer .grid-item .linkContainer {
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.productsPageWrapper .productsContainer .grid-item .linkContainer .picture {
+  max-width: 300px;
 }
 .productsPageWrapper .productsContainer .grid-item .picture.placeholder {
   width: 18.75em;
@@ -245,7 +253,7 @@
   border-top: 0.25em solid #00FFA3;
   animation: spin 1s linear infinite;
   transform: translate(-50%, -50%);
-  top: 50%;
+  top: 35%;
   left: 50%;
 }
 @keyframes spin {
@@ -262,7 +270,7 @@
   border-radius: 0 0 0.5em 0.5em;
 }
 .productsPageWrapper .productsContainer .grid-item .productInfo .topOfContainer {
-  height: 7.3125em;
+  height: 6.5625em;
 }
 .productsPageWrapper .productsContainer .grid-item .productInfo .topOfContainer .name {
   font-size: 1.125em;
@@ -289,7 +297,7 @@
   width: 6.125em;
   height: 1.625em;
   border-radius: 0.5em;
-  font-size: 0.975em;
+  font-size: 0.875em;
   font-weight: bold;
   color: #000000;
   background-color: #00FFA3;
@@ -329,4 +337,31 @@
   20%, 40%, 60%, 80% {
     transform: translateX(5px);
   }
-}/*# sourceMappingURL=Products.css.map */
+}
+
+/* (576px and down) */
+/* (576px and up) */
+/* (768px and up) */
+/* (1024px and up) */
+/* (1280px and up) */
+@media only screen and (min-width: 80em) {
+  .productsPageWrapper {
+    font-size: 1em;
+  }
+}
+/* (1920px and up) */
+@media only screen and (min-width: 120em) {
+  .productsPageWrapper {
+    font-size: 1.25em;
+  }
+}
+/* (2560px and up) */
+@media only screen and (min-width: 160em) {
+  .productsPageWrapper {
+    font-size: 1.5em;
+  }
+  .productsPageWrapper .productsContainer {
+    grid-template-columns: repeat(6, minmax(300px, 1fr));
+  }
+}
+/* (3840px and up) *//*# sourceMappingURL=Products.css.map */

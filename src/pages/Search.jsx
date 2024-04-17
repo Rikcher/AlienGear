@@ -6,8 +6,9 @@ import { getDatabase, ref, onValue} from 'firebase/database';
 const Search = () => {
     const [searchQuery, setSearchQuery] = useState('');
     const [searchFilter, setSearchFilter] = useState({category: "", type: "", name: ""})
+    const [suggestions, setSuggestions] = useState([]); // New state for suggestions
     const db = getDatabase();
-    const categoriesToCheck = ["mice", "mouse", "keyboard", "keyboards", "pad", "pads", "headset", "headsets", "controllers", "controller", "chair", "chairs"];
+    const categoriesToCheck = ["mouse", "keyboard", "pad", "headset", "controller", "chair"];
     const typesToCheck = ["wired", "wireless"];
     const namesToCheck = ["gigantus", "deathadder", "cobra", "basilisk", "viper", "naga", "huntsman", "blackWidow", "deathStalker", "type", "blackShark", "kraken", "barracuda", "wolverine", "iskur", "enki"];
     const propertyUpdates = {
@@ -17,24 +18,6 @@ const Search = () => {
     };
     const [filteredItems, setFilteredItems] = useState([])
     const inputRef = useRef(null);
-
-    function mapToStandardCategory(input) {
-        const categoryMapping = {
-            "mice": "mouse",
-            "mouse": "mouse",
-            "keyboard": "keyboard",
-            "keyboards": "keyboard",
-            "pad": "pad",
-            "pads": "pad",
-            "headset": "headset",
-            "headsets": "headset",
-            "controllers": "controller",
-            "controller": "controller",
-            "chair": "chair",
-            "chairs": "chair"
-        };
-        return categoryMapping[input] || input; // Return the standardized name if it exists, otherwise return the input as is
-    }
     
     useEffect(() => {
         // Reset searchFilter to its initial state
@@ -44,19 +27,10 @@ const Search = () => {
         searchQuery.toLowerCase().split(" ").filter(word => {
             Object.entries(propertyUpdates).forEach(([property, words]) => {
                 if (words.includes(word)) {
-                    // If the property is 'category', use the mapping function to standardize the name
-                    if (property === 'category') {
-                        const standardizedCategory = mapToStandardCategory(word);
-                        setSearchFilter(prevState => ({
-                            ...prevState,
-                            [property]: standardizedCategory
-                        }));
-                    } else {
-                        setSearchFilter(prevState => ({
-                            ...prevState,
-                            [property]: word
-                        }));
-                    }
+                    setSearchFilter(prevState => ({
+                        ...prevState,
+                        [property]: word
+                    }));
                 }
             });
         });
@@ -142,15 +116,47 @@ const Search = () => {
     }, [searchFilter]); // Dependency array: the effect runs when searchFilter changes
 
     const handleSearchChange = (event) => {
-        setSearchQuery(event.target.value);
+        const query = event.target.value.toLowerCase();
+        setSearchQuery(query);
+    
+        // Initialize suggestions array
+        let filteredSuggestions = [];
+    
+        // Split the query into words
+        const queryWords = query.split(" ");
+        // Check if searchFilter.type is not an empty string
+        if (searchFilter.type !== "" && queryWords.length > 1) {
+            const filteredBasedOnQuery = categoriesToCheck.filter(word => {
+                if (!word.startsWith("pad") && !word.startsWith("chair")) {
+                    return word.startsWith(queryWords[1])
+                }
+            });
+            filteredSuggestions = filteredBasedOnQuery.map(word => `${searchFilter.type} ${word}`);
+        } else if (searchFilter.category !== "" && searchFilter.category !== "pad" && searchFilter.category !== "chair" && queryWords.length > 1) {
+            const filteredBasedOnQuery = typesToCheck.filter(word => word.startsWith(queryWords[1]));
+            filteredSuggestions = filteredBasedOnQuery.map(word => `${searchFilter.category} ${word}`);
+        } else if (query !== "") {
+            const allSuggestions = [...namesToCheck, ...typesToCheck, ...categoriesToCheck];
+            filteredSuggestions = allSuggestions.filter(word => word.startsWith(query));
+        }
+    
+        // Update the suggestions state
+        setSuggestions(filteredSuggestions);
     };
+    
+    const handleSuggestionClick = (suggestion) => {
+        setSearchQuery(suggestion)
+        setSuggestions([]);
+    }
 
     
     
 
     return (
         <div className='searchPageWrapper'>
-            <div className={"searchBar"}>
+            <div className={"searchBar"} style={{
+            borderRadius: suggestions.length > 0 ? "0.5em 0.5em 0 0" : '0.5em',
+            }}>
                 <div className="icon search"></div>
                 <input 
                     ref={inputRef} 
@@ -160,7 +166,21 @@ const Search = () => {
                     value={searchQuery}
                     onChange={handleSearchChange}
                 />
+                {suggestions.length > 0 && (
+                    <div className="suggestions">
+                        {suggestions.map((suggestion, index) => (
+                            <div 
+                            key={index} 
+                            className="suggestion"
+                            onClick={() => handleSuggestionClick(suggestion)}
+                            >
+                                {suggestion}
+                            </div>
+                        ))}
+                    </div>
+                )}
             </div>
+            {/* Render suggestions */}
             {filteredItems && filteredItems.length > 0 ? (
                 <>
                 <p className='anountOfProducts'>{filteredItems.length} items found</p>

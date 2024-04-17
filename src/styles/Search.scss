@@ -18,7 +18,8 @@
         align-items: center;
         justify-content: space-between;
         padding: 0 1.25em; /* 20px / 16 = 1.25em */
-        
+        position: relative;
+
         .icon{
             mask-size: cover;
             background-color: $main-primary;
@@ -46,7 +47,24 @@
             font-family: "Roboto", sans-serif;
             color: $main-light-gray;
         }
+        .suggestions {
+            position: absolute;
+            width: 100%;
+            top: 2.5em;
+            left: 0;
+    
+            .suggestion {
+                font-size: 1.125em;
+                padding: 0.5625em 0 0.5625em 3.875em;
+                background-color: $main-black;
+                cursor: pointer;
+            }
+            .suggestion:hover {
+                background-color: #161616;
+            }
+        }
     }
+
 
     .anountOfProducts {
         margin-top: 1.25em; /* 20px / 16 = 1.25em */
@@ -135,4 +153,48 @@
         margin-top: 2.5em; /* 40px / 16 = 2.5em */
         text-align: center;
     }
+}
+
+
+/* (576px and down) */
+@media only screen and (max-width: 36em) {
+    
+}
+/* (576px and up) */
+@media only screen and (min-width: 36em) {
+    
+}
+/* (768px and up) */
+@media only screen and (min-width: 48em) {
+    
+}
+/* (1024px and up) */
+@media only screen and (min-width: 64em) {
+    
+}
+/* (1280px and up) */
+@media only screen and (min-width: 80em) {
+    .searchPageWrapper {
+        font-size: 1em;
+    }
+}
+/* (1920px and up) */
+@media only screen and (min-width: 120em) {
+    .searchPageWrapper {
+        font-size: 1.25em;
+        margin: 0 auto; /* 20px / 16 = 1.25em */
+        width: 80%;
+    }
+}
+/* (2560px and up) */
+@media only screen and (min-width: 160em) {
+    .searchPageWrapper {
+        font-size: 1.5em;
+        margin: 0 auto; /* 20px / 16 = 1.25em */
+        width: 60%;
+    }
+}
+/* (3840px and up) */
+@media only screen and (min-width: 240em) {
+    
 }

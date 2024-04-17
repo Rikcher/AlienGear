@@ -38,7 +38,7 @@ const ProductItem = ({ product, onError }) => {
     return (
         <>
         <div className="grid-item">
-            <Link to={`/products/${product.id}`}>
+            <Link className='linkContainer' to={`/products/${product.id}`}>
                 <img 
                     className="picture" 
                     src={product.mainPicture || product.pictures[0]} 
@@ -47,10 +47,7 @@ const ProductItem = ({ product, onError }) => {
                     style={{ display: imageLoaded ? 'block' : 'none' }}
                 />
             </Link>
-            {!imageLoaded && 
-            <div className='picture placeholder'>
-                <p className='loadingDisk'></p>
-            </div>}
+            {!imageLoaded && <p className='loadingDisk'></p>}
             <div className="productInfo">
                 <div className="topOfContainer">
                     <p className='name'>{product.name}</p>

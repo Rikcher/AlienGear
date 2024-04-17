@@ -240,4 +240,34 @@
   20%, 40%, 60%, 80% {
     transform: translateX(5px);
   }
-}/*# sourceMappingURL=Cart.css.map */
+}
+
+/* (576px and down) */
+/* (576px and up) */
+/* (768px and up) */
+/* (1024px and up) */
+/* (1280px and up) */
+@media only screen and (min-width: 80em) {
+  .cartPageWrapper {
+    font-size: 1em;
+  }
+}
+/* (1920px and up) */
+@media only screen and (min-width: 120em) {
+  .cartPageWrapper {
+    font-size: 1.25em;
+  }
+  .cartPageWrapper .leftPanel {
+    flex-grow: 1; /* Converted from 20px */
+  }
+}
+/* (2560px and up) */
+@media only screen and (min-width: 160em) {
+  .cartPageWrapper {
+    font-size: 1.5em;
+  }
+  .cartPageWrapper .leftPanel {
+    flex-grow: 1; /* Converted from 20px */
+  }
+}
+/* (3840px and up) *//*# sourceMappingURL=Cart.css.map */

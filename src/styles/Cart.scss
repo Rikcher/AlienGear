@@ -254,3 +254,49 @@
         }
     }
 }
+
+
+/* (576px and down) */
+@media only screen and (max-width: 36em) {
+    
+}
+/* (576px and up) */
+@media only screen and (min-width: 36em) {
+    
+}
+/* (768px and up) */
+@media only screen and (min-width: 48em) {
+    
+}
+/* (1024px and up) */
+@media only screen and (min-width: 64em) {
+    
+}
+/* (1280px and up) */
+@media only screen and (min-width: 80em) {
+    .cartPageWrapper {
+        font-size: 1em;
+    }
+}
+/* (1920px and up) */
+@media only screen and (min-width: 120em) {
+    .cartPageWrapper {
+        font-size: 1.25em;
+        .leftPanel {
+            flex-grow: 1; /* Converted from 20px */
+        }
+    }
+}
+/* (2560px and up) */
+@media only screen and (min-width: 160em) {
+    .cartPageWrapper {
+        font-size: 1.5em;
+        .leftPanel {
+            flex-grow: 1; /* Converted from 20px */
+        }
+    }
+}
+/* (3840px and up) */
+@media only screen and (min-width: 240em) {
+    
+}
