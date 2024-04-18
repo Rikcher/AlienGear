@@ -59,6 +59,9 @@
 .searchPageWrapper .searchBar .suggestions .suggestion:hover {
   background-color: #161616;
 }
+.searchPageWrapper .searchBar .suggestions .suggestion.selected {
+  background-color: #161616; /* Example background color */
+}
 .searchPageWrapper .anountOfProducts {
   margin-top: 1.25em; /* 20px / 16 = 1.25em */
   color: #6C6C6C;

@@ -62,6 +62,9 @@
             .suggestion:hover {
                 background-color: #161616;
             }
+            .suggestion.selected {
+                background-color: #161616; /* Example background color */
+            }
         }
     }
 

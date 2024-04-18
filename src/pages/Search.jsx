@@ -7,6 +7,7 @@ const Search = () => {
     const [searchQuery, setSearchQuery] = useState('');
     const [searchFilter, setSearchFilter] = useState({category: "", type: "", name: ""})
     const [suggestions, setSuggestions] = useState([]); // New state for suggestions
+    const [selectedSuggestionIndex, setSelectedSuggestionIndex] = useState(0);
     const db = getDatabase();
     const categoriesToCheck = ["mouse", "keyboard", "pad", "headset", "controller", "chair"];
     const typesToCheck = ["wired", "wireless"];
@@ -125,7 +126,7 @@ const Search = () => {
         // Split the query into words
         const queryWords = query.split(" ");
         // Check if searchFilter.type is not an empty string
-        if (searchFilter.type !== "" && queryWords.length > 1) {
+        if (searchFilter.type !== "") {
             const filteredBasedOnQuery = categoriesToCheck.filter(word => {
                 if (!word.startsWith("pad") && !word.startsWith("chair")) {
                     return word.startsWith(queryWords[1])
@@ -149,6 +150,38 @@ const Search = () => {
         setSuggestions([]);
     }
 
+    useEffect(() => {
+        const handleKeyDown = (event) => {
+            if (event.key === 'ArrowDown') {
+                event.preventDefault();
+                // Increment the selected suggestion index, but don't go beyond the last suggestion
+                setSelectedSuggestionIndex((prevIndex) => Math.min(prevIndex + 1, suggestions.length - 1));
+            } else if (event.key === 'ArrowUp') {
+                event.preventDefault();
+                // Decrement the selected suggestion index, but don't go below 0
+                setSelectedSuggestionIndex((prevIndex) => Math.max(prevIndex - 1, 0));
+            } else if (event.key === 'Enter' && selectedSuggestionIndex !== -1) {
+                // Update the search query with the selected suggestion and clear the suggestions
+                setSearchQuery(suggestions[selectedSuggestionIndex]);
+                setSuggestions([]);
+            }
+        };
+    
+        // Attach the event listener
+        const inputElement = inputRef.current;
+        inputElement.addEventListener('keydown', handleKeyDown);
+
+        if (suggestions.length === 0) {
+            setSelectedSuggestionIndex(0);
+        }
+    
+        // Cleanup the event listener when the component unmounts
+        return () => {
+            inputElement.removeEventListener('keydown', handleKeyDown);
+        };
+    }, [suggestions, selectedSuggestionIndex]);
+    
+
     
     
 
@@ -170,9 +203,9 @@ const Search = () => {
                     <div className="suggestions">
                         {suggestions.map((suggestion, index) => (
                             <div 
-                            key={index} 
-                            className="suggestion"
-                            onClick={() => handleSuggestionClick(suggestion)}
+                                key={index} 
+                                className={`suggestion ${index === selectedSuggestionIndex ? 'selected' : ''}`}
+                                onClick={() => handleSuggestionClick(suggestion)}
                             >
                                 {suggestion}
                             </div>
