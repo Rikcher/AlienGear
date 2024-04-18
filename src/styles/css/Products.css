@@ -229,6 +229,8 @@
   border: 0.125em solid #00FFA3;
   border-radius: 0.5em;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 .productsPageWrapper .productsContainer .grid-item .linkContainer {
   aspect-ratio: 1;
@@ -268,9 +270,10 @@
   background-color: #000000;
   padding: 1.25em;
   border-radius: 0 0 0.5em 0.5em;
-}
-.productsPageWrapper .productsContainer .grid-item .productInfo .topOfContainer {
-  height: 6.5625em;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .productsPageWrapper .productsContainer .grid-item .productInfo .topOfContainer .name {
   font-size: 1.125em;
@@ -359,6 +362,8 @@
 @media only screen and (min-width: 160em) {
   .productsPageWrapper {
     font-size: 1.5em;
+    margin: 0 auto;
+    width: 90%;
   }
   .productsPageWrapper .productsContainer {
     grid-template-columns: repeat(6, minmax(300px, 1fr));

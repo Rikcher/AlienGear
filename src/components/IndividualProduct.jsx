@@ -174,7 +174,7 @@ const IndividualProduct = () => {
     }
     
     return (
-        <div className='individualProductPageWrapper'>
+        <div className={`individualProductPageWrapper ${product?.previewPicture ? "" : "biggerScreens"}`}>
             {product ? (
             <>
             <div className="topPart">
@@ -203,7 +203,7 @@ const IndividualProduct = () => {
                             src={product.pictures[product.itemId]}
                             alt={product.name}
                             style={{ 
-                                width: "50%",
+                                maxWidth: "500px",
                                 zIndex: `${product.pictures.length + 1}`,
                                 display: imageLoaded ? 'block' : 'none'
                             }}
@@ -253,7 +253,7 @@ const IndividualProduct = () => {
                                     src={picture}
                                     alt={product.name}
                                     style={{ 
-                                        width: "50%",
+                                        maxWidth: "500px",
                                         left: `${2.5 + (index * 2.5)}em`,
                                         zIndex: `${product.pictures.length - index}`
                                     }}

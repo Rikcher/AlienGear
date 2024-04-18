@@ -276,6 +276,9 @@
     bottom: 1.042vw;
     right: 8.1vw;
   }
+  .individualProductPageWrapper.biggerScreens {
+    margin: 0 10vw;
+  }
 }
 /* (2560px and up) */
 @media only screen and (min-width: 160em) {
@@ -285,6 +288,9 @@
   .individualProductPageWrapper .topPart .info #goToTechSpecsButton {
     bottom: 0.781vw;
     right: 8.6vw;
+  }
+  .individualProductPageWrapper.biggerScreens {
+    margin: 0 15vw;
   }
 }
 /* (3840px and up) *//*# sourceMappingURL=IndividualProduct.css.map */

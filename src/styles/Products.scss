@@ -250,6 +250,8 @@
             border: 0.125em solid $main-primary; // 2px
             border-radius: 0.5em; // 8px
             position: relative;
+            display: flex;
+            flex-direction: column;
             
             .linkContainer {
                 aspect-ratio: 1;
@@ -287,9 +289,12 @@
                 background-color: $main-black;
                 padding: 1.25em; // 20px / 16px = 1.25em
                 border-radius: 0 0 0.5em 0.5em;
+                flex-grow: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
             
                 .topOfContainer {
-                    height: 6.5625em; // 106px / 16px = 6.5625em
                     .name {
                         font-size: 1.125em; // 18px / 16px = 1.125em
                         margin-bottom: 0.625em; // 10px / 16px = 0.625em
@@ -400,6 +405,8 @@
 @media only screen and (min-width: 160em) {
     .productsPageWrapper {
         font-size: 1.5em;
+        margin: 0 auto;
+        width: 90%;
         .productsContainer {
             grid-template-columns: repeat(6, minmax(300px, 1fr)); // change auto-fill to wanted amount for each 
         }
