@@ -155,7 +155,9 @@ header {
 }
 /* (1024px and up) */
 @media only screen and (min-width: 64em) {
-    
+    header {
+        font-size: 0.75em;
+    }
 }
 /* (1280px and up) */
 @media only screen and (min-width: 80em) {

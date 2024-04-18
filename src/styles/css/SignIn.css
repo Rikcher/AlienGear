@@ -158,6 +158,11 @@
 /* (576px and up) */
 /* (768px and up) */
 /* (1024px and up) */
+@media only screen and (min-width: 64em) {
+  .signInWrapper, .signUpWrapper, .resetPasswordWrapper {
+    font-size: 0.75em;
+  }
+}
 /* (1280px and up) */
 @media only screen and (min-width: 80em) {
   .signInWrapper, .signUpWrapper, .resetPasswordWrapper {

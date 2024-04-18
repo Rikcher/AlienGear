@@ -203,7 +203,7 @@ const IndividualProduct = () => {
                             src={product.pictures[product.itemId]}
                             alt={product.name}
                             style={{ 
-                                maxWidth: "500px",
+                                maxWidth: "min(500px, 31.25em)",
                                 zIndex: `${product.pictures.length + 1}`,
                                 display: imageLoaded ? 'block' : 'none'
                             }}
@@ -253,7 +253,7 @@ const IndividualProduct = () => {
                                     src={picture}
                                     alt={product.name}
                                     style={{ 
-                                        maxWidth: "500px",
+                                        maxWidth: "min(500px, 31.25em)",
                                         left: `${2.5 + (index * 2.5)}em`,
                                         zIndex: `${product.pictures.length - index}`
                                     }}

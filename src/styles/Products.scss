@@ -242,7 +242,7 @@
     .productsContainer {
         display: grid;
         width: 100%;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); // change auto-fill to wanted amount for each screen size
+        grid-template-columns: repeat(auto-fill, minmax(min(18.75em, 300px), 1fr)); // change auto-fill to wanted amount for each screen size
         grid-gap: 0.625em; // 10px
         row-gap: 0.625em; // 10px 
         .grid-item {
@@ -259,7 +259,7 @@
                 justify-content: center;
                 align-items: center;
                 .picture {
-                    max-width: 300px;
+                    width: min(18.75em, 300px);
                 }
             }
             .picture.placeholder {
@@ -386,7 +386,9 @@
 }
 /* (1024px and up) */
 @media only screen and (min-width: 64em) {
-    
+    .productsPageWrapper {
+        font-size: 0.75em;
+    }
 }
 /* (1280px and up) */
 @media only screen and (min-width: 80em) {

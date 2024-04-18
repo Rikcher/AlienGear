@@ -282,13 +282,26 @@
 @media only screen and (min-width: 36em) {
     
 }
-/* (768px and up) */
+/* (768px(tablet portrait) and up) */
 @media only screen and (min-width: 48em) {
     
 }
-/* (1024px and up) */
+/* (1024px(landscape tablets) and up) */
 @media only screen and (min-width: 64em) {
-    
+    .individualProductPageWrapper {
+        font-size: 0.75em;
+        .topPart {
+            .allPictures {
+                width: 80em; // 1000px
+            }
+            .info {
+                #goToTechSpecsButton {
+                    bottom: 1.953vw;
+                    right: 7.7vw;
+                }
+            }
+        }
+    }
 }
 /* (1280px and up) */
 @media only screen and (min-width: 80em) {
