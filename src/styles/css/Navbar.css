@@ -15,6 +15,7 @@ header nav {
 }
 header #navbarLogo {
   width: 11.267em;
+  cursor: pointer;
 }
 header .navLinks {
   display: flex;

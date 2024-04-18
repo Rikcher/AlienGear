@@ -1,4 +1,4 @@
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link, useNavigate } from "react-router-dom";
 import '/src/styles/css/Navbar.css';
 import { auth } from '/src/firebase-config.jsx';
 import { getDatabase, ref, onValue } from 'firebase/database';
@@ -7,6 +7,7 @@ import React, { useEffect, useState } from 'react';
 const Navbar = () => {
     const [user, setUser] = useState(auth.currentUser);
     const [totalItems, setTotalItems] = useState(0); // State for total items in cart
+    const navigate = useNavigate()
 
     const getTotalItemsInCart = async (user) => {
         if (!user) {
@@ -43,7 +44,7 @@ const Navbar = () => {
         <>
         <header>
             <nav>
-                <img id="navbarLogo" src="/navbar/NavbarAppIcon.svg" alt="AlienGear logo" />
+                <img onClick={() => navigate("/")} id="navbarLogo" src="/navbar/NavbarAppIcon.svg" alt="AlienGear logo" />
                 <div className="navLinks">
                     <Link to="/" className="button">
                         <img className="buttonAnimate home" src="/navbar/HomeButtonBackground.svg" alt="" />
