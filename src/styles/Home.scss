@@ -6,65 +6,66 @@
     height: 100vh;
     overflow: hidden;
     user-select: none;
+
+    #forest { 
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        z-index: 0;
+        width: 100vw;
+    }
+    
+    #beam { 
+        position: fixed;
+        left: 29.649vw; //405
+        top: 9.078vw; //120
+        z-index: -2;
+        width: 40.776vw;
+        animation: backgroundMoveUp 10s linear infinite;
+    }
+    
+    #items { 
+        position: fixed;
+        left: 35.505vw; //485
+        top: 12.079vw; //165
+        z-index: -1;
+        width: 29.941vw; //409
+    }
+    
+    #ufo { 
+        position: fixed;
+        left: 36.969vw;
+        top: 2.562vw;
+        z-index: 0;
+        width: 26.061vw;
+    }
+    
+    #title {
+        position: fixed;
+        left: 25.256vw; //345
+        top: 16.691vw; //229
+        // bottom: 50vh;
+        z-index: 0;
+        width: 49.78vw; //680
+    }
+    
+    #headset {
+        position: fixed;
+        left: 68.741vw; //939
+        bottom: 28vh;
+        z-index: -1;
+        width: 22.84vw; //312
+    }
+    
+    #keyboard {
+        position: fixed;
+        left: 9.736vw; //133
+        bottom: 29vh;
+        z-index: -1;
+        width: 23.206vw; //317
+    }
 }
 
-#forest { 
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    z-index: 0;
-    width: 100vw;
-}
-
-#beam { 
-    position: fixed;
-    left: 29.649vw; //405
-    top: 9.078vw; //120
-    z-index: -2;
-    width: 40.776vw;
-    animation: backgroundMoveUp 10s linear infinite;
-}
-
-#items { 
-    position: fixed;
-    left: 35.505vw; //485
-    top: 12.079vw; //165
-    z-index: -1;
-    width: 29.941vw; //409
-}
-
-#ufo { 
-    position: fixed;
-    left: 36.969vw;
-    top: 2.562vw;
-    z-index: 0;
-    width: 26.061vw;
-}
-
-#title {
-    position: fixed;
-    left: 25.256vw; //345
-    top: 16.691vw; //229
-    // bottom: 50vh;
-    z-index: 0;
-    width: 49.78vw; //680
-}
-
-#headset {
-    position: fixed;
-    left: 68.741vw; //939
-    bottom: 28vh;
-    z-index: -1;
-    width: 22.84vw; //312
-}
-
-#keyboard {
-    position: fixed;
-    left: 9.736vw; //133
-    bottom: 29vh;
-    z-index: -1;
-    width: 23.206vw; //317
-}
 
 #ctaButton {
     display: flex;
@@ -104,7 +105,72 @@
 
 /* (576px and down) */
 @media only screen and (max-width: 36em) {
+    .background {
+    font-size: 1em;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    user-select: none;
     
+        #forest { 
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            z-index: 0;
+            width: 100vw;
+        }
+        
+        #beam { 
+            position: fixed;
+            left: -30vw; //405
+            top: 30vw; //120
+            z-index: -2;
+            width: 36.813em;
+            animation: backgroundMoveUp 10s linear infinite;
+        }
+        
+        #items { 
+            position: fixed;
+            left: 35.505vw; //485
+            top: 12.079vw; //165
+            z-index: -1;
+            width: 29.941vw; //409
+        }
+        
+        #ufo { 
+            position: fixed;
+            left: 0;
+            top: 10vw;
+            z-index: 0;
+            width: 100vw;
+        }
+        
+        #title {
+            position: fixed;
+            left: 25.256vw; //345
+            top: 16.691vw; //229
+            // bottom: 50vh;
+            z-index: 0;
+            width: 49.78vw; //680
+        }
+        
+        #headset {
+            position: fixed;
+            left: 68.741vw; //939
+            bottom: 28vh;
+            z-index: -1;
+            width: 22.84vw; //312
+        }
+        
+        #keyboard {
+            position: fixed;
+            left: 9.736vw; //133
+            bottom: 29vh;
+            z-index: -1;
+            width: 23.206vw; //317
+        }
+    }
 }
 /* (576px and up) */
 @media only screen and (min-width: 36em) {

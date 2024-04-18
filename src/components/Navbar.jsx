@@ -7,6 +7,8 @@ import React, { useEffect, useState } from 'react';
 const Navbar = () => {
     const [user, setUser] = useState(auth.currentUser);
     const [totalItems, setTotalItems] = useState(0); // State for total items in cart
+    const [screenWidth, setScreenWidth] = useState(window.innerWidth); // State to track screen width
+    const [openMenu, setOpenMenu] = useState(false); // State to track screen width
     const navigate = useNavigate()
 
     const getTotalItemsInCart = async (user) => {
@@ -29,6 +31,10 @@ const Navbar = () => {
         });
     };
 
+    const handleMenuClick = () => {
+        setOpenMenu(!openMenu);
+    }
+
     useEffect(() => {
         // Listen for changes in the user's authentication status
         const unsubscribe = auth.onAuthStateChanged(user => {
@@ -40,43 +46,115 @@ const Navbar = () => {
         return () => unsubscribe();
     }, []);
 
+    // Function to handle window resize
+    const handleResize = () => {
+        setScreenWidth(window.innerWidth);
+    };
+
+    // Add event listener for window resize
+    useEffect(() => {
+        window.addEventListener('resize', handleResize);
+        // Cleanup the event listener on component unmount
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     return ( 
         <>
-        <header>
+        <header 
+        // style={{
+        //     backgroundColor: openMenu ? "black" : ""
+        //     }}
+            >
             <nav>
                 <img onClick={() => navigate("/")} id="navbarLogo" src="/navbar/NavbarAppIcon.svg" alt="AlienGear logo" />
-                <div className="navLinks">
-                    <Link to="/" className="button">
-                        <img className="buttonAnimate home" src="/navbar/HomeButtonBackground.svg" alt="" />
-                        <p className="link text">HOME</p>
-                    </Link>
-                    <Link to="/products" className="button">
-                        <img className="buttonAnimate product" src="/navbar/ProductButtonBackground.svg" alt="" />
-                        <p className="link text">PRODUCTS</p>
-                    </Link>
-                    <Link to="/about-us" className="button">
-                        <img className="buttonAnimate aboutus" src="/navbar/AboutUsButtonBackground.svg" alt="" />
-                        <p className="link text">ABOUT US</p>
-                    </Link>
-                    <Link to="/search" className="button">
-                        <img className="buttonAnimate search" src="/navbar/UserButtonBackground.svg" alt="" />
-                        <div className="link icon search">
-                            <div></div>
-                        </div>
-                    </Link>
-                    <Link to={user ? "/profile" : "/sign-in"} className="button">
-                        <img className="buttonAnimate user" src="/navbar/UserButtonBackground.svg" alt="" />
-                        <div className="link icon user">
-                            <div></div>
-                        </div>
-                    </Link>
-                    <Link to="/cart" className="button">
-                        <img className="buttonAnimate cart" src="/navbar/CartButtonBackground.svg" alt="" />
-                        <div className="link icon cart">
-                            <div></div>
-                            <span style={{display: user && totalItems != 0  ? "flex" : "none"}}>{totalItems}</span>
-                        </div>
-                    </Link>
+                {screenWidth < 1024 ? (
+                    <div className="menu" onClick={() => handleMenuClick()}>
+                        <div 
+                        className="top"
+                        style={{
+                            transform: openMenu ? "rotate(-45deg) translateY(-4.5px)" : "",
+                            transformOrigin: "100% 50%",
+                            borderRadius: openMenu ? "8px" : ""
+                        }}
+                        ></div>
+                        <div 
+                        className="center"
+                        style={{
+                            opacity: openMenu ? "0" : "100%",
+                        }}
+                        ></div>
+                        <div 
+                        className="bottom"
+                        style={{
+                            transform: openMenu ? "rotate(45deg) translateY(4.5px)" : "",
+                            transformOrigin: "100% 50%",
+                            borderRadius: openMenu ? "8px" : ""
+                        }}
+                        ></div>
+                    </div>
+                ) : null}
+                <div 
+                className="navLinks" 
+                style={{
+                    transform: openMenu ? "translateY(24.167em)" : "translateY(0)"
+                }}>
+                    {screenWidth >= 1024 ? (
+                        <>
+                        <Link to="/" className="button">
+                            <img className="buttonAnimate home" src="/navbar/HomeButtonBackground.svg" alt="" />
+                            <p className="link text">HOME</p>
+                        </Link>
+                        <Link to="/products" className="button">
+                            <img className="buttonAnimate product" src="/navbar/ProductButtonBackground.svg" alt="" />
+                            <p className="link text">PRODUCTS</p>
+                        </Link>
+                        <Link to="/about-us" className="button">
+                            <img className="buttonAnimate aboutus" src="/navbar/AboutUsButtonBackground.svg" alt="" />
+                            <p className="link text">ABOUT US</p>
+                        </Link>
+                        <Link to="/search" className="button">
+                            <img className="buttonAnimate search" src="/navbar/UserButtonBackground.svg" alt="" />
+                            <div className="link icon search">
+                                <div></div>
+                            </div>
+                        </Link>
+                        <Link to={user ? "/profile" : "/sign-in"} className="button">
+                            <img className="buttonAnimate user" src="/navbar/UserButtonBackground.svg" alt="" />
+                            <div className="link icon user">
+                                <div></div>
+                            </div>
+                        </Link>
+                        <Link to="/cart" className="button">
+                            <img className="buttonAnimate cart" src="/navbar/CartButtonBackground.svg" alt="" />
+                            <div className="link icon cart">
+                                <div></div>
+                                <span style={{display: user && totalItems != 0  ? "flex" : "none"}}>{totalItems}</span>
+                            </div>
+                        </Link>
+                        </>
+                    ) : (
+                        <>
+                        <Link to="/" className="button">
+                            <p className="link text">HOME</p>
+                        </Link>
+                        <Link to="/products" className="button">
+                            <p className="link text">PRODUCTS</p>
+                        </Link>
+                        <Link to="/about-us" className="button">
+                            <p className="link text">ABOUT US</p>
+                        </Link>
+                        <Link to="/search" className="button">
+                            <p className="link text">SEARCH</p>
+                        </Link>
+                        <Link to={user ? "/profile" : "/sign-in"} className="button">
+                            <p className="link text">PROFILE</p>
+                        </Link>
+                        <Link to="/cart" className="button">
+                            <p className="link text">CART</p>
+                        </Link>
+                        </>
+                    )}
+                    
                 </div>
             </nav>
         </header>

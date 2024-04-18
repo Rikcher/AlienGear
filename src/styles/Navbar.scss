@@ -8,7 +8,7 @@
 header {
     position: relative;
     font-size: 0.938em;
-    margin: 1.333em; //20
+    padding: 1.333em; //20
     z-index: 2;
 
 
@@ -16,134 +16,194 @@ header {
         display: flex;
         align-items: center;
         justify-content: space-between;
-    }
-    
-    #navbarLogo {
-        width: 11.267em;
-        cursor: pointer;
-    }
-    
-    .navLinks {
-        display: flex;
-        align-items: center;
-        gap: 1.333em; //20
-    
-        .button {
+
+        #navbarLogo {
+            width: 11.267em;
+            cursor: pointer;
+        }
+        
+        .navLinks {
             display: flex;
-            position: relative;
-            text-decoration: none;
-    
-            //styling nav buttons text before hover
-            .link {
+            align-items: center;
+            gap: 1.333em; //20
+        
+            .button {
+                display: flex;
                 position: relative;
                 text-decoration: none;
-                font-family: "navbarfont";
-                color: $main-primary;
-                transition: transform 0.3s ease, color 0.6s ease;
+        
+                //styling nav buttons text before hover
+                .link {
+                    position: relative;
+                    text-decoration: none;
+                    font-family: "navbarfont";
+                    color: $main-primary;
+                    transition: transform 0.3s ease, color 0.6s ease;
+                }
+        
+                //styling nav icon links 
+                .link.icon div{
+                    display: inline-block;
+                    width: 1.333em; //20
+                    height: 1.467em; //22
+                    transition: transform 0.5s ease, background-color 0.6s ease;
+                    background-color: $main-primary;
+                }
+                .link.icon.search div{
+                    mask: url("/navbar/NavbarSearchIcon.svg");
+                    height: 1.333em; //22
+                    mask-size: cover;
+                }
+                .link.icon.user div{
+                    mask: url("/navbar/NavbarUserProfileIcon.svg");
+                    mask-size: cover;
+                }
+                .link.icon.cart div{
+                    mask: url("/navbar/NavbarCartIcon.svg");
+                    mask-size: cover;
+                }
+                span {
+                    font-family: "Inter", sans-serif;
+                    font-weight: 700;
+                    position: absolute;
+                    top: -0.3em;
+                    right: -0.5em;
+                    width: 1.5em;
+                    height: 1.5em;
+                    border-radius: 9999px;
+                    background-color: $main-white;
+                    transition: transform 0.5s ease, background-color 0.6s ease;
+                    font-size: 0.625em;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    color: $main-black;
+                }
+        
+                //styling background beam of nav links
+                .buttonAnimate {
+                    position: absolute;
+                    top: -3.467em; //-52
+                    pointer-events: none;
+                    user-select: none;
+                    transform: scaleX(0);
+                    transition: transform 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000);
+                }
+                .buttonAnimate.home{
+                    width: 4.855em;
+                    left: -0.666em; //-10
+                } 
+                .buttonAnimate.product {
+                    width: 7.4em;
+                    left: -0.666em; //-10
+                }
+                .buttonAnimate.aboutus {
+                    width: 6.65em;
+                    left: -0.4em; //-6
+                }
+                .buttonAnimate.search {
+                    width: 2.4em;
+                    left: -0.533em; //-8.5
+                    top: -3.333em; //-50
+                }
+                .buttonAnimate.user {
+                    width: 2.4em;
+                    left: -0.533em; //-8.5
+                    top: -3.333em; //-50
+                }
+                .buttonAnimate.cart {
+                    width: 2.4em;
+                    left: -0.467em; //-7
+                    top: -3.2em; //-48
+                }
             }
-    
-            //styling nav icon links 
-            .link.icon div{
-                display: inline-block;
-                width: 1.333em; //20
-                height: 1.467em; //22
-                transition: transform 0.5s ease, background-color 0.6s ease;
+        
+            //animation of background links beam on hover
+            .button:hover .buttonAnimate{
+                transform: scaleX(1);
+            }
+            //styling of text of links on hover
+            .button:hover .link.text{
+                transform: translateY(-0.438em); //-5
+                color: $main-white;
+            }
+            //styling of icon links on hover
+            .button:hover .link.icon div{
+                transform: translateY(-0.533em); //-8
+                background-color: $main-white;
+            }
+            .button:hover .link.icon span{
+                transform: translateY(-0.8em); //-8
                 background-color: $main-primary;
             }
-            .link.icon.search div{
-                mask: url("/navbar/NavbarSearchIcon.svg");
-                height: 1.333em; //22
-                mask-size: cover;
-            }
-            .link.icon.user div{
-                mask: url("/navbar/NavbarUserProfileIcon.svg");
-                mask-size: cover;
-            }
-            .link.icon.cart div{
-                mask: url("/navbar/NavbarCartIcon.svg");
-                mask-size: cover;
-            }
-            span {
-                font-family: "Inter", sans-serif;
-                font-weight: 700;
-                position: absolute;
-                top: -0.3em;
-                right: -0.5em;
-                width: 1.5em;
-                height: 1.5em;
-                border-radius: 9999px;
-                background-color: $main-white;
-                transition: transform 0.5s ease, background-color 0.6s ease;
-                font-size: 0.625em;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                color: $main-black;
-            }
-    
-            //styling background beam of nav links
-            .buttonAnimate {
-                position: absolute;
-                top: -3.467em; //-52
-                pointer-events: none;
-                user-select: none;
-                transform: scaleX(0);
-                transition: transform 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000);
-            }
-            .buttonAnimate.home{
-                width: 4.855em;
-                left: -0.666em; //-10
-            } 
-            .buttonAnimate.product {
-                width: 7.4em;
-                left: -0.666em; //-10
-            }
-            .buttonAnimate.aboutus {
-                width: 6.65em;
-                left: -0.4em; //-6
-            }
-            .buttonAnimate.search {
-                width: 2.4em;
-                left: -0.533em; //-8.5
-                top: -3.333em; //-50
-            }
-            .buttonAnimate.user {
-                width: 2.4em;
-                left: -0.533em; //-8.5
-                top: -3.333em; //-50
-            }
-            .buttonAnimate.cart {
-                width: 2.4em;
-                left: -0.467em; //-7
-                top: -3.2em; //-48
-            }
-        }
-    
-        //animation of background links beam on hover
-        .button:hover .buttonAnimate{
-            transform: scaleX(1);
-        }
-        //styling of text of links on hover
-        .button:hover .link.text{
-            transform: translateY(-0.438em); //-5
-            color: $main-white;
-        }
-        //styling of icon links on hover
-        .button:hover .link.icon div{
-            transform: translateY(-0.533em); //-8
-            background-color: $main-white;
-        }
-        .button:hover .link.icon span{
-            transform: translateY(-0.8em); //-8
-            background-color: $main-primary;
         }
     }
+    
 }
 
 
 /* (576px and down) */
 @media only screen and (max-width: 36em) {
+    header {
+        font-size: 0.75em;
+        padding: 0.625em;
+        position: relative;
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
     
+            .menu {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                min-width: 0.238em;
+                min-height: 1.75em;
+                position: relative;
+                .top, .center, .bottom {
+                    width: 2.5em;
+                    height: 0.417em;
+                    background-color: $main-primary;
+                    transition: transform 0.3s ease, opacity 0.3s ease;
+                }
+                .top {
+                    border-radius: 0.167em 0.167em 0 0;
+                }
+                .bottom {
+                    border-radius: 0 0 0.167em 0.167em;
+                }
+            }
+            
+            .navLinks {
+            background-color: $main-black;
+            padding-top: 5em;
+            z-index: -1;
+            border-bottom: 0.083em solid $main-white;
+            width: 100vw;
+            height: auto;
+            position: absolute;
+            top: -24.167em;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0; //20
+            transition: transform 0.3s ease;
+
+            .button {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 90%;
+                padding: 0.833em 0;
+                border-top: 0.083em solid #2B2B2B ;
+                }
+                .button:hover .link.text{
+                    transform: translateY(0); //-5
+                    color: $main-primary;
+                }
+            }
+        }
+    }
 }
 /* (576px and up) */
 @media only screen and (min-width: 36em) {

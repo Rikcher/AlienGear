@@ -5,16 +5,14 @@
   overflow: hidden;
   user-select: none;
 }
-
-#forest {
+.background #forest {
   position: fixed;
   left: 0;
   bottom: 0;
   z-index: 0;
   width: 100vw;
 }
-
-#beam {
+.background #beam {
   position: fixed;
   left: 29.649vw;
   top: 9.078vw;
@@ -22,40 +20,35 @@
   width: 40.776vw;
   animation: backgroundMoveUp 10s linear infinite;
 }
-
-#items {
+.background #items {
   position: fixed;
   left: 35.505vw;
   top: 12.079vw;
   z-index: -1;
   width: 29.941vw;
 }
-
-#ufo {
+.background #ufo {
   position: fixed;
   left: 36.969vw;
   top: 2.562vw;
   z-index: 0;
   width: 26.061vw;
 }
-
-#title {
+.background #title {
   position: fixed;
   left: 25.256vw;
   top: 16.691vw;
   z-index: 0;
   width: 49.78vw;
 }
-
-#headset {
+.background #headset {
   position: fixed;
   left: 68.741vw;
   bottom: 28vh;
   z-index: -1;
   width: 22.84vw;
 }
-
-#keyboard {
+.background #keyboard {
   position: fixed;
   left: 9.736vw;
   bottom: 29vh;
@@ -97,6 +90,66 @@
 }
 /* style.css */
 /* (576px and down) */
+@media only screen and (max-width: 36em) {
+  .background {
+    font-size: 1em;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    user-select: none;
+  }
+  .background #forest {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 0;
+    width: 100vw;
+  }
+  .background #beam {
+    position: fixed;
+    left: -30vw;
+    top: 30vw;
+    z-index: -2;
+    width: 36.813em;
+    animation: backgroundMoveUp 10s linear infinite;
+  }
+  .background #items {
+    position: fixed;
+    left: 35.505vw;
+    top: 12.079vw;
+    z-index: -1;
+    width: 29.941vw;
+  }
+  .background #ufo {
+    position: fixed;
+    left: 0;
+    top: 10vw;
+    z-index: 0;
+    width: 100vw;
+  }
+  .background #title {
+    position: fixed;
+    left: 25.256vw;
+    top: 16.691vw;
+    z-index: 0;
+    width: 49.78vw;
+  }
+  .background #headset {
+    position: fixed;
+    left: 68.741vw;
+    bottom: 28vh;
+    z-index: -1;
+    width: 22.84vw;
+  }
+  .background #keyboard {
+    position: fixed;
+    left: 9.736vw;
+    bottom: 29vh;
+    z-index: -1;
+    width: 23.206vw;
+  }
+}
 /* (576px and up) */
 /* (768px(tablet portrait) and up) */
 /* (1024px(landscape tablets) and up) */
