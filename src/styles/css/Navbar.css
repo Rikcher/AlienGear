@@ -183,9 +183,67 @@ header nav .navLinks .button:hover .link.icon span {
   }
 }
 /* (576px and up) */
-/* (768px and up) */
+@media only screen and (min-width: 36em) and (max-width: 64em) {
+  header {
+    font-size: 0.75em;
+    padding: 0.625em;
+    position: relative;
+  }
+  header nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  header nav .menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 0.238em;
+    min-height: 1.75em;
+    position: relative;
+  }
+  header nav .menu .top, header nav .menu .center, header nav .menu .bottom {
+    width: 2.5em;
+    height: 0.417em;
+    background-color: #00FFA3;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  header nav .menu .top {
+    border-radius: 0.167em 0.167em 0 0;
+  }
+  header nav .menu .bottom {
+    border-radius: 0 0 0.167em 0.167em;
+  }
+  header nav .navLinks {
+    background-color: #000000;
+    padding-top: 5em;
+    z-index: -1;
+    border-bottom: 0.083em solid #FFFFFF;
+    width: 100vw;
+    height: auto;
+    position: absolute;
+    top: -24.167em;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    transition: transform 0.3s ease;
+  }
+  header nav .navLinks .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    padding: 0.833em 0;
+    border-top: 0.083em solid #2B2B2B;
+  }
+  header nav .navLinks .button:hover .link.text {
+    transform: translateY(0);
+    color: #00FFA3;
+  }
+}
 /* (1024px and up) */
-@media only screen and (min-width: 64em) {
+@media only screen and (min-width: 64.063em) {
   header {
     font-size: 0.75em;
   }

@@ -21,7 +21,6 @@
         top: 9.078vw; //120
         z-index: -2;
         width: 40.776vw;
-        animation: backgroundMoveUp 10s linear infinite;
     }
     
     #items { 
@@ -44,7 +43,6 @@
         position: fixed;
         left: 25.256vw; //345
         top: 16.691vw; //229
-        // bottom: 50vh;
         z-index: 0;
         width: 49.78vw; //680
     }
@@ -106,97 +104,120 @@
 /* (576px and down) */
 @media only screen and (max-width: 36em) {
     .background {
-    font-size: 1em;
-    position: fixed;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    user-select: none;
-    
         #forest { 
-            position: fixed;
-            left: 0;
-            bottom: 0;
-            z-index: 0;
-            width: 100vw;
+            width: auto;
+            height: 51.389vw;
         }
         
         #beam { 
-            position: fixed;
-            left: -30vw; //405
-            top: 30vw; //120
-            z-index: -2;
-            width: 36.813em;
-            animation: backgroundMoveUp 10s linear infinite;
+            left: calc(50% - 79.444vw); //405
+            top: 44.167vw; //120
+            width: 159.444vw;
         }
         
         #items { 
-            position: fixed;
-            left: 35.505vw; //485
-            top: 12.079vw; //165
-            z-index: -1;
-            width: 29.941vw; //409
+            left: calc(50% - 52.778vw); //485
+            top: 51.389vw; //165
+            width: 111.111vw; //409
         }
         
         #ufo { 
-            position: fixed;
             left: 0;
-            top: 10vw;
-            z-index: 0;
+            top: 18.889vw;
             width: 100vw;
         }
         
         #title {
-            position: fixed;
-            left: 25.256vw; //345
-            top: 16.691vw; //229
-            // bottom: 50vh;
-            z-index: 0;
-            width: 49.78vw; //680
+            left: calc(50% - 42.917vw);
+            top: 62.5vw; //229
+            width: 85.833vw; //680
         }
         
         #headset {
-            position: fixed;
-            left: 68.741vw; //939
-            bottom: 28vh;
-            z-index: -1;
-            width: 22.84vw; //312
+            display: none;
         }
         
         #keyboard {
-            position: fixed;
-            left: 9.736vw; //133
-            bottom: 29vh;
-            z-index: -1;
-            width: 23.206vw; //317
+            display: none;
         }
+    }
+    #ctaButton {
+        width: 30vw; //154
+        height: 10vw; //58
+        font-size: 4vw;
+        left: calc(50% - 15vw); //605
+        bottom: 3.66vw; //50
+        border-radius: 2.222vw;
+    }
+}
+
+@media only screen and (max-width: 36em) and (orientation: landscape) {
+    .background {
+        #forest { 
+            width: 100vw;
+            height: auto;
+            /* Adjust positioning as needed */
+        }
+        
+        #beam { 
+            left: calc(50% - 79.444vw); // Adjust as needed
+            top: 44.167vw; // Adjust as needed
+            width: 159.444vw;
+            /* Adjust positioning as needed */
+        }
+        
+        /* Repeat for other elements */
+    }
+    #ctaButton {
+        /* Adjust size and positioning as needed */
     }
 }
 /* (576px and up) */
-@media only screen and (min-width: 36em) {
-    
-}
-/* (768px(tablet portrait) and up) */
-@media only screen and (min-width: 48em) {
-    
-}
-/* (1024px(landscape tablets) and up) */
-@media only screen and (min-width: 64em) {
-    
-}
-/* (1280px and up) */
-@media only screen and (min-width: 80em) {
-    
-}
-/* (1920px and up) */
-@media only screen and (min-width: 120em) {
-    
-}
-/* (2560px and up) */
-@media only screen and (min-width: 160em) {
-    
-}
-/* (3840px and up) */
-@media only screen and (min-width: 240em) {
-    
+@media only screen and (min-width: 36em) and (max-width: 64em) {
+    .background {
+        #forest { 
+            width: auto;
+            height: 29%;
+        }
+        
+        #beam { 
+            left: calc(50% - 47.4vw); //405
+            top: 24vw; //120
+            width: 95vw;
+        }
+        
+        #items { 
+            left: calc(50% - 38vw); //485
+            top: 32vw; //165
+            width: 80vw; //409
+        }
+        
+        #ufo { 
+            left: calc(50% - 30vw);
+            top: 10vw;
+            width: 60vw;
+        }
+        
+        #title {
+            left: calc(50% - 30vw);
+            top: 40vw; //229
+            width: 60vw; //680
+        }
+        
+        #headset {
+            display: none;
+        }
+        
+        #keyboard {
+            display: none;
+        }
+    }
+    #ctaButton {
+        width: 20vw; //154
+        height: 6.5vw; //58
+        font-size: 2.7vw;
+        left: calc(50% - 10vw); //605
+        bottom: 3.66vw; //50
+        border-radius: 1.5vw;
+    }
 }

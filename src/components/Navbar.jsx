@@ -61,13 +61,10 @@ const Navbar = () => {
     return ( 
         <>
         <header 
-        // style={{
-        //     backgroundColor: openMenu ? "black" : ""
-        //     }}
             >
             <nav>
                 <img onClick={() => navigate("/")} id="navbarLogo" src="/navbar/NavbarAppIcon.svg" alt="AlienGear logo" />
-                {screenWidth < 1024 ? (
+                {screenWidth <= 1024 ? (
                     <div className="menu" onClick={() => handleMenuClick()}>
                         <div 
                         className="top"
@@ -95,10 +92,10 @@ const Navbar = () => {
                 ) : null}
                 <div 
                 className="navLinks" 
-                style={{
+                style={screenWidth <= 1024  ? {
                     transform: openMenu ? "translateY(24.167em)" : "translateY(0)"
-                }}>
-                    {screenWidth >= 1024 ? (
+                } : null}>
+                    {screenWidth > 1024 ? (
                         <>
                         <Link to="/" className="button">
                             <img className="buttonAnimate home" src="/navbar/HomeButtonBackground.svg" alt="" />
