@@ -399,7 +399,8 @@
                 position: fixed;
                 width: 80%; // 434px
                 height: 100vh;
-                background-color: $main-black;
+                background: rgb(0,0,0);
+                background: linear-gradient(48deg, rgba(0,0,0,1) 25%, rgba(18,18,18,1) 76%);
                 top: 0; // -18px
                 right: 0; // -14px
                 border-left: 0.0625em solid $main-primary; // 1px
@@ -408,8 +409,8 @@
                 padding: 55px 10px 10px 10px;
 
                 .iconOver {
-                    width: 3em; // 34px
-                    height: 3em; // 31px
+                    width: 4em; // 34px
+                    height: 4em; // 31px
                     mask: url("/products-page/closeIcon.svg");
                     mask-size: cover;
                     background-color: $main-primary;
@@ -504,13 +505,15 @@
                         margin-bottom: 0.9375em; // 15px
                     }
                     .filterName{
-                        padding-left: 0.9em;
+                        padding-left: 0.7em;
                         color: $main-primary;
                         font-size: 1.5em; // 16px
                         margin-bottom: 0.625em; // 4px
                         font-weight: 600;
                     }
                     .noCategory, .noFilter {
+                        font-size: 1.5em;
+                        margin-top: -0.625em;
                         color: #505050;
                     }
                     .specificFiltersContainer {
