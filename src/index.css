@@ -2,11 +2,22 @@ body {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background-image: url("/Picture.png");
-    background-size: cover; /* This will ensure the image covers the entire viewport */
-    background-repeat: no-repeat; /* This prevents the image from repeating */
-    background-attachment: fixed; /* This makes the background fixed */
     font-size: 1rem;
+    position: relative; /* Ensure the body can contain the pseudo-element */
+}
+
+body::before {
+    content: "";
+    position: fixed; /* Fixed position to cover the entire viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* Cover the entire viewport height */
+    background-image: url("/Picture.png");
+    background-size: cover; /* Ensure the image covers the entire pseudo-element */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    background-attachment: fixed; /* Keep the background fixed */
+    z-index: -1; /* Place the pseudo-element behind the content */
 }
 
 h1, h2, h3, h4, p {
