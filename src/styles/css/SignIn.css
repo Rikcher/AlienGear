@@ -155,8 +155,17 @@
 }
 
 /* (576px and down) */
+@media only screen and (max-width: 36em) {
+  .signInWrapper, .signUpWrapper, .resetPasswordWrapper {
+    font-size: 0.75em;
+  }
+}
 /* (576px and up) */
-/* (768px and up) */
+@media only screen and (min-width: 36em) and (max-width: 64em) {
+  .signInWrapper, .signUpWrapper, .resetPasswordWrapper {
+    font-size: 1.2em;
+  }
+}
 /* (1024px and up) */
 @media only screen and (min-width: 64em) {
   .signInWrapper, .signUpWrapper, .resetPasswordWrapper {
