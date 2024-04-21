@@ -186,7 +186,7 @@
             .key {
                 font-size: 1em; // 16px
                 font-weight: 500;
-                width: 14.375em; // 230px
+                min-width: 14.375em; // 230px
             }
             .value {
                 font-size: 1em; // 16px
@@ -337,6 +337,7 @@
             }
 
             .info {
+                font-size: 1.2em;
                 margin: 2.5em auto; // 40px
                 width: 90%; // 290px
                 #goToTechSpecsButton {
@@ -347,6 +348,12 @@
         .bottomPart {
             margin: 2.5em auto; // 40px 100px 20px 100px
             width: 90%;
+            font-size: 1.2em;
+
+            .title {
+                font-size: 1.375em; // 22px
+                font-weight: 400;
+                margin-bottom: 1.25em; // 20px
             }
         }
 

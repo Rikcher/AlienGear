@@ -177,7 +177,7 @@
 .individualProductPageWrapper .bottomPart .pair .key {
   font-size: 1em;
   font-weight: 500;
-  width: 14.375em;
+  min-width: 14.375em;
 }
 .individualProductPageWrapper .bottomPart .pair .value {
   font-size: 1em;
@@ -310,6 +310,7 @@
     }
   }
   .individualProductPageWrapper .topPart .info {
+    font-size: 1.2em;
     margin: 2.5em auto;
     width: 90%;
   }
@@ -319,28 +320,12 @@
   .individualProductPageWrapper .bottomPart {
     margin: 2.5em auto;
     width: 90%;
+    font-size: 1.2em;
   }
   .individualProductPageWrapper .bottomPart .title {
     font-size: 1.375em;
     font-weight: 400;
     margin-bottom: 1.25em;
-  }
-  .individualProductPageWrapper .bottomPart .pair {
-    width: 100%;
-    border-bottom: 0.0625em solid #BCBCBC;
-    padding-bottom: 0.3125em;
-    margin-bottom: 0.625em;
-    display: flex;
-    justify-content: flex-start;
-  }
-  .individualProductPageWrapper .bottomPart .pair .key {
-    font-size: 1em;
-    font-weight: 500;
-    width: 14.375em;
-  }
-  .individualProductPageWrapper .bottomPart .pair .value {
-    font-size: 1em;
-    color: #BCBCBC;
   }
   .individualProductPageWrapper .topPart.placeholder {
     height: 41.625em;
