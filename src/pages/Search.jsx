@@ -25,7 +25,7 @@ const Search = () => {
         setSearchFilter({category: "", type: "", name: ""});
 
         // This effect runs when the component mounts and whenever searchQuery changes
-        searchQuery.toLowerCase().split(" ").filter(word => {
+        searchQuery?.toLowerCase().split(" ").filter(word => {
             Object.entries(propertyUpdates).forEach(([property, words]) => {
                 if (words.includes(word)) {
                     setSearchFilter(prevState => ({
@@ -262,7 +262,7 @@ const Search = () => {
                     </div>
                 ))}
                 </>
-            ) : searchQuery.length > 0 ? (
+            ) : searchQuery?.length > 0 ? (
                 <h2 className="nothingFound">
                     Nothing was found. Try to search with another keyword.
                 </h2>
