@@ -429,7 +429,7 @@
     margin-bottom: 0.3125em;
   }
   .productsPageWrapper .productsNavBar .filterFunctionality .sortBy .priceFilters .custom .cutsomPriceInputs div input {
-    border-radius: 0.586vw;
+    border-radius: 1.8vw;
     width: 50%;
     font-family: "Init", sans-serif;
     font-size: 0.8em;
@@ -504,6 +504,7 @@
   .productsPageWrapper .productsContainer {
     grid-template-columns: repeat(auto-fill, minmax(300px, 300px));
     justify-content: center;
+    font-size: 1.3em;
   }
 }
 @media only screen and (min-width: 36em) and (max-width: 64em) {
