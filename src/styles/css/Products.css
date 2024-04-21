@@ -371,10 +371,10 @@
     width: 80%;
     height: 100vh;
     background: rgb(0, 0, 0);
-    background: linear-gradient(48deg, rgb(0, 0, 0) 25%, rgb(18, 18, 18) 76%);
+    background: linear-gradient(48deg, rgb(0, 0, 0) 25%, rgb(34, 34, 34) 76%);
     top: 0;
     right: 0;
-    border-left: 0.0625em solid #00FFA3;
+    border-left: 0.0625em solid #FFFFFF;
     display: flex;
     flex-direction: column;
     padding: 55px 10px 10px 10px;

@@ -400,10 +400,10 @@
                 width: 80%; // 434px
                 height: 100vh;
                 background: rgb(0,0,0);
-                background: linear-gradient(48deg, rgba(0,0,0,1) 25%, rgba(18,18,18,1) 76%);
+                background: linear-gradient(48deg, rgba(0,0,0,1) 25%, rgba(34,34,34,1) 76%);
                 top: 0; // -18px
                 right: 0; // -14px
-                border-left: 0.0625em solid $main-primary; // 1px
+                border-left: 0.0625em solid $main-white; // 1px
                 display: flex;
                 flex-direction: column;
                 padding: 55px 10px 10px 10px;
