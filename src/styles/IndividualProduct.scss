@@ -400,9 +400,126 @@
 }
 /* (576px to 1024px) */
 @media only screen and (min-width: 36em) and (max-width: 64em) {
-    
     .individualProductPageWrapper {
         font-size: 0.75em;
+        margin-top: 1.5em; // 40px
+
+        .topPart {
+            display: flex;
+            flex-direction: column;
+
+            .allPictures {
+                max-width: 100%;
+                overflow-Y: hidden; /* Prevent horizontal overflow from affecting the parent */
+
+                .previewPicture.others {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    transition: transform 0.3s ease-in-out;
+                    cursor: pointer;
+                }
+                .previewPicture.others:hover {
+                    transform: translateX(0.9375em); // 15px
+                }
+
+                .smallPictures {
+                    width: 70px;
+                    padding: 0 1px;
+                    position: absolute;
+                    top: 0; // 40px
+                    left: 1em; // 50px
+                    flex-direction: column;
+                    overflow-y: scroll; /* Enables horizontal scrolling if content overflows */
+                    max-height: 100%; // Ensures the container doesn't exceed its parent's width
+
+                    .pictures, .previewPictureSmall {
+                        aspect-ratio: 1;
+                    }
+
+                    #backgroundHoverEffect {
+                        top: 0.209em;
+                        left: -0.125em;
+                    }
+                    #selectedPictureIndicator {
+                        left: 5.4em;
+                    }
+                }
+
+                .fadeIn {
+                    animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+                }
+                
+                @keyframes slide-right {
+                    0% {
+                        transform: translateX(-6.25em);
+                    }
+                    100% {
+                        transform: translateX(0);
+                    }
+                }
+            }
+
+            .info {
+                font-size: 1.2em;
+                margin: 2.5em auto; // 40px
+                width: 90%; // 290px
+                #goToTechSpecsButton {
+                    display: none;
+                }
+            }
+        }
+        .bottomPart {
+            margin: 2.5em auto; // 40px 100px 20px 100px
+            width: 90%;
+            font-size: 1.2em;
+
+            .title {
+                font-size: 1.375em; // 22px
+                font-weight: 400;
+                margin-bottom: 1.25em; // 20px
+            }
+        }
+
+        .topPart.placeholder {
+            height: 41.625em;
+            .allPictures {
+                width: 100%;
+                height: 100%;
+                background-color: #0A0A0A;
+            }
+            .info {
+                .name.placeholder{
+                    background-color: $main-primary;
+                    width: 13.75em;
+                    height: 1.5em;
+                    border-radius: 9999px;
+                }
+                .description.placeholder, .description2.placeholder {
+                    background-color: $main-white;
+                    width: 16.25em;
+                    height: 1.375em;
+                    border-radius: 9999px;
+                }
+                .description2.placeholder {
+                    width: 5em;
+                }
+                .stats {
+                    .stat.placeholder {
+                        background-color: #8E8E8E;
+                        width: 6.25em;
+                        height: 1.063em;
+                        border-radius: 9999px;
+                    }
+                }
+                .price.placeholder {
+                    background-color: $main-white;
+                    width: 6.25em;
+                    height: 1.625em;
+                    border-radius: 9999px;
+                }
+            }
+        }
     }
 }
 /* (1024px(landscape tablets) and up) */

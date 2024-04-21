@@ -1,9 +1,24 @@
 import '/src/styles/css/AboutUs.css'
+import React, { useEffect, useState } from 'react';
 
 const AboutUs = () => {
+    const [screenWidth, setScreenWidth] = useState(window.innerWidth); // State to track screen width
+    // Function to handle window resize
+    const handleResize = () => {
+        setScreenWidth(window.innerWidth);
+    };
+
+    // Add event listener for window resize
+    useEffect(() => {
+        window.addEventListener('resize', handleResize);
+        // Cleanup the event listener on component unmount
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
     return ( 
         <div className="aboutUsWrapper">
+            {screenWidth >= 1024 && (
             <div id='aboutUsPageUfo'></div>
+            )}
             <div className="text">
                 <div className="importantNotice">
                     <h2 className="aboutUsPageTitle">Important Notice: Non-Commercial Use Only</h2>
@@ -11,6 +26,9 @@ const AboutUs = () => {
                     <p className='paragraph'>The primary purpose of this website is to provide a glimpse into my capabilities as a web developer, specifically in the realm of online shopping. It aims to demonstrate how I can leverage my skills to create online stores that are tailored to meet the needs of businesses and individuals looking to establish a strong online presence.</p>
                     <p className='paragraph'>Thank you for visiting, and I hope you find this showcase of my work both informative and useful.</p>
                 </div>
+                {screenWidth < 1024 && (
+                <div id='aboutUsPageUfo'></div>
+                )}
                 <div className="contactUs">
                     <h3>Feel free to contact me</h3>
                     <a id='email' href=""></a>
