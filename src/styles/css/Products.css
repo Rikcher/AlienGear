@@ -525,9 +525,146 @@
     margin-left: 0;
     order: 0;
   }
+  .productsPageWrapper .productsNavBar .filterFunctionality {
+    z-index: 25;
+    position: fixed;
+    width: 60%;
+    height: 100vh;
+    background: rgb(0, 0, 0);
+    background: linear-gradient(48deg, rgb(0, 0, 0) 25%, rgb(0, 34, 22) 76%);
+    top: 0;
+    right: 0;
+    border-left: 0.0625em solid #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    padding: 55px 10px 10px 10px;
+  }
+  .productsPageWrapper .productsNavBar .filterFunctionality .iconOver {
+    width: 4em;
+    height: 4em;
+    mask: url("/products-page/closeIcon.svg");
+    mask-size: cover;
+    background-color: #00FFA3;
+    position: absolute;
+    left: 0.625em;
+    top: 1em;
+  }
+  .productsPageWrapper .productsNavBar .filterFunctionality .sortBy {
+    margin-top: 20px;
+  }
+  .productsPageWrapper .productsNavBar .filterFunctionality .sortBy .title {
+    font-size: 2em;
+    font-weight: 700;
+    margin-bottom: 0.9375em;
+    color: #00FFA3;
+  }
+  .productsPageWrapper .productsNavBar .filterFunctionality .sortBy .priceFilters {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .productsPageWrapper .productsNavBar .filterFunctionality .sortBy .priceFilters button {
+    width: 10em;
+    font-size: 1.5em;
+    margin-bottom: 0.625em;
+    border-radius: 0.25em;
+    border: none;
+    color: #999999;
+    font-weight: 500;
+    background-color: transparent;
+    cursor: pointer;
+    font-family: "Roboto", sans-serif;
+  }
+  .productsPageWrapper .productsNavBar .filterFunctionality .sortBy .priceFilters .custom {
+    display: flex;
+    flex-direction: column;
+    width: 10em;
+    padding-left: 0.9em;
+  }
+  .productsPageWrapper .productsNavBar .filterFunctionality .sortBy .priceFilters .custom .localTitlte {
+    margin-bottom: 0.3125em;
+  }
+  .productsPageWrapper .productsNavBar .filterFunctionality .sortBy .priceFilters .custom .cutsomPriceInputs div {
+    display: flex;
+    margin-bottom: 0.3125em;
+  }
+  .productsPageWrapper .productsNavBar .filterFunctionality .sortBy .priceFilters .custom .cutsomPriceInputs div input {
+    border-radius: 1.8vw;
+    width: 50%;
+    font-family: "Init", sans-serif;
+    font-size: 0.8em;
+    background-color: #b4b4b4;
+    border: none;
+    padding-left: 0.3125em;
+    color: #000000;
+  }
+  .productsPageWrapper .productsNavBar .filterFunctionality .sortBy .priceFilters .custom .cutsomPriceInputs div input::-webkit-outer-spin-button,
+  .productsPageWrapper .productsNavBar .filterFunctionality .sortBy .priceFilters .custom .cutsomPriceInputs div input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  .productsPageWrapper .productsNavBar .filterFunctionality .sortBy .priceFilters .custom .cutsomPriceInputs div input::placeholder {
+    color: #5c5c5c;
+  }
+  .productsPageWrapper .productsNavBar .filterFunctionality .sortBy .priceFilters .custom .cutsomPriceInputs div .from {
+    margin-right: 0.625em;
+  }
+  .productsPageWrapper .productsNavBar .filterFunctionality .sortBy .priceFilters .custom .cutsomPriceInputs div .to {
+    margin-right: 1.85em;
+  }
+  .productsPageWrapper .productsNavBar .filterFunctionality .sortBy .priceFilters .active {
+    background-color: #FFFFFF;
+    opacity: 100%;
+    color: #000000;
+  }
+  .productsPageWrapper .productsNavBar .filterFunctionality .productFilter {
+    display: flex;
+    flex-direction: column;
+    margin: 1.25em 0;
+  }
+  .productsPageWrapper .productsNavBar .filterFunctionality .productFilter .title {
+    color: #00FFA3;
+    font-size: 2em;
+    font-weight: 700;
+    margin-bottom: 0.9375em;
+  }
+  .productsPageWrapper .productsNavBar .filterFunctionality .productFilter .filterName {
+    padding-left: 0.7em;
+    color: #00FFA3;
+    font-size: 1.5em;
+    margin-bottom: 0.625em;
+    font-weight: 600;
+  }
+  .productsPageWrapper .productsNavBar .filterFunctionality .productFilter .noCategory, .productsPageWrapper .productsNavBar .filterFunctionality .productFilter .noFilter {
+    font-size: 1.5em;
+    margin-top: -0.625em;
+    color: #505050;
+  }
+  .productsPageWrapper .productsNavBar .filterFunctionality .productFilter .specificFiltersContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4375em;
+    flex-wrap: wrap;
+  }
+  .productsPageWrapper .productsNavBar .filterFunctionality .productFilter .specificFiltersContainer .specificFilter {
+    width: 10em;
+    padding-left: 0.9em;
+    margin-left: -0.1875em;
+    font-size: 1.5em;
+    color: #999999;
+    font-weight: 500;
+    border-radius: 0.25em;
+    cursor: pointer;
+  }
+  .productsPageWrapper .productsNavBar .filterFunctionality .productFilter .specificFiltersContainer .specificFilter.active {
+    background-color: #FFFFFF;
+    opacity: 100%;
+    color: #000000;
+  }
   .productsPageWrapper .productsContainer {
     grid-template-columns: repeat(auto-fill, minmax(300px, 300px));
     justify-content: center;
+    font-size: 1.5em;
   }
 }
 /* (1024px and up) */

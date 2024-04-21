@@ -185,8 +185,8 @@ header nav .navLinks .button:hover .link.icon span {
 /* (576px and up) */
 @media only screen and (min-width: 36em) and (max-width: 64em) {
   header {
-    font-size: 0.75em;
-    padding: 0.625em;
+    font-size: 0.938em;
+    padding: 1.5em;
     position: relative;
   }
   header nav {
@@ -245,7 +245,7 @@ header nav .navLinks .button:hover .link.icon span {
 /* (1024px and up) */
 @media only screen and (min-width: 64.063em) {
   header {
-    font-size: 0.75em;
+    font-size: 0.938em;
   }
 }
 /* (1280px and up) */
