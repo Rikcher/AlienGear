@@ -157,7 +157,7 @@
 /* (576px and down) */
 @media only screen and (max-width: 36em) {
   .signInWrapper, .signUpWrapper, .resetPasswordWrapper {
-    font-size: 0.75em;
+    font-size: 0.7em;
   }
 }
 /* (576px and up) */
