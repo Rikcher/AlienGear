@@ -8,6 +8,7 @@
     flex-direction: column;
     align-items: center;
     padding: 0 1.25em;
+    overflow-x: hidden; /* Prevent horizontal overflow from affecting the parent */
 
     .productsNavBar {
         display: flex;
@@ -23,6 +24,7 @@
             gap: 0.9375em; // 15px
             transition: color 0.3s ease;
             cursor: pointer;
+            order: 2;
 
             .icon {
                 background-color: $main-white;
@@ -90,11 +92,13 @@
         }
         .buttons.all {
             margin-right: 4.375em; // 68px
+            order: 1;
         }
         .buttons.filter {
             margin-left: 4.375em; // 68px
             position: relative;
             z-index: 9;
+            order: 3;
 
             .filterFunctionality {
                 position: absolute;
@@ -374,15 +378,196 @@
 
 /* (576px and down) */
 @media only screen and (max-width: 36em) {
-    
+    .productsPageWrapper {
+        font-size: 0.75em;
+        .productsNavBar {
+            gap: 20px; // 72px
+            padding-bottom: 5px;
+            overflow-x: auto; /* Enables horizontal scrolling if content overflows */
+            max-width: 100%; // Ensures the container doesn't exceed its parent's width
+            white-space: nowrap; // Prevents items from wrapping to the next line
+
+            .buttons.all {
+                margin-right: 0; // 68px
+            }
+            .buttons.filter {
+                margin-left: 0; // 68px
+                order: 0;
+            }
+            .filterFunctionality {
+                z-index: 25;
+                position: fixed;
+                width: 80%; // 434px
+                height: 100vh;
+                background-color: $main-black;
+                top: 0; // -18px
+                right: 0; // -14px
+                border-left: 0.0625em solid $main-primary; // 1px
+                display: flex;
+                flex-direction: column;
+                padding: 55px 10px 10px 10px;
+
+                .iconOver {
+                    width: 3em; // 34px
+                    height: 3em; // 31px
+                    mask: url("/products-page/closeIcon.svg");
+                    mask-size: cover;
+                    background-color: $main-primary;
+                    position: absolute;
+                    left: 0.625em; // 21px
+                    top: 1em; // 17px
+                }
+
+                .sortBy{
+                    margin-top: 20px;
+
+                    .title {
+                        font-size: 2em; // 18px
+                        font-weight: 700;
+                        margin-bottom: 0.9375em; // 15px
+                        color: $main-primary;
+                    }
+
+                    .priceFilters {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: flex-start;
+                        button {
+                            width: 10em;
+                            font-size: 1.5em; // 16px
+                            margin-bottom: 0.625em; // 4px
+                            border-radius: 0.25em; // 4px
+                            border: none;
+                            color: #999999;
+                            font-weight: 500;
+                            background-color: transparent;
+                            cursor: pointer;
+                            font-family: "Roboto", sans-serif;
+                        }
+                        .custom {
+                            display: flex;
+                            flex-direction: column;
+                            width: 10em; // 138px
+                            padding-left: 0.9em;
+
+                            .localTitlte {
+                                margin-bottom: 0.3125em; // 5px
+                            }
+                            .cutsomPriceInputs {
+                                div {
+                                    display: flex;
+                                    margin-bottom: 0.3125em; // 5px
+                                    input {
+                                        border-radius: 0.586vw;
+                                        width: 50%;
+                                        font-family: "Init", sans-serif;
+                                        font-size: 0.8em;
+                                        background-color: #b4b4b4;
+                                        border: none;
+                                        padding-left: 0.3125em; // 5px
+                                        color: $main-black;
+                                        
+                                    }
+                                    input::-webkit-outer-spin-button,
+                                    input::-webkit-inner-spin-button {
+                                    -webkit-appearance: none;
+                                    margin: 0;
+                                    }
+                                    input::placeholder {
+                                        color: #5c5c5c;
+                                    }
+                                    .from {
+                                        margin-right: 0.625em; // 10px
+                                    }
+                                    .to {
+                                        margin-right: 1.85em; // 29px
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .priceFilters .active {
+                        background-color: $main-white;
+                        opacity: 100%;
+                        color: $main-black;
+                    }
+                }
+
+                .productFilter {
+                    display: flex;
+                    flex-direction: column;
+                    margin: 1.25em 0;
+                    .title {
+                        color: $main-primary;
+                        font-size: 2em; // 18px
+                        font-weight: 700;
+                        margin-bottom: 0.9375em; // 15px
+                    }
+                    .filterName{
+                        padding-left: 0.9em;
+                        color: $main-primary;
+                        font-size: 1.5em; // 16px
+                        margin-bottom: 0.625em; // 4px
+                        font-weight: 600;
+                    }
+                    .noCategory, .noFilter {
+                        color: #505050;
+                    }
+                    .specificFiltersContainer {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 0.4375em; // 7px
+                        flex-wrap: wrap;
+                        .specificFilter {
+                            width: 10em;
+                            padding-left: 0.9em; // 3px
+                            margin-left: -0.1875em; // -3px
+                            font-size: 1.5em; // 16px
+                            color: #999999;
+                            font-weight: 500;
+                            border-radius: 0.25em; // 4px
+                            cursor: pointer;
+                        }
+                        .specificFilter.active {
+                            background-color: $main-white;
+                            opacity: 100%;
+                            color: $main-black;
+                        }
+                    }
+                }
+                
+            }   
+        }
+        .productsContainer {
+            grid-template-columns: repeat(auto-fill, minmax(300px, 300px)); // change auto-fill to wanted amount
+            justify-content: center;
+        }
+    }
 }
-/* (576px and up) */
-@media only screen and (min-width: 36em) {
-    
-}
-/* (768px and up) */
-@media only screen and (min-width: 48em) {
-    
+//576px to 1024px
+@media only screen and (min-width: 36em) and (max-width: 64em) {
+    .productsPageWrapper {
+        font-size: 0.75em;
+        .productsNavBar {
+            gap: 20px; // 72px
+            padding-bottom: 5px;
+            overflow-x: auto; /* Enables horizontal scrolling if content overflows */
+            max-width: 100%; // Ensures the container doesn't exceed its parent's width
+            white-space: nowrap; // Prevents items from wrapping to the next line
+
+            .buttons.all {
+                margin-right: 0; // 68px
+            }
+            .buttons.filter {
+                margin-left: 0; // 68px
+                order: 0;
+            }
+        }
+        .productsContainer {
+            grid-template-columns: repeat(auto-fill, minmax(300px, 300px)); // change auto-fill to wanted amount
+            justify-content: center;
+        }
+    }
 }
 /* (1024px and up) */
 @media only screen and (min-width: 64em) {

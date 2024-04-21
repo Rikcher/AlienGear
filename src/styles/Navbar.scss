@@ -9,7 +9,7 @@ header {
     position: relative;
     font-size: 0.938em;
     padding: 1.333em; //20
-    z-index: 2;
+    z-index: 20;
 
 
     nav {
@@ -164,7 +164,7 @@ header {
                     width: 2.5em;
                     height: 0.417em;
                     background-color: $main-primary;
-                    transition: transform 0.3s ease, opacity 0.3s ease;
+                    transition: transform 0.3s ease;
                 }
                 .top {
                     border-radius: 0.167em 0.167em 0 0;
@@ -227,7 +227,7 @@ header {
                     width: 2.5em;
                     height: 0.417em;
                     background-color: $main-primary;
-                    transition: transform 0.3s ease, opacity 0.3s ease;
+                    transition: transform 0.3s ease;
                 }
                 .top {
                     border-radius: 0.167em 0.167em 0 0;

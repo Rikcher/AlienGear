@@ -13,6 +13,7 @@ const Products = () => {
     const [customPriceRange, setCustomPriceRange] = useState({ min: "", max: "" });
     const [activeFilter, setActiveFilter] = useState('default');
     const [isFilterFunctionalityVisible, setIsFilterFunctionalityVisible] = useState(false);
+    const [screenWidth, setScreenWidth] = useState(window.innerWidth); // State to track screen width
     const filterFunctionalityRef = useRef(null);
     const db = getDatabase();
 
@@ -48,6 +49,18 @@ const Products = () => {
             return () => clearTimeout(timer);
         }
     }, [errorText]);
+
+    // Function to handle window resize
+    const handleResize = () => {
+        setScreenWidth(window.innerWidth);
+    };
+
+    // Add event listener for window resize
+    useEffect(() => {
+        window.addEventListener('resize', handleResize);
+        // Cleanup the event listener on component unmount
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
 
     useEffect(() => {
@@ -216,10 +229,87 @@ const Products = () => {
                     <div className="icon controllers"></div>
                     <p className="text">Controllers</p>
                 </div>
+                {isFilterFunctionalityVisible && screenWidth < 1024 && (
+                    <div className="filterFunctionality" ref={filterFunctionalityRef}>
+                        <div className="iconOver"></div>
+                        <div className="sortBy">
+                            <p className='title'>Sort by</p>
+                            <div className="priceFilters">
+                                <button onClick={handleSortHighToLow} className={`HtL ${sortingMethod === 'highToLow' ? 'active' : ''}`}>Price: High to Low</button>
+                                <button onClick={handleSortLowToHigh} className={`ltH ${sortingMethod === 'lowToHigh' ? 'active' : ''}`}>Price: Low to High</button>
+                                <button className={`custom ${sortingMethod === 'custom' ? 'active' : ''}`}>
+                                    <p onClick={() => {
+                                        handleCustomPriceRange();
+                                        resetCustomPriceRange();
+                                    }}className='localTitlte'>Price: Custom</p>
+                                    {sortingMethod === 'custom' ? (
+                                        <div className='cutsomPriceInputs'>
+                                            <div>
+                                                <p className="from">From</p>
+                                                <input 
+                                                onChange={(e) => {
+                                                    setCustomPriceRange(prevState => ({
+                                                        ...prevState,
+                                                        min: e.target.value
+                                                    }));
+                                                }}
+                                                value={customPriceRange.min}
+                                                placeholder='0' 
+                                                type="number" />
+                                            </div>
+                                            <div>
+                                                <p className="to">To</p>
+                                                <input 
+                                                placeholder='0'
+                                                type="number"
+                                                value={customPriceRange.max}
+                                                onChange={(e) => {
+                                                    setCustomPriceRange(prevState => ({
+                                                        ...prevState,
+                                                        max: e.target.value
+                                                    }));
+                                                }}
+                                                />
+                                            </div>
+                                        </div>
+                                    ) : null}
+                                </button>
+                            </div>
+
+                        </div>
+                        <div className="productFilter">
+                            <p className="title">Product filter</p>
+                            <p className="filterName">{selectedCategory}</p>
+                            {selectedCategory ? (
+                            <div className="specificFiltersContainer">
+                                {filteredProducts.reduce((acc, product) => {
+                                if (product.filter && !acc.includes(product.filter)) {
+                                    acc.push(product.filter);
+                                }
+                                return acc;
+                                }, []).length > 0 ? (
+                                filteredProducts.reduce((acc, product) => {
+                                    if (product.filter && !acc.includes(product.filter)) {
+                                    acc.push(product.filter);
+                                    }
+                                    return acc;
+                                }, []).map((filter, index) => (
+                                    <p key={index} className={`specificFilter ${activeFilter === filter ? 'active' : ''}`} onClick={() => toggleFilter(filter)}>{filter}</p>
+                                ))
+                                ) : (
+                                <p className="noFilter">No filters</p>
+                                )}
+                            </div>
+                            ) : (
+                            <p className='noCategory'>Choose specific product first</p>
+                            )}
+                        </div>
+                    </div>
+                )}
                 <div className="buttons filter" onClick={() => setIsFilterFunctionalityVisible(true)}>
                     <div className="icon filter"></div>
                     <p className="text">Filter</p>
-                    {isFilterFunctionalityVisible && (
+                    {isFilterFunctionalityVisible && screenWidth >= 1024 && (
                         <div className="filterFunctionality" ref={filterFunctionalityRef}>
                             <div className="iconOver"></div>
                             <div className="sortBy">

@@ -6,6 +6,7 @@
   flex-direction: column;
   align-items: center;
   padding: 0 1.25em;
+  overflow-x: hidden; /* Prevent horizontal overflow from affecting the parent */
 }
 .productsPageWrapper .productsNavBar {
   display: flex;
@@ -21,6 +22,7 @@
   gap: 0.9375em;
   transition: color 0.3s ease;
   cursor: pointer;
+  order: 2;
 }
 .productsPageWrapper .productsNavBar .buttons .icon {
   background-color: #FFFFFF;
@@ -86,11 +88,13 @@
 }
 .productsPageWrapper .productsNavBar .buttons.all {
   margin-right: 4.375em;
+  order: 1;
 }
 .productsPageWrapper .productsNavBar .buttons.filter {
   margin-left: 4.375em;
   position: relative;
   z-index: 9;
+  order: 3;
 }
 .productsPageWrapper .productsNavBar .buttons.filter .filterFunctionality {
   position: absolute;
@@ -343,8 +347,185 @@
 }
 
 /* (576px and down) */
-/* (576px and up) */
-/* (768px and up) */
+@media only screen and (max-width: 36em) {
+  .productsPageWrapper {
+    font-size: 0.75em;
+  }
+  .productsPageWrapper .productsNavBar {
+    gap: 20px;
+    padding-bottom: 5px;
+    overflow-x: auto; /* Enables horizontal scrolling if content overflows */
+    max-width: 100%;
+    white-space: nowrap;
+  }
+  .productsPageWrapper .productsNavBar .buttons.all {
+    margin-right: 0;
+  }
+  .productsPageWrapper .productsNavBar .buttons.filter {
+    margin-left: 0;
+    order: 0;
+  }
+  .productsPageWrapper .productsNavBar .filterFunctionality {
+    z-index: 25;
+    position: fixed;
+    width: 80%;
+    height: 100vh;
+    background-color: #000000;
+    top: 0;
+    right: 0;
+    border-left: 0.0625em solid #00FFA3;
+    display: flex;
+    flex-direction: column;
+    padding: 55px 10px 10px 10px;
+  }
+  .productsPageWrapper .productsNavBar .filterFunctionality .iconOver {
+    width: 3em;
+    height: 3em;
+    mask: url("/products-page/closeIcon.svg");
+    mask-size: cover;
+    background-color: #00FFA3;
+    position: absolute;
+    left: 0.625em;
+    top: 1em;
+  }
+  .productsPageWrapper .productsNavBar .filterFunctionality .sortBy {
+    margin-top: 20px;
+  }
+  .productsPageWrapper .productsNavBar .filterFunctionality .sortBy .title {
+    font-size: 2em;
+    font-weight: 700;
+    margin-bottom: 0.9375em;
+    color: #00FFA3;
+  }
+  .productsPageWrapper .productsNavBar .filterFunctionality .sortBy .priceFilters {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .productsPageWrapper .productsNavBar .filterFunctionality .sortBy .priceFilters button {
+    width: 10em;
+    font-size: 1.5em;
+    margin-bottom: 0.625em;
+    border-radius: 0.25em;
+    border: none;
+    color: #999999;
+    font-weight: 500;
+    background-color: transparent;
+    cursor: pointer;
+    font-family: "Roboto", sans-serif;
+  }
+  .productsPageWrapper .productsNavBar .filterFunctionality .sortBy .priceFilters .custom {
+    display: flex;
+    flex-direction: column;
+    width: 10em;
+    padding-left: 0.9em;
+  }
+  .productsPageWrapper .productsNavBar .filterFunctionality .sortBy .priceFilters .custom .localTitlte {
+    margin-bottom: 0.3125em;
+  }
+  .productsPageWrapper .productsNavBar .filterFunctionality .sortBy .priceFilters .custom .cutsomPriceInputs div {
+    display: flex;
+    margin-bottom: 0.3125em;
+  }
+  .productsPageWrapper .productsNavBar .filterFunctionality .sortBy .priceFilters .custom .cutsomPriceInputs div input {
+    border-radius: 0.586vw;
+    width: 50%;
+    font-family: "Init", sans-serif;
+    font-size: 0.8em;
+    background-color: #b4b4b4;
+    border: none;
+    padding-left: 0.3125em;
+    color: #000000;
+  }
+  .productsPageWrapper .productsNavBar .filterFunctionality .sortBy .priceFilters .custom .cutsomPriceInputs div input::-webkit-outer-spin-button,
+  .productsPageWrapper .productsNavBar .filterFunctionality .sortBy .priceFilters .custom .cutsomPriceInputs div input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  .productsPageWrapper .productsNavBar .filterFunctionality .sortBy .priceFilters .custom .cutsomPriceInputs div input::placeholder {
+    color: #5c5c5c;
+  }
+  .productsPageWrapper .productsNavBar .filterFunctionality .sortBy .priceFilters .custom .cutsomPriceInputs div .from {
+    margin-right: 0.625em;
+  }
+  .productsPageWrapper .productsNavBar .filterFunctionality .sortBy .priceFilters .custom .cutsomPriceInputs div .to {
+    margin-right: 1.85em;
+  }
+  .productsPageWrapper .productsNavBar .filterFunctionality .sortBy .priceFilters .active {
+    background-color: #FFFFFF;
+    opacity: 100%;
+    color: #000000;
+  }
+  .productsPageWrapper .productsNavBar .filterFunctionality .productFilter {
+    display: flex;
+    flex-direction: column;
+    margin: 1.25em 0;
+  }
+  .productsPageWrapper .productsNavBar .filterFunctionality .productFilter .title {
+    color: #00FFA3;
+    font-size: 2em;
+    font-weight: 700;
+    margin-bottom: 0.9375em;
+  }
+  .productsPageWrapper .productsNavBar .filterFunctionality .productFilter .filterName {
+    padding-left: 0.9em;
+    color: #00FFA3;
+    font-size: 1.5em;
+    margin-bottom: 0.625em;
+    font-weight: 600;
+  }
+  .productsPageWrapper .productsNavBar .filterFunctionality .productFilter .noCategory, .productsPageWrapper .productsNavBar .filterFunctionality .productFilter .noFilter {
+    color: #505050;
+  }
+  .productsPageWrapper .productsNavBar .filterFunctionality .productFilter .specificFiltersContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4375em;
+    flex-wrap: wrap;
+  }
+  .productsPageWrapper .productsNavBar .filterFunctionality .productFilter .specificFiltersContainer .specificFilter {
+    width: 10em;
+    padding-left: 0.9em;
+    margin-left: -0.1875em;
+    font-size: 1.5em;
+    color: #999999;
+    font-weight: 500;
+    border-radius: 0.25em;
+    cursor: pointer;
+  }
+  .productsPageWrapper .productsNavBar .filterFunctionality .productFilter .specificFiltersContainer .specificFilter.active {
+    background-color: #FFFFFF;
+    opacity: 100%;
+    color: #000000;
+  }
+  .productsPageWrapper .productsContainer {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 300px));
+    justify-content: center;
+  }
+}
+@media only screen and (min-width: 36em) and (max-width: 64em) {
+  .productsPageWrapper {
+    font-size: 0.75em;
+  }
+  .productsPageWrapper .productsNavBar {
+    gap: 20px;
+    padding-bottom: 5px;
+    overflow-x: auto; /* Enables horizontal scrolling if content overflows */
+    max-width: 100%;
+    white-space: nowrap;
+  }
+  .productsPageWrapper .productsNavBar .buttons.all {
+    margin-right: 0;
+  }
+  .productsPageWrapper .productsNavBar .buttons.filter {
+    margin-left: 0;
+    order: 0;
+  }
+  .productsPageWrapper .productsContainer {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 300px));
+    justify-content: center;
+  }
+}
 /* (1024px and up) */
 @media only screen and (min-width: 64em) {
   .productsPageWrapper {

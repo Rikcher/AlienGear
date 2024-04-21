@@ -93,7 +93,7 @@ const Navbar = () => {
                 <div 
                 className="navLinks" 
                 style={screenWidth <= 1024  ? {
-                    transform: openMenu ? "translateY(24.167em)" : "translateY(0)"
+                    transform: openMenu ? "translateY(24.167em)" : "translateY(0)",
                 } : null}>
                     {screenWidth > 1024 ? (
                         <>
@@ -131,22 +131,22 @@ const Navbar = () => {
                         </>
                     ) : (
                         <>
-                        <Link to="/" className="button">
+                        <Link to="/" className="button" onClick={() => handleMenuClick()}>
                             <p className="link text">HOME</p>
                         </Link>
-                        <Link to="/products" className="button">
+                        <Link to="/products" className="button" onClick={() => handleMenuClick()}>
                             <p className="link text">PRODUCTS</p>
                         </Link>
-                        <Link to="/about-us" className="button">
+                        <Link to="/about-us" className="button" onClick={() => handleMenuClick()}>
                             <p className="link text">ABOUT US</p>
                         </Link>
-                        <Link to="/search" className="button">
+                        <Link to="/search" className="button" onClick={() => handleMenuClick()}>
                             <p className="link text">SEARCH</p>
                         </Link>
-                        <Link to={user ? "/profile" : "/sign-in"} className="button">
+                        <Link to={user ? "/profile" : "/sign-in"} className="button" onClick={() => handleMenuClick()}>
                             <p className="link text">PROFILE</p>
                         </Link>
-                        <Link to="/cart" className="button">
+                        <Link to="/cart" className="button" onClick={() => handleMenuClick()}>
                             <p className="link text">CART</p>
                         </Link>
                         </>

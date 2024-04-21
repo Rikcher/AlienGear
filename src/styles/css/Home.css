@@ -129,25 +129,6 @@
     border-radius: 2.222vw;
   }
 }
-@media only screen and (max-width: 36em) and (orientation: landscape) {
-  .background {
-    /* Repeat for other elements */
-  }
-  .background #forest {
-    width: 100vw;
-    height: auto;
-    /* Adjust positioning as needed */
-  }
-  .background #beam {
-    left: calc(50% - 79.444vw);
-    top: 44.167vw;
-    width: 159.444vw;
-    /* Adjust positioning as needed */
-  }
-  #ctaButton {
-    /* Adjust size and positioning as needed */
-  }
-}
 /* (576px and up) */
 @media only screen and (min-width: 36em) and (max-width: 64em) {
   .background #forest {

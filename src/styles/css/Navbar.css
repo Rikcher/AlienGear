@@ -6,7 +6,7 @@ header {
   position: relative;
   font-size: 0.938em;
   padding: 1.333em;
-  z-index: 2;
+  z-index: 20;
 }
 header nav {
   display: flex;
@@ -146,7 +146,7 @@ header nav .navLinks .button:hover .link.icon span {
     width: 2.5em;
     height: 0.417em;
     background-color: #00FFA3;
-    transition: transform 0.3s ease, opacity 0.3s ease;
+    transition: transform 0.3s ease;
   }
   header nav .menu .top {
     border-radius: 0.167em 0.167em 0 0;
@@ -206,7 +206,7 @@ header nav .navLinks .button:hover .link.icon span {
     width: 2.5em;
     height: 0.417em;
     background-color: #00FFA3;
-    transition: transform 0.3s ease, opacity 0.3s ease;
+    transition: transform 0.3s ease;
   }
   header nav .menu .top {
     border-radius: 0.167em 0.167em 0 0;
