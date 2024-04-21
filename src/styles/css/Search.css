@@ -156,8 +156,9 @@
     margin-left: 0;
   }
   .searchPageWrapper .item .itemPicture {
-    width: 100%; /* 300px / 16 = 18.75em */
-    margin-right: 0; /* 20px / 16 = 1.25em */
+    width: 18.75em; /* 300px / 16 = 18.75em */
+    max-width: 300px;
+    margin: 0 auto;
     margin-bottom: 1.5em; /* 20px / 16 = 1.25em */
   }
   .searchPageWrapper .item .itemInfo .button {
@@ -167,8 +168,9 @@
 /* (576px and up) */
 @media only screen and (min-width: 36em) and (max-width: 64em) {
   .searchPageWrapper {
-    font-size: 1em;
+    font-size: 1.1em;
     padding: 0 40px;
+    margin: 0 60px;
   }
   .searchPageWrapper .item {
     flex-direction: column;
@@ -178,8 +180,9 @@
     margin-left: 0;
   }
   .searchPageWrapper .item .itemPicture {
-    width: 100%; /* 300px / 16 = 18.75em */
-    margin-right: 0; /* 20px / 16 = 1.25em */
+    width: 18.75em; /* 300px / 16 = 18.75em */
+    max-width: 300px;
+    margin: 0 auto;
     margin-bottom: 1.5em; /* 20px / 16 = 1.25em */
   }
   .searchPageWrapper .item .itemInfo .button {

@@ -246,12 +246,98 @@
 @media only screen and (max-width: 36em) {
   .cartPageWrapper {
     font-size: 0.75em;
+    flex-direction: column;
+    gap: 1em;
+  }
+  .cartPageWrapper .leftPanel {
+    max-width: 90%; /* Converted from 970px */
+    margin: 0 auto;
+  }
+  .cartPageWrapper .leftPanel .item {
+    padding: 1.25em 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-size: 1.2em;
+    gap: 1.5em;
+  }
+  .cartPageWrapper .leftPanel .item .price {
+    margin-left: 0;
+  }
+  .cartPageWrapper .leftPanel .item .itemPicture {
+    width: 18.75em; /* Converted from 300px */
+    max-width: 300px;
+    height: 18.75em;
+    max-height: 300px;
+    margin: 0 auto;
+  }
+  .cartPageWrapper .leftPanel .item .itemInfo {
+    display: flex;
+    flex-direction: column;
+    max-width: 25em; /* Converted from 400px */
+  }
+  .cartPageWrapper .leftPanel .item .itemInfo .buttons {
+    margin-top: 1.5em;
+  }
+  .cartPageWrapper .leftPanel .subtotal {
+    text-align: left;
+  }
+  .cartPageWrapper .rightPanel {
+    margin-bottom: 1em;
+    width: 90%; /* Converted from 306px */
+  }
+  .cartPageWrapper .rightPanel .checkoutButton {
+    font-size: 1.1em; /* Converted from 14px */
   }
 }
 /* (576px and up) */
 @media only screen and (min-width: 36em) and (max-width: 64em) {
   .cartPageWrapper {
-    font-size: 0.75em;
+    font-size: 1.2em;
+    flex-direction: column;
+    gap: 1em;
+    margin: 0 3.4em;
+  }
+  .cartPageWrapper .leftPanel {
+    max-width: 90%; /* Converted from 970px */
+    margin: 0 auto;
+  }
+  .cartPageWrapper .leftPanel .item {
+    padding: 1.25em 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-size: 1.2em;
+    gap: 1.2em;
+  }
+  .cartPageWrapper .leftPanel .item .price {
+    margin-left: 0;
+  }
+  .cartPageWrapper .leftPanel .item .itemPicture {
+    width: 18.75em; /* Converted from 300px */
+    max-width: 300px;
+    height: 18.75em;
+    max-height: 300px;
+    margin: 0 auto;
+  }
+  .cartPageWrapper .leftPanel .item .itemInfo {
+    display: flex;
+    flex-direction: column;
+    max-width: 25em; /* Converted from 400px */
+  }
+  .cartPageWrapper .leftPanel .item .itemInfo .buttons {
+    margin-top: 1.2em;
+  }
+  .cartPageWrapper .leftPanel .subtotal {
+    text-align: left;
+  }
+  .cartPageWrapper .rightPanel {
+    margin: 0 auto;
+    margin-bottom: 1em;
+    width: 90%; /* Converted from 306px */
+  }
+  .cartPageWrapper .rightPanel .checkoutButton {
+    font-size: 1.1em; /* Converted from 14px */
   }
 }
 /* (1024px and up) */
