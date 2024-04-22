@@ -229,8 +229,14 @@ const Products = () => {
                     <div className="icon controllers"></div>
                     <p className="text">Controllers</p>
                 </div>
-                {isFilterFunctionalityVisible && screenWidth < 1024 && (
-                    <div className="filterFunctionality" ref={filterFunctionalityRef}>
+                {screenWidth < 1024 && (
+                    <div 
+                    className="filterFunctionality"
+                    ref={filterFunctionalityRef}
+                    style={screenWidth <= 1024  ? {
+                        transform: isFilterFunctionalityVisible ? "translateX(-86vw)" : "translateX(0)",
+                    } : null}
+                    >
                         <div className="iconOver"></div>
                         <div className="sortBy">
                             <p className='title'>Sort by</p>
