@@ -181,7 +181,7 @@
   .searchPageWrapper .item {
     flex-direction: column;
     font-size: 1.3em;
-    border-bottom: 0.0625em solid #414141; /* 1px / 16 = 0.0625em */
+    border-bottom: 0.0625em solid #5e5e5e; /* 1px / 16 = 0.0625em */
   }
   .searchPageWrapper .item .price {
     margin-left: 0;
