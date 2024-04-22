@@ -312,26 +312,8 @@
                     .pictures, .previewPictureSmall {
                         aspect-ratio: 1;
                     }
-
-                    #backgroundHoverEffect {
-                        top: 0.209em;
-                        left: -0.125em;
-                    }
                     #selectedPictureIndicator {
                         left: 5.4em;
-                    }
-                }
-
-                .fadeIn {
-                    animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-                }
-                
-                @keyframes slide-right {
-                    0% {
-                        transform: translateX(-6.25em);
-                    }
-                    100% {
-                        transform: translateX(0);
                     }
                 }
             }
@@ -358,41 +340,11 @@
         }
 
         .topPart.placeholder {
-            height: 41.625em;
-            .allPictures {
-                width: 100%;
-                height: 100%;
-                background-color: #0A0A0A;
-            }
+            height: 36em;
             .info {
-                .name.placeholder{
-                    background-color: $main-primary;
-                    width: 13.75em;
-                    height: 1.5em;
-                    border-radius: 9999px;
-                }
-                .description.placeholder, .description2.placeholder {
-                    background-color: $main-white;
-                    width: 16.25em;
-                    height: 1.375em;
-                    border-radius: 9999px;
-                }
-                .description2.placeholder {
-                    width: 5em;
-                }
-                .stats {
-                    .stat.placeholder {
-                        background-color: #8E8E8E;
-                        width: 6.25em;
-                        height: 1.063em;
-                        border-radius: 9999px;
-                    }
-                }
-                .price.placeholder {
-                    background-color: $main-white;
-                    width: 6.25em;
-                    height: 1.625em;
-                    border-radius: 9999px;
+                font-size: 0.75em;
+                button {
+                    font-size: 1.75em;
                 }
             }
         }
@@ -436,26 +388,8 @@
                     .pictures, .previewPictureSmall {
                         aspect-ratio: 1;
                     }
-
-                    #backgroundHoverEffect {
-                        top: 0.209em;
-                        left: -0.125em;
-                    }
                     #selectedPictureIndicator {
                         left: 5.4em;
-                    }
-                }
-
-                .fadeIn {
-                    animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-                }
-                
-                @keyframes slide-right {
-                    0% {
-                        transform: translateX(-6.25em);
-                    }
-                    100% {
-                        transform: translateX(0);
                     }
                 }
             }
@@ -482,41 +416,11 @@
         }
 
         .topPart.placeholder {
-            height: 41.625em;
-            .allPictures {
-                width: 100%;
-                height: 100%;
-                background-color: #0A0A0A;
-            }
+            height: 62.5em;
             .info {
-                .name.placeholder{
-                    background-color: $main-primary;
-                    width: 13.75em;
-                    height: 1.5em;
-                    border-radius: 9999px;
-                }
-                .description.placeholder, .description2.placeholder {
-                    background-color: $main-white;
-                    width: 16.25em;
-                    height: 1.375em;
-                    border-radius: 9999px;
-                }
-                .description2.placeholder {
-                    width: 5em;
-                }
-                .stats {
-                    .stat.placeholder {
-                        background-color: #8E8E8E;
-                        width: 6.25em;
-                        height: 1.063em;
-                        border-radius: 9999px;
-                    }
-                }
-                .price.placeholder {
-                    background-color: $main-white;
-                    width: 6.25em;
-                    height: 1.625em;
-                    border-radius: 9999px;
+                font-size: 0.75em;
+                button {
+                    font-size: 1.75em;
                 }
             }
         }

@@ -291,23 +291,8 @@
   .individualProductPageWrapper .topPart .allPictures .smallPictures .pictures, .individualProductPageWrapper .topPart .allPictures .smallPictures .previewPictureSmall {
     aspect-ratio: 1;
   }
-  .individualProductPageWrapper .topPart .allPictures .smallPictures #backgroundHoverEffect {
-    top: 0.209em;
-    left: -0.125em;
-  }
   .individualProductPageWrapper .topPart .allPictures .smallPictures #selectedPictureIndicator {
     left: 5.4em;
-  }
-  .individualProductPageWrapper .topPart .allPictures .fadeIn {
-    animation: slide-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  }
-  @keyframes slide-right {
-    0% {
-      transform: translateX(-6.25em);
-    }
-    100% {
-      transform: translateX(0);
-    }
   }
   .individualProductPageWrapper .topPart .info {
     font-size: 1.2em;
@@ -328,39 +313,13 @@
     margin-bottom: 1.25em;
   }
   .individualProductPageWrapper .topPart.placeholder {
-    height: 41.625em;
+    height: 36em;
   }
-  .individualProductPageWrapper .topPart.placeholder .allPictures {
-    width: 100%;
-    height: 100%;
-    background-color: #0A0A0A;
+  .individualProductPageWrapper .topPart.placeholder .info {
+    font-size: 0.75em;
   }
-  .individualProductPageWrapper .topPart.placeholder .info .name.placeholder {
-    background-color: #00FFA3;
-    width: 13.75em;
-    height: 1.5em;
-    border-radius: 9999px;
-  }
-  .individualProductPageWrapper .topPart.placeholder .info .description.placeholder, .individualProductPageWrapper .topPart.placeholder .info .description2.placeholder {
-    background-color: #FFFFFF;
-    width: 16.25em;
-    height: 1.375em;
-    border-radius: 9999px;
-  }
-  .individualProductPageWrapper .topPart.placeholder .info .description2.placeholder {
-    width: 5em;
-  }
-  .individualProductPageWrapper .topPart.placeholder .info .stats .stat.placeholder {
-    background-color: #8E8E8E;
-    width: 6.25em;
-    height: 1.063em;
-    border-radius: 9999px;
-  }
-  .individualProductPageWrapper .topPart.placeholder .info .price.placeholder {
-    background-color: #FFFFFF;
-    width: 6.25em;
-    height: 1.625em;
-    border-radius: 9999px;
+  .individualProductPageWrapper .topPart.placeholder .info button {
+    font-size: 1.75em;
   }
 }
 /* (576px to 1024px) */
@@ -400,23 +359,8 @@
   .individualProductPageWrapper .topPart .allPictures .smallPictures .pictures, .individualProductPageWrapper .topPart .allPictures .smallPictures .previewPictureSmall {
     aspect-ratio: 1;
   }
-  .individualProductPageWrapper .topPart .allPictures .smallPictures #backgroundHoverEffect {
-    top: 0.209em;
-    left: -0.125em;
-  }
   .individualProductPageWrapper .topPart .allPictures .smallPictures #selectedPictureIndicator {
     left: 5.4em;
-  }
-  .individualProductPageWrapper .topPart .allPictures .fadeIn {
-    animation: slide-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  }
-  @keyframes slide-right {
-    0% {
-      transform: translateX(-6.25em);
-    }
-    100% {
-      transform: translateX(0);
-    }
   }
   .individualProductPageWrapper .topPart .info {
     font-size: 1.7em;
@@ -437,39 +381,13 @@
     margin-bottom: 1.25em;
   }
   .individualProductPageWrapper .topPart.placeholder {
-    height: 41.625em;
+    height: 62.5em;
   }
-  .individualProductPageWrapper .topPart.placeholder .allPictures {
-    width: 100%;
-    height: 100%;
-    background-color: #0A0A0A;
+  .individualProductPageWrapper .topPart.placeholder .info {
+    font-size: 0.75em;
   }
-  .individualProductPageWrapper .topPart.placeholder .info .name.placeholder {
-    background-color: #00FFA3;
-    width: 13.75em;
-    height: 1.5em;
-    border-radius: 9999px;
-  }
-  .individualProductPageWrapper .topPart.placeholder .info .description.placeholder, .individualProductPageWrapper .topPart.placeholder .info .description2.placeholder {
-    background-color: #FFFFFF;
-    width: 16.25em;
-    height: 1.375em;
-    border-radius: 9999px;
-  }
-  .individualProductPageWrapper .topPart.placeholder .info .description2.placeholder {
-    width: 5em;
-  }
-  .individualProductPageWrapper .topPart.placeholder .info .stats .stat.placeholder {
-    background-color: #8E8E8E;
-    width: 6.25em;
-    height: 1.063em;
-    border-radius: 9999px;
-  }
-  .individualProductPageWrapper .topPart.placeholder .info .price.placeholder {
-    background-color: #FFFFFF;
-    width: 6.25em;
-    height: 1.625em;
-    border-radius: 9999px;
+  .individualProductPageWrapper .topPart.placeholder .info button {
+    font-size: 1.75em;
   }
 }
 /* (1024px(landscape tablets) and up) */

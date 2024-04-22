@@ -153,7 +153,7 @@
         }
     }
     .nothingFound {
-        margin-top: 2.5em; /* 40px / 16 = 2.5em */
+        margin-top: 1.125em; /* 40px / 16 = 2.5em */
         text-align: center;
     }
 }
@@ -163,6 +163,10 @@
 @media only screen and (max-width: 36em) {
     .searchPageWrapper {
         font-size: 0.75em;
+
+        .searchBar {
+            font-size: 1.3em;
+        }
 
         .item {
             flex-direction: column;
@@ -193,9 +197,14 @@
         padding: 0 40px;
         margin: 0 60px;
 
+        .searchBar {
+            font-size: 1.3em;
+        }
+
         .item {
             flex-direction: column;
             font-size: 1.3em;
+            border-bottom: 0.0625em solid #414141; /* 1px / 16 = 0.0625em */
             
             .price {
                 margin-left: 0;

@@ -59,13 +59,13 @@
   mask-size: cover;
 }
 .productsPageWrapper .productsNavBar .buttons .headsets {
-  width: 2.8125em;
+  width: 2.88em;
   height: 3.125em;
   mask: url("/products-page/headsetsIcon.svg");
   mask-size: cover;
 }
 .productsPageWrapper .productsNavBar .buttons .controllers {
-  width: 2.625em;
+  width: 2.7em;
   height: 1.875em;
   mask: url("/products-page/controllersIcon.svg");
   mask-size: cover;
@@ -368,14 +368,14 @@
   .productsPageWrapper .productsNavBar .filterFunctionality {
     z-index: 25;
     position: fixed;
-    width: 80%;
+    width: 21.5em;
     height: 100vh;
     top: 0;
     right: -86vw;
     border-left: 0.0625em solid #FFFFFF;
     display: flex;
     flex-direction: column;
-    padding: 55px 10px 10px 10px;
+    padding: 4.2em 0.625em 0.625em 3em;
     transition: transform 0.3s ease;
     background: radial-gradient(64px at 100% 0, #0f0f0f 6.25%, #000000 6.3% 18.75%, #0f0f0f 18.8% 31.25%, #000000 31.3% 43.75%, #0f0f0f 43.8% 56.25%, #000000 56.3% 68.75%, rgba(0, 0, 0, 0) 0), radial-gradient(64px at 0 0, #0f0f0f 6.25%, #000000 6.3% 18.75%, #0f0f0f 18.8% 31.25%, #000000 31.3% 43.75%, #0f0f0f 43.8% 56.25%, #000000 56.3% 68.75%, rgba(0, 0, 0, 0) 0), radial-gradient(64px at 0 100%, #0f0f0f 6.25%, #000000 6.3% 18.75%, #0f0f0f 18.8% 31.25%, #000000 31.3% 43.75%, #0f0f0f 43.8% 56.25%, #000000 56.3% 68.75%, rgba(0, 0, 0, 0) 0), radial-gradient(64px at 100% 100%, #0f0f0f 6.25%, #000000 6.3% 18.75%, #0f0f0f 18.8% 31.25%, #000000 31.3% 43.75%, #0f0f0f 43.8% 56.25%, #000000 56.3% 68.75%, rgba(0, 0, 0, 0) 0) #0f0f0f;
     background-size: 64px 64px;
@@ -388,7 +388,7 @@
     mask-size: cover;
     background-color: #00FFA3;
     position: absolute;
-    left: 0.625em;
+    left: 0.8em;
     top: 1em;
   }
   .productsPageWrapper .productsNavBar .filterFunctionality .sortBy {
@@ -530,16 +530,18 @@
   .productsPageWrapper .productsNavBar .filterFunctionality {
     z-index: 25;
     position: fixed;
-    width: 60%;
+    width: 21.5em;
     height: 100vh;
-    background: rgb(0, 0, 0);
-    background: linear-gradient(48deg, rgb(0, 0, 0) 25%, rgb(0, 34, 22) 76%);
+    background: radial-gradient(64px at 100% 0, #0f0f0f 6.25%, #000000 6.3% 18.75%, #0f0f0f 18.8% 31.25%, #000000 31.3% 43.75%, #0f0f0f 43.8% 56.25%, #000000 56.3% 68.75%, rgba(0, 0, 0, 0) 0), radial-gradient(64px at 0 0, #0f0f0f 6.25%, #000000 6.3% 18.75%, #0f0f0f 18.8% 31.25%, #000000 31.3% 43.75%, #0f0f0f 43.8% 56.25%, #000000 56.3% 68.75%, rgba(0, 0, 0, 0) 0), radial-gradient(64px at 0 100%, #0f0f0f 6.25%, #000000 6.3% 18.75%, #0f0f0f 18.8% 31.25%, #000000 31.3% 43.75%, #0f0f0f 43.8% 56.25%, #000000 56.3% 68.75%, rgba(0, 0, 0, 0) 0), radial-gradient(64px at 100% 100%, #0f0f0f 6.25%, #000000 6.3% 18.75%, #0f0f0f 18.8% 31.25%, #000000 31.3% 43.75%, #0f0f0f 43.8% 56.25%, #000000 56.3% 68.75%, rgba(0, 0, 0, 0) 0) #0f0f0f;
+    background-size: 64px 64px;
+    background-color: #0f0f0f;
     top: 0;
-    right: 0;
+    right: -86vw;
     border-left: 0.0625em solid #FFFFFF;
     display: flex;
     flex-direction: column;
-    padding: 55px 10px 10px 10px;
+    padding: 4.2em 0.625em 0.625em 3em;
+    transition: transform 0.3s ease;
   }
   .productsPageWrapper .productsNavBar .filterFunctionality .iconOver {
     width: 4em;
@@ -548,7 +550,7 @@
     mask-size: cover;
     background-color: #00FFA3;
     position: absolute;
-    left: 0.625em;
+    left: 0.8em;
     top: 1em;
   }
   .productsPageWrapper .productsNavBar .filterFunctionality .sortBy {
