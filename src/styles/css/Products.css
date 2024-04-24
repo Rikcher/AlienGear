@@ -514,7 +514,7 @@
     font-size: 1.3em;
   }
   .productsPageWrapper .productsContainer .grid-item {
-    background-color: #1f1f1f;
+    background-color: #0f0f0f;
   }
 }
 @media only screen and (min-width: 36em) and (max-width: 64em) {
