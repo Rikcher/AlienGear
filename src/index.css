@@ -5,7 +5,7 @@ body {
     background-image: url("/Picture.png");
     background-size: cover; /* This will ensure the image covers the entire viewport  */
     background-repeat: repeat; /* This prevents the image from repeating */
-    background-attachment: fixed; /* This makes the background fixed */
+    /* background-attachment: fixed;  This makes the background fixed */
     font-size: 1rem;
     width: auto;
     height: 100vh;
