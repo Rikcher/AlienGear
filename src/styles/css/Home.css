@@ -19,6 +19,7 @@
   top: 9.078vw;
   z-index: -2;
   width: 40.776vw;
+  overflow: hidden;
 }
 .background #items {
   position: fixed;
