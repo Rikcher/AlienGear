@@ -12,8 +12,8 @@ function Home() {
       <img rel="preload" draggable="false" id='title' src="/home-page/HomePageHeroTitle.svg" alt="AlienGear" />    
       <img rel="preload" draggable="false" id='headset' src="/home-page/HomePageHeadsetBG.svg" alt="Floating headset" />    
       <img rel="preload" draggable="false" id='keyboard' src="/home-page/HomePageKeyboardBG.svg" alt="Floating keyboard" />    
+      <Link id='ctaButton' to="/products">Shop Now</Link>
     </div>
-    <Link id='ctaButton' to="/products">Shop Now</Link>
     </>
   )
 }
