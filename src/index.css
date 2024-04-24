@@ -3,11 +3,13 @@ body {
     margin: 0;
     padding: 0;
     background-image: url("/Picture.png");
-    /* background-size: cover; This will ensure the image covers the entire viewport  */
+    background-size: cover; /* This will ensure the image covers the entire viewport  */
     background-repeat: no-repeat; /* This prevents the image from repeating */
     background-attachment: fixed; /* This makes the background fixed */
     font-size: 1rem;
-    background-size: 100% 120dvh;
+    width: auto;
+    height: 100vh;
+    /* background-size: 100% 100dvh; */
 }
 
 h1, h2, h3, h4, p {
@@ -17,3 +19,4 @@ h1, h2, h3, h4, p {
 * {
     -webkit-tap-highlight-color: transparent;
 }
+
