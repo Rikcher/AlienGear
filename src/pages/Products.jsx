@@ -229,7 +229,7 @@ const Products = () => {
                     <div className="icon controllers"></div>
                     <p className="text">Controllers</p>
                 </div>
-                {screenWidth < 1024 && (
+                {screenWidth <= 1024 && (
                     <div 
                     className="filterFunctionality"
                     ref={filterFunctionalityRef}
@@ -315,7 +315,7 @@ const Products = () => {
                 <div className="buttons filter" onClick={() => setIsFilterFunctionalityVisible(true)}>
                     <div className="icon filter"></div>
                     <p className="text">Filter</p>
-                    {isFilterFunctionalityVisible && screenWidth >= 1024 && (
+                    {isFilterFunctionalityVisible && screenWidth > 1024 && (
                         <div className="filterFunctionality" ref={filterFunctionalityRef}>
                             <div className="iconOver"></div>
                             <div className="sortBy">

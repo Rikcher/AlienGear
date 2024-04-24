@@ -5,6 +5,8 @@
   align-items: center;
   flex-direction: column;
   font-family: "Roboto", sans-serif;
+  margin: 0 auto;
+  max-width: 2000px;
 }
 .successPageWrapper .successIcon {
   width: 12.5em; /* 200px / 16px */
@@ -32,7 +34,7 @@
 }
 
 /* (576px and down) */
-@media only screen and (max-width: 36em) {
+@media only screen and (max-width: 576px) {
   .successPageWrapper {
     font-size: 0.75em;
   }
@@ -41,33 +43,32 @@
   }
 }
 /* (576px and up) */
-@media only screen and (min-width: 36em) and (max-width: 64em) {
+@media only screen and (min-width: 577px) and (max-width: 1024px) {
   .successPageWrapper {
     font-size: 0.75em;
   }
 }
 /* (1024px and up) */
-@media only screen and (min-width: 64em) {
+@media only screen and (min-width: 1025px) {
   .successPageWrapper {
     font-size: 0.75em;
   }
 }
 /* (1280px and up) */
-@media only screen and (min-width: 80em) {
+@media only screen and (min-width: 1280px) {
   .successPageWrapper {
     font-size: 1em;
   }
 }
 /* (1920px and up) */
-@media only screen and (min-width: 120em) {
+@media only screen and (min-width: 1920px) {
   .successPageWrapper {
     font-size: 1.25em;
   }
 }
 /* (2560px and up) */
-@media only screen and (min-width: 160em) {
+@media only screen and (min-width: 2560px) {
   .successPageWrapper {
     font-size: 1.5em;
   }
-}
-/* (3840px and up) *//*# sourceMappingURL=Success.css.map */
+}/*# sourceMappingURL=Success.css.map */

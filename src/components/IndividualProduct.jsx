@@ -326,7 +326,7 @@ const IndividualProduct = () => {
                         <li className='stat placeholder'></li>
                         <li className='stat placeholder'></li>
                     </ul>
-                    <p className="price placeholder">US$0</p>
+                    <p className="price placeholder"></p>
                     <button>Add to cart</button>
                     <div id="goToTechSpecsButton" onClick={() => handleGoToTSClick()}>
                         <p>See tech specs</p>

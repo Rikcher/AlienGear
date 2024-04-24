@@ -16,7 +16,7 @@ const AboutUs = () => {
     }, []);
     return ( 
         <div className="aboutUsWrapper">
-            {screenWidth >= 1024 && (
+            {screenWidth > 1024 && (
             <div id='aboutUsPageUfo'></div>
             )}
             <div className="text">
@@ -26,7 +26,7 @@ const AboutUs = () => {
                     <p className='paragraph'>The primary purpose of this website is to provide a glimpse into my capabilities as a web developer, specifically in the realm of online shopping. It aims to demonstrate how I can leverage my skills to create online stores that are tailored to meet the needs of businesses and individuals looking to establish a strong online presence.</p>
                     <p className='paragraph'>Thank you for visiting, and I hope you find this showcase of my work both informative and useful.</p>
                 </div>
-                {screenWidth < 1024 && (
+                {screenWidth <= 1024 && (
                 <div id='aboutUsPageUfo'></div>
                 )}
                 <div className="contactUs">

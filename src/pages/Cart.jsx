@@ -202,7 +202,7 @@ const Cart = () => {
 
     return (
         <div className='cartPageWrapper'>
-            {screenWidth < 1024 && (
+            {screenWidth <= 1024 && (
             <div className="rightPanel" style={{marginBottom: "0"}}>
                 <div className="subtotal">Subtotal({auth.currentUser ? totalItemCount : "0"} items): <span className='boldPrice'>US${auth.currentUser ? totalPrice.toFixed(2) : "0"}</span></div>
                 <div onClick={handleBuy} className="checkoutButton">Proceed to checkout</div>
@@ -210,7 +210,7 @@ const Cart = () => {
             )}
             <div className="leftPanel">
                 <h2 className="cartTitle">Shopping Cart</h2>
-                <p className="priceLine" style={{color: screenWidth < 1024 ? "transparent" : "#6C6C6C"}}>Price</p>
+                <p className="priceLine" style={{color: screenWidth <= 1024 ? "transparent" : "#6C6C6C"}}>Price</p>
                 {loading ? ( // Show loading indicator if products is null
                     <p className='loadingDisk'></p>
                 ) : (
@@ -273,7 +273,7 @@ const Cart = () => {
                             <p className='empty'>Your shopping cart is empty</p>
                         )
                     )}
-                {screenWidth >= 1024 && (
+                {screenWidth > 1024 && (
                 <div className="subtotal">Subtotal({auth.currentUser ? totalItemCount : "0"} items): <span className='boldPrice'>US${auth.currentUser ? totalPrice.toFixed(2) : "0"}</span></div>
                 )}
             </div>

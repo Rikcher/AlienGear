@@ -5,8 +5,10 @@
     font-family: "Roboto", sans-serif;
     color: $main-white;
     display: flex;
-    margin: 0 1.25em; /* 20px / 16 = 1.25em */
+    margin: 0 auto; /* 20px / 16 = 1.25em */
+    padding: 0 1.25em;
     flex-direction: column;
+    max-width: 1600px;
 
     .searchBar {
         border: 1px solid $main-primary;
@@ -160,7 +162,7 @@
 
 
 /* (576px and down) */
-@media only screen and (max-width: 36em) {
+@media only screen and (max-width: 576px) {
     .searchPageWrapper {
         font-size: 0.75em;
 
@@ -193,11 +195,11 @@
     }
 }
 /* (576px and up) */
-@media only screen and (min-width: 36em) and (max-width: 64em) {
+@media only screen and (min-width: 577px) and (max-width: 1024px) {
     .searchPageWrapper {
         font-size: 1.1em;
-        padding: 0 40px;
-        margin: 0 60px;
+        padding: 0 2.222em;
+        margin: 0 3.333em;
 
         .searchBar {
             font-size: 1.3em;
@@ -227,35 +229,21 @@
         }
     }
 }
-/* (1024px and up) */
-@media only screen and (min-width: 64em) {
-    .searchPageWrapper {
-        font-size: 0.75em;
-    }
-}
 /* (1280px and up) */
-@media only screen and (min-width: 80em) {
+@media only screen and (min-width: 1280px) {
     .searchPageWrapper {
         font-size: 1em;
     }
 }
 /* (1920px and up) */
-@media only screen and (min-width: 120em) {
+@media only screen and (min-width: 1920px) {
     .searchPageWrapper {
         font-size: 1.25em;
-        margin: 0 auto; /* 20px / 16 = 1.25em */
-        width: 80%;
     }
 }
 /* (2560px and up) */
-@media only screen and (min-width: 160em) {
+@media only screen and (min-width: 2560px) {
     .searchPageWrapper {
         font-size: 1.5em;
-        margin: 0 auto; /* 20px / 16 = 1.25em */
-        width: 60%;
     }
-}
-/* (3840px and up) */
-@media only screen and (min-width: 240em) {
-    
 }

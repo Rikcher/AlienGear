@@ -58,7 +58,7 @@
 }
 
 /* (576px and down) */
-@media only screen and (max-width: 36em) {
+@media only screen and (max-width: 576px) {
   .grid-item.placeholder {
     background-color: #0f0f0f;
   }
@@ -71,7 +71,7 @@
   }
 }
 /* (576px and up) */
-@media only screen and (min-width: 36em) and (max-width: 64em) {
+@media only screen and (min-width: 577px) and (max-width: 1024px) {
   .grid-item.placeholder {
     background-color: #0f0f0f;
   }
@@ -84,7 +84,7 @@
   }
 }
 /* (1024px and up) */
-@media only screen and (min-width: 64.063em) {
+@media only screen and (min-width: 1025px) {
   .grid-item.placeholder {
     background-color: #0f0f0f;
   }
@@ -98,5 +98,4 @@
 }
 /* (1280px and up) */
 /* (1920px and up) */
-/* (2560px and up) */
-/* (3840px and up) *//*# sourceMappingURL=ProductPlaceholder.css.map */
+/* (2560px and up) *//*# sourceMappingURL=ProductPlaceholder.css.map */

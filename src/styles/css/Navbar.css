@@ -123,7 +123,7 @@ header nav .navLinks .button:hover .link.icon span {
 }
 
 /* (576px and down) */
-@media only screen and (max-width: 36em) {
+@media only screen and (max-width: 576px) {
   header {
     font-size: 0.75em;
     padding: 0.625em;
@@ -183,7 +183,7 @@ header nav .navLinks .button:hover .link.icon span {
   }
 }
 /* (576px and up) */
-@media only screen and (min-width: 36em) and (max-width: 64em) {
+@media only screen and (min-width: 577px) and (max-width: 1024px) {
   header {
     font-size: 0.938em;
     padding: 1.5em;
@@ -243,27 +243,26 @@ header nav .navLinks .button:hover .link.icon span {
   }
 }
 /* (1024px and up) */
-@media only screen and (min-width: 64.063em) {
+@media only screen and (min-width: 1025px) {
   header {
     font-size: 0.938em;
   }
 }
 /* (1280px and up) */
-@media only screen and (min-width: 80em) {
+@media only screen and (min-width: 1280px) {
   header {
     font-size: 0.938em;
   }
 }
 /* (1920px and up) */
-@media only screen and (min-width: 120em) {
+@media only screen and (min-width: 1920px) {
   header {
     font-size: 1.25em;
   }
 }
 /* (2560px and up) */
-@media only screen and (min-width: 160em) {
+@media only screen and (min-width: 2560px) {
   header {
     font-size: 1.563em;
   }
-}
-/* (3840px and up) *//*# sourceMappingURL=Navbar.css.map */
+}/*# sourceMappingURL=Navbar.css.map */

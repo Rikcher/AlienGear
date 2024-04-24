@@ -89,7 +89,7 @@
 
 /* style.css */
 /* (576px and down) */
-@media only screen and (max-width: 36em) {
+@media only screen and (max-width: 576px) {
   .backgroundHome #forest {
     width: auto;
     height: 51.389vw;
@@ -130,30 +130,30 @@
   }
 }
 /* (576px and up) */
-@media only screen and (min-width: 36em) and (max-width: 64em) {
+@media only screen and (min-width: 577px) and (max-width: 1024px) {
   .backgroundHome #forest {
     width: auto;
-    height: 29%;
+    height: max(25vw, 30vh);
   }
   .backgroundHome #beam {
-    left: calc(50% - 47.4vw);
-    top: 24vw;
-    width: 95vw;
+    left: calc(50% - min(47.4vh, 47.4vw));
+    top: min(24vh, 24vw);
+    width: min(95vh, 95vw);
   }
   .backgroundHome #items {
-    left: calc(50% - 38vw);
-    top: 32vw;
-    width: 80vw;
+    left: calc(50% - min(38vw, 38vh));
+    top: min(32vh, 32vw);
+    width: min(80vw, 80vh);
   }
   .backgroundHome #ufo {
-    left: calc(50% - 30vw);
-    top: 10vw;
-    width: 60vw;
+    left: calc(50% - min(30vw, 30vh));
+    top: min(10vw, 10vh);
+    width: min(60vh, 60vw);
   }
   .backgroundHome #title {
-    left: calc(50% - 30vw);
-    top: 40vw;
-    width: 60vw;
+    left: calc(50% - min(30vw, 30vh));
+    top: min(40vw, 40vh);
+    width: min(60vw, 60vh);
   }
   .backgroundHome #headset {
     display: none;
@@ -162,11 +162,11 @@
     display: none;
   }
   .backgroundHome #ctaButton {
-    width: 20vw;
-    height: 6.5vw;
-    font-size: 2.7vw;
-    left: calc(50% - 10vw);
-    bottom: 3.66vw;
-    border-radius: 1.5vw;
+    width: max(20vh, 20vw);
+    height: max(6.5vh, 6.5vw);
+    font-size: max(2.7vh, 2.7vw);
+    left: calc(50% - max(10vh, 10vw));
+    bottom: max(3.66vh, 3.66vw);
+    border-radius: max(1.5vh, 1.5vw);
   }
 }/*# sourceMappingURL=Home.css.map */

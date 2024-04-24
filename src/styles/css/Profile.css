@@ -225,39 +225,39 @@
 }
 
 /* (576px and down) */
-@media only screen and (max-width: 36em) {
+@media only screen and (max-width: 576px) {
   .profileWrapper, .loadingProfileWrapper {
     font-size: 1em;
+    margin-top: 0.556em;
   }
 }
 /* (576px and up) */
-@media only screen and (min-width: 36em) and (max-width: 64em) {
+@media only screen and (min-width: 577px) and (max-width: 1024px) {
   .profileWrapper, .loadingProfileWrapper {
     font-size: 1em;
   }
 }
 /* (1024px and up) */
-@media only screen and (min-width: 64em) {
+@media only screen and (min-width: 1025px) {
   .profileWrapper, .loadingProfileWrapper {
     font-size: 1em;
   }
 }
 /* (1280px and up) */
-@media only screen and (min-width: 80em) {
+@media only screen and (min-width: 1280px) {
   .profileWrapper, .loadingProfileWrapper {
     font-size: 1em;
   }
 }
 /* (1920px and up) */
-@media only screen and (min-width: 120em) {
+@media only screen and (min-width: 1920px) {
   .profileWrapper, .loadingProfileWrapper {
     font-size: 1.25em;
   }
 }
 /* (2560px and up) */
-@media only screen and (min-width: 160em) {
+@media only screen and (min-width: 2560px) {
   .profileWrapper, .loadingProfileWrapper {
     font-size: 1.5em;
   }
-}
-/* (3840px and up) *//*# sourceMappingURL=Profile.css.map */
+}/*# sourceMappingURL=Profile.css.map */
