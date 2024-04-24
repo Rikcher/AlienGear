@@ -9,8 +9,6 @@ const Navbar = () => {
     const [totalItems, setTotalItems] = useState(0); // State for total items in cart
     const [screenWidth, setScreenWidth] = useState(window.innerWidth); // State to track screen width
     const [openMenu, setOpenMenu] = useState(false); // State to track screen width
-    const [lastWindowHeight, setLastWindowHeight] = useState(window.innerHeight);
-
     const navigate = useNavigate()
 
     const getTotalItemsInCart = async (user) => {
@@ -37,51 +35,29 @@ const Navbar = () => {
         setOpenMenu(!openMenu);
     }
 
-    const adjustBodyHeight = () => {
-        // Calculate the correct height to set for the body
-        const correctHeight = window.innerHeight;
-        // Set the body height to the calculated value
-        document.body.style.height = `${correctHeight}px`;
-    };
-
-    const checkAddressBarVisibility = () => {
-        const currentWindowHeight = window.innerHeight;
-        const difference = currentWindowHeight - lastWindowHeight;
-    
-        if (difference > 0) {
-            // The address bar has hidden
-            window.scrollBy(0, difference);
-        } else if (difference < 0) {
-            // The address bar has shown
-            window.scrollBy(0, -difference);
-        }
-    
-        setLastWindowHeight(currentWindowHeight);
-    };
-    
-    
-
     useEffect(() => {
         // Listen for changes in the user's authentication status
         const unsubscribe = auth.onAuthStateChanged(user => {
             setUser(user);
             getTotalItemsInCart(user);
         });
-    
-        // Function to handle window resize
-        const handleResize = () => {
-            setScreenWidth(window.innerWidth);
-            adjustBodyHeight(); // Adjust the body height when the window is resized
-            checkAddressBarVisibility(); // Check for changes in the address bar's visibility
-        };
-    
-        // Add event listener for window resize
+
+        // Cleanup the subscription on component unmount
+        return () => unsubscribe();
+    }, []);
+
+    // Function to handle window resize
+    const handleResize = () => {
+        setScreenWidth(window.innerWidth);
+    };
+
+    // Add event listener for window resize
+    useEffect(() => {
         window.addEventListener('resize', handleResize);
-    
         // Cleanup the event listener on component unmount
         return () => window.removeEventListener('resize', handleResize);
     }, []);
-    
+
     return ( 
         <>
         <header 
