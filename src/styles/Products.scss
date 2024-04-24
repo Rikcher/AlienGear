@@ -542,6 +542,11 @@
                             opacity: 100%;
                             color: $main-black;
                         }
+                        .noFilter {
+                            padding-left: 0.9em;
+                            padding-top: 0.625em;
+                            margin-left: -0.1875em;
+                        }
                     }
                 }
                 
@@ -551,6 +556,9 @@
             grid-template-columns: repeat(auto-fill, minmax(300px, 300px)); // change auto-fill to wanted amount
             justify-content: center;
             font-size: 1.3em;
+            .grid-item {
+                background-color: #1f1f1f;
+            }
         }
     }
 }
@@ -719,6 +727,11 @@
                             background-color: $main-white;
                             opacity: 100%;
                             color: $main-black;
+                        }
+                        .noFilter {
+                            padding-left: 0.9em;
+                            padding-top: 0.625em;
+                            margin-left: -0.1875em;
                         }
                     }
                 }

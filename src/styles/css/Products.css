@@ -503,10 +503,18 @@
     opacity: 100%;
     color: #000000;
   }
+  .productsPageWrapper .productsNavBar .filterFunctionality .productFilter .specificFiltersContainer .noFilter {
+    padding-left: 0.9em;
+    padding-top: 0.625em;
+    margin-left: -0.1875em;
+  }
   .productsPageWrapper .productsContainer {
     grid-template-columns: repeat(auto-fill, minmax(300px, 300px));
     justify-content: center;
     font-size: 1.3em;
+  }
+  .productsPageWrapper .productsContainer .grid-item {
+    background-color: #1f1f1f;
   }
 }
 @media only screen and (min-width: 36em) and (max-width: 64em) {
@@ -664,6 +672,11 @@
     background-color: #FFFFFF;
     opacity: 100%;
     color: #000000;
+  }
+  .productsPageWrapper .productsNavBar .filterFunctionality .productFilter .specificFiltersContainer .noFilter {
+    padding-left: 0.9em;
+    padding-top: 0.625em;
+    margin-left: -0.1875em;
   }
   .productsPageWrapper .productsContainer {
     grid-template-columns: repeat(auto-fill, minmax(300px, 300px));

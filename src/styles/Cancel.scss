@@ -3,7 +3,6 @@
 .cancelPageWrapper {
     margin-top: 0.625em; /* Converted from 10px */
     display: flex;
-    justify-content: space-between;
     align-items: center;
     flex-direction: column;
     font-family: "Roboto", sans-serif;
@@ -32,23 +31,26 @@
         height: 3.125em; /* Converted from 50px */
         font-size: 1.25em; /* Converted from 20px */
         font-weight: 900;
-        position: absolute;
-        bottom: 2.5em; /* Converted from 40px */
+        margin-top: 8em;
     }
 }
 
 
 /* (576px and down) */
 @media only screen and (max-width: 36em) {
-    
+    .cancelPageWrapper {
+        font-size: 0.75em;
+        
+        h2 {
+            text-align: center;
+        }
+    }
 }
 /* (576px and up) */
-@media only screen and (min-width: 36em) {
-    
-}
-/* (768px and up) */
-@media only screen and (min-width: 48em) {
-    
+@media only screen and (min-width: 36em) and (max-width: 64em) {
+    .cancelPageWrapper {
+        font-size: 0.75em;
+    }
 }
 /* (1024px and up) */
 @media only screen and (min-width: 64em) {

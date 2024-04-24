@@ -1,6 +1,6 @@
 .profileWrapper, .loadingProfileWrapper {
   background-color: #FFFFFF;
-  width: 25em;
+  width: min(80%, 25em);
   border-radius: 0.5em;
   margin: 0 auto;
   padding: 1.25em;
@@ -109,7 +109,7 @@
   margin-top: 2em;
   color: #00FFA3;
   font-weight: 600;
-  width: 28.571em;
+  width: 100%;
 }
 .profileWrapper .buttons.cancel, .loadingProfileWrapper .buttons.cancel {
   width: 6.571em;
@@ -227,19 +227,19 @@
 /* (576px and down) */
 @media only screen and (max-width: 36em) {
   .profileWrapper, .loadingProfileWrapper {
-    font-size: 0.75em;
+    font-size: 1em;
   }
 }
 /* (576px and up) */
 @media only screen and (min-width: 36em) and (max-width: 64em) {
   .profileWrapper, .loadingProfileWrapper {
-    font-size: 0.75em;
+    font-size: 1em;
   }
 }
 /* (1024px and up) */
 @media only screen and (min-width: 64em) {
   .profileWrapper, .loadingProfileWrapper {
-    font-size: 0.75em;
+    font-size: 1em;
   }
 }
 /* (1280px and up) */
