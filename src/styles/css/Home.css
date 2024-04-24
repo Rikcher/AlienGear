@@ -1,4 +1,4 @@
-.background {
+.backgroundHome {
   top: 0;
   position: fixed;
   width: 100%;
@@ -6,14 +6,14 @@
   overflow: hidden;
   user-select: none;
 }
-.background #forest {
+.backgroundHome #forest {
   position: fixed;
   left: 0;
   bottom: 0;
   z-index: 0;
   width: 100vw;
 }
-.background #beam {
+.backgroundHome #beam {
   position: fixed;
   left: 29.649vw;
   top: 9.078vw;
@@ -21,42 +21,42 @@
   width: 40.776vw;
   overflow: hidden;
 }
-.background #items {
+.backgroundHome #items {
   position: fixed;
   left: 35.505vw;
   top: 12.079vw;
   z-index: -1;
   width: 29.941vw;
 }
-.background #ufo {
+.backgroundHome #ufo {
   position: fixed;
   left: 36.969vw;
   top: 2.562vw;
   z-index: 0;
   width: 26.061vw;
 }
-.background #title {
+.backgroundHome #title {
   position: fixed;
   left: 25.256vw;
   top: 16.691vw;
   z-index: 0;
   width: 49.78vw;
 }
-.background #headset {
+.backgroundHome #headset {
   position: fixed;
   left: 68.741vw;
   bottom: 28vh;
   z-index: -1;
   width: 22.84vw;
 }
-.background #keyboard {
+.backgroundHome #keyboard {
   position: fixed;
   left: 9.736vw;
   bottom: 29vh;
   z-index: -1;
   width: 23.206vw;
 }
-.background #ctaButton {
+.backgroundHome #ctaButton {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -75,7 +75,7 @@
   transition: color 0.3s ease;
   animation: floatUpDown 3.2s ease-in-out infinite;
 }
-.background #ctaButton:hover {
+.backgroundHome #ctaButton:hover {
   color: #00FFA3;
 }
 @keyframes floatUpDown {
@@ -90,37 +90,37 @@
 /* style.css */
 /* (576px and down) */
 @media only screen and (max-width: 36em) {
-  .background #forest {
+  .backgroundHome #forest {
     width: auto;
     height: 51.389vw;
   }
-  .background #beam {
+  .backgroundHome #beam {
     left: calc(50% - 79.444vw);
     top: 44.167vw;
     width: 159.444vw;
   }
-  .background #items {
+  .backgroundHome #items {
     left: calc(50% - 52.778vw);
     top: 51.389vw;
     width: 111.111vw;
   }
-  .background #ufo {
+  .backgroundHome #ufo {
     left: 0;
     top: 18.889vw;
     width: 100vw;
   }
-  .background #title {
+  .backgroundHome #title {
     left: calc(50% - 42.917vw);
     top: 62.5vw;
     width: 85.833vw;
   }
-  .background #headset {
+  .backgroundHome #headset {
     display: none;
   }
-  .background #keyboard {
+  .backgroundHome #keyboard {
     display: none;
   }
-  .background #ctaButton {
+  .backgroundHome #ctaButton {
     width: 30vw;
     height: 10vw;
     font-size: 4vw;
@@ -131,37 +131,37 @@
 }
 /* (576px and up) */
 @media only screen and (min-width: 36em) and (max-width: 64em) {
-  .background #forest {
+  .backgroundHome #forest {
     width: auto;
     height: 29%;
   }
-  .background #beam {
+  .backgroundHome #beam {
     left: calc(50% - 47.4vw);
     top: 24vw;
     width: 95vw;
   }
-  .background #items {
+  .backgroundHome #items {
     left: calc(50% - 38vw);
     top: 32vw;
     width: 80vw;
   }
-  .background #ufo {
+  .backgroundHome #ufo {
     left: calc(50% - 30vw);
     top: 10vw;
     width: 60vw;
   }
-  .background #title {
+  .backgroundHome #title {
     left: calc(50% - 30vw);
     top: 40vw;
     width: 60vw;
   }
-  .background #headset {
+  .backgroundHome #headset {
     display: none;
   }
-  .background #keyboard {
+  .backgroundHome #keyboard {
     display: none;
   }
-  .background #ctaButton {
+  .backgroundHome #ctaButton {
     width: 20vw;
     height: 6.5vw;
     font-size: 2.7vw;

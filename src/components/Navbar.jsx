@@ -58,6 +58,29 @@ const Navbar = () => {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
+
+    //Function to check the current URL and update the body's style accordingly
+    function updateBodyOverflow() {
+    // Get the current URL
+    const currentUrl = window.location.pathname;
+
+    // Check if the current URL is '/'
+    if (currentUrl === '/') {
+        // If the URL is '/', set the body's overflow to hidden
+        document.body.style.overflow = 'hidden';
+    } else {
+        // If the URL is not '/', reset the body's overflow to its default value
+        document.body.style.overflow = '';
+    }
+    }
+
+    // Call the function initially to set the correct style
+    updateBodyOverflow();
+
+    // Example: Call the function again when the URL changes (e.g., after a route change in a single-page application)
+    // This is just an example. You'll need to integrate this with your specific routing or page change logic.
+    window.addEventListener('popstate', updateBodyOverflow);
+
     return ( 
         <>
         <header 

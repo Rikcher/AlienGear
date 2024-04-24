@@ -1,6 +1,6 @@
 @import '/src/styles/colors';
 
-.background {
+.backgroundHome {
     top: 0;
     position: fixed;
     width: 100%;
@@ -105,7 +105,7 @@
 
 /* (576px and down) */
 @media only screen and (max-width: 36em) {
-    .background {
+    .backgroundHome {
         #forest { 
             width: auto;
             height: 51.389vw;
@@ -156,7 +156,7 @@
 
 /* (576px and up) */
 @media only screen and (min-width: 36em) and (max-width: 64em) {
-    .background {
+    .backgroundHome {
         #forest { 
             width: auto;
             height: 29%;

@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 
 function Home() {
   return (
-    <>
-    <div className="background">
+    <div className="backgroundHome">
       <img rel="preload" draggable="false" id='forest' src="/home-page/HomePageForestBG.svg" alt="Forest" />
       <img rel="preload" draggable="false" id='beam' src="/home-page/HomePageBeamBG.svg" alt="UFO Beam" />
       <img rel="preload" draggable="false" id='items' src="/home-page/HomePageItemsInBeamBG.svg" alt="Items in beam" />    
@@ -14,7 +13,6 @@ function Home() {
       <img rel="preload" draggable="false" id='keyboard' src="/home-page/HomePageKeyboardBG.svg" alt="Floating keyboard" />    
       <Link id='ctaButton' to="/products">Shop Now</Link>
     </div>
-    </>
   )
 }
 
