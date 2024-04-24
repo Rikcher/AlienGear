@@ -107,7 +107,7 @@ const Products = () => {
             setErrorText("You successfully logged in");
             setTimeout(() => {
                 setIsBlue(false);
-            }, 5100)
+            }, 6000)
         }
     }, [location]);
 
