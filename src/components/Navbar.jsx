@@ -35,25 +35,30 @@ const Navbar = () => {
         setOpenMenu(!openMenu);
     }
 
+    const adjustBodyHeight = () => {
+        // Calculate the correct height to set for the body
+        const correctHeight = window.innerHeight;
+        // Set the body height to the calculated value
+        document.body.style.height = `${correctHeight}px`;
+    };
+    
+
     useEffect(() => {
         // Listen for changes in the user's authentication status
         const unsubscribe = auth.onAuthStateChanged(user => {
             setUser(user);
             getTotalItemsInCart(user);
         });
-
-        // Cleanup the subscription on component unmount
-        return () => unsubscribe();
-    }, []);
-
-    // Function to handle window resize
-    const handleResize = () => {
-        setScreenWidth(window.innerWidth);
-    };
-
-    // Add event listener for window resize
-    useEffect(() => {
+    
+        // Function to handle window resize
+        const handleResize = () => {
+            setScreenWidth(window.innerWidth);
+            adjustBodyHeight(); // Adjust the body height when the window is resized
+        };
+    
+        // Add event listener for window resize
         window.addEventListener('resize', handleResize);
+    
         // Cleanup the event listener on component unmount
         return () => window.removeEventListener('resize', handleResize);
     }, []);
