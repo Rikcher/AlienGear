@@ -9,6 +9,8 @@ const Navbar = () => {
     const [totalItems, setTotalItems] = useState(0); // State for total items in cart
     const [screenWidth, setScreenWidth] = useState(window.innerWidth); // State to track screen width
     const [openMenu, setOpenMenu] = useState(false); // State to track screen width
+    const [lastWindowHeight, setLastWindowHeight] = useState(window.innerHeight);
+
     const navigate = useNavigate()
 
     const getTotalItemsInCart = async (user) => {
@@ -41,6 +43,22 @@ const Navbar = () => {
         // Set the body height to the calculated value
         document.body.style.height = `${correctHeight}px`;
     };
+
+    const checkAddressBarVisibility = () => {
+        const currentWindowHeight = window.innerHeight;
+        const difference = currentWindowHeight - lastWindowHeight;
+    
+        if (difference > 0) {
+            // The address bar has hidden
+            window.scrollBy(0, difference);
+        } else if (difference < 0) {
+            // The address bar has shown
+            window.scrollBy(0, -difference);
+        }
+    
+        setLastWindowHeight(currentWindowHeight);
+    };
+    
     
 
     useEffect(() => {
@@ -54,6 +72,7 @@ const Navbar = () => {
         const handleResize = () => {
             setScreenWidth(window.innerWidth);
             adjustBodyHeight(); // Adjust the body height when the window is resized
+            checkAddressBarVisibility(); // Check for changes in the address bar's visibility
         };
     
         // Add event listener for window resize
@@ -62,7 +81,7 @@ const Navbar = () => {
         // Cleanup the event listener on component unmount
         return () => window.removeEventListener('resize', handleResize);
     }, []);
-
+    
     return ( 
         <>
         <header 
