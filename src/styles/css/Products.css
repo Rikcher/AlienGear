@@ -683,6 +683,9 @@
     justify-content: center;
     font-size: 1.5em;
   }
+  .productsPageWrapper .productsContainer .grid-item {
+    background-color: #0f0f0f;
+  }
 }
 /* (1024px and up) */
 @media only screen and (min-width: 64em) {

@@ -164,6 +164,7 @@
     max-width: 300px;
     margin: 0 auto;
     margin-bottom: 1.5em; /* 20px / 16 = 1.25em */
+    background-color: #0f0f0f;
   }
   .searchPageWrapper .item .itemInfo .button {
     margin-top: 1em;
@@ -192,6 +193,7 @@
     max-width: 300px;
     margin: 0 auto;
     margin-bottom: 1.5em; /* 20px / 16 = 1.25em */
+    background-color: #0f0f0f;
   }
   .searchPageWrapper .item .itemInfo .button {
     margin-top: 1em;

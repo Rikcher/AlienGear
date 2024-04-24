@@ -273,6 +273,7 @@
     height: 18.75em;
     max-height: 300px;
     margin: 0 auto;
+    background-color: #0f0f0f;
   }
   .cartPageWrapper .leftPanel .item .itemInfo {
     display: flex;
@@ -326,6 +327,7 @@
     height: 18.75em;
     max-height: 300px;
     margin: 0 auto;
+    background-color: #0f0f0f;
   }
   .cartPageWrapper .leftPanel .item .itemInfo {
     display: flex;

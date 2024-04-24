@@ -742,6 +742,9 @@
             grid-template-columns: repeat(auto-fill, minmax(300px, 300px)); // change auto-fill to wanted amount
             justify-content: center;
             font-size: 1.5em;
+            .grid-item {
+                background-color: #0f0f0f;
+            }
         }
     }
 }

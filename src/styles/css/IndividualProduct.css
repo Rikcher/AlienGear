@@ -321,6 +321,9 @@
   .individualProductPageWrapper .topPart.placeholder .info button {
     font-size: 1.75em;
   }
+  .individualProductPageWrapper .topPart.placeholder .allPictures {
+    background-color: #0f0f0f;
+  }
 }
 /* (576px to 1024px) */
 @media only screen and (min-width: 36em) and (max-width: 64em) {
@@ -388,6 +391,9 @@
   }
   .individualProductPageWrapper .topPart.placeholder .info button {
     font-size: 1.75em;
+  }
+  .individualProductPageWrapper .topPart.placeholder .allPictures {
+    background-color: #0f0f0f;
   }
 }
 /* (1024px(landscape tablets) and up) */
