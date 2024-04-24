@@ -1,6 +1,6 @@
 .background {
   top: 0;
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 100vh;
   overflow: hidden;
@@ -119,7 +119,7 @@
   .background #keyboard {
     display: none;
   }
-  #ctaButton {
+  .background #ctaButton {
     width: 30vw;
     height: 10vw;
     font-size: 4vw;
@@ -160,7 +160,7 @@
   .background #keyboard {
     display: none;
   }
-  #ctaButton {
+  .background #ctaButton {
     width: 20vw;
     height: 6.5vw;
     font-size: 2.7vw;

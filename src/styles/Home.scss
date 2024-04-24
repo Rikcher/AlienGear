@@ -2,7 +2,7 @@
 
 .background {
     top: 0;
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 100vh;
     overflow: hidden;
@@ -141,14 +141,14 @@
         #keyboard {
             display: none;
         }
-    }
-    #ctaButton {
-        width: 30vw; //154
-        height: 10vw; //58
-        font-size: 4vw;
-        left: calc(50% - 15vw); //605
-        bottom: 3.66vw; //50
-        border-radius: 2.222vw;
+        #ctaButton {
+            width: 30vw; //154
+            height: 10vw; //58
+            font-size: 4vw;
+            left: calc(50% - 15vw); //605
+            bottom: 3.66vw; //50
+            border-radius: 2.222vw;
+        }
     }
 }
 
@@ -192,13 +192,13 @@
         #keyboard {
             display: none;
         }
-    }
-    #ctaButton {
-        width: 20vw; //154
-        height: 6.5vw; //58
-        font-size: 2.7vw;
-        left: calc(50% - 10vw); //605
-        bottom: 3.66vw; //50
-        border-radius: 1.5vw;
+        #ctaButton {
+            width: 20vw; //154
+            height: 6.5vw; //58
+            font-size: 2.7vw;
+            left: calc(50% - 10vw); //605
+            bottom: 3.66vw; //50
+            border-radius: 1.5vw;
+        }
     }
 }
