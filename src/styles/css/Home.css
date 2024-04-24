@@ -4,6 +4,7 @@
   height: 100svh;
   overflow: hidden;
   user-select: none;
+  overflow: hidden;
 }
 .background #forest {
   position: fixed;
