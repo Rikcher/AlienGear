@@ -22,9 +22,6 @@ const ProductPlaceholder = () => {
                 <div className="topOfContainer">
                     <p className='name placeholder-text'></p>
                     <p className='description placeholder-text'></p>
-                    {screenWidth >= 1024 && (
-                    <p className='description2 placeholder-text'></p>
-                    )}
                 </div>
                 <div className="bottomOfContainer">
                     <p className='price placeholder-text'></p>

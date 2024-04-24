@@ -8,12 +8,12 @@ import ProductItem from '/src/components/ProductItem.jsx'
 const Products = () => {
     const location = useLocation();
     const [products, setProducts] = useState([]);
-    const [selectedCategory, setSelectedCategory] = useState(null); // State to keep track of selected category
-    const [sortingMethod, setSortingMethod] = useState('default'); // 'default', 'highToLow', 'lowToHigh'
+    const [selectedCategory, setSelectedCategory] = useState(null); 
+    const [sortingMethod, setSortingMethod] = useState('default'); 
     const [customPriceRange, setCustomPriceRange] = useState({ min: "", max: "" });
     const [activeFilter, setActiveFilter] = useState('default');
     const [isFilterFunctionalityVisible, setIsFilterFunctionalityVisible] = useState(false);
-    const [screenWidth, setScreenWidth] = useState(window.innerWidth); // State to track screen width
+    const [screenWidth, setScreenWidth] = useState(window.innerWidth); 
     const filterFunctionalityRef = useRef(null);
     const db = getDatabase();
 
@@ -21,7 +21,9 @@ const Products = () => {
     const [errorText, setErrorText] = useState("");
     const [isBlue, setIsBlue] = useState(false);
     const [shake, setShake] = useState(false)
-    const [hasBeenShown, setHasBeenShown] = useState(false); // New state to track if the error message has been shown
+    const [hasBeenShown, setHasBeenShown] = useState(false);
+
+    //handle message functionality that product item is passing
     const handleError = (text, isVisible, isBlue) => {
         setErrorText(text);
         setIsVisible(isVisible);
@@ -36,9 +38,9 @@ const Products = () => {
         }
     };
 
+    //clear message after 5s
     useEffect(() => {
         if (errorText) {
-            setIsVisible(true);
             const timer = setTimeout(() => {
                 setIsVisible(false);
                 setTimeout(() => {
@@ -62,7 +64,7 @@ const Products = () => {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-
+    //fetch products to display from sb
     useEffect(() => {
         const fetchProducts = () => {
             const dbRef = ref(db, 'products');
@@ -101,23 +103,21 @@ const Products = () => {
         fetchProducts();
     }, []);
 
+    //after user logs in he redirected to products page and this message will be triggered
     useEffect(() => {
         if (location.state && location.state.justLogedIn) {
-            setIsBlue(true)
-            setErrorText("You successfully logged in");
-            setTimeout(() => {
-                setIsBlue(false);
-            }, 6000)
+            handleError("You successfully logged in", true, true)
         }
     }, [location]);
 
+    //when opening filter popout, listen for click outside of it. If clicked outside, close popout
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (isFilterFunctionalityVisible && filterFunctionalityRef.current) {
                 // Check if the clicked element is not the filterFunctionality div or a descendant of it
                 if (
                     (filterFunctionalityRef.current !== event.target && !filterFunctionalityRef.current.contains(event.target)) || // Click outside filter functionality
-                    (event.target.classList.contains('iconOver')) // Click on the iconOver
+                    (event.target.classList.contains('iconOver')) // If clicked on icon again, close popout
                 ) {
                     setIsFilterFunctionalityVisible(false);
                 }
@@ -137,13 +137,14 @@ const Products = () => {
 
     // Function to handle category filter
     const handleCategoryFilter = (category) => {
-        setSelectedCategory(category);
-        setActiveFilter('default')
+        setSelectedCategory(category); //filter displayed products by chosen category
+        setActiveFilter('default') //reset specific product filter like "wired" or "wireless" when category changes
     };
 
     // Filter products based on selected category
     const filteredProducts = selectedCategory ? products.filter(product => product.category === selectedCategory) : products;
 
+    //reset custom price filter
     const resetCustomPriceRange = () => {
         setCustomPriceRange(prevState => ({
             ...prevState,
@@ -152,48 +153,53 @@ const Products = () => {
         }));
     }
 
+    //set sorting method to HighToLow and reset custom price sort
     const handleSortHighToLow = () => {
         setSortingMethod(sortingMethod === 'highToLow' ? 'default' : 'highToLow');
         resetCustomPriceRange()
     };
     
+    //set sorting method to LowToHigh and reset custom price sort
     const handleSortLowToHigh = () => {
         setSortingMethod(sortingMethod === 'lowToHigh' ? 'default' : 'lowToHigh');
         resetCustomPriceRange()
     };
 
+    //set sorting method to custom prices that user choosed
     const handleCustomPriceRange = () => {
         setSortingMethod(sortingMethod === 'custom' ? 'default' : 'custom');
         };
     
 
-        const sortedProducts = [...filteredProducts]
-        .filter(product => {
-            // If there's no active filter, include all products
-            if (activeFilter === 'default') return true;
-    
-            // Check if the product's category matches the active filter
-            return product.filter === activeFilter;
-        })
-        .filter(product => {
-            if (customPriceRange.min > 0 && product.price < customPriceRange.min) {
-                return false;
-            }
-            if (customPriceRange.max > 0 && product.price > customPriceRange.max) {
-                return false;
-            }
-            return true;
-        })
-        .sort((a, b) => {
-            if (sortingMethod === 'highToLow') {
-                return b.price - a.price;
-            } else if (sortingMethod === 'lowToHigh') {
-                return a.price - b.price;
-            }
-            return 0; // Default or no sorting
-        });
+    //array that will be displayed, sorted and filtered
+    const sortedProducts = [...filteredProducts]
+    .filter(product => {
+        // If there's no active filter, include all products
+        if (activeFilter === 'default') return true;
+
+        // Check if the product's category matches the active filter
+        return product.filter === activeFilter;
+    })
+    .filter(product => {
+        if (customPriceRange.min > 0 && product.price < customPriceRange.min) {
+            return false;
+        }
+        if (customPriceRange.max > 0 && product.price > customPriceRange.max) {
+            return false;
+        }
+        return true;
+    })
+    .sort((a, b) => {
+        if (sortingMethod === 'highToLow') {
+            return b.price - a.price;
+        } else if (sortingMethod === 'lowToHigh') {
+            return a.price - b.price;
+        }
+        return 0; // Default or no sorting
+    });
     
 
+    //filter toggle functionality
     const toggleFilter = (filter) => {
         setActiveFilter(prevFilter => prevFilter === filter ? 'default' : filter);
     };
@@ -229,6 +235,7 @@ const Products = () => {
                     <div className="icon controllers"></div>
                     <p className="text">Controllers</p>
                 </div>
+                {/* on mobile, filter popout will be placed fixed on viewport with 100vh and slide from right side */}
                 {screenWidth <= 1024 && (
                     <div 
                     className="filterFunctionality"
@@ -394,17 +401,19 @@ const Products = () => {
                     )}
                 </div>
             </div>
-            {/* ******************************************************************************* */}
+            {/* container for all products to display */}
             <div className="productsContainer">
+                {/* while products are loading and sorting show placeholders */}
                 {sortedProducts.length > 0 ? (
                     sortedProducts.map(product => (
                         <ProductItem key={product.id} product={product} onError={handleError} />
                     ))
                 ) : (
-                    Array(30).fill().map((_, index) => <ProductPlaceholder key={index} />) // Render 10 placeholders as an example
+                    // placeholders fpr products
+                    Array(30).fill().map((_, index) => <ProductPlaceholder key={index} />)
                 )}
             </div>
-
+            {/* message functionality to show errors and other messages */}
             <div className={`errorMessage ${isBlue ? 'blue' : ''} ${isVisible ? 'show' : ''} ${shake ? 'shake' : ''}`}>{errorText}</div>
         </div>
     );

@@ -8,17 +8,19 @@ const stripePromise = loadStripe(import.meta.env.VITE_APP_STRIPE_PK);
 
 const Cart = () => {
     const [products, setProducts] = useState([]);
-    const [quantities, setQuantities] = useState({}); // State to track quantity of each product
+    const [quantities, setQuantities] = useState({}); 
     const [user, setUser] = useState(null);
-    const [loading, setLoading] = useState(true); // Add loading state
-    const [screenWidth, setScreenWidth] = useState(window.innerWidth); // State to track screen width
+    const [loading, setLoading] = useState(true); 
+    const [screenWidth, setScreenWidth] = useState(window.innerWidth); 
     const [isVisible, setIsVisible] = useState(false);
     const [errorText, setErrorText] = useState("");
     const [shake, setShake] = useState(false)
 
 
-    // func to buy items
+    // handle checkout 
     const handleBuy = async () => {
+
+        //if user is not loged in and trying to click checkout
         if (!user) {
             if (isVisible) {
                 setErrorText('Please log in first')
@@ -56,6 +58,7 @@ const Cart = () => {
         });
     };
 
+    //fetch user specific items from db
     useEffect(() => {
         const fetchCartItems = async (user) => {
             try {
@@ -65,11 +68,9 @@ const Cart = () => {
                     onValue(cartRef, (snapshot) => {
                         const cartData = snapshot.val();
                         if (cartData) {
-                            // Convert the cart object into an array
                             const cartItemsArray = Object.values(cartData);
                             setProducts(cartItemsArray);
 
-                            // Initialize quantities for each item
                             const initialQuantities = cartItemsArray.reduce((acc, item) => ({
                                 ...acc,
                                 [item.id]: item.quantity
@@ -139,6 +140,7 @@ const Cart = () => {
         }
     }, [errorText]);
 
+    //upadte quantity of item in users cart db when user clicks +1 or -1 on item
     const updateQuantityInDatabase = async (productId, newQuantity) => {
         try {
             const database = getDatabase();
@@ -150,6 +152,7 @@ const Cart = () => {
     };
     
 
+    //functionality of + and - buttons on item quantity
     const handleQuantityChange = (productId, change) => {
         setQuantities(prevQuantities => {
             const newQuantity = (prevQuantities[productId] || 0) + change;
@@ -176,7 +179,7 @@ const Cart = () => {
         });
     };
     
-
+    //delete item from users cart db
     const handleDeleteProduct = async (productId) => {
         try {
             if (user) {
@@ -188,20 +191,21 @@ const Cart = () => {
                     setProducts([]);
                     setQuantities({});
                 }
-                // You may also want to update the UI accordingly by refetching the cart items
             }
         } catch (error) {
             console.error('Error deleting product:', error);
         }
     };
 
+    //calculate total price to display in subtotal panel
     const totalPrice = products.reduce((sum, product) => sum + product.price * (quantities[product.id] || 0), 0);
-
+    //calculate total amount of items to display in subtotal panel
     const totalItemCount = Object.values(quantities).reduce((sum, quantity) => sum + quantity, 0);
 
 
     return (
         <div className='cartPageWrapper'>
+            {/* show checkout panel at the top on mobile */}
             {screenWidth <= 1024 && (
             <div className="rightPanel" style={{marginBottom: "0"}}>
                 <div className="subtotal">Subtotal({auth.currentUser ? totalItemCount : "0"} items): <span className='boldPrice'>US${auth.currentUser ? totalPrice.toFixed(2) : "0"}</span></div>
@@ -211,9 +215,10 @@ const Cart = () => {
             <div className="leftPanel">
                 <h2 className="cartTitle">Shopping Cart</h2>
                 <p className="priceLine" style={{color: screenWidth <= 1024 ? "transparent" : "#6C6C6C"}}>Price</p>
-                {loading ? ( // Show loading indicator if products is null
+                {loading ? ( // Show loading disk while product is loading
                     <p className='loadingDisk'></p>
                 ) : (
+                    // if there are items in cart, show them, if not, show empty cart message
                     products && products.length > 0 ? (
                         products.map((product, index) => (
                             <div className="item" key={index}>
@@ -270,9 +275,11 @@ const Cart = () => {
                             </div>
                         ))
                         ) : (
+                            // empty cart message
                             <p className='empty'>Your shopping cart is empty</p>
                         )
                     )}
+                {/* on mobile, relocate suntotal from bottom of panel to its top */}
                 {screenWidth > 1024 && (
                 <div className="subtotal">Subtotal({auth.currentUser ? totalItemCount : "0"} items): <span className='boldPrice'>US${auth.currentUser ? totalPrice.toFixed(2) : "0"}</span></div>
                 )}
@@ -281,7 +288,7 @@ const Cart = () => {
                 <div className="subtotal">Subtotal({auth.currentUser ? totalItemCount : "0"} items): <span className='boldPrice'>US${auth.currentUser ? totalPrice.toFixed(2) : "0"}</span></div>
                 <div onClick={handleBuy} className="checkoutButton">Proceed to checkout</div>
             </div>
-
+            {/* message functionality to show errors */}
             <div className={`errorMessage ${isVisible ? 'show' : ''} ${shake ? 'shake' : ''}`}>{errorText}</div>
         </div>
     );

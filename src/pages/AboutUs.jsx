@@ -2,7 +2,8 @@ import '/src/styles/css/AboutUs.css'
 import React, { useEffect, useState } from 'react';
 
 const AboutUs = () => {
-    const [screenWidth, setScreenWidth] = useState(window.innerWidth); // State to track screen width
+    const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+
     // Function to handle window resize
     const handleResize = () => {
         setScreenWidth(window.innerWidth);
@@ -16,6 +17,7 @@ const AboutUs = () => {
     }, []);
     return ( 
         <div className="aboutUsWrapper">
+            {/* if screen width is bigger than 1024px place ufo image beside text */}
             {screenWidth > 1024 && (
             <div id='aboutUsPageUfo'></div>
             )}
@@ -26,6 +28,7 @@ const AboutUs = () => {
                     <p className='paragraph'>The primary purpose of this website is to provide a glimpse into my capabilities as a web developer, specifically in the realm of online shopping. It aims to demonstrate how I can leverage my skills to create online stores that are tailored to meet the needs of businesses and individuals looking to establish a strong online presence.</p>
                     <p className='paragraph'>Thank you for visiting, and I hope you find this showcase of my work both informative and useful.</p>
                 </div>
+                {/* if screen width is smaller than 1024px place ufo image at the top of social icons */}
                 {screenWidth <= 1024 && (
                 <div id='aboutUsPageUfo'></div>
                 )}

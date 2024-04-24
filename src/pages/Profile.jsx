@@ -19,7 +19,7 @@ const Profile = () => {
     const [isVisible, setIsVisible] = useState(false);
     const [isBlue, setIsBlue] = useState(false);
     const [showPassword, setShowPassword] = useState(false)
-    const [shake, setShake] = useState(false); // State to control the shake effect
+    const [shake, setShake] = useState(false); 
 
 
     //this function upadtes user auth status 
@@ -255,7 +255,7 @@ const Profile = () => {
                 </div>
             </div>
             <button onClick={logout} className="buttons logOut">Log out</button>
-
+            {/* message functionality to show errors and other messages */}
             <div className={`errorMessage ${isBlue ? 'blue' : ''} ${isVisible ? 'show' : ''} ${shake ? 'shake' : ''}`}>{errorText}</div>
         </div>
     );

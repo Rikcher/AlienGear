@@ -9,9 +9,9 @@ const Search = () => {
     const [suggestions, setSuggestions] = useState([]); // New state for suggestions
     const [selectedSuggestionIndex, setSelectedSuggestionIndex] = useState(0);
     const db = getDatabase();
-    const categoriesToCheck = ["mouse", "keyboard", "pad", "headset", "controller", "chair"];
-    const typesToCheck = ["wired", "wireless"];
-    const namesToCheck = ["gigantus", "deathadder", "cobra", "basilisk", "viper", "naga", "huntsman", "blackWidow", "deathStalker", "type", "blackShark", "kraken", "barracuda", "wolverine", "iskur", "enki"];
+    const categoriesToCheck = ["mouse", "keyboard", "pad", "headset", "controller", "chair"];//existing in db categories
+    const typesToCheck = ["wired", "wireless"];//existing in db types
+    const namesToCheck = ["gigantus", "deathadder", "cobra", "basilisk", "viper", "naga", "huntsman", "blackWidow", "deathStalker", "type", "blackShark", "kraken", "barracuda", "wolverine", "iskur", "enki"];//existing in db names
     const propertyUpdates = {
         type: typesToCheck,
         category: categoriesToCheck,
@@ -25,6 +25,7 @@ const Search = () => {
         setSearchFilter({category: "", type: "", name: ""});
 
         // This effect runs when the component mounts and whenever searchQuery changes
+        // convert users input to lower case and split it to different words. Check each word, if this word is type, category or name of product, set correspoding property to it
         searchQuery?.toLowerCase().split(" ").filter(word => {
             Object.entries(propertyUpdates).forEach(([property, words]) => {
                 if (words.includes(word)) {
@@ -37,18 +38,15 @@ const Search = () => {
         });
     }, [searchQuery]); // Dependency array: the effect runs when searchQuery changes
 
+    //search db for products that user typed
     async function searchProducts(db, searchFilter) {
         let results = [];
 
-        // Reference to the products in the database
         const productsRef = ref(db, 'products');
-
-        // Function to handle the data snapshot
         const handleDataSnapshot = (snapshot) => {
             const data = snapshot.val();
 
             if (data) {
-
                 const capitalizeFirstLetter = (string) => {
                     return string.charAt(0).toUpperCase() + string.slice(1);
                 };
@@ -59,6 +57,7 @@ const Search = () => {
 
                 Object.entries(data).forEach(([category, items]) => {
                     // Iterate over each item in the category
+                    //if category or name is pad, show pads
                     if ((searchFilter.category === "pad" && `${items.description}`.toLocaleLowerCase().includes(searchFilter.category)) || (searchFilter.name === "gigantus" && `${items.name}`.toLocaleLowerCase().includes(searchFilter.name))) {
                         for (const pictureId in data.pads.pictures) {
                             const id = `pads-${pictureId}`;
@@ -68,13 +67,14 @@ const Search = () => {
                     } else {
                         Object.keys(items).forEach((itemId) => {
                             const item = items[itemId];
-                            // Check if the item name matches the search filter
+                            // if users input contains specific product name, show this product
                             if(searchFilter.name != '') {
                                 if (item && item.name && item.name.toLowerCase().includes(searchFilter.name)) {
                                     const id = generateItemId(category, itemId);
                                     // Push the item with its ID into the results array
                                     results.push({ ...item, id });
                                 }
+                            // if users input contains category and type, show items fromm this category with this type
                             } else if (searchFilter.type != '' && searchFilter.category != '') {
                                 if (`${item.description}`.includes(capitalizeFirstLetter(searchFilter.category))) {
                                     if (item && item.filter && `${item.filter}`.includes(searchFilter.type)) {
@@ -83,12 +83,14 @@ const Search = () => {
                                         results.push({ ...item, id });
                                     }
                                 }
+                            // if users input contains only type, show products with this type
                             } else if (searchFilter.type != '') {
                                 if (item && item.filter && `${item.filter}`.includes(searchFilter.type)) {
                                     const id = generateItemId(category, itemId);
                                     // Push the item with its ID into the results array
                                     results.push({ ...item, id });
                                 }
+                            // if users input contains only categoty, show products from this category
                             } else if (searchFilter.category != '') { 
                                 if (`${item.description}`.includes(capitalizeFirstLetter(searchFilter.category))) {
                                     const id = generateItemId(category, itemId);
@@ -109,6 +111,7 @@ const Search = () => {
         return results;
     }
 
+    //update displayed products
     useEffect(() => {
         (async () => {
             const results = await searchProducts(db, searchFilter);
@@ -116,6 +119,7 @@ const Search = () => {
         })();
     }, [searchFilter]); // Dependency array: the effect runs when searchFilter changes
 
+    //update users input and show user suggestions based on letters that he typed
     const handleSearchChange = (event) => {
         const query = event.target.value.toLowerCase();
         setSearchQuery(query);
@@ -125,7 +129,7 @@ const Search = () => {
     
         // Split the query into words
         const queryWords = query.split(" ");
-        // Check if searchFilter.type is not an empty string
+        // if user typed category, check if this categoty is not chair ir pad, if not, show all types in this category
         if (searchFilter.type !== "") {
             const filteredBasedOnQuery = categoriesToCheck.filter(word => {
                 if (!word.startsWith("pad") && !word.startsWith("chair")) {
@@ -133,9 +137,11 @@ const Search = () => {
                 }
             });
             filteredSuggestions = filteredBasedOnQuery.map(word => `${searchFilter.type} ${word}`);
+        //if user typed type, show all categories that have this type but pads and chairs
         } else if (searchFilter.category !== "" && searchFilter.category !== "pad" && searchFilter.category !== "chair" && queryWords.length > 1) {
             const filteredBasedOnQuery = typesToCheck.filter(word => word.startsWith(queryWords[1]));
             filteredSuggestions = filteredBasedOnQuery.map(word => `${searchFilter.category} ${word}`);
+        //if user typed name, show specific product with this name
         } else if (query !== "") {
             const allSuggestions = [...namesToCheck, ...typesToCheck, ...categoriesToCheck];
             filteredSuggestions = allSuggestions.filter(word => word.startsWith(query));
@@ -145,11 +151,13 @@ const Search = () => {
         setSuggestions(filteredSuggestions);
     };
     
+    //when user click on siggestion, set search input to this suggestion and clear shown suggestions
     const handleSuggestionClick = (suggestion) => {
         setSearchQuery(suggestion)
         setSuggestions([]);
     }
 
+    //implementing navigation in suggestion by arrow up/down and enter
     useEffect(() => {
         const handleKeyDown = (event) => {
             if (event.key === 'ArrowDown') {
@@ -171,6 +179,7 @@ const Search = () => {
         const inputElement = inputRef.current;
         inputElement.addEventListener('keydown', handleKeyDown);
 
+        //when suggestions reset, also reset index of selected suggestion that user can move with arrows
         if (suggestions.length === 0) {
             setSelectedSuggestionIndex(0);
         }
@@ -199,6 +208,7 @@ const Search = () => {
                     value={searchQuery}
                     onChange={handleSearchChange}
                 />
+                {/* show suggestions */}
                 {suggestions.length > 0 && (
                     <div className="suggestions">
                         {suggestions.map((suggestion, index) => (
@@ -213,7 +223,7 @@ const Search = () => {
                     </div>
                 )}
             </div>
-            {/* Render suggestions */}
+            {/* show items that matches search query */}
             {filteredItems && filteredItems.length > 0 ? (
                 <>
                 <p className='anountOfProducts'>{filteredItems.length} items found</p>
@@ -262,10 +272,12 @@ const Search = () => {
                     </div>
                 ))}
                 </>
+            // if users input doesnt match anything in db show this
             ) : searchQuery?.length > 0 ? (
                 <h2 className="nothingFound">
                     Nothing was found. Try to search with another keyword.
                 </h2>
+            // show this when search input is empty
             ) : (
                 <h2 className="nothingFound">
                     Try to search for desired product.

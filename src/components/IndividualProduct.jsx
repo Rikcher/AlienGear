@@ -1,18 +1,18 @@
 import'/src/styles/css/IndividualProduct.css'
 import React, { useEffect, useState } from 'react';
 import { getDatabase, ref, onValue, get, set } from 'firebase/database';
-import { useParams } from 'react-router-dom'; // Import useParams
+import { useParams } from 'react-router-dom'; 
 import { useNavigate } from "react-router-dom";
-import { auth } from '/src/firebase-config.jsx'; // Import auth from your Firebase config file
+import { auth } from '/src/firebase-config.jsx'; 
 
 const IndividualProduct = () => {
     const navigate = useNavigate();
     const [product, setProduct] = useState(null);
     const db = getDatabase();
-    const id = useParams().id
+    const id = useParams().id // Get the product ID from the URL
     const [selectedPicture, setSelectedPicture] = useState({
         url: 'default-preview-picture-url',
-        borderColor: '#6C6C6C' // Default border color
+        borderColor: '#6C6C6C'
     });
     const [animateImage, setAnimateImage] = useState(false);
     const [isVisible, setIsVisible] = useState(false);
@@ -21,8 +21,9 @@ const IndividualProduct = () => {
     const [shake, setShake] = useState(false)
     const [imageLoaded, setImageLoaded] = useState(false);
 
+    // Fetch product details from Firebase on component mount or when id changes
     useEffect(() => {
-        window.scrollTo(0, 0);
+        window.scrollTo(0, 0); // reseting window scroll position on page load
         const fetchProduct = () => {
             const [category, itemId] = id.split('-');
             if (category === 'pads') {
@@ -67,6 +68,7 @@ const IndividualProduct = () => {
         }
     }, [errorText]);
 
+     // Function to add product to cart     
     const addToCart = async (product) => {
         const user = auth.currentUser;
         if (user) {
@@ -82,17 +84,16 @@ const IndividualProduct = () => {
                     id: id,
                     name: product.name,
                     description: product.description,
-                    techSpecs: product.techSpecs ? product.techSpecs : {}, // Assuming techSpecs is a property of your product
+                    techSpecs: product.techSpecs ? product.techSpecs : {},
                     price: parseInt(product.price),
                     mainPicture: product.mainPicture || product.pictures[product.itemId],
                     quantity: 1
                 });
                 if(isVisible) {
-                    setIsBlue(true)
-                    setErrorText('Product added to cart')
-                    setShake(true);
-                    // After a short delay, remove the shake class
-                    setTimeout(() => {
+                    setIsBlue(true) //set color of message to blue
+                    setErrorText('Product added to cart') //set message text
+                    setShake(true); //shake message if it already visable
+                    setTimeout(() => { //make sure that shake effect completes
                         setShake(false);
                     }, 500);
                 } else {
@@ -104,7 +105,6 @@ const IndividualProduct = () => {
                     setIsBlue(false)
                     setErrorText('Product is already in the cart')
                     setShake(true);
-                    // After a short delay, remove the shake class
                     setTimeout(() => {
                         setShake(false);
                     }, 500);
@@ -117,7 +117,6 @@ const IndividualProduct = () => {
                 setIsBlue(false)
                 setErrorText('Please log in first')
                 setShake(true);
-                // After a short delay, remove the shake class
                 setTimeout(() => {
                     setShake(false);
                 }, 500);
@@ -127,6 +126,7 @@ const IndividualProduct = () => {
         }
     };
 
+    //if user cant see bottom if preview picture, therefore cant see tech specs, show go to tech specs button as fied and scroll it with page scroll. When user can see bottom of preview picture and start to see tech specs, mount go to tech specs button to bottom of its container
     async function toggleButtonPosition() {
         const infoContainer = document.getElementById('infoContainer');
         if (!infoContainer) {
@@ -148,17 +148,20 @@ const IndividualProduct = () => {
 
     window.addEventListener('scroll', toggleButtonPosition);
 
+    //when clicking on pad redirect user to its page
     const handleImageClickPads = (pictureUrl) => {
         const pictureIndex = product?.pictures.findIndex(picture => picture === pictureUrl);
         navigate(`/products/pads-${pictureIndex}`);
     };
 
+    //change preview picture to picture that user clicked on side bar and move indicator to that picture
     const handleImageClick = (itemId) => {
         const indicator = document.getElementById("selectedPictureIndicator");
         const translateYValue = (90 * itemId) / 16; // Convert pixels to ems
         indicator.style.transform = `translateY(${translateYValue}em)`;
     };
     
+    //background effect that travels between small pictures on side bar
     const handleImageHover = (itemId) => {
         const hoverEffect = document.getElementById("backgroundHoverEffect");
         const translateYValue = (90 * itemId) / 16; // Convert pixels to ems
@@ -166,6 +169,7 @@ const IndividualProduct = () => {
     }
     
 
+    //scroll page to tech specs
     const handleGoToTSClick = () => {
         window.scrollTo({
             top: document.body.scrollHeight, // Scroll to the bottom of the page
@@ -175,10 +179,12 @@ const IndividualProduct = () => {
     
     return (
         <div className={`individualProductPageWrapper ${product?.previewPicture ? "" : "biggerScreens"}`}>
+            {/* if product doesnt load yet, show placeholder */}
             {product ? (
             <>
             <div className="topPart">
                 <div className="allPictures">
+                    {/* if item isnt pad - set preview picture to its preview picture */}
                     {product.previewPicture ? (
                         <>
                             <img
@@ -191,44 +197,44 @@ const IndividualProduct = () => {
                                     display: imageLoaded ? 'block' : 'none'
                                 }}
                             />
-                            {!imageLoaded && 
+                            {!imageLoaded && //show loading disk while image loading
                                 <div className='previewPicture placeholder'>
                                     <p className='loadingDisk'></p>
                                 </div>}
                         </>
                     ) : (
+                        // if items is pad - set preview picture to first picture in list of pads pictures
                         <>
                             <img
-                            className={`previewPicture ${animateImage ? 'fadeIn' : ''}`}
+                            className={`previewPicture ${animateImage ? 'fadeIn' : ''}`} //animate first pad image on page load
                             src={product.pictures[product.itemId]}
                             alt={product.name}
                             style={{ 
                                 maxWidth: "min(500px, 31.25em)",
-                                zIndex: `${product.pictures.length + 1}`,
+                                zIndex: `${product.pictures.length + 1}`, //setup pads image stacking
                                 display: imageLoaded ? 'block' : 'none'
                             }}
-                            onLoad={() => {
+                            onLoad={() => { //animate first pad image on page load
                                 setImageLoaded(true)
                                 setTimeout(() => {
                                     setAnimateImage(false);
                                 }, 500);
                             }}
                             />
-                            {!imageLoaded && 
+                            {!imageLoaded && //show loading disk while image loading
                                 <div className='previewPicture placeholder'>
                                     <p className='loadingDisk'></p>
                                 </div>}
                         </>
                     )}
-
+                    {/* if item isnt pad - set side bar that will contain items other pictures */}
                     {product.otherPictures ? (
                         <div className='smallPictures'>
-                            <div id="backgroundHoverEffect"></div>
+                            <div id="backgroundHoverEffect"></div> 
                             <div id="selectedPictureIndicator"></div>
                             <img className='previewPictureSmall' src={product.previewPicture} alt=""
-                            style={{ borderColor: selectedPicture.url === product.previewPicture ? '#00FFA3' : '#6C6C6C' }}
-                            onClick={() => (setSelectedPicture({ url: product.previewPicture, borderColor: '$main-primary' }), handleImageClick(0))}
-                            onMouseEnter={() => handleImageHover(0)}
+                            onClick={() => (setSelectedPicture({ url: product.previewPicture, borderColor: '$main-primary' }), handleImageClick(0))} // when clicking on picture in side bar - change preview picture to new picture and relocate indicator
+                            onMouseEnter={() => handleImageHover(0)} //relocate picture hover effect
                             />
                             {product.otherPictures.map((picture, index) => (
                                 <img
@@ -244,6 +250,7 @@ const IndividualProduct = () => {
                             ))}
                         </div>
                     ) : (
+                        // if items is pad - stack rest of pictures is list on top of each other
                         product.pictures
                             .filter(picture => picture !== product.pictures[product.itemId])
                             .map((picture, index) => (
@@ -254,7 +261,7 @@ const IndividualProduct = () => {
                                     alt={product.name}
                                     style={{ 
                                         maxWidth: "min(500px, 31.25em)",
-                                        left: `${2.5 + (index * 2.5)}em`,
+                                        left: `${2.5 + (index * 2.5)}em`, //stack pads images on top of each other and sliglty right from previous
                                         zIndex: `${product.pictures.length - index}`
                                     }}
                                     onClick={() => handleImageClickPads(picture)}
@@ -262,6 +269,7 @@ const IndividualProduct = () => {
                             ))
                     )}
                 </div>
+                {/* item info */}
                 <div className="info" id='infoContainer'>
                     <h2 className='name'>{product.name}</h2>
                     <p className='description'>{product.description}</p>
@@ -278,6 +286,7 @@ const IndividualProduct = () => {
                     </div>
                 </div>
             </div>
+            {/* tech specs if items isnt pad */}
             <div className='bottomPart'>
                 <h2 className="title">TECH SPECS</h2>
                 {product.techSpecs ? (
@@ -288,6 +297,7 @@ const IndividualProduct = () => {
                         </div>
                     ))
                 ) : (
+                    // tech specs if item is pad
                     <div>
                         <div className="pair">
                             <p className="key">SIZE</p>
@@ -312,6 +322,7 @@ const IndividualProduct = () => {
             <div className={`errorMessage ${isBlue ? 'blue' : ''} ${isVisible ? 'show' : ''} ${shake ? 'shake' : ''}`}>{errorText}</div>
             </>
         ) : 
+        // placeholder of product while its loading
         <>
             <div className="topPart placeholder">
                 <div className="allPictures">

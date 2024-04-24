@@ -6,11 +6,12 @@ import React, { useEffect, useState } from 'react';
 
 const Navbar = () => {
     const [user, setUser] = useState(auth.currentUser);
-    const [totalItems, setTotalItems] = useState(0); // State for total items in cart
-    const [screenWidth, setScreenWidth] = useState(window.innerWidth); // State to track screen width
-    const [openMenu, setOpenMenu] = useState(false); // State to track screen width
+    const [totalItems, setTotalItems] = useState(0); 
+    const [screenWidth, setScreenWidth] = useState(window.innerWidth); 
+    const [openMenu, setOpenMenu] = useState(false);
     const navigate = useNavigate()
 
+    //if user is logged in and have items in cart, show number of items on top of cart icon
     const getTotalItemsInCart = async (user) => {
         if (!user) {
             setTotalItems(0); // Reset total items if user is not logged in
@@ -31,6 +32,7 @@ const Navbar = () => {
         });
     };
 
+    //show and hide menu on click in mobile view
     const handleMenuClick = () => {
         setOpenMenu(!openMenu);
     }
@@ -38,8 +40,8 @@ const Navbar = () => {
     useEffect(() => {
         // Listen for changes in the user's authentication status
         const unsubscribe = auth.onAuthStateChanged(user => {
-            setUser(user);
-            getTotalItemsInCart(user);
+            setUser(user); //upadate user
+            getTotalItemsInCart(user); //update his items count
         });
 
         // Cleanup the subscription on component unmount
@@ -59,26 +61,20 @@ const Navbar = () => {
     }, []);
 
 
-    //Function to check the current URL and update the body's style accordingly
+    //Function to check the current URL and update the body's style accordingly. This will set overflow to hidden on home page. On pc screen sizes this changes nothing but on mobile it will prevent anonying scroll that url ui is causing
     function updateBodyOverflow() {
-    // Get the current URL
     const currentUrl = window.location.pathname;
 
-    // Check if the current URL is '/'
     if (currentUrl === '/') {
-        // If the URL is '/', set the body's overflow to hidden
         document.body.style.overflow = 'hidden';
     } else {
-        // If the URL is not '/', reset the body's overflow to its default value
         document.body.style.overflow = '';
     }
     }
-
     // Call the function initially to set the correct style
     updateBodyOverflow();
 
-    // Example: Call the function again when the URL changes (e.g., after a route change in a single-page application)
-    // This is just an example. You'll need to integrate this with your specific routing or page change logic.
+    //Call the function again when the URL changes 
     window.addEventListener('popstate', updateBodyOverflow);
 
     return ( 
@@ -87,12 +83,13 @@ const Navbar = () => {
             >
             <nav>
                 <img onClick={() => navigate("/")} id="navbarLogo" src="/navbar/NavbarAppIcon.svg" alt="AlienGear logo" />
+                {/* on mobile view, hide navbar links and place menu icon that will show / hide links upon clicking */}
                 {screenWidth <= 1024 ? (
                     <div className="menu" onClick={() => handleMenuClick()}>
                         <div 
                         className="top"
                         style={{
-                            transform: openMenu ? "rotate(-45deg) translateY(-4.5px)" : "",
+                            transform: openMenu ? "rotate(-45deg) translateY(-4.5px)" : "", //just animation for menu icon. It will look like 3 horizontal lines when menu is closed and like cross when menu is opened
                             transformOrigin: "100% 50%",
                             borderRadius: openMenu ? "8px" : ""
                         }}
@@ -116,8 +113,9 @@ const Navbar = () => {
                 <div 
                 className="navLinks" 
                 style={screenWidth <= 1024  ? {
-                    transform: openMenu ? "translateY(24.167em)" : "translateY(0)",
+                    transform: openMenu ? "translateY(24.167em)" : "translateY(0)", //if mobile view, hide link at the top of screen to then animate their slide down
                 } : null}>
+                    {/* pc screen size navbar links view */}
                     {screenWidth > 1024 ? (
                         <>
                         <Link to="/" className="button">
@@ -153,6 +151,7 @@ const Navbar = () => {
                         </Link>
                         </>
                     ) : (
+                        // mobile screen sizes navbar links view
                         <>
                         <Link to="/" className="button" onClick={() => handleMenuClick()}>
                             <p className="link text">HOME</p>
