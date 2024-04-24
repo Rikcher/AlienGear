@@ -8,7 +8,7 @@ body {
     background-attachment: fixed; /* This makes the background fixed */
     font-size: 1rem;
     width: auto;
-    height: 100vh;
+    height: 100dvh;
     /* background-size: 100% 100dvh; */
 }
 
