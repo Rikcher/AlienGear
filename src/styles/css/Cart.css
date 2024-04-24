@@ -4,6 +4,7 @@
   color: #FFFFFF;
   display: flex;
   margin: 2.5em 1.25em 1.25em 1.25em; /* Converted from 40px */
+  padding-bottom: 1.25em;
 }
 .cartPageWrapper .leftPanel {
   width: 61.25em; /* Converted from 970px */
@@ -82,6 +83,7 @@
   display: flex;
   margin-top: auto;
   user-select: none;
+  align-items: center;
 }
 .cartPageWrapper .leftPanel .item .itemInfo .buttons .qty {
   display: flex;
@@ -260,6 +262,7 @@
     width: 100%;
     font-size: 1.2em;
     gap: 1.5em;
+    border-color: #272727;
   }
   .cartPageWrapper .leftPanel .item .price {
     margin-left: 0;
@@ -278,6 +281,10 @@
   }
   .cartPageWrapper .leftPanel .item .itemInfo .buttons {
     margin-top: 1.5em;
+  }
+  .cartPageWrapper .leftPanel .item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
   }
   .cartPageWrapper .leftPanel .subtotal {
     text-align: left;

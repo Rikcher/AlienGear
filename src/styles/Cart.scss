@@ -6,6 +6,7 @@
     color: $main-white;
     display: flex;
     margin: 2.5em 1.25em 1.25em 1.25em; /* Converted from 40px */
+    padding-bottom: 1.25em;
 
     .leftPanel {
         width: 61.25em; /* Converted from 970px */
@@ -88,6 +89,7 @@
                     display: flex;
                     margin-top: auto;
                     user-select: none;
+                    align-items: center;
 
                     .qty {
                         display: flex;
@@ -273,6 +275,7 @@
                 width: 100%;
                 font-size: 1.2em;
                 gap: 1.5em;
+                border-color: #272727;
                 
                 .price {
                     margin-left: 0;
@@ -291,8 +294,12 @@
                     max-width: 25em; /* Converted from 400px */
                     .buttons {
                         margin-top: 1.5em;
-                        }
                     }
+                }
+                &:last-child {
+                    border-bottom: none; // hiding border of last element with .item class
+                    padding-bottom: 0;
+                }
             }
             .subtotal {
                 text-align: left;

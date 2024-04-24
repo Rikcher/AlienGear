@@ -11,6 +11,7 @@ const Cart = () => {
     const [quantities, setQuantities] = useState({}); // State to track quantity of each product
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true); // Add loading state
+    const [screenWidth, setScreenWidth] = useState(window.innerWidth); // State to track screen width
     const [isVisible, setIsVisible] = useState(false);
     const [errorText, setErrorText] = useState("");
     const [shake, setShake] = useState(false)
@@ -112,6 +113,18 @@ const Cart = () => {
         return () => unsubscribe();
     }, []);
 
+    // Function to handle window resize
+    const handleResize = () => {
+        setScreenWidth(window.innerWidth);
+    };
+
+    // Add event listener for window resize
+    useEffect(() => {
+        window.addEventListener('resize', handleResize);
+        // Cleanup the event listener on component unmount
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     useEffect(() => {
         if (errorText) {
             setIsVisible(true);
@@ -189,9 +202,15 @@ const Cart = () => {
 
     return (
         <div className='cartPageWrapper'>
+            {screenWidth < 1024 && (
+            <div className="rightPanel" style={{marginBottom: "0"}}>
+                <div className="subtotal">Subtotal({auth.currentUser ? totalItemCount : "0"} items): <span className='boldPrice'>US${auth.currentUser ? totalPrice.toFixed(2) : "0"}</span></div>
+                <div onClick={handleBuy} className="checkoutButton">Proceed to checkout</div>
+            </div>
+            )}
             <div className="leftPanel">
                 <h2 className="cartTitle">Shopping Cart</h2>
-                <p className="priceLine">Price</p>
+                <p className="priceLine" style={{color: screenWidth < 1024 ? "transparent" : "#6C6C6C"}}>Price</p>
                 {loading ? ( // Show loading indicator if products is null
                     <p className='loadingDisk'></p>
                 ) : (
@@ -254,7 +273,9 @@ const Cart = () => {
                             <p className='empty'>Your shopping cart is empty</p>
                         )
                     )}
+                {screenWidth >= 1024 && (
                 <div className="subtotal">Subtotal({auth.currentUser ? totalItemCount : "0"} items): <span className='boldPrice'>US${auth.currentUser ? totalPrice.toFixed(2) : "0"}</span></div>
+                )}
             </div>
             <div className="rightPanel">
                 <div className="subtotal">Subtotal({auth.currentUser ? totalItemCount : "0"} items): <span className='boldPrice'>US${auth.currentUser ? totalPrice.toFixed(2) : "0"}</span></div>

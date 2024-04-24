@@ -159,11 +159,52 @@
   .signInWrapper, .signUpWrapper, .resetPasswordWrapper {
     font-size: 0.7em;
   }
+  .signInWrapper .signInHeader, .signInWrapper .signUpHeader, .signInWrapper .resetPasswordHeader, .signUpWrapper .signInHeader, .signUpWrapper .signUpHeader, .signUpWrapper .resetPasswordHeader, .resetPasswordWrapper .signInHeader, .resetPasswordWrapper .signUpHeader, .resetPasswordWrapper .resetPasswordHeader {
+    font-size: 2.4em;
+  }
+  .signInWrapper .container, .signUpWrapper .container, .resetPasswordWrapper .container {
+    font-size: 1.4em;
+    max-width: 90%;
+  }
+  .signInWrapper .greyText, .signUpWrapper .greyText, .resetPasswordWrapper .greyText {
+    font-size: 1.4em;
+    max-width: 90%;
+  }
+  .signInWrapper .greyText span, .signUpWrapper .greyText span, .resetPasswordWrapper .greyText span {
+    font-size: 0.7em;
+  }
+  .signInWrapper #tos, .signUpWrapper #tos, .resetPasswordWrapper #tos {
+    font-size: 1.4em;
+    max-width: 90%;
+  }
+  .signInWrapper #tos span, .signUpWrapper #tos span, .resetPasswordWrapper #tos span {
+    font-size: 1em;
+  }
+  .signInWrapper .inTextButton, .signUpWrapper .inTextButton, .resetPasswordWrapper .inTextButton {
+    font-size: 1.4em;
+    max-width: 90%;
+  }
 }
 /* (576px and up) */
 @media only screen and (min-width: 36em) and (max-width: 64em) {
   .signInWrapper, .signUpWrapper, .resetPasswordWrapper {
-    font-size: 1.2em;
+    font-size: 0.75em;
+  }
+  .signInWrapper .signInHeader, .signInWrapper .signUpHeader, .signInWrapper .resetPasswordHeader, .signUpWrapper .signInHeader, .signUpWrapper .signUpHeader, .signUpWrapper .resetPasswordHeader, .resetPasswordWrapper .signInHeader, .resetPasswordWrapper .signUpHeader, .resetPasswordWrapper .resetPasswordHeader {
+    font-size: 2.4em;
+  }
+  .signInWrapper .container, .signUpWrapper .container, .resetPasswordWrapper .container {
+    font-size: 1.4em;
+    max-width: 90%;
+  }
+  .signInWrapper .greyText, .signUpWrapper .greyText, .resetPasswordWrapper .greyText {
+    font-size: 1.4em;
+  }
+  .signInWrapper .greyText span, .signUpWrapper .greyText span, .resetPasswordWrapper .greyText span {
+    font-size: 0.7em;
+  }
+  .signInWrapper .inTextButton, .signUpWrapper .inTextButton, .resetPasswordWrapper .inTextButton {
+    font-size: 1.4em;
   }
 }
 /* (1024px and up) */

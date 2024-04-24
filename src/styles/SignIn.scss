@@ -184,12 +184,59 @@
 @media only screen and (max-width: 36em) {
     .signInWrapper, .signUpWrapper, .resetPasswordWrapper {
         font-size: 0.7em;
+
+        .signInHeader, .signUpHeader, .resetPasswordHeader{
+            font-size: 2.4em;
+        }
+
+        .container {
+            font-size: 1.4em;
+            max-width: 90%;
+        }
+
+        .greyText {
+            font-size: 1.4em;
+            span {
+                font-size: 0.7em;
+            }
+            max-width: 90%;
+        }
+        #tos {
+            font-size: 1.4em;
+            span {
+                font-size: 1em;
+            }
+            max-width: 90%;
+        }
+        .inTextButton {
+            font-size: 1.4em;
+            max-width: 90%;
+        }
     }
 }
 /* (576px and up) */
 @media only screen and (min-width: 36em) and (max-width: 64em) {
     .signInWrapper, .signUpWrapper, .resetPasswordWrapper {
-        font-size: 1.2em;
+        font-size: 0.75em;
+        .signInHeader, .signUpHeader, .resetPasswordHeader{
+            font-size: 2.4em;
+        }
+
+        .container {
+            font-size: 1.4em;
+            max-width: 90%;
+        }
+
+        .greyText {
+            font-size: 1.4em;
+            span {
+                font-size: 0.7em;
+            }
+        }
+        .inTextButton {
+            font-size: 1.4em;
+            
+        }
     }
 }  
 /* (1024px and up) */
