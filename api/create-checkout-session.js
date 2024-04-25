@@ -4,7 +4,7 @@ const stripeInstance = new stripe(process.env.VITE_APP_STRIPE_SK);
 
 export default async function handler(req, res) {
     if (req.method === 'POST') {
-        const YOUR_DOMAIN = 'https://alien-gear.vercel.app/'; 
+        const YOUR_DOMAIN = 'https://aliengear.vercel.app/'; 
 
         const { products } = req.body; // Parse products data from request body
 
