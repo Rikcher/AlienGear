@@ -22,7 +22,6 @@ const Success = () => {
             const database = getDatabase();
             const deleteRef = ref(database, `carts/${user.uid}/`);
             remove(deleteRef)
-                .then(() => console.log('Cart cleared successfully'))
                 .catch((error) => console.error('Error clearing cart:', error));
         }
     }, [user]); // Add user as a dependency to re-run this effect when user changes
