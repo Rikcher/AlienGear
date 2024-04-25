@@ -110,6 +110,7 @@
             width: 18.125em; // 290px
             display: flex;
             flex-direction: column;
+            position: relative;
 
             .name {
                 font-size: 1.25em; // 20px
@@ -151,8 +152,7 @@
                 display: flex;
                 justify-content: center;
                 margin-top: auto;
-                bottom: 1.464vw;
-                right: 7.98vw;
+                bottom: 1.25em;
                 color: #8E8E8E;
                 align-items: center;
                 cursor: pointer;
@@ -186,7 +186,7 @@
             .key {
                 font-size: 1em; // 16px
                 font-weight: 500;
-                min-width: 14.375em; // 230px
+                min-width: 18em; // 230px
             }
             .value {
                 font-size: 1em; // 16px
@@ -357,7 +357,7 @@
 @media only screen and (min-width: 577px) and (max-width: 1024px) {
     .individualProductPageWrapper {
         font-size: 0.75em;
-        margin-top: 1.5em; // 40px
+        margin: 1.5em 10% 0 10%;
 
         .topPart {
             display: flex;
@@ -365,6 +365,7 @@
 
             .allPictures {
                 min-width: 100%;
+                // margin: 0 auto;
                 overflow-Y: hidden; /* Prevent horizontal overflow from affecting the parent */
 
                 .previewPicture.others {
@@ -440,12 +441,6 @@
             .allPictures {
                 width: 80em; // 1000px
             }
-            .info {
-                #goToTechSpecsButton {
-                    bottom: 1.953vw;
-                    right: 7.7vw;
-                }
-            }
         }
     }
 }
@@ -453,44 +448,35 @@
 @media only screen and (min-width: 1280px) {
     .individualProductPageWrapper {
         font-size: 1em;
+        margin: 0 auto;
+    }
+    .individualProductPageWrapper.biggerScreens {
+        margin: 0 auto;
+    }
+}
+/* (1280px and up) */
+@media only screen and (min-width: 1366px) {
+    .individualProductPageWrapper {
+        max-width: 1366px;
+        font-size: 1em;
     }
 }
 /* (1920px and up) */
 @media only screen and (min-width: 1920px) {
     .individualProductPageWrapper {
         font-size: 1.25em;
-
+        max-width: 1650px;
         .topPart {
             .allPictures {
                 width: 80em; // 1000px
             }
-            .info {
-                #goToTechSpecsButton {
-                    bottom: 1.042vw;
-                    right: 8.1vw;
-                }
-            }
         }
-    }
-    .individualProductPageWrapper.biggerScreens {
-        margin: 0 10vw;
     }
 }
 /* (2560px and up) */
 @media only screen and (min-width: 2560px) {
     .individualProductPageWrapper {
         font-size: 1.5em;
-        
-        .topPart {
-            .info {
-                #goToTechSpecsButton {
-                    bottom: 0.781vw;
-                    right: 8.6vw;
-                }
-            }
-        }
-    }
-    .individualProductPageWrapper.biggerScreens {
-        margin: 0 15vw;
+        max-width: 1900px;
     }
 }

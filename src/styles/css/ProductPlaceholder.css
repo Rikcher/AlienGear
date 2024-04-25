@@ -2,18 +2,28 @@
   background-color: #0A0A0A;
   border: 0.075em solid #00FFA3; /* 2px / 16 = 0.125em */
   border-radius: 0.5em; /* 8px / 16 = 0.5em */
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
-.grid-item.placeholder .picture-placeholder {
-  width: 18.75em;
-  height: 18.75em; /* 300px / 16 = 18.75em */
+.grid-item.placeholder .linkContainer {
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.grid-item.placeholder .linkContainer .picture {
+  aspect-ratio: 1;
+  width: min(18.75em, 300px);
 }
 .grid-item.placeholder .productInfo {
   background-color: #000000;
   padding: 1.25em; /* 20px / 16 = 1.25em */
   border-radius: 0.5em;
-}
-.grid-item.placeholder .productInfo .topOfContainer {
-  height: 4.5625em; /* 106px / 16 = 4.5625em */
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .grid-item.placeholder .productInfo .topOfContainer .name {
   background-color: #c4c4c4;
@@ -22,7 +32,7 @@
   height: 1.375em; /* 22px / 16 = 1.375em */
   margin-bottom: 0.75em; /* 10px / 16 = 0.75em */
 }
-.grid-item.placeholder .productInfo .topOfContainer .description, .grid-item.placeholder .productInfo .topOfContainer .description2 {
+.grid-item.placeholder .productInfo .topOfContainer .description {
   background-color: #555555;
   border-radius: 99999px;
   width: 12.5em; /* 200px / 16 = 12.5em */
@@ -62,10 +72,6 @@
   .grid-item.placeholder {
     background-color: #0f0f0f;
   }
-  .grid-item.placeholder .picture-placeholder {
-    width: 18.75em;
-    height: 18.75em; /* 300px / 16 = 18.75em */
-  }
   .grid-item.placeholder .productInfo .topOfContainer .name {
     height: 1em; /* 22px / 16 = 1.375em */
   }
@@ -75,10 +81,6 @@
   .grid-item.placeholder {
     background-color: #0f0f0f;
   }
-  .grid-item.placeholder .picture-placeholder {
-    width: 18.75em;
-    height: 18.75em; /* 300px / 16 = 18.75em */
-  }
   .grid-item.placeholder .productInfo .topOfContainer .name {
     height: 1em; /* 22px / 16 = 1.375em */
   }
@@ -87,10 +89,6 @@
 @media only screen and (min-width: 1025px) {
   .grid-item.placeholder {
     background-color: #0f0f0f;
-  }
-  .grid-item.placeholder .picture-placeholder {
-    width: 18.75em;
-    height: 18.75em; /* 300px / 16 = 18.75em */
   }
   .grid-item.placeholder .productInfo .topOfContainer .name {
     height: 1em; /* 22px / 16 = 1.375em */

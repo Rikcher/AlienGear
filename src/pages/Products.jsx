@@ -170,23 +170,41 @@ const Products = () => {
         setSortingMethod(sortingMethod === 'custom' ? 'default' : 'custom');
         };
     
-
     //array that will be displayed, sorted and filtered
     const sortedProducts = [...filteredProducts]
     .filter(product => {
         // If there's no active filter, include all products
         if (activeFilter === 'default') return true;
-
         // Check if the product's category matches the active filter
-        return product.filter === activeFilter;
+        return product.category === activeFilter;
     })
     .filter(product => {
-        if (customPriceRange.min > 0 && product.price < customPriceRange.min) {
-            return false;
+        // Parse and validate custom price range values
+        const min = parseFloat(customPriceRange.min);
+        const max = parseFloat(customPriceRange.max);
+
+        // Ensure custom price range values are valid numbers
+        if (isNaN(min) && isNaN(max)) {
+            // If both min and max are not valid numbers, include all products
+            return true;
         }
-        if (customPriceRange.max > 0 && product.price > customPriceRange.max) {
-            return false;
+
+        
+
+        // Apply custom price range filter based on the provided values
+        const price = parseFloat(product.price);
+        if (!isNaN(min) && !isNaN(max)) {
+            // If both min and max are provided, filter based on both values
+            return price >= min && price <= max;
+        } else if (!isNaN(min)) {
+            // If only min is provided, filter products with price greater than or equal to min
+            return price >= min;
+        } else if (!isNaN(max)) {
+            // If only max is provided, filter products with price less than or equal to max
+            return price <= max;
         }
+
+        // If neither min nor max is provided, include all products
         return true;
     })
     .sort((a, b) => {
@@ -197,7 +215,7 @@ const Products = () => {
         }
         return 0; // Default or no sorting
     });
-    
+
 
     //filter toggle functionality
     const toggleFilter = (filter) => {
@@ -307,7 +325,7 @@ const Products = () => {
                                     }
                                     return acc;
                                 }, []).map((filter, index) => (
-                                    <p key={index} className={`specificFilter ${activeFilter === filter ? 'active' : ''}`} onClick={() => toggleFilter(filter)}>{filter}</p>
+                                    <button key={index} className={`specificFilter ${activeFilter === filter ? 'active' : ''}`} onClick={() => toggleFilter(filter)}>{filter}</button>
                                 ))
                                 ) : (
                                 <p className="noFilter">No filters</p>
@@ -341,14 +359,18 @@ const Products = () => {
                                                     <p className="from">From</p>
                                                     <input 
                                                     onChange={(e) => {
-                                                        setCustomPriceRange(prevState => ({
-                                                            ...prevState,
-                                                            min: e.target.value
-                                                        }));
+                                                        const value = e.target.value;
+                                                        if (value >= 0 && value <= 999) {
+                                                            setCustomPriceRange(prevState => ({
+                                                                ...prevState,
+                                                                min: value
+                                                            }));
+                                                        }
                                                     }}
                                                     value={customPriceRange.min}
                                                     placeholder='0' 
-                                                    type="number" />
+                                                    type="number" 
+                                                    />
                                                 </div>
                                                 <div>
                                                     <p className="to">To</p>
@@ -357,10 +379,13 @@ const Products = () => {
                                                     type="number"
                                                     value={customPriceRange.max}
                                                     onChange={(e) => {
-                                                        setCustomPriceRange(prevState => ({
-                                                            ...prevState,
-                                                            max: e.target.value
-                                                        }));
+                                                        const value = e.target.value;
+                                                        if (value >= 0 && value <= 999) {
+                                                            setCustomPriceRange(prevState => ({
+                                                                ...prevState,
+                                                                max: value
+                                                            }));
+                                                        }
                                                     }}
                                                     />
                                                 </div>
@@ -387,7 +412,7 @@ const Products = () => {
                                         }
                                         return acc;
                                     }, []).map((filter, index) => (
-                                        <p key={index} className={`specificFilter ${activeFilter === filter ? 'active' : ''}`} onClick={() => toggleFilter(filter)}>{filter}</p>
+                                        <button key={index} className={`specificFilter ${activeFilter === filter ? 'active' : ''}`} onClick={() => toggleFilter(filter)}>{filter}</button>
                                     ))
                                     ) : (
                                     <p className="noFilter">No filters</p>
@@ -403,15 +428,15 @@ const Products = () => {
             </div>
             {/* container for all products to display */}
             <div className="productsContainer">
-                {/* while products are loading and sorting show placeholders */}
-                {sortedProducts.length > 0 ? (
-                    sortedProducts.map(product => (
-                        <ProductItem key={product.id} product={product} onError={handleError} />
-                    ))
-                ) : (
-                    // placeholders fpr products
+            {/* Check if there are products to display */}
+            {sortedProducts.length > 0 ? (
+                sortedProducts.map(product => (
+                    <ProductItem key={product.id} product={product} onError={handleError} />
+                ))
+            ) : (// Placeholders for products when there are no products to display
                     Array(30).fill().map((_, index) => <ProductPlaceholder key={index} />)
-                )}
+                )
+            }
             </div>
             {/* message functionality to show errors and other messages */}
             <div className={`errorMessage ${isBlue ? 'blue' : ''} ${isVisible ? 'show' : ''} ${shake ? 'shake' : ''}`}>{errorText}</div>

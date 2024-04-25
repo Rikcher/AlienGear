@@ -1,23 +1,13 @@
-import React, { useEffect, useState} from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import'/src/styles/css/ProductPlaceholder.css'
 
 const ProductPlaceholder = () => {
-    const [screenWidth, setScreenWidth] = useState(window.innerWidth); // State to track screen width
-
-
-    const handleResize = () => {
-        setScreenWidth(window.innerWidth);
-    };
-
-    // Add event listener for window resize
-    useEffect(() => {
-        window.addEventListener('resize', handleResize);
-        // Cleanup the event listener on component unmount
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
     return (
         <div className="grid-item placeholder">
-            <div className="picture-placeholder"></div>
+            <Link className='linkContainer' to={`#`}>
+                <div className="picture"></div>
+            </Link>
             <div className="productInfo">
                 <div className="topOfContainer">
                     <p className='name placeholder-text'></p>

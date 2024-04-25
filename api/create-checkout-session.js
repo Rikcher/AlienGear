@@ -1,10 +1,10 @@
-import stripe from 'stripe'; // Assuming you have a utility file for initializing Stripe
+import stripe from 'stripe'; 
 const stripeInstance = new stripe(process.env.VITE_APP_STRIPE_SK);
 
 
 export default async function handler(req, res) {
     if (req.method === 'POST') {
-        const YOUR_DOMAIN = 'https://alien-gear.vercel.app/'; // Replace with your Vercel app domain
+        const YOUR_DOMAIN = 'https://alien-gear.vercel.app/'; 
 
         const { products } = req.body; // Parse products data from request body
 

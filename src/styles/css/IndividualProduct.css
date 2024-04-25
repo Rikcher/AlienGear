@@ -104,6 +104,7 @@
   width: 18.125em;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 .individualProductPageWrapper .topPart .info .name {
   font-size: 1.25em;
@@ -145,8 +146,7 @@
   display: flex;
   justify-content: center;
   margin-top: auto;
-  bottom: 1.464vw;
-  right: 7.98vw;
+  bottom: 1.25em;
   color: #8E8E8E;
   align-items: center;
   cursor: pointer;
@@ -177,7 +177,7 @@
 .individualProductPageWrapper .bottomPart .pair .key {
   font-size: 1em;
   font-weight: 500;
-  min-width: 14.375em;
+  min-width: 18em;
 }
 .individualProductPageWrapper .bottomPart .pair .value {
   font-size: 1em;
@@ -329,7 +329,7 @@
 @media only screen and (min-width: 577px) and (max-width: 1024px) {
   .individualProductPageWrapper {
     font-size: 0.75em;
-    margin-top: 1.5em;
+    margin: 1.5em 10% 0 10%;
   }
   .individualProductPageWrapper .topPart {
     display: flex;
@@ -404,14 +404,21 @@
   .individualProductPageWrapper .topPart .allPictures {
     width: 80em;
   }
-  .individualProductPageWrapper .topPart .info #goToTechSpecsButton {
-    bottom: 1.953vw;
-    right: 7.7vw;
-  }
 }
 /* (1280px and up) */
 @media only screen and (min-width: 1280px) {
   .individualProductPageWrapper {
+    font-size: 1em;
+    margin: 0 auto;
+  }
+  .individualProductPageWrapper.biggerScreens {
+    margin: 0 auto;
+  }
+}
+/* (1280px and up) */
+@media only screen and (min-width: 1366px) {
+  .individualProductPageWrapper {
+    max-width: 1366px;
     font-size: 1em;
   }
 }
@@ -419,28 +426,16 @@
 @media only screen and (min-width: 1920px) {
   .individualProductPageWrapper {
     font-size: 1.25em;
+    max-width: 1650px;
   }
   .individualProductPageWrapper .topPart .allPictures {
     width: 80em;
-  }
-  .individualProductPageWrapper .topPart .info #goToTechSpecsButton {
-    bottom: 1.042vw;
-    right: 8.1vw;
-  }
-  .individualProductPageWrapper.biggerScreens {
-    margin: 0 10vw;
   }
 }
 /* (2560px and up) */
 @media only screen and (min-width: 2560px) {
   .individualProductPageWrapper {
     font-size: 1.5em;
-  }
-  .individualProductPageWrapper .topPart .info #goToTechSpecsButton {
-    bottom: 0.781vw;
-    right: 8.6vw;
-  }
-  .individualProductPageWrapper.biggerScreens {
-    margin: 0 15vw;
+    max-width: 1900px;
   }
 }/*# sourceMappingURL=IndividualProduct.css.map */

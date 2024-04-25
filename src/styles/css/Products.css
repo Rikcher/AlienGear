@@ -5,7 +5,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 1.25em;
+  padding: 0 1.25em 1.25em 1.25em;
   overflow-x: hidden; /* Prevent horizontal overflow from affecting the parent */
 }
 .productsPageWrapper .productsNavBar {
@@ -208,6 +208,7 @@
   flex-wrap: wrap;
 }
 .productsPageWrapper .productsNavBar .buttons.filter .filterFunctionality .productFilter .specificFiltersContainer .specificFilter {
+  font-family: "Roboto", sans-serif;
   padding: 0.1875em;
   margin-left: -0.1875em;
   font-size: 0.9375em;
@@ -215,6 +216,8 @@
   font-weight: 500;
   border-radius: 0.25em;
   cursor: pointer;
+  border: none;
+  background-color: transparent;
 }
 .productsPageWrapper .productsNavBar .buttons.filter .filterFunctionality .productFilter .specificFiltersContainer .specificFilter.active {
   background-color: #FFFFFF;
@@ -246,10 +249,15 @@
 .productsPageWrapper .productsContainer .grid-item .linkContainer .picture {
   width: min(18.75em, 300px);
 }
-.productsPageWrapper .productsContainer .grid-item .picture.placeholder {
-  width: 18.75em;
-  height: 18.75em;
-  position: relative;
+.productsPageWrapper .productsContainer .grid-item .linkContainer .inCartIcon {
+  width: 1.333em;
+  height: 1.467em;
+  background-color: #8BFFD5;
+  mask: url("/navbar/NavbarCartIcon.svg");
+  mask-size: cover;
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
 .productsPageWrapper .productsContainer .grid-item .loadingDisk {
   position: absolute;

@@ -142,10 +142,10 @@ const IndividualProduct = () => {
 
         } else {
             // If not, switch to fixed position
-            button.style.position = 'fixed';
+            button.style.position = 'sticky';
         }
     }
-
+    toggleButtonPosition()
     window.addEventListener('scroll', toggleButtonPosition);
 
     //when clicking on pad redirect user to its page
@@ -280,7 +280,7 @@ const IndividualProduct = () => {
                     </ul>
                     <p className="price">US${product.price}</p>
                     <button onClick={() => addToCart(product)}>Add to cart</button>
-                    <div style={{position: product.previewPicture ? "fixed" : "static"}} id="goToTechSpecsButton" onClick={() => handleGoToTSClick()}>
+                    <div style={{display: product.previewPicture ? "" : "none"}} id="goToTechSpecsButton" onClick={() => handleGoToTSClick()}>
                         <p>See tech specs</p>
                         <div></div>
                     </div>
