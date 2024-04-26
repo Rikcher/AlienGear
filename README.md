@@ -1,5 +1,5 @@
 <p align="center">
- <img src="/public/navbar/NavbarAppIcon.svg" alt="AlienGear Logo" width="100" />
+ <img src="/public/navbar/NavbarAppIcon.svg" alt="AlienGear Logo" width="300" />
 </p>
 
 # AlienGear
