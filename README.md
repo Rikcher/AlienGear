@@ -33,38 +33,59 @@ The design of AlienGear is a blend of my original vision and inspired by the cle
 
 ![](/screenshots/home_page.png)
 
-### Products Page
+<details>
+<summary>Products Page</summary>
 
 ![](/screenshots/product_page.png)
 
-### Indiviual Product Page
+</details>
+
+<details>
+<summary>Individual Product Page</summary>
 
 ![](/screenshots/individualProduct_page.png)
 ![](/screenshots/pads_individual_page.png)
 
-### About Us Page
+</details>
+
+<details>
+<summary>About Us Page</summary>
 
 ![](/screenshots/about_us_page.png)
 
-### Search Page
+</details>
+
+<details>
+<summary>Search Page</summary>
 
 ![](/screenshots/search_page.png)
 
-### Profile / Sign In / Sign Up / Password Reset Pages
+</details>
+
+<details>
+<summary>Profile / Sign In / Sign Up / Password Reset Pages</summary>
 
 ![](/screenshots/profile_page.png)
 ![](/screenshots/sign_in_page.png)
 ![](/screenshots/sign_up_page.png)
 ![](/screenshots/password_reset_page.png)
 
-### Cart Page
+</details>
+
+<details>
+<summary>Cart Page</summary>
 
 ![](/screenshots/cart_page.png)
 
-### Payment Success / Cancel Page
+</details>
+
+<details>
+<summary>Payment Success / Cancel Page</summary>
 
 ![](/screenshots/success_page.png)
 ![](/screenshots/cancel_page.png)
+
+</details>
 
 ## 🌐 Link to Live Site
 
