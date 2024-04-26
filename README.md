@@ -1,4 +1,4 @@
-<p align="center" style="background-color: black">
+<p align="center">
  <img src="/public/navbar/NavbarAppIcon.svg" alt="AlienGear Logo" width="300" />
 </p>
 
