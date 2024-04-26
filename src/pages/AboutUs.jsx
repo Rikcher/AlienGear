@@ -34,9 +34,9 @@ const AboutUs = () => {
                 )}
                 <div className="contactUs">
                     <h3>Feel free to contact me</h3>
-                    <a id='email' href=""></a>
-                    <a id='twitter' href=""></a>
-                    <a id='github' href=""></a>
+                    <a id='email' href="mailto:nick.richardson.4884@gmail.com"></a>
+                    <a id='twitter' href="https://twitter.com/4Rikcher"></a>
+                    <a id='github' href="https://github.com/Rikcher"></a>
                 </div>
             </div>
         </div>
