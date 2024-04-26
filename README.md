@@ -70,36 +70,33 @@ The design of AlienGear is a blend of my original vision and inspired by the cle
 
 - Live Site URL: [AlienGear](https://aliengear.vercel.app/)
 
-## Reflection
+## 💭 Reflection
 
-What was the context for this project? (ie: was this a side project? was this for Turing? was this for an experiment?)
-What did you set out to build?
-Why was this project challenging and therefore a really good learning experience?
-What were some unexpected obstacles?
-What tools did you use to implement this project?
-This might seem obvious because you are IN this codebase, but to all other humans now is the time to talk about why you chose webpack instead of create react app, or D3, or vanilla JS instead of a framework etc. Brag about your choices and justify them here.
-Example:
-This was a 3 week long project built during my third module at Turing School of Software and Design. Project goals included using technologies learned up until this point and familiarizing myself with documentation for new features.
+This project marked my first step into designing and developing a computer accessories web store. My primary goals were to implement functional authentication and payment systems, create a user-friendly shopping cart and search functionality, and enhance my web design skills. This was my first time working with different APIs, setting up payment and authentication systems, and using environment variables. Additionally, it was my first React application, which presented its own set of challenges.
 
-Originally I wanted to build an application that allowed users to pull data from the Twitter API based on what they were interested in, such as 'most tagged users'. I started this process by using the create-react-app boilerplate, then adding react-router-4.0 and redux.
+I chose React for its popularity and interest, and used Vite for setting up the project. I tried to make single page application. Initially, I faced difficulties with single page application navigation, but eventually found a solution. For styling, I opted for Sass to try something new, and for authentication and database, I selected Firebase due to its ease of implementation and popularity. Vercel was chosen for hosting, as it was familiar and well-liked. I chose not to host any backend server-side infrastructure, as the only requirement for server-side functionality was the implementation of Stripe. Vercel's serverless functions proved to be an excellent solution for this specific case, offering a streamlined and efficient approach.
 
-One of the main challenges I ran into was Authentication. This lead me to spend a few days on a research spike into OAuth, Auth0, and two-factor authentication using Firebase or other third parties. Due to project time constraints, I had to table authentication and focus more on data visualization from parts of the API that weren't restricted to authenticated users.
+While not a designer, I aimed for a clean and functional design. The website is responsive, though improvements could be made, especially in terms of responsivness for different screen sizes. 
+Overall, I'm quite satisfied with the final appearance of the website. While there's room for improvement, particularly in making the profile page more visually appealing, the constraints were limited by small user information available (name, email, and password), which naturally limited design options. Additionally, the responsive design could have been enhanced, but I found myself overwhelmed by the complexity of managing different font sizes. Initially, I thought increasing the UI size on larger screens would improve the design, but ultimately, adjusting font sizes for each screen size breakpoint proved to be a less effective solution. Despite these challenges, the website remains responsive, and with some refinement, it could achieve a cleaner look.
 
-At the end of the day, the technologies implemented in this project are React, React-Router 4.0, Redux, LoDash, D3, and a significant amount of VanillaJS, JSX, and CSS. I chose to use the create-react-app boilerplate to minimize initial setup and invest more time in diving into weird technological rabbit holes. In the next iteration I plan on handrolling a webpack.config.js file to more fully understand the build process.
+In reviewing the code, I aimed to ensure readability, even without the use of comments. However, I also utilized comments to clarify specific functions and areas of the code. There's definitely potential to enhance reusability, something I've already attempted in certain sections, such as the products page.
 
-## Continued development
+Regarding the use of React Router, I was aware that my website would only feature a navbar and lack a footer. Consequently, I configured the navbar and incorporated an <Outlet /> element within it. If a footer were to be included, the structure would likely involve placing <Header />, <Outlet />, and <Footer /> elements sequentially within main.jsx. Overall, the router functions as intended, and the website flow aligns with the desired design
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
+Lessons Learned and Future Improvements:
+- The approach to responsive design, particularly with different font sizes for each screen size breakpoint, was not optimal. Future iterations could benefit from a cleaner, more consistent approach.
+- There's potential to make the code more reusable, as demonstrated in the products page.
+- The project was a learning experience, and I've gained valuable insights into the tools and technologies I used.
 
+Overall, this project was a rewarding learning experience, challenging me to expand my skills and knowledge in web development. While there are areas for improvement, I'm proud of the progress made and look forward to applying these learnings in future projects.
 
-## Useful resources
+## 📚 Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+- [Razer's webite](https://www.razer.com/store) - Served as a source for design references, and all images featured on my website were sourced from this site.
 
-## Author
+## 👤 Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
+- Gmail - [nick.richardson.4884@gmail.com](mailto:nick.richardson.4884@gmail.com)
+- Discord - [@Rikcher](https://discordapp.com/users/259270379942445056)
+- Twitter - [@4Rikcher](https://twitter.com/4Rikcher)
 
