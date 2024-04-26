@@ -239,6 +239,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .productsPageWrapper .productsContainer .grid-item .linkContainer {
   aspect-ratio: 1;
@@ -319,6 +320,10 @@
   background-color: #00FFA3;
   border: none;
   cursor: pointer;
+}
+.productsPageWrapper .productsContainer .grid-item:hover {
+  transform: translateY(-0.35em); /* Move the item up by 10px */
+  box-shadow: 0 0.313em 1.25em #8BFFD5; /* Add a shadow effect */
 }
 .productsPageWrapper .errorMessage {
   position: fixed;

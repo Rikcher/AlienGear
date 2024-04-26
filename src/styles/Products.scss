@@ -260,6 +260,7 @@
             position: relative;
             display: flex;
             flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             
             .linkContainer {
                 aspect-ratio: 1;
@@ -344,6 +345,10 @@
                     }
                 }
             }
+        }
+        .grid-item:hover {
+            transform: translateY(-0.35em); /* Move the item up by 10px */
+            box-shadow: 0 0.313em 1.25em #8BFFD5; /* Add a shadow effect */
         }
     }
     

@@ -7,7 +7,6 @@ import { getDatabase } from 'firebase/database';
 const ProductItem = ({ product, onError }) => {
     const [imageLoaded, setImageLoaded] = useState(false);
     const [inCartIcon, setInCartIcon] = useState(false);
-    const [isHovered, setIsHovered] = useState(false);
     const db = getDatabase();
 
     //check if item in cart and add icon to it if it is
@@ -63,8 +62,8 @@ const ProductItem = ({ product, onError }) => {
 
     return (
         <>
-        <div className="grid-item" style={{backgroundColor: isHovered ? "#021410" : "#0A0A0A"}}>
-            <Link onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)} className='linkContainer' to={`/products/${product.id}`}>
+        <div className="grid-item">
+            <Link className='linkContainer' to={`/products/${product.id}`}>
                 {inCartIcon ? (
                     <div className='inCartIcon'></div>
                 ) : null}
