@@ -1,4 +1,4 @@
-# AlienGear
+# AlienGear ![](/public/navbar/NavbarAppIcon.svg)
 
 AlienGear is my personal e-commerce project designed to demonstrate my skills in web development, particularly in creating a functional and user-friendly online store. This project is part of my portfolio, showcasing my proficiency in various technologies and tools used in modern web development.
 
