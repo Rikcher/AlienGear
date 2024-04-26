@@ -81,7 +81,7 @@ Overall, I'm quite satisfied with the final appearance of the website. While the
 
 In reviewing the code, I aimed to ensure readability, even without the use of comments. However, I also utilized comments to clarify specific functions and areas of the code. There's definitely potential to enhance reusability, something I've already attempted in certain sections, such as the products page.
 
-Regarding the use of React Router, I was aware that my website would only feature a navbar and lack a footer. Consequently, I configured the navbar and incorporated an <Outlet /> element within it. If a footer were to be included, the structure would likely involve placing <Header />, <Outlet />, and <Footer /> elements sequentially within main.jsx. Overall, the router functions as intended, and the website flow aligns with the desired design
+Regarding the use of React Router, I was aware that my website would only feature a navbar and lack a footer. Consequently, I configured the navbar and incorporated an ```<Outlet />``` element within it. If a footer were to be included, the structure would likely involve placing ```<Header />```, ```<Outlet />```, and ```<Footer />``` elements sequentially within main.jsx. Overall, the router functions as intended, and the website flow aligns with the desired design
 
 Lessons Learned and Future Improvements:
 - The approach to responsive design, particularly with different font sizes for each screen size breakpoint, was not optimal. Future iterations could benefit from a cleaner, more consistent approach.
